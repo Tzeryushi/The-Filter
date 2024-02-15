@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://gx43aqiog3bg"]
+
+[ext_resource type="Script" path="res://globals/scene_manager.gd" id="1_38po6"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_38po6")
+start_scene_name = "proto_scene"
+scenes = {
+"proto_scene": "res://scenes/proto_scene.tscn"
+}
