@@ -19,9 +19,8 @@ func process_input(event:InputEvent) -> BaseState:
 	
 	if event.is_action_pressed("interact"):
 		var object = interaction_ray.get_collider()
-		print(object)
 		if object is InteractionVolume:
-			print(object.interaction_text)
+			object.interact(self)
 	
 	return null
 

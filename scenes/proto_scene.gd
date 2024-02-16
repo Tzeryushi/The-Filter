@@ -16,3 +16,7 @@ func _ready():
 func _process(_delta):
 	pass
 
+
+
+func _on_interaction_volume_interacted(interacting_node):
+	print_debug(str(interacting_node) + " triggered an interaction")

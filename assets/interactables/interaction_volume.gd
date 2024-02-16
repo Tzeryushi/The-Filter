@@ -7,7 +7,7 @@ extends Node3D
 ## picked up, or a NPC interacted with)
 
 
-signal interacted(interacting_body)
+signal interacted(interacting_node)
 
 @export var interaction_text: String = "Interact With" : get = get_interaction_text
 
@@ -15,3 +15,9 @@ const base_text: String = "[center]"
 
 func get_interaction_text() -> String:
 	return base_text + interaction_text
+
+
+## pseudo-virtual function given purpose by inheritors
+func interact(node: Node = null) -> void:
+	interacted.emit(node)
+	pass
