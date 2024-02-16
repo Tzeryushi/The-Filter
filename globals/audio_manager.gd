@@ -23,14 +23,14 @@ const WORLD_VOICE_CHANNELS = 4;
 const PRIORITY_DEFAULT = 3;
 
 var sort_by_length: Callable = func(a,b):
-		return a.stream and b.stream and a.stream.get_length() - a.get_playback_position() < b.stream.get_length() - b.get_playback_position()
+	return a.stream and b.stream and a.stream.get_length() - a.get_playback_position() < b.stream.get_length() - b.get_playback_position()
 
 var sort_by_distance: Callable = func(a: AudioStreamPlayer3D,b: AudioStreamPlayer3D):
-		#return PlayerController.player_node.global_position.distance_to(a.global_position) < PlayerController.player_node.global_position.distance_to(b.global_position)
-		return
+	var player_node = root.get_first_node_in_group("player")
+	return player_node.global_position.distance_to(a.global_position) < player_node.global_position.distance_to(b.global_position)
 
 var sort_by_priority: Callable = func(a, b):
-		return a.stream.priority < b.stream.priority
+	return a.stream.priority < b.stream.priority
 
 
 func _ready():
@@ -40,22 +40,41 @@ func _ready():
 	for n in SFX_CHANNELS:
 		sfx_stream_players.push_back(build_audio_player("SFX", false))
 	for n in MUSIC_CHANNELS:
-		sfx_stream_players.push_back(build_audio_player("Music", false))
+		music_stream_players.push_back(build_audio_player("Music", false))
 	for n in VOICE_CHANNELS:
-		sfx_stream_players.push_back(build_audio_player("Voice", false))
+		voice_stream_players.push_back(build_audio_player("Voice", false))
 
 	# Build world audio players
 	for n in WORLD_SFX_CHANNELS:
 		world_sfx_stream_players.push_back(build_audio_player("SFX", true))
 	for n in WORLD_MUSIC_CHANNELS:
-		world_sfx_stream_players.push_back(build_audio_player("Music", true, AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE))
+		world_music_stream_players.push_back(build_audio_player("Music", true, AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE))
 	for n in WORLD_VOICE_CHANNELS:
-		world_sfx_stream_players.push_back(build_audio_player("Voice", true))
+		world_voice_stream_players.push_back(build_audio_player("Voice", true))
 	pass
+
+## Play sound
+# Params
+# stream = AudioStream to play
+# channel = Channel to play stream on
+# priority = Integer defining priority for stream
+# Returns id of audio stream player sound has played on, -1 if sound didn't play
+func play_sound(stream: AudioStream, channel: Channel, priority: int = PRIORITY_DEFAULT) -> int:
+	var stream_player: AudioStreamPlayer = get_free_stream_player(channel, false, priority)
+	if stream_player:
+		stream_player.stream = stream
+		stream_player.play()
+		return stream_player.get_instance_id()
+	return -1
 
 
 ## Get available player for given channel
-func get_free_stream_player(channel: Channel, positional: bool = false, priority: int = PRIORITY_DEFAULT):
+# Params
+# channel = Channel to get a stream player for
+# positional = Whether that player needs to be a 3d stream player
+# priority = Integer defining priority for stream
+# Returns stream_player object of free stream, null if none found
+func get_free_stream_player(channel: Channel, positional: bool, priority: int = PRIORITY_DEFAULT):
 	var stream_players: Array
 	if positional:
 		match channel:
@@ -79,12 +98,15 @@ func get_free_stream_player(channel: Channel, positional: bool = false, priority
 			return stream_player
 
 	stream_players.sort_custom(sort_by_length)
+	if positional:
+		stream_players.sort_custom(sort_by_distance)
 	stream_players.sort_custom(sort_by_priority)
 
 	for stream_player in stream_players:
 		if stream_player.priority <= priority:
 			return stream_player
-	pass
+	print_debug("Audio Manager: No player found, not playing audio stream")
+	return null
 
 
 ## Builds audio player for playing sound files
@@ -92,7 +114,6 @@ func get_free_stream_player(channel: Channel, positional: bool = false, priority
 # channel = Channel that player will play sounds on
 # positional = Whether the player will be a 3d audio player or not
 # attenuation = Attenuation algorithm for determining sound fading over distance
-# 
 func build_audio_player(
 		channel: String,
 		positional: bool,
