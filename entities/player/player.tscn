@@ -1,31 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=8 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
-[ext_resource type="Script" path="res://entities/entity_components/movement.gd" id="2_ky6au"]
+[ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
 [ext_resource type="Script" path="res://entities/player/player_camera.gd" id="2_u2j1y"]
+[ext_resource type="Script" path="res://entities/entity_components/state_manager.gd" id="3_d1x8q"]
+[ext_resource type="Script" path="res://entities/player/player_states/player_normal_state.gd" id="5_etolf"]
+[ext_resource type="Script" path="res://entities/player/player_states/player_disconnected_state.gd" id="5_oh1lb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("camera") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager") groups=["player"]]
 script = ExtResource("1_dek4s")
-camera = NodePath("PlayerCamera")
+state_manager = NodePath("StateManager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
-[node name="PlayerMovement" type="Node" parent="."]
+[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("body", "camera")]
 script = ExtResource("2_ky6au")
+body = NodePath("..")
+camera = NodePath("../PlayerCamera")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("first_state")]
+script = ExtResource("3_d1x8q")
+first_state = NodePath("Normal")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement")]
+script = ExtResource("5_etolf")
+disconnected_state = NodePath("../Disconnected")
+movement = NodePath("../../PlayerMovement")
 
-[node name="Walk" type="Node" parent="StateMachine"]
+[node name="Disconnected" type="Node" parent="StateManager"]
+script = ExtResource("5_oh1lb")
 
-[node name="Sprint" type="Node" parent="StateMachine"]
-
-[node name="Disconnected" type="Node" parent="StateMachine"]
+[node name="Focus" type="Node" parent="StateManager"]
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
