@@ -1,4 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=6 format=3 uid="uid://d3t578w54oemg"]
+
+[ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
+[ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,6 +17,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="ProtoScene" type="Node3D"]
+script = ExtResource("1_3nvhy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 11.3458, 7.82928, -4.32527)
@@ -24,10 +28,15 @@ environment = SubResource("Environment_6ni1e")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48294, 0)
+use_collision = true
 size = Vector3(18.5186, 1, 17.7002)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50976, 0)
+use_collision = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.258819, -0.482963, 0.836516, -8.95091e-09, 0.866025, 0.5, -0.965926, 0.12941, -0.224144, 7.27664, 3.61277, -2.5022)
+
+[node name="Player" parent="." instance=ExtResource("1_vt5nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.796893, 1.66266)
