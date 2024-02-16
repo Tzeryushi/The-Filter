@@ -20,7 +20,7 @@ func process_input(event:InputEvent) -> BaseState:
 	if event.is_action_pressed("interact"):
 		var object = interaction_ray.get_collider()
 		if object is InteractionVolume:
-			object.interact(self)
+			object.interact(body)
 	
 	return null
 

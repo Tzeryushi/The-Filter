@@ -1,16 +1,17 @@
 extends RayCast3D
 
 
-signal interacted(interacting_object)
-signal interactions_ceased()
+signal detected(interacting_object)
+signal detections_ceased
 
-var is_interacting: bool = false
+var is_detecting: bool = false
 
 
 func _physics_process(_delta: float) -> void:
-	if get_collider() != null:
-		interacted.emit(get_collider())
-		is_interacting = true
-	elif is_interacting and get_collider() == null:
-		interactions_ceased.emit()
-		is_interacting = false
+	var collision_node = get_collider()
+	if collision_node != null and collision_node is InteractionVolume:
+		detected.emit(get_collider())
+		is_detecting = true
+	elif is_detecting and (collision_node == null or !collision_node is InteractionVolume):
+		detections_ceased.emit()
+		is_detecting = false

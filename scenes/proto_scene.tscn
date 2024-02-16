@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=10 format=3 uid="uid://d3t578w54oemg"]
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
+[ext_resource type="PackedScene" uid="uid://dmp2l6i7uvss5" path="res://resources/proto_assets/base_item.glb" id="3_pwlgn"]
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_uh7mr"]
+[ext_resource type="Script" path="res://assets/interactables/items/base_item.gd" id="4_6ino2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -17,7 +19,8 @@ sky = SubResource("Sky_h3l1j")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_6gt45"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_px4t6"]
+size = Vector3(0.269531, 0.136963, 0.186523)
 
 [node name="ProtoScene" type="Node3D"]
 script = ExtResource("1_3nvhy")
@@ -44,13 +47,16 @@ transform = Transform3D(-0.258819, -0.482963, 0.836516, -8.95091e-09, 0.866025, 
 [node name="Player" parent="." instance=ExtResource("1_vt5nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033071, 2.11278)
 
-[node name="InteractionVolume" parent="." instance=ExtResource("3_uh7mr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25322, 0)
+[node name="BaseItem" parent="." instance=ExtResource("3_pwlgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0354511, 1.00976, 0.354438)
+script = ExtResource("4_6ino2")
+
+[node name="InteractionVolume" parent="BaseItem" instance=ExtResource("3_uh7mr")]
 interaction_text = "Nice!"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
-shape = SubResource("SphereShape3D_6gt45")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseItem/InteractionVolume"]
+shape = SubResource("BoxShape3D_px4t6")
 
-[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+[connection signal="interacted" from="BaseItem/InteractionVolume" to="BaseItem" method="_on_interaction_volume_interacted"]
 
-[editable path="InteractionVolume"]
+[editable path="BaseItem/InteractionVolume"]
