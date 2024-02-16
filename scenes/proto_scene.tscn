@@ -39,4 +39,4 @@ use_collision = true
 transform = Transform3D(-0.258819, -0.482963, 0.836516, -8.95091e-09, 0.866025, 0.5, -0.965926, 0.12941, -0.224144, 7.27664, 3.61277, -2.5022)
 
 [node name="Player" parent="." instance=ExtResource("1_vt5nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.796893, 1.66266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033071, 2.11278)

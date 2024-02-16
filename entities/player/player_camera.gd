@@ -1,3 +1,4 @@
+class_name PlayerCamera
 extends Camera3D
 
 @export var camera_sensitivity: float = 1
@@ -5,7 +6,7 @@ extends Camera3D
 var look_dir: Vector2 # Input direction for look/aim
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func process_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

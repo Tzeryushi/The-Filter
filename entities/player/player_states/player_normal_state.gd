@@ -3,14 +3,14 @@ extends BaseState
 ##Normal interaction state for player. Stands, walks, sprints, runs.
 
 
-@export var disconnected_state : BaseState
+@export var disconnected_state: BaseState
 
-@export var movement : PlayerMovement
+@export var movement: PlayerMovement
+@export var camera: PlayerCamera
 
 
-func process_input(_event:InputEvent) -> BaseState:
-	#execute when actor receives input
-	#returns the state of the actor, which may have changed
+func process_input(event:InputEvent) -> BaseState:
+	camera.process_input(event)
 	return null
 
 func process_frame(_delta: float) -> BaseState:
