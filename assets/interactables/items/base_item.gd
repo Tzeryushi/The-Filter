@@ -1,15 +1,9 @@
 extends Node3D
+## Sends an item reference to a player script that interacts with it
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@export var item_name: String = "base_item"
 
 func _on_interaction_volume_interacted(interacting_node):
-	print(interacting_node)
+	if interacting_node is Player:
+		interacting_node.add_item(item_name)

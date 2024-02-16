@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 
@@ -31,3 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func set_input_mode(value: bool) -> void:
 	is_receiving_input = value
+
+func add_item(item_name: String) -> void:
+	print(item_name)
+	pass
