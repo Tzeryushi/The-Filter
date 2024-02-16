@@ -1,8 +1,6 @@
 extends Node
 
 var root: Node
-var audio_stream_players: Node
-var world_audio_stream_players: Node
 
 var sfx_stream_players: Array = []
 var voice_stream_players: Array = []
@@ -88,6 +86,28 @@ func play_sound_at_location(
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
 		stream_player.global_position = position
+		stream_player.stream = stream
+		stream_player.play()
+		return stream_player.get_instance_id()
+	return -1
+
+
+## Play sound at Vector3 location
+# Params
+# stream = AudioStream
+# node = Node3D for PositionAudioStreamPlayer to follow
+# channel = Channel to play stream on
+# priority = Integer defining priority for stream
+# Returns id of audio stream player sound has played on, -1 if sound didn't play
+func play_sound_at_node(
+	stream: AudioStream,
+	followed_node: Node3D,
+	channel: Channel = Channel.SFX,
+	priority: int = PRIORITY_DEFAULT) -> int:
+
+	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
+	if stream_player:
+		stream_player.followed_node = followed_node
 		stream_player.stream = stream
 		stream_player.play()
 		return stream_player.get_instance_id()
