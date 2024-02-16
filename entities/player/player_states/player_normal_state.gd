@@ -14,6 +14,8 @@ func process_input(_event:InputEvent) -> BaseState:
 	return null
 
 func process_frame(_delta: float) -> BaseState:
+	if !body.is_receiving_input:
+		return disconnected_state
 	return null
 
 func process_physics(delta: float) -> BaseState:

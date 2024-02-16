@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=9 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://entities/entity_components/state_manager.gd" id="3_d1x8q"]
 [ext_resource type="Script" path="res://entities/player/player_states/player_normal_state.gd" id="5_etolf"]
 [ext_resource type="Script" path="res://entities/player/player_states/player_disconnected_state.gd" id="5_oh1lb"]
+[ext_resource type="Script" path="res://entities/player/player_states/player_focus_state.gd" id="6_jj6gm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 
@@ -31,10 +32,12 @@ script = ExtResource("5_etolf")
 disconnected_state = NodePath("../Disconnected")
 movement = NodePath("../../PlayerMovement")
 
-[node name="Disconnected" type="Node" parent="StateManager"]
+[node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state")]
 script = ExtResource("5_oh1lb")
+normal_state = NodePath("../Normal")
 
 [node name="Focus" type="Node" parent="StateManager"]
+script = ExtResource("6_jj6gm")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
