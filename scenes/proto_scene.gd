@@ -8,7 +8,8 @@ func _ready():
 	sound_timer.one_shot = true
 	sound_timer.start()
 	#sound_timer.timeout.connect(func(): AudioManager.play_sound(sound))
-	sound_timer.timeout.connect(func(): AudioManager.play_sound_at_location(sound, Vector3(10,0,10)))
+	#sound_timer.timeout.connect(func(): AudioManager.play_sound_at_location(sound, Vector3(10,0,10)))
+	#sound_timer.timeout.connect(func(): AudioManager.play_sound_at_node(sound,get_node("Player")))
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
