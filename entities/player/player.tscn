@@ -13,8 +13,10 @@ script = ExtResource("1_dek4s")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
-[node name="PlayerMovement" type="Node" parent="."]
+[node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("body", "camera")]
 script = ExtResource("2_ky6au")
+body = NodePath("..")
+camera = NodePath("../PlayerCamera")
 
 [node name="StateMachine" type="Node" parent="."]
 
