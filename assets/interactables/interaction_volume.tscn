@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bssfmatokdd48"]
+
+[ext_resource type="Script" path="res://assets/interactables/interaction_volume.gd" id="1_1pbd4"]
+
+[node name="InteractionVolume" type="Node3D"]
+script = ExtResource("1_1pbd4")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0

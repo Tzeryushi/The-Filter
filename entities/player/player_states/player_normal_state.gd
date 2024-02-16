@@ -11,6 +11,10 @@ extends BaseState
 
 func process_input(event:InputEvent) -> BaseState:
 	camera.process_input(event)
+	if event.is_action_pressed("crouch"):
+		camera.set_crouching(true)
+	elif event.is_action_released("crouch"):
+		camera.set_crouching(false)
 	return null
 
 func process_frame(_delta: float) -> BaseState:

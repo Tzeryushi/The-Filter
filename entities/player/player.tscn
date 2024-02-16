@@ -11,12 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
+radius = 0.207336
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager") groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_dek4s")
 state_manager = NodePath("StateManager")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
@@ -62,5 +64,11 @@ grow_vertical = 2
 texture = ExtResource("8_5rh68")
 stretch_mode = 3
 
-[node name="ItemManager" type="Node3D" parent="."]
+[node name="InteractionRay" type="RayCast3D" parent="PlayerCamera"]
+target_position = Vector3(0, 0, -1.9)
+collision_mask = 5
+collide_with_areas = true
+
+[node name="ItemManager" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("8_3ahaa")
+camera = NodePath("../PlayerCamera")
