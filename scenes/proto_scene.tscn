@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=8 format=3 uid="uid://d3t578w54oemg"]
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_uh7mr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +16,8 @@ background_mode = 2
 sky = SubResource("Sky_h3l1j")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6gt45"]
 
 [node name="ProtoScene" type="Node3D"]
 script = ExtResource("1_3nvhy")
@@ -39,4 +42,15 @@ use_collision = true
 transform = Transform3D(-0.258819, -0.482963, 0.836516, -8.95091e-09, 0.866025, 0.5, -0.965926, 0.12941, -0.224144, 7.27664, 3.61277, -2.5022)
 
 [node name="Player" parent="." instance=ExtResource("1_vt5nt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.796893, 1.66266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033071, 2.11278)
+
+[node name="InteractionVolume" parent="." instance=ExtResource("3_uh7mr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25322, 0)
+interaction_text = "Nice!"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+shape = SubResource("SphereShape3D_6gt45")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="InteractionVolume"]

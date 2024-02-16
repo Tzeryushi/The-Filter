@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=12 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -7,14 +7,19 @@
 [ext_resource type="Script" path="res://entities/player/player_states/player_normal_state.gd" id="5_etolf"]
 [ext_resource type="Script" path="res://entities/player/player_states/player_disconnected_state.gd" id="5_oh1lb"]
 [ext_resource type="Script" path="res://entities/player/player_states/player_focus_state.gd" id="6_jj6gm"]
+[ext_resource type="Script" path="res://entities/player/item_manager.gd" id="8_3ahaa"]
+[ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
+[ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
+radius = 0.207336
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager") groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_dek4s")
 state_manager = NodePath("StateManager")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
@@ -27,10 +32,12 @@ camera = NodePath("../PlayerCamera")
 script = ExtResource("3_d1x8q")
 first_state = NodePath("Normal")
 
-[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement")]
+[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement", "camera", "interaction_ray")]
 script = ExtResource("5_etolf")
 disconnected_state = NodePath("../Disconnected")
 movement = NodePath("../../PlayerMovement")
+camera = NodePath("../../PlayerCamera")
+interaction_ray = NodePath("../../PlayerCamera/InteractionRay")
 
 [node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state")]
 script = ExtResource("5_oh1lb")
@@ -40,6 +47,61 @@ normal_state = NodePath("../Normal")
 script = ExtResource("6_jj6gm")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.569, 0)
 current = true
 script = ExtResource("2_u2j1y")
+
+[node name="CameraSpace" type="Control" parent="PlayerCamera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Reticle" type="TextureRect" parent="PlayerCamera/CameraSpace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_5rh68")
+stretch_mode = 3
+
+[node name="InteractionText" type="RichTextLabel" parent="PlayerCamera/CameraSpace"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -374.0
+offset_top = 21.0
+offset_right = 374.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center]"
+
+[node name="InteractionRay" type="RayCast3D" parent="PlayerCamera"]
+target_position = Vector3(0, 0, -1.2)
+collision_mask = 5
+collide_with_areas = true
+script = ExtResource("9_4edco")
+
+[node name="ItemManager" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+script = ExtResource("8_3ahaa")
+camera = NodePath("../PlayerCamera")
+
+[connection signal="interacted" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_interacted"]
+[connection signal="interactions_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_interactions_ceased"]
