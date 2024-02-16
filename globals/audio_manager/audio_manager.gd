@@ -25,7 +25,7 @@ const PRIORITY_DEFAULT = 3;
 var sort_by_length: Callable = func(a,b):
 	return a.stream and b.stream and a.stream.get_length() - a.get_playback_position() < b.stream.get_length() - b.get_playback_position()
 
-var sort_by_distance: Callable = func(a: AudioStreamPlayer3D, b: AudioStreamPlayer3D):
+var sort_by_distance: Callable = func(a: PositionalAudioStreamPlayer, b: PositionalAudioStreamPlayer):
 	var player_node = root.get_first_node_in_group("player")
 	return a.stream and b.stream and player_node.global_position.distance_to(a.global_position) < player_node.global_position.distance_to(b.global_position)
 
@@ -48,7 +48,7 @@ func _ready():
 	for n in WORLD_SFX_CHANNELS:
 		world_sfx_stream_players.push_back(build_audio_player("SFX", true))
 	for n in WORLD_MUSIC_CHANNELS:
-		world_music_stream_players.push_back(build_audio_player("Music", true, AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE))
+		world_music_stream_players.push_back(build_audio_player("Music", true, PositionalAudioStreamPlayer.ATTENUATION_INVERSE_DISTANCE))
 	for n in WORLD_VOICE_CHANNELS:
 		world_voice_stream_players.push_back(build_audio_player("Voice", true))
 	pass
@@ -85,7 +85,7 @@ func play_sound_at_location(
 	channel: Channel = Channel.SFX,
 	priority: int = PRIORITY_DEFAULT) -> int:
 
-	var stream_player: AudioStreamPlayer3D = get_free_stream_player(channel, true, priority)
+	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
 		stream_player.global_position = position
 		stream_player.stream = stream
@@ -149,12 +149,12 @@ func get_free_stream_player(
 func build_audio_player(
 		channel: String,
 		positional: bool,
-		attenuation: AudioStreamPlayer3D.AttenuationModel = AudioStreamPlayer3D.ATTENUATION_LOGARITHMIC):
+		attenuation: PositionalAudioStreamPlayer.AttenuationModel = PositionalAudioStreamPlayer.ATTENUATION_LOGARITHMIC):
 
 	var audio_player
 
 	if positional:
-		audio_player = AudioStreamPlayer3D.new()
+		audio_player = PositionalAudioStreamPlayer.new()
 		root.add_child.call_deferred(audio_player)
 		audio_player.attenuation_model = attenuation
 	else:
