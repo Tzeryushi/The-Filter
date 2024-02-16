@@ -9,4 +9,9 @@ extends Node3D
 
 signal interacted(interacting_body)
 
-@export var interaction_text: String = "Interact With"
+@export var interaction_text: String = "Interact With" : get = get_interaction_text
+
+const base_text: String = "[center]"
+
+func get_interaction_text() -> String:
+	return base_text + interaction_text

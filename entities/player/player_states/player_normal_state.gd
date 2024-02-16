@@ -7,6 +7,7 @@ extends BaseState
 
 @export var movement: PlayerMovement
 @export var camera: PlayerCamera
+@export var interaction_ray: RayCast3D
 
 
 func process_input(event:InputEvent) -> BaseState:
@@ -15,6 +16,13 @@ func process_input(event:InputEvent) -> BaseState:
 		camera.set_crouching(true)
 	elif event.is_action_released("crouch"):
 		camera.set_crouching(false)
+	
+	if event.is_action_pressed("interact"):
+		var object = interaction_ray.get_collider()
+		print(object)
+		if object is InteractionVolume:
+			print(object.interaction_text)
+	
 	return null
 
 func process_frame(_delta: float) -> BaseState:
