@@ -248,7 +248,7 @@ libraries = {
 }
 
 [node name="BasePlayerItem" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
-transform = Transform3D(1, 0, 0, 0, 0.24331, -0.969948, 0, 0.969948, 0.24331, 0, 1.39667, 0)
+transform = Transform3D(1, 0, 0, 0, 0.243309, -0.969948, 0, 0.969948, 0.243309, 0, 1.39667, 0)
 visible = false
 script = ExtResource("12_q322k")
 item_resource = ExtResource("11_f018m")

@@ -1,5 +1,9 @@
 extends Node
 
+@export var sub_view : SubViewport
+
 func _ready() -> void:
-	SceneManager.set_container(self)
+	
+	print(sub_view.size)
+	SceneManager.set_container($SubViewportContainer/SubViewport/GameSpace)
 	SceneManager.init()
