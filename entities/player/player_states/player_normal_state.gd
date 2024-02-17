@@ -1,4 +1,4 @@
-extends BaseState
+extends PlayerState
 
 ##Normal interaction state for player. Stands, walks, sprints, runs.
 
@@ -8,6 +8,7 @@ extends BaseState
 @export var movement: PlayerMovement
 @export var camera: PlayerCamera
 @export var interaction_ray: RayCast3D
+@export var item_manager: ItemManager
 
 
 func process_input(event:InputEvent) -> BaseState:
@@ -17,10 +18,16 @@ func process_input(event:InputEvent) -> BaseState:
 	elif event.is_action_released("crouch"):
 		camera.set_crouching(false)
 	
+	if event.is_action_pressed("use"):
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
 	if event.is_action_pressed("interact"):
 		var object = interaction_ray.get_collider()
 		if object is InteractionVolume:
-			object.interact(self)
+			object.interact(body)
+	
+	item_manager.process_input(event)
 	
 	return null
 

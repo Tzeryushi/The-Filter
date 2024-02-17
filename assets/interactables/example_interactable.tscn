@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dicw3t6guwoas"]
+
+[ext_resource type="Script" path="res://assets/interactables/example_interactable.gd" id="1_4caaw"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="2_ko7ji"]
+[ext_resource type="PackedScene" uid="uid://big3drf6ut05t" path="res://assets/interactables/example_door.glb" id="3_kmvdi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_itt2c"]
+size = Vector3(0.255371, 0.262695, 0.411865)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_71dn3"]
+size = Vector3(0.905853, 2.10797, 0.207031)
+
+[node name="ExampleInteractable" type="Node3D"]
+script = ExtResource("1_4caaw")
+
+[node name="InteractionVolume" parent="." instance=ExtResource("2_ko7ji")]
+interaction_text = "Open Door"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.749186, 1.03346, 0)
+shape = SubResource("BoxShape3D_itt2c")
+
+[node name="example_door" parent="." instance=ExtResource("3_kmvdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445535, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442148, 1.077, 0)
+shape = SubResource("BoxShape3D_71dn3")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="example_door"]

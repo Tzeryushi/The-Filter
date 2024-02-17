@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgh3b6i7dfqko"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/base_item.gd" id="1_w18fc"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="2_i1atj"]
+[ext_resource type="PackedScene" uid="uid://dmp2l6i7uvss5" path="res://resources/proto_assets/base_item.glb" id="3_dg2fh"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nr877"]
+data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5)
+
+[node name="BaseItem" type="Node3D"]
+script = ExtResource("1_w18fc")
+
+[node name="InteractionVolume" parent="." instance=ExtResource("2_i1atj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(0.194122, 0, 0, 0, -0.0473733, -1.10381e-08, 0, 4.1415e-09, -0.126261, 0, 0.02338, 0)
+shape = SubResource("ConcavePolygonShape3D_nr877")
+
+[node name="base_item" parent="." instance=ExtResource("3_dg2fh")]
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="base_item"]

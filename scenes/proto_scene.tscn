@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
-[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_uh7mr"]
+[ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="3_ixsct"]
+[ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="4_xgmrm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,8 +17,6 @@ background_mode = 2
 sky = SubResource("Sky_h3l1j")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_6gt45"]
 
 [node name="ProtoScene" type="Node3D"]
 script = ExtResource("1_3nvhy")
@@ -44,13 +43,14 @@ transform = Transform3D(-0.258819, -0.482963, 0.836516, -8.95091e-09, 0.866025, 
 [node name="Player" parent="." instance=ExtResource("1_vt5nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033071, 2.11278)
 
-[node name="InteractionVolume" parent="." instance=ExtResource("3_uh7mr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25322, 0)
-interaction_text = "Nice!"
+[node name="BaseItem" parent="." instance=ExtResource("3_ixsct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
-shape = SubResource("SphereShape3D_6gt45")
+[node name="BaseItem2" parent="." instance=ExtResource("3_ixsct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 1.36333)
 
-[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+[node name="BaseItem3" parent="." instance=ExtResource("3_ixsct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 2.39537)
 
-[editable path="InteractionVolume"]
+[node name="ExampleInteractable" parent="." instance=ExtResource("4_xgmrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24889, 0.0170605, 0.166251)

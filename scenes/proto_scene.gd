@@ -15,8 +15,3 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
-
-
-
-func _on_interaction_volume_interacted(interacting_node):
-	print_debug(str(interacting_node) + " triggered an interaction")

@@ -33,10 +33,10 @@ func _rotate_camera(sensitivity_modifier: float = 1.0) -> void:
 	rotation.x = clamp(rotation.x - look_dir.y * camera_sensitivity * sensitivity_modifier, -1.5, 1.5)
 
 
-func _on_interaction_ray_interacted(interacting_object):
+func _on_interaction_ray_detected(interacting_object):
 	if interacting_object is InteractionVolume:
 		interaction_text.text = interacting_object.get_interaction_text()
 
 
-func _on_interaction_ray_interactions_ceased():
+func _on_interaction_ray_detections_ceased():
 	interaction_text.text = "[center]"
