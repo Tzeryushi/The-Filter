@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=2 format=3 uid="uid://bo76kl8cferhw"]
+
+[ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_bhxpi"]
+
+[resource]
+script = ExtResource("1_bhxpi")
+item_name = "base_item"
+activate_anim = "base_item_activate"
+deactivate_anim = "base_item_deactivate"
+use_anim = "base_item_use"
+stop_use_anim = "base_item_stop_use"

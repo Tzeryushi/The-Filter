@@ -8,6 +8,7 @@ extends BaseState
 @export var movement: PlayerMovement
 @export var camera: PlayerCamera
 @export var interaction_ray: RayCast3D
+@export var item_manager: ItemManager
 
 
 func process_input(event:InputEvent) -> BaseState:
@@ -21,6 +22,8 @@ func process_input(event:InputEvent) -> BaseState:
 		var object = interaction_ray.get_collider()
 		if object is InteractionVolume:
 			object.interact(body)
+	
+	item_manager.process_input(event)
 	
 	return null
 

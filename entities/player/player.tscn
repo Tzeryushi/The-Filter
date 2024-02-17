@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=19 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -10,14 +10,144 @@
 [ext_resource type="Script" path="res://entities/player/item_manager.gd" id="8_3ahaa"]
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
+[ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
+[ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
+[ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager") groups=["player"]]
+[sub_resource type="Animation" id="Animation_y0lm7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BasePlayerItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.39667, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BasePlayerItem:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasePlayerItem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.32502, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_evmqe"]
+resource_name = "base_item activate"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BasePlayerItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Vector3(0, 1.39667, 0), Vector3(0.234577, 1.42311, -0.293158)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BasePlayerItem:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0111746),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasePlayerItem:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector3(-0.0902227, 1.32399, 1.59349), Vector3(1.43918, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1iyic"]
+resource_name = "base_item_deactivate"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BasePlayerItem:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.234577, 1.42311, -0.293158), Vector3(0, 1.39667, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BasePlayerItem:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.43918, 0, 0), Vector3(0.894019, 1.35969, 1.40525)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasePlayerItem:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msd6h"]
+_data = {
+"RESET": SubResource("Animation_y0lm7"),
+"base_item_activate": SubResource("Animation_evmqe"),
+"base_item_deactivate": SubResource("Animation_1iyic")
+}
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager", "item_manager") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_dek4s")
 state_manager = NodePath("StateManager")
+item_manager = NodePath("PlayerCamera/ItemManager")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -32,12 +162,13 @@ camera = NodePath("../PlayerCamera")
 script = ExtResource("3_d1x8q")
 first_state = NodePath("Normal")
 
-[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement", "camera", "interaction_ray")]
+[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement", "camera", "interaction_ray", "item_manager")]
 script = ExtResource("5_etolf")
 disconnected_state = NodePath("../Disconnected")
 movement = NodePath("../../PlayerMovement")
 camera = NodePath("../../PlayerCamera")
 interaction_ray = NodePath("../../PlayerCamera/InteractionRay")
+item_manager = NodePath("../../PlayerCamera/ItemManager")
 
 [node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state")]
 script = ExtResource("5_oh1lb")
@@ -94,14 +225,33 @@ bbcode_enabled = true
 text = "[center]"
 
 [node name="InteractionRay" type="RayCast3D" parent="PlayerCamera"]
+visible = false
 target_position = Vector3(0, 0, -1.2)
 collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
-[node name="ItemManager" type="Node3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "item_ref_array")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
-camera = NodePath("../PlayerCamera")
+camera = NodePath("..")
+anim_player = NodePath("InventoryRig/AnimationPlayer")
+item_ref_array = [NodePath("InventoryRig/BasePlayerItem")]
+
+[node name="InventoryRig" type="Node3D" parent="PlayerCamera/ItemManager"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCamera/ItemManager/InventoryRig"]
+libraries = {
+"": SubResource("AnimationLibrary_msd6h")
+}
+
+[node name="BasePlayerItem" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
+transform = Transform3D(1, 0, 0, 0, 0.24331, -0.969948, 0, 0.969948, 0.24331, 0, 1.39667, 0)
+visible = false
+script = ExtResource("12_q322k")
+item_resource = ExtResource("11_f018m")
+
+[node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]

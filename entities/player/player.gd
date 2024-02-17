@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 
 @export var state_manager: StateManager
+@export var item_manager: ItemManager
 
 var move_dir: Vector2
 var walk_velocity: Vector3
@@ -34,5 +35,5 @@ func set_input_mode(value: bool) -> void:
 	is_receiving_input = value
 
 func add_item(item_name: String) -> void:
-	print(item_name)
+	item_manager.pickup_item(item_name)
 	pass
