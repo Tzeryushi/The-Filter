@@ -103,7 +103,7 @@ func pickup_item(item_name: String) -> void:
 	activate_item()
 
 
-func drop_item(index: int = 0) -> void:
+func drop_item(index: int = -1) -> void:
 	if !current_item:
 		return
 	var new_item = current_item.item_resource.item_scene.instantiate()

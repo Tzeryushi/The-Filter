@@ -19,31 +19,35 @@ shader_parameter/resolution = Vector2i(320, 240)
 [sub_resource type="BoxShape3D" id="BoxShape3D_71dn3"]
 size = Vector3(0.905853, 2.10797, 0.207031)
 
-[node name="ExampleInteractable" type="Node3D"]
+[node name="ExampleInteractable" type="Node3D" node_paths=PackedStringArray("hinge")]
 script = ExtResource("1_4caaw")
+hinge = NodePath("Hinge")
 
-[node name="InteractionVolume" parent="." instance=ExtResource("2_ko7ji")]
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0)
+
+[node name="InteractionVolume" parent="Hinge" instance=ExtResource("2_ko7ji")]
 interaction_text = "Open Door"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/InteractionVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.749186, 1.03346, 0)
 shape = SubResource("BoxShape3D_itt2c")
 
-[node name="example_door" parent="." instance=ExtResource("3_kmvdi")]
+[node name="example_door" parent="Hinge" instance=ExtResource("3_kmvdi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445535, 0, 0)
 
-[node name="Cube" parent="example_door" index="0"]
+[node name="Cube" parent="Hinge/example_door" index="0"]
 material_override = SubResource("ShaderMaterial_gih5h")
 
-[node name="Cube_001" parent="example_door" index="1"]
+[node name="Cube_001" parent="Hinge/example_door" index="1"]
 material_override = SubResource("ShaderMaterial_gih5h")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442148, 1.077, 0)
 shape = SubResource("BoxShape3D_71dn3")
 
-[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+[connection signal="interacted" from="Hinge/InteractionVolume" to="." method="_on_interaction_volume_interacted"]
 
-[editable path="example_door"]
+[editable path="Hinge/example_door"]

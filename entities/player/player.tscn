@@ -16,6 +16,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
+height = 1.87089
 
 [sub_resource type="Animation" id="Animation_y0lm7"]
 length = 0.001
@@ -150,7 +151,7 @@ state_manager = NodePath("StateManager")
 item_manager = NodePath("PlayerCamera/ItemManager")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933442, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("body", "camera")]
@@ -178,7 +179,7 @@ normal_state = NodePath("../Normal")
 script = ExtResource("6_jj6gm")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.569, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 current = true
 script = ExtResource("2_u2j1y")
 
