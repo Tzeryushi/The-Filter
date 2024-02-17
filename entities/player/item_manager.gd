@@ -78,6 +78,8 @@ func process_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("swap_back"):
 		swap_back()
 	
+	if event.is_action_pressed("use"):
+		use_item()
 	if event.is_action_pressed("drop"):
 		drop_item()
 	
@@ -118,7 +120,8 @@ func drop_item(index: int = 0) -> void:
 
 # Calls the current item's use function
 func use_item() -> void:
-	pass
+	if current_item:
+		current_item.use()
 
 
 func get_is_inventory_full() -> bool:

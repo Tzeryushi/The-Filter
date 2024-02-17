@@ -26,5 +26,8 @@ func process_frame(_delta: float) -> void:
 func process_physics(_delta: float) -> void:
 	pass
 
+func use() -> void:
+	pass
+
 func get_item_name() -> String:
 	return item_resource.item_name

@@ -1,4 +1,7 @@
 extends PlayerItem
 
 func on_enter() -> void:
-	print(item_resource.item_name)
+	pass
+
+func use() -> void:
+	print("Successful use of " + item_name)
