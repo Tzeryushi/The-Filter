@@ -6,4 +6,9 @@ extends Node3D
 
 func _on_interaction_volume_interacted(interacting_node):
 	if interacting_node is Player:
-		interacting_node.add_item(item_name)
+		var success: bool = interacting_node.add_item(item_name)
+		if success:
+			queue_free()
+		else:
+			#TODO: signal message for full inv? In player class instead?
+			pass

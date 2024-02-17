@@ -6,3 +6,5 @@ extends Resource
 @export var deactivate_anim: String
 @export var use_anim: String
 @export var stop_use_anim: String
+
+@export var item_scene: PackedScene

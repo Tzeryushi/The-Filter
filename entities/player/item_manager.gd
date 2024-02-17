@@ -2,6 +2,8 @@ class_name ItemManager
 extends Node3D
 
 
+signal swapping_finished
+
 @export var camera: PlayerCamera
 @export var anim_player: AnimationPlayer
 
@@ -15,6 +17,7 @@ var current_item: PlayerItem = null
 var inventory_array: Array[PlayerItem] = []	## Array of item call strings
 
 var is_swapping: bool = false
+var is_inventory_full : get = get_is_inventory_full
 
 
 func _ready() -> void:
@@ -40,38 +43,33 @@ func deactivate_item() -> void:
 	anim_player.play(current_item.item_resource.deactivate_anim)
 
 
-func swap_forward() -> void:
-	if inventory_array.size() <= 1 or is_swapping:
+func swap_to_index(index: int) -> void:
+	if (inventory_array.size() <= 1 or is_swapping or
+			index >= inventory_array.size() or index < 0):
 		return
 	is_swapping = true
-	
+	deactivate_item()
+	await anim_player.animation_finished
+	current_item = inventory_array[index]
+	activate_item()
+	is_swapping = false
+	swapping_finished.emit()
+
+
+func swap_forward() -> void:
 	var next_item_index: int = inventory_array.find(current_item) + 1
 	if next_item_index >= inventory_array.size():
 		next_item_index = 0
 	
-	deactivate_item()
-	await anim_player.animation_finished
-	current_item = inventory_array[next_item_index]
-	activate_item()
-	
-	is_swapping = false
+	swap_to_index(next_item_index)
 
 
 func swap_back() -> void:
-	if inventory_array.size() <= 1 or is_swapping:
-		return
-	is_swapping = true
-	
 	var last_item_index: int = inventory_array.find(current_item) - 1
 	if last_item_index < 0:
 		last_item_index = inventory_array.size() - 1
 	
-	deactivate_item()
-	await anim_player.animation_finished
-	current_item = inventory_array[last_item_index]
-	activate_item()
-	
-	is_swapping = false
+	swap_to_index(last_item_index)
 
 
 func process_input(event: InputEvent) -> void:
@@ -79,6 +77,9 @@ func process_input(event: InputEvent) -> void:
 		swap_forward()
 	elif event.is_action_pressed("swap_back"):
 		swap_back()
+	
+	if event.is_action_pressed("drop"):
+		drop_item()
 	
 	if current_item:
 		current_item.process_input(event)
@@ -101,9 +102,24 @@ func pickup_item(item_name: String) -> void:
 
 
 func drop_item(index: int = 0) -> void:
-	pass
+	if !current_item:
+		return
+	var new_item = current_item.item_resource.item_scene.instantiate()
+	SceneManager.get_top_scene().add_child(new_item)
+	new_item.global_position = get_tree().get_first_node_in_group("player").global_position
+	deactivate_item()
+	inventory_array.erase(current_item)
+	if !inventory_array.is_empty():
+		current_item = inventory_array.front()
+		activate_item()
+	else:
+		current_item = null
 
 
 # Calls the current item's use function
 func use_item() -> void:
 	pass
+
+
+func get_is_inventory_full() -> bool:
+	return inventory_array.size() >= inventory_size

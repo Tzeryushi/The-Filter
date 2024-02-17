@@ -34,6 +34,9 @@ func _physics_process(delta: float) -> void:
 func set_input_mode(value: bool) -> void:
 	is_receiving_input = value
 
-func add_item(item_name: String) -> void:
-	item_manager.pickup_item(item_name)
-	pass
+
+func add_item(item_name: String) -> bool:
+	if !item_manager.is_inventory_full:
+		item_manager.pickup_item(item_name)
+		return true
+	return false

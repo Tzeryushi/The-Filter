@@ -46,5 +46,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.033071, 2.11278)
 [node name="BaseItem" parent="." instance=ExtResource("3_ixsct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 0)
 
+[node name="BaseItem2" parent="." instance=ExtResource("3_ixsct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 1.36333)
+
+[node name="BaseItem3" parent="." instance=ExtResource("3_ixsct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 2.39537)
+
 [node name="ExampleInteractable" parent="." instance=ExtResource("4_xgmrm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24889, 0.0170605, 0.166251)
