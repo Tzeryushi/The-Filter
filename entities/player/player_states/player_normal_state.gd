@@ -1,4 +1,4 @@
-extends BaseState
+extends PlayerState
 
 ##Normal interaction state for player. Stands, walks, sprints, runs.
 
@@ -18,6 +18,10 @@ func process_input(event:InputEvent) -> BaseState:
 	elif event.is_action_released("crouch"):
 		camera.set_crouching(false)
 	
+	if event.is_action_pressed("use"):
+		if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
 	if event.is_action_pressed("interact"):
 		var object = interaction_ray.get_collider()
 		if object is InteractionVolume:

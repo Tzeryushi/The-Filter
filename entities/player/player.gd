@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 
+
 @export var state_manager: StateManager
 @export var item_manager: ItemManager
 

@@ -1,4 +1,4 @@
-extends BaseState
+extends PlayerState
 
 @export var normal_state: BaseState
 
