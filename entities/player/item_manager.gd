@@ -107,9 +107,11 @@ func drop_item(index: int = -1) -> void:
 	if !current_item:
 		return
 	var new_item = current_item.item_resource.item_scene.instantiate()
-	SceneManager.get_top_scene().add_child(new_item)
+	
 	new_item.global_position = get_tree().get_first_node_in_group("player").global_position
 	deactivate_item()
+	await anim_player.animation_finished
+	SceneManager.get_top_scene().add_child(new_item)
 	inventory_array.erase(current_item)
 	if !inventory_array.is_empty():
 		current_item = inventory_array.front()
