@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crhp2oxambhwe"]
+
+[ext_resource type="PackedScene" uid="uid://c8o72ne40klc4" path="res://resources/blend_files/lighting/siren_light.blend" id="1_htljc"]
+[ext_resource type="Script" path="res://entities/environmental/lighting/siren_light/siren_light.gd" id="1_kk8fw"]
+
+[node name="SirenLight" type="Node3D"]
+script = ExtResource("1_kk8fw")
+
+[node name="siren_light" parent="." instance=ExtResource("1_htljc")]
+
+[node name="SirenSpotlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0.00709915, 0.0958135, 0.00821686)
+light_color = Color(1, 0, 0, 1)
+light_energy = 50.0
+spot_angle = 25.0
