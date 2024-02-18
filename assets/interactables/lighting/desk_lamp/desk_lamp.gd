@@ -14,9 +14,9 @@ func _ready():
 func _on_interaction_volume_interacted(_interacting_node):
 	is_enabled = !is_enabled
 	if is_enabled:
-		var stream_player_id = AudioManager.play_sound_at_location(off_sound, global_position)
+		AudioManager.play_sound_at_location(on_sound, global_position)
 	else:
-		var stream_player_id = AudioManager.play_sound_at_location(off_sound, global_position)
+		AudioManager.play_sound_at_location(off_sound, global_position)
 	update_desk_lamp()
 
 func update_desk_lamp():

@@ -83,11 +83,11 @@ func play_sound_at_location(
 
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
-		var parent_node = get_tree().get_first_node_in_group("")
-		if parent_node:
-			reparent(parent_node)
+		var game_space = get_tree().get_first_node_in_group("game_space")
+		if game_space:
+			stream_player.reparent(game_space)
 		else:
-			reparent(get_tree().root)
+			stream_player.reparent(get_tree().root)
 		stream_player.global_position = position
 		stream_player.stream = stream
 		stream_player.priority = priority
@@ -111,11 +111,11 @@ func play_sound_at_node(
 
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
-		var parent_node = get_tree().get_first_node_in_group("")
-		if parent_node:
-			reparent(parent_node)
+		var game_space = get_tree().get_first_node_in_group("game_space")
+		if game_space:
+			stream_player.reparent(game_space)
 		else:
-			reparent(get_tree().root)
+			stream_player.reparent(get_tree().root)
 		stream_player.followed_node = followed_node
 		stream_player.stream = stream
 		stream_player.priority = priority
