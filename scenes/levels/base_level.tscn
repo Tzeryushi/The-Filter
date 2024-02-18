@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=33 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://entities/clock/clock.tscn" id="6_iiope"]
+[ext_resource type="PackedScene" uid="uid://dmkdd0duqokw8" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
+[ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
+[ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_48sm3"]
 data = PackedVector3Array(-2.8, 0, 3.9999, 0, 0, 0, 0, 0, 3.9999, -2.8, 0, 3.9999, -2.8, 0, 0, 0, 0, 0)
@@ -254,9 +257,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366, 0.731174, -15.5154)
 skeleton = NodePath("../../../..")
 time = 3.75
 
+[node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
+rotation_amount = 1.57041
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="Flashlight" parent="." instance=ExtResource("7_lhejl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2584, 0.700001, -15.3188)
+
+[node name="BaseItem" parent="." instance=ExtResource("8_0hdwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.06, 0.7, -15.4082)
+
+[node name="NormalDoor" parent="." instance=ExtResource("6_2g6o2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.8, 0, -19)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]

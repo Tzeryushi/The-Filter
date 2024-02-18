@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b61q3hx5rb66g"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/flashlight/flashlight.gd" id="1_8lcmn"]
+[ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="1_xdeg8"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_kacyt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kgmrx"]
+radius = 0.150694
+height = 0.608698
+
+[node name="Flashlight" type="Node3D"]
+script = ExtResource("1_8lcmn")
+item_name = "flashlight"
+
+[node name="flashlight" parent="." instance=ExtResource("1_xdeg8")]
+transform = Transform3D(1, 0, 0, 0, 0.0892767, 0.996007, 0, -0.996007, 0.0892767, 0, 0.039987, 0.199468)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+visible = false
+light_color = Color(1, 1, 0.529412, 1)
+light_energy = 4.546
+spot_range = 13.9502
+spot_angle = 17.1704
+
+[node name="InteractionVolume" parent="." instance=ExtResource("3_kacyt")]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+interaction_text = "Pick Up Flashlight"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_kgmrx")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
