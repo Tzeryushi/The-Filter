@@ -1,34 +1,53 @@
-[gd_scene load_steps=6 format=3 uid="uid://dicw3t6guwoas"]
+[gd_scene load_steps=8 format=3 uid="uid://dicw3t6guwoas"]
 
 [ext_resource type="Script" path="res://assets/interactables/example_interactable.gd" id="1_4caaw"]
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="2_ko7ji"]
 [ext_resource type="PackedScene" uid="uid://big3drf6ut05t" path="res://assets/interactables/example_door.glb" id="3_kmvdi"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="4_ma67f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_itt2c"]
 size = Vector3(0.255371, 0.262695, 0.411865)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gih5h"]
+render_priority = 0
+shader = ExtResource("4_ma67f")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_71dn3"]
 size = Vector3(0.905853, 2.10797, 0.207031)
 
-[node name="ExampleInteractable" type="Node3D"]
+[node name="ExampleInteractable" type="Node3D" node_paths=PackedStringArray("hinge")]
 script = ExtResource("1_4caaw")
+hinge = NodePath("Hinge")
 
-[node name="InteractionVolume" parent="." instance=ExtResource("2_ko7ji")]
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0)
+
+[node name="InteractionVolume" parent="Hinge" instance=ExtResource("2_ko7ji")]
 interaction_text = "Open Door"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/InteractionVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.749186, 1.03346, 0)
 shape = SubResource("BoxShape3D_itt2c")
 
-[node name="example_door" parent="." instance=ExtResource("3_kmvdi")]
+[node name="example_door" parent="Hinge" instance=ExtResource("3_kmvdi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.445535, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Cube" parent="Hinge/example_door" index="0"]
+material_override = SubResource("ShaderMaterial_gih5h")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="Cube_001" parent="Hinge/example_door" index="1"]
+material_override = SubResource("ShaderMaterial_gih5h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hinge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.442148, 1.077, 0)
 shape = SubResource("BoxShape3D_71dn3")
 
-[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+[connection signal="interacted" from="Hinge/InteractionVolume" to="." method="_on_interaction_volume_interacted"]
 
-[editable path="example_door"]
+[editable path="Hinge/example_door"]
