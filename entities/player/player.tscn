@@ -379,10 +379,11 @@ item_resource = ExtResource("11_f018m")
 
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
-[node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
+[node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
 transform = Transform3D(1, 0, 0, 0, 0.115024, 0.993363, 0, -0.993363, 0.115024, 0, 1.37255, 0)
 visible = false
 script = ExtResource("14_wjskm")
+spotlight = NodePath("SpotLight3D")
 item_resource = ExtResource("15_wh55d")
 
 [node name="flashlight" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight" instance=ExtResource("15_ibvv7")]
