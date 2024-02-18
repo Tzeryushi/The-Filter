@@ -24,7 +24,7 @@ var sort_by_length: Callable = func(a,b):
 	return a.stream and b.stream and a.stream.get_length() - a.get_playback_position() < b.stream.get_length() - b.get_playback_position()
 
 var sort_by_distance: Callable = func(a: PositionalAudioStreamPlayer, b: PositionalAudioStreamPlayer):
-	var player_node = root.get_first_node_in_group("player")
+	var player_node = get_tree().get_first_node_in_group("player")
 	return a.stream and b.stream and player_node.global_position.distance_to(a.global_position) < player_node.global_position.distance_to(b.global_position)
 
 var sort_by_priority: Callable = func(a, b):
