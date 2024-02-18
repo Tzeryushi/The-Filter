@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 
+enum State {NORMAL = 0, DISCONNECTED = 1, FOCUSED = 2}
 
 @export var state_manager: StateManager
 @export var item_manager: ItemManager

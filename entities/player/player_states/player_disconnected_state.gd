@@ -1,6 +1,7 @@
 extends PlayerState
 
-@export var normal_state: BaseState
+@export var normal_state: PlayerState
+@export var focused_state: PlayerState
 
 
 func process_frame(_delta: float) -> BaseState:

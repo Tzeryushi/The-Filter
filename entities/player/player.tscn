@@ -286,17 +286,19 @@ camera = NodePath("../PlayerCamera")
 script = ExtResource("3_d1x8q")
 first_state = NodePath("Normal")
 
-[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "movement", "camera", "interaction_ray", "item_manager")]
+[node name="Normal" type="Node" parent="StateManager" node_paths=PackedStringArray("disconnected_state", "focused_state", "movement", "camera", "interaction_ray", "item_manager")]
 script = ExtResource("5_etolf")
 disconnected_state = NodePath("../Disconnected")
+focused_state = NodePath("../Focus")
 movement = NodePath("../../PlayerMovement")
 camera = NodePath("../../PlayerCamera")
 interaction_ray = NodePath("../../PlayerCamera/InteractionRay")
 item_manager = NodePath("../../PlayerCamera/ItemManager")
 
-[node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state")]
+[node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state", "focused_state")]
 script = ExtResource("5_oh1lb")
 normal_state = NodePath("../Normal")
+focused_state = NodePath("../Focus")
 
 [node name="Focus" type="Node" parent="StateManager"]
 script = ExtResource("6_jj6gm")

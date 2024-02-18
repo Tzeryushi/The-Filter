@@ -3,7 +3,8 @@ extends PlayerState
 ##Normal interaction state for player. Stands, walks, sprints, runs.
 
 
-@export var disconnected_state: BaseState
+@export var disconnected_state: PlayerState
+@export var focused_state: PlayerState
 
 @export var movement: PlayerMovement
 @export var camera: PlayerCamera
