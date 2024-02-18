@@ -117,10 +117,22 @@ func drop_item(index: int = -1) -> void:
 	
 	SceneManager.get_top_scene().add_child(new_item)
 	# Find intersection from front of arm to the next environmental obstacle
+	var place_point: Vector3
 	if !player_arm.is_colliding():
-		new_item.global_position = get_tree().get_first_node_in_group("player").global_position
+		var space_state = get_world_3d().direct_space_state
+		var arm_rotation : Vector3 = Vector3(0, 0, -1).rotated(Vector3(0,1,0), player_arm.global_rotation.y)
+		var origin = player_arm.global_position + arm_rotation.rotated(Vector3(1,0,0), player_arm.global_rotation.x)
+		var end = origin + Vector3.DOWN * 3000
+		var query = PhysicsRayQueryParameters3D.create(origin, end)
+		query.collision_mask = 1
+		var result = space_state.intersect_ray(query)
+		if result.has("position"):
+			place_point = result["position"]
+		else:
+			place_point = get_tree().get_first_node_in_group("player").global_position
 	else:
-		new_item.global_position = player_arm.get_collision_point()
+		place_point = player_arm.get_collision_point()
+	new_item.global_position = place_point
 	
 	inventory_array.erase(current_item)
 	if !inventory_array.is_empty():
