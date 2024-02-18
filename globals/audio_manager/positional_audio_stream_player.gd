@@ -1,5 +1,6 @@
 class_name PositionalAudioStreamPlayer extends AudioStreamPlayer3D
 
+@export var priority := 1
 var followed_node: Node3D = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
