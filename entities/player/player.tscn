@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=25 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight.gd" id="14_wjskm"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
-[ext_resource type="Resource" uid="uid://cdvtj58x6ma0v" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Resource" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
@@ -384,7 +384,7 @@ item_resource = ExtResource("11_f018m")
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
-transform = Transform3D(1, 0, 0, 0, 0.115024, 0.993363, 0, -0.993363, 0.115024, 0, 1.37255, 0)
+transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993363, 0, -0.993363, 0.115021, 0, 1.37255, 0)
 visible = false
 script = ExtResource("14_wjskm")
 spotlight = NodePath("SpotLight3D")
