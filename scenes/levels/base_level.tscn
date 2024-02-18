@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=35 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -6,12 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
-[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://entities/clock/clock.tscn" id="6_iiope"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_48sm3"]
-data = PackedVector3Array(-2.8, 0, 3.9999, 0, 0, 0, 0, 0, 3.9999, -2.8, 0, 3.9999, -2.8, 0, 0, 0, 0, 0)
+[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="9_dae83"]
+[ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
+[ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -30,6 +29,7 @@ sky_material = SubResource("ProceduralSkyMaterial_uenbd")
 [sub_resource type="Environment" id="Environment_ajw48"]
 background_mode = 2
 sky = SubResource("Sky_yciqa")
+ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 tonemap_mode = 2
@@ -247,19 +247,23 @@ light_energy = 3.941
 light_indirect_energy = 3.076
 omni_range = 7.97264
 
+[node name="SirenLight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_nwo07")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.4895, 2.50906, -16.5755)
+
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4, -20)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.0014, -20.0002)
 light_color = Color(1, 0.886275, 0.356863, 1)
 light_energy = 6.446
 light_indirect_energy = 6.807
 light_specular = 8.37
 spot_range = 4.6257
-spot_angle = 44.3966
+spot_angle = 85.0
 
-[node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_iiope")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366, 0.731174, -15.5154)
-skeleton = NodePath("../../../..")
-time = 3.75
+[node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_dae83")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.3095, 2.74982, -22.9773)
+
+[node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
+transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -15.8054)
 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)

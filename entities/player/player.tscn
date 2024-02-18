@@ -16,10 +16,11 @@
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight.gd" id="14_wjskm"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
-[ext_resource type="Resource" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Resource" uid="uid://cura0jdqjq8n4" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
+height = 1.87089
 
 [sub_resource type="Animation" id="Animation_y0lm7"]
 length = 0.001
