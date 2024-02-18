@@ -6,9 +6,8 @@ var sound_timer := Timer.new()
 var player: Player
 
 func _ready():
-	#var dialogue: Dialogue = $Player/PlayerCamera/CameraSpace.get_node("Dialogue")
-	#dialogue.begin_dialogue(proto_dialogue)
-	#print(proto_dialogue.data)
+	var dialogue: Dialogue = $Player/PlayerCamera/CameraSpace.get_node("Dialogue")
+	dialogue.begin_dialogue(proto_dialogue)
 	
 	#add_child(sound_timer)
 	#sound_timer.wait_time = .25

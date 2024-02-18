@@ -60,7 +60,6 @@ func _on_ez_dialogue_end_of_dialogue_reached():
 
 func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
 	dialogue_text.text = response.text
-	print(response.text)
 	if response.choices.is_empty():
 		add_choice("Say nothing.", 0)
 	else:
