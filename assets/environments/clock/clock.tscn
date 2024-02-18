@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://c36xj3ti137nf"]
 
 [ext_resource type="Script" path="res://assets/environments/clock/clock.gd" id="1_n27pt"]
-[ext_resource type="Texture2D" uid="uid://lc3tg37lqr64" path="res://assets/environments/clock/clock_assets/clock_face.png" id="1_pti4j"]
-[ext_resource type="Texture2D" uid="uid://bsi4ehxlqrhpd" path="res://assets/environments/clock/clock_assets/clock_hour.png" id="2_2i6dg"]
-[ext_resource type="Texture2D" uid="uid://ckoxg7peaxnx3" path="res://assets/environments/clock/clock_assets/clock_minute.png" id="3_4lysm"]
+[ext_resource type="Texture2D" uid="uid://lc3tg37lqr64" path="res://entities/environmental/clock/clock_assets/clock_face.png" id="1_pti4j"]
+[ext_resource type="Texture2D" uid="uid://bsi4ehxlqrhpd" path="res://entities/environmental/clock/clock_assets/clock_hour.png" id="2_2i6dg"]
+[ext_resource type="Texture2D" uid="uid://ckoxg7peaxnx3" path="res://entities/environmental/clock/clock_assets/clock_minute.png" id="3_4lysm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sy4f"]
 albedo_color = Color(0, 0, 0, 1)

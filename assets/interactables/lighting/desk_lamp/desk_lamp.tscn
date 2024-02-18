@@ -9,6 +9,7 @@ height = 0.1
 radius = 0.15
 
 [node name="DeskLamp" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00030601, 0.00128841, -0.00145835)
 script = ExtResource("1_34jvg")
 
 [node name="desk_lamp" parent="." instance=ExtResource("1_obpfm")]

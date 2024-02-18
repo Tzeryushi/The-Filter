@@ -1,13 +1,20 @@
 extends Node
 
 @export var time: float = 0.0
+@export var time_rate: float = 1.0
 var hour_hand: MeshInstance3D
 var minute_hand: MeshInstance3D
+var timer := Timer.new()
 
+const TIME_PERIOD: int = 1  
 
 func _ready():
 	hour_hand = get_node("Hour")
 	minute_hand = get_node("Minute")
+	add_child(timer)
+	timer.wait_time = time_rate
+	timer.start()
+	timer.timeout.connect(func(): add_time(0.0166666))
 	update_hand_rotation()
 
 

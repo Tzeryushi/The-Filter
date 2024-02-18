@@ -81,10 +81,13 @@ func play_sound_at_location(
 	channel: Channel = Channel.SFX,
 	priority: int = PRIORITY_DEFAULT) -> int:
 
-	print("Playing sounds at " + str(position))
-	print("Player location is " + str(get_tree().get_first_node_in_group("player").global_position))
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
+		var parent_node = get_tree().get_first_node_in_group("")
+		if parent_node:
+			reparent(parent_node)
+		else:
+			reparent(get_tree().root)
 		stream_player.global_position = position
 		stream_player.stream = stream
 		stream_player.priority = priority
@@ -108,6 +111,11 @@ func play_sound_at_node(
 
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
+		var parent_node = get_tree().get_first_node_in_group("")
+		if parent_node:
+			reparent(parent_node)
+		else:
+			reparent(get_tree().root)
 		stream_player.followed_node = followed_node
 		stream_player.stream = stream
 		stream_player.priority = priority
@@ -177,11 +185,11 @@ func build_audio_player(
 
 	if positional:
 		audio_player = PositionalAudioStreamPlayer.new()
-		add_child.call_deferred(audio_player)
+		get_tree().root.add_child.call_deferred(audio_player)
 		audio_player.attenuation_model = attenuation
 	else:
 		audio_player = PrioritizedAudioStreamPlayer.new()
-		add_child.call_deferred(audio_player)
+		get_tree().root.add_child.call_deferred(audio_player)
 
 	audio_player.set_bus(channel)
 
