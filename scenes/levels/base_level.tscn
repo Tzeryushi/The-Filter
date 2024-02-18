@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="3_qq2hn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
+[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://entities/clock/clock.tscn" id="6_iiope"]
 [ext_resource type="PackedScene" uid="uid://dmkdd0duqokw8" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
@@ -29,6 +30,7 @@ sky_material = SubResource("ProceduralSkyMaterial_uenbd")
 [sub_resource type="Environment" id="Environment_ajw48"]
 background_mode = 2
 sky = SubResource("Sky_yciqa")
+ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 tonemap_mode = 2
 glow_enabled = true
@@ -249,6 +251,11 @@ light_indirect_energy = 6.807
 light_specular = 8.37
 spot_range = 4.6257
 spot_angle = 44.3966
+
+[node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_iiope")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366, 0.731174, -15.5154)
+skeleton = NodePath("../../../..")
+time = 3.75
 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
