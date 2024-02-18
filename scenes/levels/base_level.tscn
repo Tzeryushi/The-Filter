@@ -1,12 +1,13 @@
-[gd_scene load_steps=32 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=33 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="3_qq2hn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
-[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://entities/environmental/clock/clock.tscn" id="6_iiope"]
-[ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://entities/environmental/lighting/siren_light/siren_light.tscn" id="7_pqr7l"]
+[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="6_iiope"]
+[ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/interactables/lighting/siren_light/siren_light.tscn" id="7_pqr7l"]
+[ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="8_cqmyl"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_48sm3"]
 data = PackedVector3Array(-2.8, 0, 3.9999, 0, 0, 0, 0, 0, 3.9999, -2.8, 0, 3.9999, -2.8, 0, 0, 0, 0, 0)
@@ -253,6 +254,10 @@ spot_angle = 44.3966
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366, 0.731174, -15.5154)
 skeleton = NodePath("../../../..")
 time = 3.75
+
+[node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("8_cqmyl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6802, 0.7, -15.5838)
+is_enabled = true
 
 [node name="SirenLight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("7_pqr7l")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -52.432, 2.97272, -18.5596)
