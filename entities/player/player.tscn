@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=25 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -14,6 +14,9 @@
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
+[ext_resource type="Script" path="res://entities/player/player_items/flashlight.gd" id="14_wjskm"]
+[ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
+[ext_resource type="Resource" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
@@ -55,6 +58,42 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1.32502, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flashlight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.37255, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Flashlight:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.45552, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Flashlight:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_evmqe"]
@@ -137,11 +176,94 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_nqju2"]
+resource_name = "flashlight_activate"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flashlight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [Vector3(0, 1.37255, 0), Vector3(0.178292, 1.37255, -0.120309)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flashlight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.277393, 1),
+"update": 0,
+"values": [Vector3(-1.45552, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flashlight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_q75sy"]
+resource_name = "flashlight_deactivate"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flashlight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15),
+"transitions": PackedFloat32Array(2.07053, 1.86607, 1),
+"update": 0,
+"values": [Vector3(0.178292, 1.37255, -0.120309), Vector3(0.137107, 1.31606, -0.201271), Vector3(0.0547386, 1.20308, -0.156084)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flashlight:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15),
+"transitions": PackedFloat32Array(2.07053, 1.86607, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.172014, 0, 0), Vector3(-1.50407, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flashlight:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msd6h"]
 _data = {
 "RESET": SubResource("Animation_y0lm7"),
 "base_item_activate": SubResource("Animation_evmqe"),
-"base_item_deactivate": SubResource("Animation_1iyic")
+"base_item_deactivate": SubResource("Animation_1iyic"),
+"flashlight_activate": SubResource("Animation_nqju2"),
+"flashlight_deactivate": SubResource("Animation_q75sy")
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager", "item_manager") groups=["player"]]
@@ -237,12 +359,13 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
-[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "item_ref_array")]
+[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
-item_ref_array = [NodePath("InventoryRig/BasePlayerItem")]
+player_arm = NodePath("../InteractionRay")
+item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight")]
 
 [node name="InventoryRig" type="Node3D" parent="PlayerCamera/ItemManager"]
 
@@ -258,6 +381,23 @@ script = ExtResource("12_q322k")
 item_resource = ExtResource("11_f018m")
 
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
+
+[node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
+transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993363, 0, -0.993363, 0.115021, 0, 1.37255, 0)
+visible = false
+script = ExtResource("14_wjskm")
+spotlight = NodePath("SpotLight3D")
+item_resource = ExtResource("15_wh55d")
+
+[node name="flashlight" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight" instance=ExtResource("15_ibvv7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.179616)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight"]
+light_color = Color(1, 1, 0.662745, 1)
+light_energy = 4.546
+light_volumetric_fog_energy = 3.0
+spot_range = 24.397
+spot_angle = 20.0013
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]

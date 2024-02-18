@@ -1,10 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=34 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="3_qq2hn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
+[ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
+[ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://entities/clock/clock.tscn" id="6_iiope"]
+[ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
+[ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_48sm3"]
+data = PackedVector3Array(-2.8, 0, 3.9999, 0, 0, 0, 0, 0, 3.9999, -2.8, 0, 3.9999, -2.8, 0, 0, 0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -24,6 +31,7 @@ sky_material = SubResource("ProceduralSkyMaterial_uenbd")
 background_mode = 2
 sky = SubResource("Sky_yciqa")
 ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.0
 tonemap_mode = 2
 glow_enabled = true
 volumetric_fog_enabled = true
@@ -214,6 +222,15 @@ shape = SubResource("ConcavePolygonShape3D_mtd5s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d2psx")
 
+[node name="Flashlight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("7_lhejl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2584, 0.700001, -15.3188)
+
+[node name="BaseItem" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("8_0hdwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.06, 0.7, -15.4082)
+
+[node name="NormalDoor2" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.8, 0, -19)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -1.5)
 
@@ -238,6 +255,15 @@ light_indirect_energy = 6.807
 light_specular = 8.37
 spot_range = 4.6257
 spot_angle = 44.3966
+
+[node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_iiope")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.366, 0.731174, -15.5154)
+skeleton = NodePath("../../../..")
+time = 3.75
+
+[node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
+rotation_amount = 1.57041
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

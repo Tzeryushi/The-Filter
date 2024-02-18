@@ -6,6 +6,7 @@ signal swapping_finished
 
 @export var camera: PlayerCamera
 @export var anim_player: AnimationPlayer
+@export var player_arm: RayCast3D
 
 @export var starter_items: Array[String] # Will likely be empty in most circumstances.
 @export var item_ref_array: Array[PlayerItem]
@@ -98,6 +99,9 @@ func process_physics(delta: float) -> void:
 
 
 func pickup_item(item_name: String) -> void:
+	if current_item:
+		deactivate_item()
+	
 	inventory_array.append(item_list[item_name])
 	current_item = inventory_array.back()
 	activate_item()
@@ -107,9 +111,29 @@ func drop_item(index: int = -1) -> void:
 	if !current_item:
 		return
 	var new_item = current_item.item_resource.item_scene.instantiate()
-	SceneManager.get_top_scene().add_child(new_item)
-	new_item.global_position = get_tree().get_first_node_in_group("player").global_position
+	
 	deactivate_item()
+	await anim_player.animation_finished
+	
+	SceneManager.get_top_scene().add_child(new_item)
+	# Find intersection from front of arm to the next environmental obstacle
+	var place_point: Vector3
+	place_point = get_tree().get_first_node_in_group("player").global_position
+	if !player_arm.is_colliding():
+		var space_state = get_world_3d().direct_space_state
+		var arm_rotation : Vector3 = Vector3(0, 0, -1).rotated(Vector3(0,1,0), player_arm.global_rotation.y)
+		var origin = player_arm.global_position + arm_rotation.rotated(Vector3(1,0,0), player_arm.global_rotation.x)
+		var end = origin + Vector3.DOWN * 3000
+		var query = PhysicsRayQueryParameters3D.create(origin, end)
+		query.collision_mask = 1
+		var result = space_state.intersect_ray(query)
+		if result.has("position"):
+			if result["normal"] == Vector3.UP:
+				place_point = result["position"]
+	elif player_arm.is_colliding() and player_arm.get_collision_normal() == Vector3.UP:
+		place_point = player_arm.get_collision_point()
+	new_item.global_position = place_point
+	
 	inventory_array.erase(current_item)
 	if !inventory_array.is_empty():
 		current_item = inventory_array.front()
