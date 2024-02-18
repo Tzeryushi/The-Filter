@@ -228,6 +228,15 @@ shape = SubResource("ConcavePolygonShape3D_mtd5s")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d2psx")
 
+[node name="Flashlight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("7_lhejl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2584, 0.700001, -15.3188)
+
+[node name="BaseItem" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("8_0hdwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.06, 0.7, -15.4082)
+
+[node name="NormalDoor2" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.8, 0, -19)
+
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -1.5)
 
@@ -265,15 +274,6 @@ rotation_amount = 1.57041
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
-
-[node name="Flashlight" parent="." instance=ExtResource("7_lhejl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2584, 0.700001, -15.3188)
-
-[node name="BaseItem" parent="." instance=ExtResource("8_0hdwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.06, 0.7, -15.4082)
-
-[node name="NormalDoor" parent="." instance=ExtResource("6_2g6o2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.8, 0, -19)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
