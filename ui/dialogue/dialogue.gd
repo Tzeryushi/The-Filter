@@ -5,7 +5,7 @@ class_name Dialogue extends Panel
 var dialogue_active: bool = false
 var state: Dictionary = {}
 var dialogue_container: VBoxContainer
-var dialogue_text: Label
+var dialogue_text: RichTextLabel
 
 @onready var dialogue_handler: EzDialogue = $EzDialogue
 
@@ -14,7 +14,6 @@ func _ready():
 	dialogue_active = false
 	dialogue_container = get_node("DialogueContainer")
 	dialogue_text = dialogue_container.get_node("DialogueText")
-	pass
 
 
 func clear_dialogue() -> void:
