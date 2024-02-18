@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy4gsxxgg6a7m"]
+
+[ext_resource type="Script" path="res://ui/dialogue/dialogue.gd" id="1_pravm"]
+[ext_resource type="Theme" uid="uid://bx3tljos5sfq5" path="res://ui/dialogue/dialogue_theme.tres" id="1_qxf2c"]
+[ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="2_44o8d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eln8y"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" type="Panel"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -300.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme = ExtResource("1_qxf2c")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eln8y")
+script = ExtResource("1_pravm")
+
+[node name="EzDialogue" type="Node" parent="."]
+script = ExtResource("2_44o8d")
+
+[node name="DialogueContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.1
+anchor_right = 0.75
+anchor_bottom = 0.1
+offset_right = 1.0
+offset_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DialogueText" type="RichTextLabel" parent="DialogueContainer"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+
+[connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
+[connection signal="end_of_dialogue_reached" from="EzDialogue" to="." method="_on_ez_dialogue_end_of_dialogue_reached"]

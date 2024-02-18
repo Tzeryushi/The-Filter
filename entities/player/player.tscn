@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=20 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://entities/player/player_states/player_focus_state.gd" id="6_jj6gm"]
 [ext_resource type="Script" path="res://entities/player/item_manager.gd" id="8_3ahaa"]
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
+[ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="8_8xowq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
@@ -191,6 +192,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="Dialogue" parent="PlayerCamera/CameraSpace" instance=ExtResource("8_8xowq")]
+layout_mode = 1
 
 [node name="Reticle" type="TextureRect" parent="PlayerCamera/CameraSpace"]
 layout_mode = 1

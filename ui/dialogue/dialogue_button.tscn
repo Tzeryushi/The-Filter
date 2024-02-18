@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://da4raa0gjwn07"]
+
+[ext_resource type="Script" path="res://ui/dialogue/dialogue_button.gd" id="1_jtytp"]
+[ext_resource type="StyleBox" uid="uid://cad5xe02qmjc4" path="res://ui/dialogue/dialogue_button_normal.tres" id="1_p84mb"]
+[ext_resource type="StyleBox" uid="uid://d17hbpcndqk2f" path="res://ui/dialogue/dialogue_button_hover.tres" id="2_w2770"]
+
+[node name="DialogueButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = ExtResource("1_p84mb")
+theme_override_styles/hover = ExtResource("2_w2770")
+script = ExtResource("1_jtytp")
