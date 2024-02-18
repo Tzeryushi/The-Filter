@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy4gsxxgg6a7m"]
+[gd_scene load_steps=7 format=3 uid="uid://dy4gsxxgg6a7m"]
 
+[ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="1_f67eb"]
 [ext_resource type="Script" path="res://ui/dialogue/dialogue.gd" id="1_pravm"]
 [ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="2_44o8d"]
-[ext_resource type="Script" path="res://ui/dialogue/dialogue_button.gd" id="3_wslkl"]
+
+[sub_resource type="Theme" id="Theme_1ac57"]
+default_font = ExtResource("1_f67eb")
+default_font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eln8y"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tldox"]
+font_size = 35
 
 [node name="Dialogue" type="Panel"]
 visible = false
@@ -17,6 +27,8 @@ offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
+theme = SubResource("Theme_1ac57")
+theme_override_styles/panel = SubResource("StyleBoxFlat_eln8y")
 script = ExtResource("1_pravm")
 
 [node name="EzDialogue" type="Node" parent="."]
@@ -36,11 +48,7 @@ size_flags_vertical = 3
 
 [node name="DialogueText" type="Label" parent="DialogueContainer"]
 layout_mode = 2
-
-[node name="DialogueButton" type="Button" parent="DialogueContainer"]
-visible = false
-layout_mode = 2
-script = ExtResource("3_wslkl")
+label_settings = SubResource("LabelSettings_tldox")
 
 [connection signal="dialogue_generated" from="EzDialogue" to="." method="_on_ez_dialogue_dialogue_generated"]
 [connection signal="end_of_dialogue_reached" from="EzDialogue" to="." method="_on_ez_dialogue_end_of_dialogue_reached"]
