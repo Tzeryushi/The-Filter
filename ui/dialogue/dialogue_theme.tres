@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bx3tljos5sfq5"]
+
+[ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="1_1hx60"]
+
+[resource]
+default_font = ExtResource("1_1hx60")
+default_font_size = 30
