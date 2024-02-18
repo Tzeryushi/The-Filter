@@ -219,7 +219,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_q75sy"]
 resource_name = "flashlight_deactivate"
-length = 0.3
+length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -227,7 +227,7 @@ tracks/0/path = NodePath("Flashlight:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.075, 0.15),
 "transitions": PackedFloat32Array(2.07053, 1.86607, 1),
 "update": 0,
 "values": [Vector3(0.178292, 1.37255, -0.120309), Vector3(0.137107, 1.31606, -0.201271), Vector3(0.0547386, 1.20308, -0.156084)]
@@ -239,7 +239,7 @@ tracks/1/path = NodePath("Flashlight:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.3),
+"times": PackedFloat32Array(0, 0.075, 0.15),
 "transitions": PackedFloat32Array(2.07053, 1.86607, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.172014, 0, 0), Vector3(-1.50407, 0, 0)]
@@ -251,7 +251,7 @@ tracks/2/path = NodePath("Flashlight:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -356,11 +356,12 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
-[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "item_ref_array")]
+[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
+player_arm = NodePath("../InteractionRay")
 item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight")]
 
 [node name="InventoryRig" type="Node3D" parent="PlayerCamera/ItemManager"]

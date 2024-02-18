@@ -6,6 +6,7 @@ signal swapping_finished
 
 @export var camera: PlayerCamera
 @export var anim_player: AnimationPlayer
+@export var player_arm: RayCast3D
 
 @export var starter_items: Array[String] # Will likely be empty in most circumstances.
 @export var item_ref_array: Array[PlayerItem]
@@ -98,6 +99,9 @@ func process_physics(delta: float) -> void:
 
 
 func pickup_item(item_name: String) -> void:
+	if current_item:
+		deactivate_item()
+	
 	inventory_array.append(item_list[item_name])
 	current_item = inventory_array.back()
 	activate_item()
@@ -110,8 +114,14 @@ func drop_item(index: int = -1) -> void:
 	
 	deactivate_item()
 	await anim_player.animation_finished
+	
 	SceneManager.get_top_scene().add_child(new_item)
-	new_item.global_position = get_tree().get_first_node_in_group("player").global_position
+	# Find intersection from front of arm to the next environmental obstacle
+	if !player_arm.is_colliding():
+		new_item.global_position = get_tree().get_first_node_in_group("player").global_position
+	else:
+		new_item.global_position = player_arm.get_collision_point()
+	
 	inventory_array.erase(current_item)
 	if !inventory_array.is_empty():
 		current_item = inventory_array.front()
