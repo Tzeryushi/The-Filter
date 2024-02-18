@@ -11,6 +11,7 @@ data = PackedVector3Array(-0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5
 script = ExtResource("1_w18fc")
 
 [node name="InteractionVolume" parent="." instance=ExtResource("2_i1atj")]
+interaction_text = "Pick up base item"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
 transform = Transform3D(0.194122, 0, 0, 0, -0.0473733, -1.10381e-08, 0, 4.1415e-09, -0.126261, 0, 0.02338, 0)
