@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di6fk3ivmkx5u"]
+[gd_scene load_steps=8 format=3 uid="uid://di6fk3ivmkx5u"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="1_odp56"]
+[ext_resource type="PackedScene" uid="uid://by5f5rx3ha77n" path="res://resources/proto_assets/test_wall_mesh.glb" id="2_7c8vf"]
+[ext_resource type="PackedScene" uid="uid://dvy3xby3n6i7w" path="res://assets/environments/tall_door_frame.glb" id="3_p4mkq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ytnu1"]
 render_priority = 0
@@ -10,11 +12,20 @@ shader_parameter/alpha_scissor = 0.5
 shader_parameter/jitter = 0.25
 shader_parameter/resolution = Vector2i(320, 240)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je345"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_23n36"]
+data = PackedVector3Array(-0.5008, -3, -7.5001, -0.5008, 2.9999, 9.5, -0.5008, 2.9999, -7.5001, -0.5008, -3, -7.5001, -0.5008, -3, 9.5, -0.5008, 2.9999, 9.5, -0.5008, 2.9999, -7.5001, -20.5008, -3, -7.5001, -0.5008, -3, -7.5001, -0.5008, 2.9999, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, -3, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, -3, -16.5, -20.5008, -3, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, 2.9999, -16.5, -20.5008, -3, -16.5, -20.5008, 2.9999, -16.5, -26.5006, -3, -16.5, -20.5008, -3, -16.5, -20.5008, 2.9999, -16.5, -26.5006, 2.9999, -16.5, -26.5006, -3, -16.5, -26.5006, 2.9999, -16.5, -26.5006, -3, 0.4997, -26.5006, -3, -16.5, -26.5006, 2.9999, -16.5, -26.5006, 2.9999, 0.4997, -26.5006, -3, 0.4997, -26.5006, 2.9999, 0.4997, -40.5008, -3, 0.4997, -26.5006, -3, 0.4997, -26.5006, 2.9999, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, -3, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, -3, -7.5001, -40.5008, -3, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, 2.9999, -7.5001, -40.5008, -3, -7.5001, -40.5008, 2.9999, -7.5001, -50.5, -3, -7.5001, -40.5008, -3, -7.5001, -40.5008, 2.9999, -7.5001, -50.5, 2.9999, -7.5001, -50.5, -3, -7.5001)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_clv0n"]
+data = PackedVector3Array(-0.0002, -3, -10.0007, -0.0002, 2.9999, 10, -0.0002, 2.9999, -10.0007, -0.0002, -3, -10.0007, -0.0002, -3, 10, -0.0002, 2.9999, 10, -0.0002, -3, 10, -20, 2.9999, 10, -0.0002, 2.9999, 10, -0.0002, -3, 10, -20, -3, 10, -20, 2.9999, 10, -0.0002, 2.9999, -10.0007, 9, -3, -10.0007, -0.0002, -3, -10.0007, -0.0002, 2.9999, -10.0007, 9, 2.9999, -10.0007, 9, -3, -10.0007, 9, 2.9999, -10.0007, 9, -3, -22.0006, 9, -3, -10.0007, 9, 2.9999, -10.0007, 9, 2.9999, -22.0006, 9, -3, -22.0006, 9, 2.9999, -22.0006, -8.0004, -3, -22.0006, 9, -3, -22.0006, 9, 2.9999, -22.0006, -8.0004, 2.9999, -22.0006, -8.0004, -3, -22.0006, -8.0004, 2.9999, -22.0006, -8.0004, -3, -30.0005, -8.0004, -3, -22.0006, -8.0004, 2.9999, -22.0006, -8.0004, 2.9999, -30.0005, -8.0004, -3, -30.0005, -8.0004, 2.9999, -30.0005, -0.0002, -3, -30.0005, -8.0004, -3, -30.0005, -8.0004, 2.9999, -30.0005, -0.0002, 2.9999, -30.0005, -0.0002, -3, -30.0005, -0.0002, 2.9999, -30.0005, -0.0002, -3, -43, -0.0002, -3, -30.0005, -0.0002, 2.9999, -30.0005, -0.0002, 2.9999, -43, -0.0002, -3, -43)
+
 [node name="LevelMockup" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.241, -7.5)
 material_override = SubResource("ShaderMaterial_ytnu1")
+material_overlay = SubResource("StandardMaterial3D_je345")
 use_collision = true
 collision_mask = 0
 size = Vector3(3, 0.5, 19)
@@ -255,14 +266,41 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42.16
 light_color = Color(1, 0.517647, 0, 1)
 light_energy = 0.568
 
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -52.292, 1.52343, -9.22593)
+light_color = Color(1, 0.517647, 0, 1)
+light_energy = 0.568
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -69.3447, 1.52343, -9.22593)
+light_color = Color(1, 0.517647, 0, 1)
+light_energy = 0.568
+
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -23.25, -0.241, -12.75)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -52.5, -0.241, -7.5)
 material_override = SubResource("ShaderMaterial_ytnu1")
 use_collision = true
 collision_mask = 0
-size = Vector3(29.5, 0.5, 43.5)
+size = Vector3(40, 0.5, 102)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.76443, -3)
 light_color = Color(1, 0.517647, 0, 1)
 light_energy = 0.568
+
+[node name="test_wall_mesh" parent="." instance=ExtResource("2_7c8vf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 10)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_wall_mesh/Mesh_8_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_wall_mesh/Mesh_8_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_23n36")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="test_wall_mesh/Mesh_8_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="test_wall_mesh/Mesh_8_004/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_clv0n")
+
+[node name="tall_door_frame" parent="test_wall_mesh" instance=ExtResource("3_p4mkq")]
+
+[editable path="test_wall_mesh"]

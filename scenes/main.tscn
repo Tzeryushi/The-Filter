@@ -2,6 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_r1ksx"]
 
-[node name="Main" type="Node" node_paths=PackedStringArray("sub_view")]
+[node name="Main" type="Node"]
 script = ExtResource("1_r1ksx")
-sub_view = NodePath("")
