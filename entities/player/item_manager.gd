@@ -118,6 +118,7 @@ func drop_item(index: int = -1) -> void:
 	SceneManager.get_top_scene().add_child(new_item)
 	# Find intersection from front of arm to the next environmental obstacle
 	var place_point: Vector3
+	place_point = get_tree().get_first_node_in_group("player").global_position
 	if !player_arm.is_colliding():
 		var space_state = get_world_3d().direct_space_state
 		var arm_rotation : Vector3 = Vector3(0, 0, -1).rotated(Vector3(0,1,0), player_arm.global_rotation.y)
@@ -127,10 +128,9 @@ func drop_item(index: int = -1) -> void:
 		query.collision_mask = 1
 		var result = space_state.intersect_ray(query)
 		if result.has("position"):
-			place_point = result["position"]
-		else:
-			place_point = get_tree().get_first_node_in_group("player").global_position
-	else:
+			if result["normal"] == Vector3.UP:
+				place_point = result["position"]
+	elif player_arm.is_colliding() and player_arm.get_collision_normal() == Vector3.UP:
 		place_point = player_arm.get_collision_point()
 	new_item.global_position = place_point
 	
