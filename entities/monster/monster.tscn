@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7klbhae32d1l"]
+
+[ext_resource type="PackedScene" uid="uid://dj1hifgcdpoiq" path="res://resources/blend_files/phenomena/monster/monster.blend" id="1_tdmnu"]
+[ext_resource type="PackedScene" uid="uid://b410foy3txyur" path="res://entities/monster/monster_assets/animations/Orc Idle.fbx" id="2_4v1c5"]
+
+[node name="Monster" type="Node3D"]
+
+[node name="monster" parent="." instance=ExtResource("1_tdmnu")]
+
+[node name="Root Scene" parent="." instance=ExtResource("2_4v1c5")]
+
+[editable path="monster"]
+[editable path="Root Scene"]

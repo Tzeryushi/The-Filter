@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=37 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://dwk37f4ql0qmb" path="res://resources/blend_files/phenomena/tumors/tumor1.blend" id="12_vmwsl"]
+[ext_resource type="PackedScene" uid="uid://dj1hifgcdpoiq" path="res://resources/blend_files/phenomena/monster/monster.blend" id="13_8a8yb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -268,6 +269,12 @@ transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.30
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
 transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -15.8054)
 
+[node name="tumor1" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_vmwsl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3499, 0.7, -15.447)
+
+[node name="monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("13_8a8yb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.4609, -0.00267911, -13.8288)
+
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
@@ -275,9 +282,6 @@ rotation_amount = 1.57041
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
-
-[node name="tumor1" parent="." instance=ExtResource("12_vmwsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3499, 0.7, -15.447)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
