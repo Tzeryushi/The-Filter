@@ -1,6 +1,6 @@
 class_name Dialogue extends Panel
 
-@export var dialogue_button_res: PackedScene = preload("res://ui/dialogue/dialogue_button.tscn")
+@export var dialogue_button_res: PackedScene
 
 @export var dialogue_container: VBoxContainer
 @export var button_container: GridContainer
@@ -28,7 +28,6 @@ func clear_dialogue() -> void:
 	for child in button_container.get_children():
 		if child is Button:
 			child.queue_free()
-	return
 
 
 func add_choice(choice_text: String, id: int):
@@ -91,7 +90,7 @@ func _on_ez_dialogue_end_of_dialogue_reached():
 func _on_ez_dialogue_dialogue_generated(response: DialogueResponse):
 	dialogue_text.text = response.text
 	if response.choices.is_empty():
-		add_choice("Say nothing.", 0)
+		add_choice(" ... ", 0)
 	else:
 		for i in response.choices.size():
 			add_choice(response.choices[i], i)

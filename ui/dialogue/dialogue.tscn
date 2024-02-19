@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy4gsxxgg6a7m"]
+[gd_scene load_steps=6 format=3 uid="uid://dy4gsxxgg6a7m"]
 
 [ext_resource type="Script" path="res://ui/dialogue/dialogue.gd" id="1_pravm"]
 [ext_resource type="Theme" uid="uid://bx3tljos5sfq5" path="res://ui/dialogue/dialogue_theme.tres" id="1_qxf2c"]
 [ext_resource type="Script" path="res://addons/ez_dialogue/ez_dialogue_node.gd" id="2_44o8d"]
+[ext_resource type="PackedScene" uid="uid://da4raa0gjwn07" path="res://ui/dialogue/dialogue_button.tscn" id="3_kbmq4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eln8y"]
 bg_color = Color(0, 0, 0, 1)
@@ -24,6 +25,7 @@ size_flags_horizontal = 3
 theme = ExtResource("1_qxf2c")
 theme_override_styles/panel = SubResource("StyleBoxFlat_eln8y")
 script = ExtResource("1_pravm")
+dialogue_button_res = ExtResource("3_kbmq4")
 dialogue_container = NodePath("DialogueContainer")
 button_container = NodePath("DialogueContainer/GridContainer")
 dialogue_text = NodePath("DialogueContainer/DialogueText")

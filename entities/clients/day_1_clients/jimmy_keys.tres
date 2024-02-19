@@ -16,6 +16,7 @@ dialogue_state = {
 "answered_age": false,
 "answered_job": false,
 "answered_name": false,
+"answered_phenom": false,
 "answered_reason": false,
 "intro_given": false
 }

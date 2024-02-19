@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://b2fdhg06eduh5"]
+[gd_scene load_steps=2 format=3 uid="uid://b2fdhg06eduh5"]
+
+[ext_resource type="Script" path="res://entities/client_spawner/client_spawner.gd" id="1_dif3g"]
 
 [node name="ClientSpawner" type="Node3D"]
+script = ExtResource("1_dif3g")
