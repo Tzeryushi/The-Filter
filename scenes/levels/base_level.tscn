@@ -18,7 +18,7 @@
 [ext_resource type="Material" uid="uid://c4xaqsovgwx04" path="res://resources/textures/Cloth_1/Cloth_1.tres" id="9_p2hkh"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
-[ext_resource type="PackedScene" path="res://entities/monster/monster.tscn" id="12_plipu"]
+[ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
