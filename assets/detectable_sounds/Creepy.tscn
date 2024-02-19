@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dag5mebdunk32"]
+
+[ext_resource type="Script" path="res://assets/detectable_sounds/detectable_sound.gd" id="1_0pe5j"]
+[ext_resource type="AudioStream" uid="uid://caymf0xi7nyhn" path="res://assets/detectable_sounds/creepy.ogg" id="2_t671g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bw30c"]
+radius = 0.2
+
+[node name="Creepy" type="Area3D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_0pe5j")
+sensor_sound = ExtResource("2_t671g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bw30c")
