@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckni8rwyxn0pn"]
+
+[ext_resource type="Script" path="res://assets/detectable_sounds/detectable_sound.gd" id="1_qu54o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bm6df"]
+radius = 0.2
+
+[node name="DetectableSound" type="Area3D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_qu54o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bm6df")

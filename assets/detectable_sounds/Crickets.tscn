@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dllyw5c7kw21s"]
+
+[ext_resource type="Script" path="res://assets/detectable_sounds/detectable_sound.gd" id="1_7vgab"]
+[ext_resource type="AudioStream" uid="uid://xm3jfuhncsov" path="res://assets/detectable_sounds/crickets.mp3" id="2_5w1oy"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_75wyd"]
+radius = 0.2
+
+[node name="Crickets" type="Area3D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_7vgab")
+sensor_sound = ExtResource("2_5w1oy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_75wyd")

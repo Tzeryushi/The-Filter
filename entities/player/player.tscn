@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=38 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="8_8xowq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
+[ext_resource type="Script" path="res://entities/player/player_assets/player_sound_sensor_ray.gd" id="11_gltte"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="12_saqy6"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
 [ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
@@ -25,6 +27,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
 height = 1.87089
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ahiwv"]
+radius = 0.150694
+height = 0.608698
 
 [sub_resource type="Animation" id="Animation_y0lm7"]
 length = 0.001
@@ -618,6 +624,22 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
+[node name="SoundSensorRay" type="RayCast3D" parent="PlayerCamera"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 16
+collide_with_areas = true
+script = ExtResource("11_gltte")
+
+[node name="InteractionVolume" parent="PlayerCamera/SoundSensorRay" instance=ExtResource("12_saqy6")]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+interaction_text = "Pick Up Flashlight"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCamera/SoundSensorRay/InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ahiwv")
+
 [node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array", "clipboard", "clipboard_anim_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
@@ -661,10 +683,11 @@ light_volumetric_fog_energy = 3.0
 spot_range = 37.2267
 spot_angle = 32.9127
 
-[node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
+[node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
 transform = Transform3D(-7.56974e-08, 6.13639e-09, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, 7.54979e-08, 0.0958115, 1.09024, -0.10535)
 visible = false
 script = ExtResource("18_842pu")
+sound_sensor_ray = NodePath("../../../SoundSensorRay")
 item_resource = ExtResource("19_pp6pp")
 
 [node name="sound_sensor" parent="PlayerCamera/ItemManager/InventoryRig/SoundSensor" instance=ExtResource("19_gm3sr")]
@@ -680,4 +703,6 @@ libraries = {
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
+[connection signal="sound_detected" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detected"]
+[connection signal="sound_detections_ceased" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detections_ceased"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]

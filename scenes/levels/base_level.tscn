@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=50 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -20,6 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
+[ext_resource type="PackedScene" uid="uid://dag5mebdunk32" path="res://assets/detectable_sounds/Creepy.tscn" id="21_4w8mw"]
+[ext_resource type="PackedScene" uid="uid://f357y5vvvd26" path="res://assets/detectable_sounds/Heartbeat.tscn" id="21_ffc27"]
+[ext_resource type="PackedScene" uid="uid://dllyw5c7kw21s" path="res://assets/detectable_sounds/Crickets.tscn" id="22_acceo"]
+[ext_resource type="PackedScene" uid="uid://bopt6rg8ck18g" path="res://assets/detectable_sounds/Ghosts.tscn" id="23_0iy77"]
+[ext_resource type="PackedScene" uid="uid://b3fmo2jo4rdxq" path="res://assets/detectable_sounds/Scream.tscn" id="25_ubomo"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -334,6 +339,9 @@ transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
+[node name="SoundSensor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("20_0euyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
+
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.8272, 0.00411224, -13.4322)
 
@@ -344,8 +352,20 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.82
 [node name="ClipboardObject" parent="." instance=ExtResource("12_cc7au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
-[node name="SoundSensor" parent="." instance=ExtResource("20_0euyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
+[node name="Creepy" parent="." instance=ExtResource("21_4w8mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7695, 0.7, -16.2821)
+
+[node name="Crickets" parent="." instance=ExtResource("22_acceo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2063, 0.7, -16.2594)
+
+[node name="Ghosts" parent="." instance=ExtResource("23_0iy77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5178, 0.7, -16.2176)
+
+[node name="Heartbeat" parent="." instance=ExtResource("21_ffc27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0885, 0.7, -16.222)
+
+[node name="Scream" parent="." instance=ExtResource("25_ubomo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3456, 0.7, -16.1992)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]

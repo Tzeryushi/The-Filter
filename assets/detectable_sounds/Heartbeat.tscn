@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://f357y5vvvd26"]
+
+[ext_resource type="Script" path="res://assets/detectable_sounds/detectable_sound.gd" id="1_qu54o"]
+[ext_resource type="AudioStream" uid="uid://bs050vn64xa8m" path="res://assets/detectable_sounds/heartbeat_fast.ogg" id="2_ubcsq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bm6df"]
+radius = 0.2
+
+[node name="Heartbeat" type="Area3D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_qu54o")
+sensor_sound = ExtResource("2_ubcsq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bm6df")
