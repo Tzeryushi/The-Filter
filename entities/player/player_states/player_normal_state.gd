@@ -29,6 +29,8 @@ func process_input(event:InputEvent) -> BaseState:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			item_manager.use_item()
+	elif event.is_action_released("use"):
+		item_manager.unuse_item()
 	if event.is_action_pressed("drop"):
 		item_manager.drop_item()
 	

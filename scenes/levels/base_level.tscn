@@ -265,15 +265,26 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.5,
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.0014, -20.0002)
-light_color = Color(1, 0.886275, 0.356863, 1)
+light_color = Color(1, 0.886275, 0.662745, 1)
 light_energy = 6.446
 light_indirect_energy = 6.807
 light_specular = 8.37
 spot_range = 4.6257
-spot_angle = 85.0
+spot_angle = 42.65
+
+[node name="ClockLight" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+transform = Transform3D(1, 0, 0, 0, 0.917567, 0.39758, 0, -0.39758, 0.917567, -58.5, 4.0014, -20.0002)
+light_color = Color(1, 0.886275, 0.662745, 1)
+light_energy = 6.446
+light_indirect_energy = 6.807
+light_specular = 8.37
+spot_range = 3.64822
+spot_attenuation = 0.840896
+spot_angle = 12.8689
+spot_angle_attenuation = 1.62451
 
 [node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_dae83")]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.3095, 2.74982, -22.9773)
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.5, 2.75, -22.977)
 
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
 transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -16.1114)

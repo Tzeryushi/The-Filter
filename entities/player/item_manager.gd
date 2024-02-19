@@ -168,6 +168,11 @@ func use_item() -> void:
 		current_item.use()
 
 
+func unuse_item() -> void:
+	if current_item:
+		current_item.unuse()
+
+
 func swap_clipboard() -> void:
 	if is_clipboard_held:
 		clipboard_anim_player.play("clipboard_stow")
@@ -175,7 +180,6 @@ func swap_clipboard() -> void:
 		clipboard_anim_player.play("clipboard_view")
 	is_clipboard_held = !is_clipboard_held
 	clipboard.is_active = is_clipboard_held
-	print(clipboard.is_active)
 	clipboard_held.emit(is_clipboard_held)
 
 
