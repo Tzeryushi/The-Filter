@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=37 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="9_dae83"]
 [ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
+[ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -284,6 +285,9 @@ rotation_amount = 1.57041
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="ClipboardObject" parent="." instance=ExtResource("12_cc7au")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
