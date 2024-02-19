@@ -1,17 +1,18 @@
-[gd_scene load_steps=37 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=38 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="3_qq2hn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
-[ext_resource type="PackedScene" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
+[ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
 [ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="9_dae83"]
 [ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
+[ext_resource type="PackedScene" path="res://entities/monster/monster.tscn" id="12_plipu"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -292,6 +293,9 @@ transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
+
+[node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.8272, 0.00411224, -13.4322)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

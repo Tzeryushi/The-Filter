@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ckuu8ye1b25fc"]
+
+[ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_1xpr5"]
+[ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="1_54omr"]
+
+[resource]
+script = ExtResource("1_1xpr5")
+item_name = "flashlight"
+activate_anim = "flashlight_activate"
+deactivate_anim = "flashlight_deactivate"
+use_anim = "flashlight_use"
+stop_use_anim = "flashlight_stop_use"
+item_scene = ExtResource("1_54omr")

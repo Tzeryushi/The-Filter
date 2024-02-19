@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
-[ext_resource type="Script" path="res://entities/player/player_items/player_flashlight.gd" id="15_on77x"]
-[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
+[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
