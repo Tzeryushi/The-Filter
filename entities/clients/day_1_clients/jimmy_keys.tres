@@ -20,19 +20,23 @@ dialogue_state = {
 "answered_reason": false,
 "intro_given": false
 }
-forgetful = true
-headache = false
-irrational = false
-nauseated = false
-knows_too_much = false
-unresponsive = false
-hallucinating = false
-too_polite = false
-encountered_entity = false
-strange_growths = false
-averse_to_light = false
-time_dilation = false
-too_many_heartbeats = false
-second_presence = false
-ineplicable_phenomena = false
-manifesting_aura = false
+dialogue_symptoms = {
+"encountered_entity": true,
+"forgetful": true,
+"hallucinating": false,
+"headache": false,
+"irrational": false,
+"knows_too_much": false,
+"nauseated": false,
+"too_polite": false,
+"unresponsive": false
+}
+env_symptoms = {
+"averse_to_light": false,
+"ineplicable_phenomena": false,
+"manifesting_aura": false,
+"second_presence": false,
+"strange_growths": false,
+"time_dilation": false,
+"too_many_heartbeats": false
+}
