@@ -268,46 +268,6 @@ _data = {
 "flashlight_deactivate": SubResource("Animation_q75sy")
 }
 
-[sub_resource type="Animation" id="Animation_sefwx"]
-resource_name = "clipboard_view"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Clipboard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.258816, 1),
-"update": 0,
-"values": [Vector3(-0.354783, 1.14381, 0), Vector3(-0.197186, 1.55136, -0.238055)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Clipboard:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.258816, 1),
-"update": 0,
-"values": [Vector3(0.939074, 0, 0), Vector3(1.53996, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Clipboard:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="Animation" id="Animation_hfg2d"]
 length = 0.001
 tracks/0/type = "value"
@@ -385,6 +345,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_sefwx"]
+resource_name = "clipboard_view"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(-0.354783, 1.14381, 0), Vector3(-0.197186, 1.55136, -0.238055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipboard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(0.939074, 0, 0), Vector3(1.53996, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clipboard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tt4re"]
@@ -540,7 +540,7 @@ spot_range = 24.397
 spot_angle = 20.0013
 
 [node name="Clipboard" parent="PlayerCamera/ItemManager/InventoryRig" instance=ExtResource("18_tmpj6")]
-transform = Transform3D(1, 0, 0, 0, 0.590535, -0.807012, 0, 0.807012, 0.590535, -0.354783, 1.14381, 0)
+transform = Transform3D(1, 0, 0, 0, 0.590536, -0.807012, 0, 0.807012, 0.590536, -0.354783, 1.14381, 0)
 visible = false
 
 [node name="ClipboardAnimator" type="AnimationPlayer" parent="PlayerCamera/ItemManager/InventoryRig"]

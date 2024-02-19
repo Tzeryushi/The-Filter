@@ -23,7 +23,7 @@ var inventory_array: Array[PlayerItem] = []	## Array of item call strings
 
 var is_swapping: bool = false
 var is_inventory_full : get = get_is_inventory_full
-var is_clipboard_acquired: bool = true
+var is_clipboard_acquired: bool = false
 var is_clipboard_held: bool = false
 
 
@@ -103,18 +103,25 @@ func process_physics(delta: float) -> void:
 		current_item.process_frame(delta)
 
 
-func pickup_item(item_name: String) -> void:
+func pickup_item(item_name: String) -> bool:
 	if item_name == clipboard.item_name:
 		if not is_clipboard_acquired:
 			clipboard_acquired.emit()
 			is_clipboard_acquired = true
+			swap_clipboard()
+			return true
+		else:
+			return false
+	
+	if is_inventory_full:
+		return false
 	
 	if current_item:
 		deactivate_item()
-	
 	inventory_array.append(item_list[item_name])
 	current_item = inventory_array.back()
 	activate_item()
+	return true
 
 
 func drop_item(_index: int = -1) -> void:
@@ -125,7 +132,10 @@ func drop_item(_index: int = -1) -> void:
 	deactivate_item()
 	await anim_player.animation_finished
 	
-	SceneManager.get_top_scene().add_child(new_item)
+	if SceneManager.has_scenes():
+		SceneManager.get_top_scene().add_child(new_item)
+	else:
+		camera.get_parent().get_parent().add_child(new_item)
 	# Find intersection from front of arm to the next environmental obstacle
 	var place_point: Vector3
 	place_point = get_tree().get_first_node_in_group("player").global_position

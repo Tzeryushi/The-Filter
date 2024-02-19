@@ -43,10 +43,7 @@ func set_focus_mode(value: bool) -> void:
 
 
 func add_item(item_name: String) -> bool:
-	if !item_manager.is_inventory_full:
-		item_manager.pickup_item(item_name)
-		return true
-	return false
+	return item_manager.pickup_item(item_name)
 
 
 func _on_item_manager_clipboard_held(is_held):

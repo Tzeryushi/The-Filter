@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b20jxyhh16ptq"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/clipboard/clipboard_object.gd" id="1_f2nea"]
+[ext_resource type="PackedScene" uid="uid://mdaj0embvoxq" path="res://assets/interactables/items/clipboard/clipboard.glb" id="1_yad8h"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="2_ewhc8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njyul"]
+size = Vector3(0.241211, 0.0249023, 0.329102)
+
+[node name="ClipboardObject" type="Node3D"]
+script = ExtResource("1_f2nea")
+item_name = "clipboard"
+
+[node name="clipboard" parent="." instance=ExtResource("1_yad8h")]
+
+[node name="InteractionVolume" parent="." instance=ExtResource("2_ewhc8")]
+interaction_text = "Pick up clipboard"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00708008, 0)
+shape = SubResource("BoxShape3D_njyul")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
