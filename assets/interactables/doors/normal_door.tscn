@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7mi3g2jb6rmx"]
+[gd_scene load_steps=7 format=3 uid="uid://b7mi3g2jb6rmx"]
 
 [ext_resource type="Script" path="res://assets/interactables/doors/normal_door.gd" id="1_4pgd3"]
 [ext_resource type="PackedScene" uid="uid://dihcw75ck3svq" path="res://assets/interactables/doors/normal_door.glb" id="2_5b1bb"]
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_ek57x"]
+[ext_resource type="Material" uid="uid://b5anwk0mv7aqm" path="res://resources/textures/Wood_4/Wood_4.tres" id="3_ricod"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2gpee"]
 size = Vector3(1, 2.1, 0.2)
@@ -18,6 +19,9 @@ hinge = NodePath("Hinge")
 [node name="Hinge" type="Node3D" parent="."]
 
 [node name="normal_door" parent="Hinge" instance=ExtResource("2_5b1bb")]
+
+[node name="Door" parent="Hinge/normal_door" index="0"]
+surface_material_override/0 = ExtResource("3_ricod")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hinge/normal_door"]
 collision_mask = 0

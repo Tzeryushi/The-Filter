@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://hvsxc7ks33r"]
+
+[ext_resource type="Texture2D" uid="uid://1ltkeho2826j" path="res://resources/textures/Wood_8/Wood_8_Albedo.png" id="1_r286y"]
+[ext_resource type="Texture2D" uid="uid://bghnf78t8d3fy" path="res://resources/textures/Wood_8/Wood_8_Occlusion.png" id="2_61l24"]
+[ext_resource type="Texture2D" uid="uid://bpepsm1sdkj2q" path="res://resources/textures/Wood_8/Wood_8_Height.png" id="3_j7pje"]
+[ext_resource type="Texture2D" uid="uid://darw7wym0wsjq" path="res://resources/textures/Wood_8/Wood_8_Metallic.png" id="4_32brj"]
+[ext_resource type="Texture2D" uid="uid://5keru5ht8wtc" path="res://resources/textures/Wood_8/Wood_8_Normal.png" id="5_qilhy"]
+
+[resource]
+albedo_texture = ExtResource("1_r286y")
+metallic = 1.0
+metallic_texture = ExtResource("4_32brj")
+normal_enabled = true
+normal_texture = ExtResource("5_qilhy")
+ao_enabled = true
+ao_texture = ExtResource("2_61l24")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_j7pje")
+uv1_triplanar = true

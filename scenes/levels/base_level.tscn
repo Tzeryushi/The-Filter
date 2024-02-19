@@ -1,15 +1,21 @@
-[gd_scene load_steps=38 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=44 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="3_qq2hn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
+[ext_resource type="Material" uid="uid://ea7bul4exiwr" path="res://resources/textures/Floor_1/Floor_1.tres" id="5_53hf7"]
+[ext_resource type="Material" uid="uid://dy1kdh5n6w2a8" path="res://resources/textures/Wall_15/Wall_15.tres" id="5_jofqq"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
+[ext_resource type="Material" uid="uid://bejek6565dkwj" path="res://resources/textures/Floor_8/Floor_8.tres" id="6_htroi"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
+[ext_resource type="Material" uid="uid://o4ui84df714g" path="res://resources/textures/Panel_1/Panel_1.tres" id="8_7oadj"]
+[ext_resource type="Material" uid="uid://hvsxc7ks33r" path="res://resources/textures/Wood_8/Wood_8.tres" id="8_thprt"]
 [ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="9_dae83"]
 [ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
+[ext_resource type="Material" uid="uid://c4xaqsovgwx04" path="res://resources/textures/Cloth_1/Cloth_1.tres" id="9_p2hkh"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" path="res://entities/monster/monster.tscn" id="12_plipu"]
@@ -136,6 +142,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52488, 0, -2.2597)
 
 [node name="hallway" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("4_jo4be")]
 
+[node name="Mesh_8_001" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="0"]
+surface_material_override/0 = ExtResource("5_jofqq")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_001/StaticBody3D"]
@@ -146,15 +155,24 @@ shape = SubResource("ConcavePolygonShape3D_c8den")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ewfuo")
 
+[node name="Mesh_8_004" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="2"]
+surface_material_override/0 = ExtResource("5_jofqq")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_004" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ce8l7")
 
+[node name="Mesh_8_003" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="3"]
+surface_material_override/0 = ExtResource("5_53hf7")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_003" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xajkn")
+
+[node name="TallDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="4"]
+surface_material_override/0 = ExtResource("5_jofqq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/TallDoorFrame" index="0"]
 
@@ -162,6 +180,9 @@ shape = SubResource("ConcavePolygonShape3D_xajkn")
 shape = SubResource("ConcavePolygonShape3D_8mj1b")
 
 [node name="interrogation_rooms" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("5_oxn2n")]
+
+[node name="HallCeiling" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="0"]
+surface_material_override/0 = ExtResource("8_7oadj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallCeiling" index="0"]
 
@@ -173,20 +194,33 @@ shape = SubResource("ConcavePolygonShape3D_d5bqx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallWall/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_d4v2y")
 
+[node name="ObservationTable" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="2"]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, -59.491, 0, -16.055)
+surface_material_override/0 = ExtResource("8_thprt")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationTable" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationTable/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_a2tn6")
+
+[node name="ObservationWall" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="3"]
+surface_material_override/0 = ExtResource("9_p2hkh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWall" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWall/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_c8m34")
 
+[node name="ObservationWallBack" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="4"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWallBack" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWallBack/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_33k6n")
+
+[node name="ShortDoorFrame_001" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="5"]
+surface_material_override/0 = ExtResource("9_p2hkh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_001" index="0"]
 
@@ -195,31 +229,47 @@ shape = SubResource("ConcavePolygonShape3D_vxchs")
 
 [node name="ObservationFloor" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="6"]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -50.0002, 0.00411224, -16.9993)
+surface_material_override/0 = ExtResource("6_htroi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationFloor" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ohvbq")
 
+[node name="ShortDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="7"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ammn0")
+
+[node name="InterrogationFloor" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="8"]
+surface_material_override/0 = ExtResource("6_htroi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationFloor" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationFloor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_thx1h")
 
+[node name="InterrogationTable" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="9"]
+surface_material_override/0 = ExtResource("8_thprt")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationTable" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationTable/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5br38")
 
+[node name="Ceiling" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="10"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wrgfj")
+
+[node name="Ceiling_001" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="11"]
+surface_material_override/0 = ExtResource("8_7oadj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling_001" index="0"]
 
