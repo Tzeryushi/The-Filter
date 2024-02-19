@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dqhjw0wlmy0rh"]
+[gd_scene load_steps=2 format=3 uid="uid://dqhjw0wlmy0rh"]
+
+[ext_resource type="Script" path="res://entities/clients/client.gd" id="1_5pbfi"]
 
 [node name="Client" type="Node3D"]
+script = ExtResource("1_5pbfi")
