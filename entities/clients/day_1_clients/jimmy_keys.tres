@@ -7,22 +7,31 @@
 script = ExtResource("1_we6aw")
 client_name = "Jimmy Keys"
 client_age = 32
-client_profession = "Professional Unlocker"
+client_job = ""
 travel_reason = "Vacationing to Miami to see the Great Seawall"
 personality_type = 0
 threat_type = 0
 dialogue = ExtResource("1_2s8a0")
+dialogue_state = {
+"answered_age": false,
+"answered_job": false,
+"answered_name": false,
+"answered_reason": false,
+"intro_given": false
+}
 forgetful = true
 headache = false
 irrational = false
 nauseated = false
-manifesting_aura = false
+knows_too_much = false
 unresponsive = false
-averse_to_light = false
-time_dilation = false
-too_many_heartbeats = true
-strange_growths = false
 hallucinating = false
 too_polite = false
+encountered_entity = false
+strange_growths = false
+averse_to_light = false
+time_dilation = false
+too_many_heartbeats = false
 second_presence = false
 ineplicable_phenomena = false
+manifesting_aura = false
