@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6m8c0hyc6r1w"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/sound_sensor/sound_sensor.gd" id="1_6bo2e"]
+[ext_resource type="PackedScene" uid="uid://1ocfijxd78wx" path="res://resources/blend_files/tools/sound_sensor.blend" id="1_r146d"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="2_maagm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hmpp6"]
+radius = 0.150694
+height = 0.608698
+
+[node name="SoundSensor" type="Node3D"]
+script = ExtResource("1_6bo2e")
+item_name = "sound_sensor"
+
+[node name="sound_sensor" parent="." instance=ExtResource("1_r146d")]
+transform = Transform3D(0.0871383, 0.996196, 0, -0.996196, 0.0871383, 0, 0, 0, 1, -0.000747651, 0.0878581, 0)
+
+[node name="InteractionVolume" parent="." instance=ExtResource("2_maagm")]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+interaction_text = "Pick Up Sound Sensor"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(-0.0643407, 0.993943, -0.0890917, 0.0890918, 0.0946414, 0.991517, 0.993944, 0.0558577, -0.0946414, 0.231427, 0.0550411, -0.0322149)
+shape = SubResource("CapsuleShape3D_hmpp6")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]

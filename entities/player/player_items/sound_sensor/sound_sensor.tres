@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://b4ucb73a6dyk6"]
+
+[ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_5s8bg"]
+[ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="1_r87g2"]
+
+[resource]
+script = ExtResource("1_5s8bg")
+item_name = "sound_sensor"
+activate_anim = "sound_sensor_activate"
+deactivate_anim = "sound_sensor_deactivate"
+use_anim = "sound_sensor_use"
+stop_use_anim = "sound_sensor_stop_use"
+item_scene = ExtResource("1_r87g2")
