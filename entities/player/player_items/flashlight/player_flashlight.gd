@@ -17,12 +17,12 @@ func on_exit() -> void:
 
 func use() -> void:
 	is_on = !is_on
+	if is_on:
+		AudioManager.play_sound(flashlight_on_sound)
+	else:
+		AudioManager.play_sound(flashlight_off_sound)
 
 
 func set_is_on(value:bool) -> void:
 	is_on = value
 	spotlight.visible = is_on
-	if is_on:
-		AudioManager.play_sound(flashlight_on_sound)
-	else:
-		AudioManager.play_sound(flashlight_off_sound)
