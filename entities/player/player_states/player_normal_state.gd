@@ -12,6 +12,10 @@ extends PlayerState
 @export var item_manager: ItemManager
 
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func on_enter() -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

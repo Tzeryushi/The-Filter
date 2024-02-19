@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
-[ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
-[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Script" path="res://entities/player/player_items/player_flashlight.gd" id="15_on77x"]
+[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="16_uiobq"]
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
@@ -527,7 +527,7 @@ transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993362, 0, -0.993362, 0.115021, 
 visible = false
 script = ExtResource("15_on77x")
 spotlight = NodePath("SpotLight3D")
-item_resource = ExtResource("15_wh55d")
+item_resource = ExtResource("16_uiobq")
 
 [node name="flashlight" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight" instance=ExtResource("15_ibvv7")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.179616)
@@ -551,4 +551,5 @@ libraries = {
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
+[connection signal="clipboard_acquired" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_acquired"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]

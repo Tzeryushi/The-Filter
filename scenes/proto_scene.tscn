@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=9 format=3 uid="uid://d3t578w54oemg"]
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
+[ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_w1r3w"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="3_ixsct"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="4_xgmrm"]
 
@@ -20,6 +21,7 @@ glow_enabled = true
 
 [node name="ProtoScene" type="Node3D"]
 script = ExtResource("1_3nvhy")
+test_client = ExtResource("2_w1r3w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 11.3458, 7.82928, -4.32527)
