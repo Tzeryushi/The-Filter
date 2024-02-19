@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=38 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://c36xj3ti137nf" path="res://assets/environments/clock/clock.tscn" id="9_dae83"]
 [ext_resource type="PackedScene" uid="uid://crhp2oxambhwe" path="res://assets/environments/lighting/siren_light/siren_light.tscn" id="9_nwo07"]
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
-[ext_resource type="PackedScene" uid="uid://dwk37f4ql0qmb" path="res://resources/blend_files/phenomena/tumors/tumor1.blend" id="12_vmwsl"]
-[ext_resource type="PackedScene" uid="uid://dj1hifgcdpoiq" path="res://resources/blend_files/phenomena/monster/monster.blend" id="13_8a8yb"]
+[ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
+[ext_resource type="PackedScene" path="res://entities/monster/monster.tscn" id="12_plipu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
+data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -260,8 +263,6 @@ omni_range = 7.97264
 
 [node name="SirenLight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_nwo07")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.5, 2.5, -16.576)
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.4895, 2.50906, -16.5755)
-enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.0014, -20.0002)
@@ -276,17 +277,14 @@ spot_angle = 85.0
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.3095, 2.74982, -22.9773)
 
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
-transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -15.8054)
-
-[node name="tumor1" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_vmwsl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3499, 0.7, -15.447)
-
-[node name="monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("13_8a8yb")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -57.4609, -0.00267911, -13.8288)
+transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -16.1114)
 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
+
+[node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.8272, 0.00411224, -13.4322)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
