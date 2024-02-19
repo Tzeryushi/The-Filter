@@ -82,6 +82,10 @@ func set_container(new_container:Node) -> void:
 	container_scene = new_container
 
 
+func has_scenes() -> bool:
+	return current_scenes.size() > 0
+
+
 func get_top_scene() -> Node:
 	return current_scenes[0]
 
