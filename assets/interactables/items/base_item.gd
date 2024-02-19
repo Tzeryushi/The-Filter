@@ -1,4 +1,4 @@
-class_name BaseItem
+class_name BaseItem 
 extends Node3D
 ## Sends an item reference to a player script that interacts with it
 
