@@ -684,7 +684,7 @@ spot_range = 37.2267
 spot_angle = 32.9127
 
 [node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
-transform = Transform3D(-7.56974e-08, 6.13639e-09, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, 7.54979e-08, 0.0958115, 1.09024, -0.10535)
+transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
 visible = false
 script = ExtResource("18_842pu")
 sound_sensor_ray = NodePath("../../../SoundSensorRay")
