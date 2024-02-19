@@ -273,7 +273,7 @@ transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3499, 0.7, -15.447)
 
 [node name="monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("13_8a8yb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.4609, -0.00267911, -13.8288)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -57.4609, -0.00267911, -13.8288)
 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
