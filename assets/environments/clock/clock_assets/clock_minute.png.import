@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsi4ehxlqrhpd"
-path.s3tc="res://.godot/imported/clock_hour.png-34c4925926aafee85d48af524395a9f4.s3tc.ctex"
+uid="uid://ckoxg7peaxnx3"
+path.s3tc="res://.godot/imported/clock_minute.png-4541a953ef33c81cf1903c8f3dfc2c4e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://entities/clock/clock_assets/clock_hour.png"
-dest_files=["res://.godot/imported/clock_hour.png-34c4925926aafee85d48af524395a9f4.s3tc.ctex"]
+source_file="res://assets/environments/clock/clock_assets/clock_minute.png"
+dest_files=["res://.godot/imported/clock_minute.png-4541a953ef33c81cf1903c8f3dfc2c4e.s3tc.ctex"]
 
 [params]
 

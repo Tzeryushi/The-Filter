@@ -1,7 +1,5 @@
 extends Node
 
-var root: Node
-
 var sfx_stream_players: Array = []
 var voice_stream_players: Array = []
 var music_stream_players: Array = []
@@ -28,11 +26,10 @@ var sort_by_distance: Callable = func(a: PositionalAudioStreamPlayer, b: Positio
 	return a.stream and b.stream and player_node.global_position.distance_to(a.global_position) < player_node.global_position.distance_to(b.global_position)
 
 var sort_by_priority: Callable = func(a, b):
-	return a.stream and b.stream and a.stream.priority < b.stream.priority
+	return a.stream and b.stream and a.priority < b.priority
 
 
 func _ready():
-	root = get_tree().root
 
 	# Build player audio players
 	for n in SFX_CHANNELS:
@@ -62,9 +59,10 @@ func play_sound(
 	channel: Channel = Channel.SFX,
 	priority: int = PRIORITY_DEFAULT) -> int:
 
-	var stream_player: AudioStreamPlayer = get_free_stream_player(channel, false, priority)
+	var stream_player: PrioritizedAudioStreamPlayer = get_free_stream_player(channel, false, priority)
 	if stream_player:
 		stream_player.stream = stream
+		stream_player.priority = priority
 		stream_player.play()
 		return stream_player.get_instance_id()
 	return -1
@@ -85,8 +83,14 @@ func play_sound_at_location(
 
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
+		var game_space = get_tree().get_first_node_in_group("game_space")
+		if game_space:
+			stream_player.reparent(game_space)
+		else:
+			stream_player.reparent(get_tree().root)
 		stream_player.global_position = position
 		stream_player.stream = stream
+		stream_player.priority = priority
 		stream_player.play()
 		return stream_player.get_instance_id()
 	return -1
@@ -107,8 +111,14 @@ func play_sound_at_node(
 
 	var stream_player: PositionalAudioStreamPlayer = get_free_stream_player(channel, true, priority)
 	if stream_player:
+		var game_space = get_tree().get_first_node_in_group("game_space")
+		if game_space:
+			stream_player.reparent(game_space)
+		else:
+			stream_player.reparent(get_tree().root)
 		stream_player.followed_node = followed_node
 		stream_player.stream = stream
+		stream_player.priority = priority
 		stream_player.play()
 		return stream_player.get_instance_id()
 	return -1
@@ -175,11 +185,11 @@ func build_audio_player(
 
 	if positional:
 		audio_player = PositionalAudioStreamPlayer.new()
-		root.add_child.call_deferred(audio_player)
+		get_tree().root.add_child.call_deferred(audio_player)
 		audio_player.attenuation_model = attenuation
 	else:
-		audio_player = AudioStreamPlayer.new()
-		root.add_child.call_deferred(audio_player)
+		audio_player = PrioritizedAudioStreamPlayer.new()
+		get_tree().root.add_child.call_deferred(audio_player)
 
 	audio_player.set_bus(channel)
 

@@ -401,7 +401,7 @@ state_manager = NodePath("StateManager")
 item_manager = NodePath("PlayerCamera/ItemManager")
 
 [node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.933442, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_iu8e2")
 
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("body", "camera")]
@@ -439,7 +439,7 @@ item_manager = NodePath("../../PlayerCamera/ItemManager")
 state_type = 2
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.569, 0)
 current = true
 script = ExtResource("2_u2j1y")
 
