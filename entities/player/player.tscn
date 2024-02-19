@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=30 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight.gd" id="14_wjskm"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Resource" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
+[ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
@@ -267,6 +268,132 @@ _data = {
 "flashlight_deactivate": SubResource("Animation_q75sy")
 }
 
+[sub_resource type="Animation" id="Animation_sefwx"]
+resource_name = "clipboard_view"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(-0.354783, 1.14381, 0), Vector3(-0.197186, 1.55136, -0.238055)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipboard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.258816, 1),
+"update": 0,
+"values": [Vector3(0.939074, 0, 0), Vector3(1.53996, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clipboard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_hfg2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.354783, 1.14381, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipboard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.939074, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clipboard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_m51dl"]
+resource_name = "clipboard_stow"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Clipboard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector3(-0.197186, 1.55136, -0.238055), Vector3(-0.354783, 1.14381, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Clipboard:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector3(1.53996, 0, 0), Vector3(0.939074, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clipboard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tt4re"]
+_data = {
+"RESET": SubResource("Animation_hfg2d"),
+"clipboard_stow": SubResource("Animation_m51dl"),
+"clipboard_view": SubResource("Animation_sefwx")
+}
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager", "item_manager") groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_dek4s")
@@ -299,9 +426,17 @@ item_manager = NodePath("../../PlayerCamera/ItemManager")
 script = ExtResource("5_oh1lb")
 normal_state = NodePath("../Normal")
 focused_state = NodePath("../Focus")
+state_type = 1
 
-[node name="Focus" type="Node" parent="StateManager"]
+[node name="Focus" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state", "disconnected_state", "movement", "camera", "interaction_ray", "item_manager")]
 script = ExtResource("6_jj6gm")
+normal_state = NodePath("../Normal")
+disconnected_state = NodePath("../Disconnected")
+movement = NodePath("../../PlayerMovement")
+camera = NodePath("../../PlayerCamera")
+interaction_ray = NodePath("../../PlayerCamera/InteractionRay")
+item_manager = NodePath("../../PlayerCamera/ItemManager")
+state_type = 2
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
@@ -362,13 +497,15 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
-[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array")]
+[node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array", "clipboard", "clipboard_anim_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
 player_arm = NodePath("../InteractionRay")
 item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight")]
+clipboard = NodePath("InventoryRig/Clipboard")
+clipboard_anim_player = NodePath("InventoryRig/ClipboardAnimator")
 
 [node name="InventoryRig" type="Node3D" parent="PlayerCamera/ItemManager"]
 
@@ -386,7 +523,7 @@ item_resource = ExtResource("11_f018m")
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
-transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993363, 0, -0.993363, 0.115021, 0, 1.37255, 0)
+transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993362, 0, -0.993362, 0.115021, 0, 1.37255, 0)
 visible = false
 script = ExtResource("14_wjskm")
 spotlight = NodePath("SpotLight3D")
@@ -402,5 +539,15 @@ light_volumetric_fog_energy = 3.0
 spot_range = 24.397
 spot_angle = 20.0013
 
+[node name="Clipboard" parent="PlayerCamera/ItemManager/InventoryRig" instance=ExtResource("18_tmpj6")]
+transform = Transform3D(1, 0, 0, 0, 0.590535, -0.807012, 0, 0.807012, 0.590535, -0.354783, 1.14381, 0)
+visible = false
+
+[node name="ClipboardAnimator" type="AnimationPlayer" parent="PlayerCamera/ItemManager/InventoryRig"]
+libraries = {
+"": SubResource("AnimationLibrary_tt4re")
+}
+
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
+[connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]

@@ -1,4 +1,7 @@
+class_name Clipboard
 extends Node3D
+
+@export var item_name: String = "clipboard"
 
 @export var content_viewport: SubViewport
 @export var paper_mesh : MeshInstance3D
@@ -10,7 +13,6 @@ var is_mouse_held: bool = false
 var is_mouse_inside: bool = false
 var last_mouse_position3D = null
 var last_mouse_position2D = null
-
 
 
 func _ready() -> void:
@@ -30,6 +32,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	var is_mouse_event = false
 	if event is InputEventMouseButton or event is InputEventMouseMotion:
 		is_mouse_event = true
+		if !is_mouse_inside:
+			var camera: Camera3D = get_viewport().get_camera_3d()
+			var from = camera.project_ray_origin(event.position)
+			var dist = 4.0
+			var to = from + camera.project_ray_normal(event.position) * dist
+			var query := PhysicsRayQueryParameters3D.create(from, to, paper_area.collision_layer)
+			query.collide_with_areas = true
+			var result = get_world_3d().direct_space_state.intersect_ray(query)
+			if result.size() > 0:
+				is_mouse_inside = true
 	if is_mouse_event and (is_mouse_inside or is_mouse_held):
 		handle_mouse(event)
 	elif !is_mouse_event:

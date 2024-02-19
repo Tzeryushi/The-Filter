@@ -6,5 +6,7 @@ extends PlayerState
 
 func process_frame(_delta: float) -> BaseState:
 	if body.is_receiving_input:
+		if body.is_focused:
+			return focused_state
 		return normal_state
 	return null
