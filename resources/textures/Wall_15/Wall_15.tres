@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dy1kdh5n6w2a8"]
+
+[ext_resource type="Texture2D" uid="uid://dhuskkhegogm7" path="res://resources/textures/Wall_15/Wall_15_Albedo.png" id="1_q68c0"]
+[ext_resource type="Texture2D" uid="uid://wf68g7t0d6gr" path="res://resources/textures/Wall_15/Wall_15_Occlusion.png" id="2_v16h0"]
+[ext_resource type="Texture2D" uid="uid://c1r24dw6gthv" path="res://resources/textures/Wall_15/Wall_15_Height.png" id="3_javke"]
+[ext_resource type="Texture2D" uid="uid://csto7sswqhpmn" path="res://resources/textures/Wall_15/Wall_15_Metallic.png" id="4_7aqgi"]
+[ext_resource type="Texture2D" uid="uid://ctrw0wei71sgb" path="res://resources/textures/Wall_15/Wall_15_Normal.png" id="5_mxipd"]
+
+[resource]
+albedo_texture = ExtResource("1_q68c0")
+metallic = 1.0
+metallic_texture = ExtResource("4_7aqgi")
+normal_enabled = true
+normal_texture = ExtResource("5_mxipd")
+ao_enabled = true
+ao_texture = ExtResource("2_v16h0")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_javke")
+uv1_triplanar = true

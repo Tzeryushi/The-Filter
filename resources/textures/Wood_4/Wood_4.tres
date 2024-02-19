@@ -1,0 +1,20 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://b5anwk0mv7aqm"]
+
+[ext_resource type="Texture2D" uid="uid://bqv30tridvwo2" path="res://resources/textures/Wood_4/Wood_4_Albedo.png" id="1_iptaw"]
+[ext_resource type="Texture2D" uid="uid://byl0y6sac648o" path="res://resources/textures/Wood_4/Wood_4_Occlusion.png" id="2_ll5g1"]
+[ext_resource type="Texture2D" uid="uid://cmygd7kyu0vt2" path="res://resources/textures/Wood_4/Wood_4_Height.png" id="3_kvl2c"]
+[ext_resource type="Texture2D" uid="uid://qkkovgkwgft3" path="res://resources/textures/Wood_4/Wood_4_Metallic.png" id="4_fyfyp"]
+[ext_resource type="Texture2D" uid="uid://dqmtpi8668w32" path="res://resources/textures/Wood_4/Wood_4_Normal.png" id="5_axhhc"]
+
+[resource]
+albedo_texture = ExtResource("1_iptaw")
+metallic = 1.0
+metallic_texture = ExtResource("4_fyfyp")
+normal_enabled = true
+normal_texture = ExtResource("5_axhhc")
+ao_enabled = true
+ao_texture = ExtResource("2_ll5g1")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_kvl2c")
+uv1_scale = Vector3(4, 4, 4)
+uv1_triplanar = true

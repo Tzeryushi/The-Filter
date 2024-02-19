@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://c4xaqsovgwx04"]
+
+[ext_resource type="Texture2D" uid="uid://d1beu1k53f7t6" path="res://resources/textures/Cloth_1/Cloth_1_Albedo.png" id="1_sxhw0"]
+[ext_resource type="Texture2D" uid="uid://c23mbxciquvhq" path="res://resources/textures/Cloth_1/Cloth_1_Occlusion.png" id="2_e42bq"]
+[ext_resource type="Texture2D" uid="uid://dn72fnou0ivul" path="res://resources/textures/Cloth_1/Cloth_1_Height.png" id="3_w0emt"]
+[ext_resource type="Texture2D" uid="uid://4bwq5s41oxlc" path="res://resources/textures/Cloth_1/Cloth_1_Metallic.png" id="4_35hi3"]
+[ext_resource type="Texture2D" uid="uid://kqqcau37ou3o" path="res://resources/textures/Cloth_1/Cloth_1_Normal.png" id="5_uaj48"]
+
+[resource]
+albedo_texture = ExtResource("1_sxhw0")
+metallic = 1.0
+metallic_texture = ExtResource("4_35hi3")
+normal_enabled = true
+normal_texture = ExtResource("5_uaj48")
+ao_enabled = true
+ao_texture = ExtResource("2_e42bq")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_w0emt")
+uv1_triplanar = true
