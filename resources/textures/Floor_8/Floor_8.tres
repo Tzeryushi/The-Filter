@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bejek6565dkwj"]
+
+[ext_resource type="Texture2D" uid="uid://cnbfug1x8komv" path="res://resources/textures/Floor_8/Floor_8_Albedo.png" id="1_wc605"]
+[ext_resource type="Texture2D" uid="uid://c1g5wihm25tt3" path="res://resources/textures/Floor_8/Floor_8_Occlusion.png" id="2_t2ay7"]
+[ext_resource type="Texture2D" uid="uid://b6aweejotaydd" path="res://resources/textures/Floor_8/Floor_8_Height.png" id="3_rgrik"]
+[ext_resource type="Texture2D" uid="uid://bl20f0ar4rrhe" path="res://resources/textures/Floor_8/Floor_8_Metallic.png" id="4_y16js"]
+[ext_resource type="Texture2D" uid="uid://df4h7isk46st2" path="res://resources/textures/Floor_8/Floor_8_Normal.png" id="5_ia8vj"]
+
+[resource]
+albedo_texture = ExtResource("1_wc605")
+metallic = 1.0
+metallic_texture = ExtResource("4_y16js")
+normal_enabled = true
+normal_texture = ExtResource("5_ia8vj")
+ao_enabled = true
+ao_texture = ExtResource("2_t2ay7")
+heightmap_enabled = true
+heightmap_texture = ExtResource("3_rgrik")
+uv1_triplanar = true
