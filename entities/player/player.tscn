@@ -14,9 +14,9 @@
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
-[ext_resource type="Script" path="res://entities/player/player_items/flashlight.gd" id="14_wjskm"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
-[ext_resource type="Resource" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Script" path="res://entities/player/player_items/player_flashlight.gd" id="15_on77x"]
+[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight.tres" id="15_wh55d"]
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
@@ -525,7 +525,7 @@ item_resource = ExtResource("11_f018m")
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
 transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993362, 0, -0.993362, 0.115021, 0, 1.37255, 0)
 visible = false
-script = ExtResource("14_wjskm")
+script = ExtResource("15_on77x")
 spotlight = NodePath("SpotLight3D")
 item_resource = ExtResource("15_wh55d")
 
@@ -533,11 +533,12 @@ item_resource = ExtResource("15_wh55d")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.179616)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight"]
-light_color = Color(1, 1, 0.662745, 1)
-light_energy = 4.546
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.110107)
+light_color = Color(0.996078, 1, 0.768627, 1)
+light_energy = 1.952
 light_volumetric_fog_energy = 3.0
-spot_range = 24.397
-spot_angle = 20.0013
+spot_range = 37.2267
+spot_angle = 32.9127
 
 [node name="Clipboard" parent="PlayerCamera/ItemManager/InventoryRig" instance=ExtResource("18_tmpj6")]
 transform = Transform3D(1, 0, 0, 0, 0.590536, -0.807012, 0, 0.807012, 0.590536, -0.354783, 1.14381, 0)
