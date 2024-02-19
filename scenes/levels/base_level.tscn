@@ -31,7 +31,6 @@ sky_material = SubResource("ProceduralSkyMaterial_uenbd")
 [sub_resource type="Environment" id="Environment_ajw48"]
 background_mode = 2
 sky = SubResource("Sky_yciqa")
-ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.0
 tonemap_mode = 2
@@ -253,6 +252,7 @@ omni_range = 7.97264
 
 [node name="SirenLight" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_nwo07")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.4895, 2.50906, -16.5755)
+enabled = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.0014, -20.0002)

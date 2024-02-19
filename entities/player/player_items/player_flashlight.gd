@@ -9,6 +9,10 @@ func _ready() -> void:
 	is_on = false
 
 
+func on_exit() -> void:
+	set_is_on(false)
+
+
 func use() -> void:
 	is_on = !is_on
 

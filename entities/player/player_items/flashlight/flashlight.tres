@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://cura0jdqjq8n4"]
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://ckuu8ye1b25fc"]
 
 [ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_1xpr5"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="1_54omr"]

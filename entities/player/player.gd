@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 
+enum State {NORMAL = 0, DISCONNECTED = 1, FOCUSED = 2}
 
 @export var state_manager: StateManager
 @export var item_manager: ItemManager
@@ -11,6 +12,7 @@ var walk_velocity: Vector3
 var gravitational_velocity : Vector3
 
 var is_receiving_input : bool = true : set = set_input_mode
+var is_focused: bool = false : set = set_focus_mode
 
 
 func _ready():
@@ -36,8 +38,14 @@ func set_input_mode(value: bool) -> void:
 	is_receiving_input = value
 
 
+func set_focus_mode(value: bool) -> void:
+	is_focused = value
+
+
 func add_item(item_name: String) -> bool:
-	if !item_manager.is_inventory_full:
-		item_manager.pickup_item(item_name)
-		return true
-	return false
+	return item_manager.pickup_item(item_name)
+
+
+func _on_item_manager_clipboard_held(is_held):
+	set_focus_mode(is_held)
+	

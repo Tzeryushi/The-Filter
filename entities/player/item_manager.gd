@@ -3,6 +3,8 @@ extends Node3D
 
 
 signal swapping_finished
+signal clipboard_acquired
+signal clipboard_held(is_held:bool)
 
 @export var camera: PlayerCamera
 @export var anim_player: AnimationPlayer
@@ -10,6 +12,8 @@ signal swapping_finished
 
 @export var starter_items: Array[String] # Will likely be empty in most circumstances.
 @export var item_ref_array: Array[PlayerItem]
+@export var clipboard: Clipboard
+@export var clipboard_anim_player: AnimationPlayer
 
 @export var inventory_size: int = 3
 
@@ -19,6 +23,8 @@ var inventory_array: Array[PlayerItem] = []	## Array of item call strings
 
 var is_swapping: bool = false
 var is_inventory_full : get = get_is_inventory_full
+var is_clipboard_acquired: bool = false
+var is_clipboard_held: bool = false
 
 
 func _ready() -> void:
@@ -79,10 +85,9 @@ func process_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("swap_back"):
 		swap_back()
 	
-	if event.is_action_pressed("use"):
-		use_item()
-	if event.is_action_pressed("drop"):
-		drop_item()
+	if event.is_action_pressed("clipboard") and is_clipboard_acquired:
+		swap_clipboard()
+	#clipboard.push_input(event)
 	
 	if current_item:
 		current_item.process_input(event)
@@ -98,16 +103,28 @@ func process_physics(delta: float) -> void:
 		current_item.process_frame(delta)
 
 
-func pickup_item(item_name: String) -> void:
+func pickup_item(item_name: String) -> bool:
+	if item_name == clipboard.item_name:
+		if not is_clipboard_acquired:
+			clipboard_acquired.emit()
+			is_clipboard_acquired = true
+			swap_clipboard()
+			return true
+		else:
+			return false
+	
+	if is_inventory_full:
+		return false
+	
 	if current_item:
 		deactivate_item()
-	
 	inventory_array.append(item_list[item_name])
 	current_item = inventory_array.back()
 	activate_item()
+	return true
 
 
-func drop_item(index: int = -1) -> void:
+func drop_item(_index: int = -1) -> void:
 	if !current_item:
 		return
 	var new_item = current_item.item_resource.item_scene.instantiate()
@@ -115,7 +132,10 @@ func drop_item(index: int = -1) -> void:
 	deactivate_item()
 	await anim_player.animation_finished
 	
-	SceneManager.get_top_scene().add_child(new_item)
+	if SceneManager.has_scenes():
+		SceneManager.get_top_scene().add_child(new_item)
+	else:
+		camera.get_parent().get_parent().add_child(new_item)
 	# Find intersection from front of arm to the next environmental obstacle
 	var place_point: Vector3
 	place_point = get_tree().get_first_node_in_group("player").global_position
@@ -146,6 +166,17 @@ func drop_item(index: int = -1) -> void:
 func use_item() -> void:
 	if current_item:
 		current_item.use()
+
+
+func swap_clipboard() -> void:
+	if is_clipboard_held:
+		clipboard_anim_player.play("clipboard_stow")
+	elif clipboard_acquired:
+		clipboard_anim_player.play("clipboard_view")
+	is_clipboard_held = !is_clipboard_held
+	clipboard.is_active = is_clipboard_held
+	print(clipboard.is_active)
+	clipboard_held.emit(is_clipboard_held)
 
 
 func get_is_inventory_full() -> bool:
