@@ -43,3 +43,4 @@ env_symptoms = {
 "too_many_heartbeats": false
 }
 use_override = false
+size_scale = 0.8
