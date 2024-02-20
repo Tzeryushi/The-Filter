@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccdlggedyq5mj"]
+
+[ext_resource type="PackedScene" uid="uid://bntguierf5v3n" path="res://resources/blend_files/phenomena/creepies/star.blend" id="1_8yqhd"]
+
+[node name="star" instance=ExtResource("1_8yqhd")]
+
+[node name="star" parent="." index="0"]
+collision_layer = 32
+collision_mask = 0

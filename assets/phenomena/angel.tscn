@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwfbxwa06s4h2"]
+
+[ext_resource type="PackedScene" uid="uid://divsl662n5cxy" path="res://resources/blend_files/phenomena/creepies/angel.blend" id="1_i72cg"]
+
+[node name="angel" instance=ExtResource("1_i72cg")]
+
+[node name="Angel" parent="." index="0"]
+collision_layer = 32
+collision_mask = 0

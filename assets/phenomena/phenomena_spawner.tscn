@@ -1,0 +1,14 @@
+[gd_scene load_steps=6 format=3 uid="uid://di05cc62ms0bi"]
+
+[ext_resource type="Script" path="res://assets/phenomena/phenomena_spawner.gd" id="1_k7w7x"]
+[ext_resource type="PackedScene" uid="uid://dwfbxwa06s4h2" path="res://assets/phenomena/angel.tscn" id="2_823sr"]
+[ext_resource type="PackedScene" uid="uid://btavf1jyfv114" path="res://assets/phenomena/centipede.tscn" id="3_xx5nl"]
+[ext_resource type="PackedScene" uid="uid://by7och45xcib0" path="res://assets/phenomena/face.tscn" id="4_yu2k4"]
+[ext_resource type="PackedScene" uid="uid://ccdlggedyq5mj" path="res://assets/phenomena/star.tscn" id="5_hqa6c"]
+
+[node name="Phenomena" type="Node3D"]
+script = ExtResource("1_k7w7x")
+angel_model = ExtResource("2_823sr")
+centipede_model = ExtResource("3_xx5nl")
+face_model = ExtResource("4_yu2k4")
+star_model = ExtResource("5_hqa6c")
