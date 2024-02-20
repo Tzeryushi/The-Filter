@@ -21,12 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
+[ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
 [ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 [ext_resource type="PackedScene" uid="uid://c8plo7c4fxjnl" path="res://assets/phenomena/phenomena_controller.tscn" id="26_xe0bp"]
 [ext_resource type="Script" path="res://entities/entity_components/clipboard_checker.gd" id="27_ad6gn"]
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
-[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/misc/radio.blend" id="28_qhpxh"]
 [ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="28_qmrsc"]
 [ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
 [ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
@@ -366,8 +366,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.7761, -0.0237013, -18.4818)
 visible = false
 
-[node name="radio" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("28_qhpxh")]
-transform = Transform3D(0.100014, 0, 0.994986, 0, 1, 0, -0.994986, 0, 0.100014, -58.0881, 0.7, -16.3494)
+[node name="Radio" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("22_3xea3")]
+transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -58.0424, 0.7, -16.3054)
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
