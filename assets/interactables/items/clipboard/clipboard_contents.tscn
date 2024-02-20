@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh3dt054n6223"]
+[gd_scene load_steps=6 format=3 uid="uid://bh3dt054n6223"]
 
 [ext_resource type="Script" path="res://assets/interactables/items/clipboard/clipboard_contents.gd" id="1_8087m"]
 [ext_resource type="FontFile" uid="uid://v3i6pp1prmnx" path="res://addons/ez_dialogue/main_screen/ProggyVector Regular.ttf" id="1_pw38t"]
-[ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="2_6priv"]
 [ext_resource type="FontFile" uid="uid://plo812qwqcpr" path="res://resources/fonts/PapaManAOE.ttf" id="2_llcfe"]
-[ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_qbxsr"]
 [ext_resource type="Script" path="res://assets/interactables/items/clipboard/clipboard_check.gd" id="3_tc50j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bomcq"]
@@ -21,8 +19,6 @@ check_refs = [NodePath("VBoxContainer/GridContainer/HBoxContainer6/Headaches"), 
 approve_box = NodePath("VBoxContainer/HBoxContainer4/APPROVE")
 deny_box = NodePath("VBoxContainer/HBoxContainer4/DENY")
 threat_field = NodePath("VBoxContainer/HBoxContainer2/Threats")
-default_client = ExtResource("2_6priv")
-test_client = ExtResource("2_qbxsr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

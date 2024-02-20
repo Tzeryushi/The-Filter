@@ -10,15 +10,13 @@ signal submitted(results: Dictionary)
 @export var deny_box: CheckBox
 @export var threat_field: OptionButton
 
-@export var default_client: ClientResource
-
-@export var test_client : ClientResource
 
 var current_client: ClientResource
 
 
 func _ready() -> void:
 	Broadcaster.check_clipboard.connect(compare)
+	Broadcaster.client_manager_new_resource_used.connect(load_details)
 	
 	for threat in ClientResource.Threat:
 		threat_field.add_item(str(threat), ClientResource.Threat[threat])
@@ -37,6 +35,7 @@ func clear_checks() -> void:
 		check.button_pressed = false
 	approve_box.button_pressed = false
 	deny_box.button_pressed = false
+	threat_field.selected = 0
 
 
 func compare(resource: ClientResource) -> void:
@@ -47,6 +46,7 @@ func compare(resource: ClientResource) -> void:
 		"total_count" : 0,
 		"is_threat" : false,
 		"identified_threat" : false,
+		"admitted" : false,
 		"admitted_correctly" : false,
 	}
 	
@@ -65,12 +65,14 @@ func compare(resource: ClientResource) -> void:
 	
 	result_dict["is_threat"] = resource.threat_type != ClientResource.Threat.SAFE
 	result_dict["identified_threat"] = resource.threat_type == threat_field.selected
+	result_dict["admitted"] = approve_box.button_pressed
 	result_dict["admitted_correctly"] = resource.should_approve == approve_box.button_pressed
 	if !approve_box.button_pressed and !deny_box.button_pressed:
 		result_dict["admitted_correctly"] = false
 	
 	submitted.emit(result_dict)
 	Broadcaster.clipboard_form_submitted.emit(result_dict)
+	clear_checks()
 
 
 func _on_checked(comp:String, value:bool):

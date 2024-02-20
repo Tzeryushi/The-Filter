@@ -1,15 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqhjw0wlmy0rh"]
+[gd_scene load_steps=7 format=3 uid="uid://dqhjw0wlmy0rh"]
 
 [ext_resource type="Script" path="res://entities/clients/client.gd" id="1_5pbfi"]
 [ext_resource type="PackedScene" uid="uid://dvq215357x6i3" path="res://entities/clients/client_assets/tumors/tumor.tscn" id="2_ve31x"]
 [ext_resource type="PackedScene" uid="uid://cib3jfpgg41ui" path="res://entities/characters/proto_human.tscn" id="3_d1mc5"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="4_xs632"]
+[ext_resource type="Texture2D" uid="uid://bgbb8qqlhhxxg" path="res://resources/blend_files/skins/skin 1.png" id="5_itwg3"]
 
-[node name="Client" type="Node3D" node_paths=PackedStringArray("client_mesh", "client_skeleton", "growth_nodes")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjlt5"]
+render_priority = 0
+shader = ExtResource("4_xs632")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_itwg3")
+
+[node name="Client" type="Node3D" node_paths=PackedStringArray("client_mesh", "client_skeleton", "growth_nodes", "head_node")]
 script = ExtResource("1_5pbfi")
 client_mesh = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/human 1")
 client_skeleton = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton")
 growth_scene = ExtResource("2_ve31x")
 growth_nodes = [NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Heart/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Back1/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Neck/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Head/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/FootR/Node3D2"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/ArmR/Node3D3"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/ArmL/Node3D4")]
+head_node = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Head/Node3D")
 
 [node name="ProtoHuman" parent="." instance=ExtResource("3_d1mc5")]
 
@@ -37,6 +49,9 @@ bones/19/rotation = Quaternion(0.135568, 0.0813476, 0.984419, -0.076961)
 bones/20/rotation = Quaternion(-0.0380412, 0.993487, -0.106523, 0.0137752)
 bones/21/rotation = Quaternion(-0.0401629, 0.713343, -0.698051, 0.0474733)
 bones/22/rotation = Quaternion(2.83262e-10, 0.999075, 0.0429962, -2.15131e-08)
+
+[node name="human 1" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="0"]
+material_override = SubResource("ShaderMaterial_cjlt5")
 
 [node name="Heart" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="1"]
 transform = Transform3D(0.999426, -0.0147228, 0.0305174, 0.0151553, 0.999787, -0.0139871, -0.030305, 0.0144415, 0.999436, 0.00962782, 1.23414, -0.00663042)

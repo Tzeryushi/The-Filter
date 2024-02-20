@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=43 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://entities/player/player_states/player_focus_state.gd" id="6_jj6gm"]
 [ext_resource type="Script" path="res://entities/player/item_manager.gd" id="8_3ahaa"]
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
-[ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="8_8xowq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_phenomena_detector_ray.gd" id="11_a27ic"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
@@ -701,9 +700,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Dialogue" parent="PlayerCamera/CameraSpace" instance=ExtResource("8_8xowq")]
-layout_mode = 1
-
 [node name="Reticle" type="TextureRect" parent="PlayerCamera/CameraSpace"]
 layout_mode = 1
 anchors_preset = 8
@@ -911,6 +907,7 @@ libraries = {
 "": SubResource("AnimationLibrary_tt4re")
 }
 
+[connection signal="look_at_point" from="." to="PlayerCamera" method="_on_player_look_at_point"]
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
 [connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
