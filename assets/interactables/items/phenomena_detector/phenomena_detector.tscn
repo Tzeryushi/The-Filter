@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://i2agsds03wid"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/phenomena_detector/phenomena_detectgor.gd" id="1_yna25"]
+[ext_resource type="PackedScene" uid="uid://04xtfosqw28a" path="res://resources/blend_files/tools/phenomena_detector.blend" id="2_rc2us"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_wijet"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_60v24"]
+radius = 0.1
+height = 0.608698
+
+[node name="PhenomenaDetector" type="Node3D"]
+script = ExtResource("1_yna25")
+item_name = "phenomena_detector"
+
+[node name="phenomena_detector" parent="." instance=ExtResource("2_rc2us")]
+transform = Transform3D(0.999689, 0.0249556, 0, -0.0249556, 0.999689, 0, 0, 0, 1, 0, 0.0496003, 0)
+
+[node name="InteractionVolume" parent="." instance=ExtResource("3_wijet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+interaction_text = "Pick Up Phenomena Detector"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.115095, 0.0705371, 0)
+shape = SubResource("CapsuleShape3D_60v24")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]

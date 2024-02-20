@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=41 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -15,7 +15,6 @@
 [ext_resource type="Script" path="res://entities/player/player_assets/player_sound_sensor_ray.gd" id="11_gltte"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
-[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="12_saqy6"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
 [ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
@@ -23,14 +22,13 @@
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 [ext_resource type="PackedScene" uid="uid://1ocfijxd78wx" path="res://resources/blend_files/tools/sound_sensor.blend" id="19_gm3sr"]
 [ext_resource type="Resource" uid="uid://b4ucb73a6dyk6" path="res://entities/player/player_items/sound_sensor/sound_sensor.tres" id="19_pp6pp"]
+[ext_resource type="Script" path="res://entities/player/player_items/phenomena_detector/player_phenomena_detector.gd" id="20_p0thh"]
+[ext_resource type="Resource" uid="uid://38pfbdy68ast" path="res://entities/player/player_items/phenomena_detector/phenomena_detector.tres" id="21_mwq0b"]
+[ext_resource type="PackedScene" uid="uid://04xtfosqw28a" path="res://resources/blend_files/tools/phenomena_detector.blend" id="21_x2jn0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
 height = 1.87089
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ahiwv"]
-radius = 0.150694
-height = 0.608698
 
 [sub_resource type="Animation" id="Animation_y0lm7"]
 length = 0.001
@@ -141,6 +139,42 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PhenomenaDetector:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.207022, 1.06472, -0.022752)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PhenomenaDetector:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PhenomenaDetector:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.209e-09, -1.5708, 0.811526)]
 }
 
 [sub_resource type="Animation" id="Animation_evmqe"]
@@ -384,6 +418,86 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_viwp4"]
+resource_name = "phenomena_detector_activate"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhenomenaDetector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.176777, 1),
+"update": 0,
+"values": [Vector3(0.207022, 1.06472, -0.022752), Vector3(0.242345, 1.32899, -0.349696)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhenomenaDetector:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PhenomenaDetector:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.176777, 1),
+"update": 0,
+"values": [Vector3(8.209e-09, -1.5708, 0.811526), Vector3(0.317744, -1.53364, -0.121572)]
+}
+
+[sub_resource type="Animation" id="Animation_xhjrf"]
+resource_name = "phenomena_detector_deactivate"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhenomenaDetector:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.659754, 1),
+"update": 0,
+"values": [Vector3(0.242345, 1.32899, -0.349696), Vector3(0.207022, 1.06472, -0.022752)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhenomenaDetector:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.659754, 1),
+"update": 0,
+"values": [Vector3(0.317744, -1.53364, -0.121572), Vector3(8.209e-09, -1.5708, 0.811526)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PhenomenaDetector:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msd6h"]
 _data = {
 "RESET": SubResource("Animation_y0lm7"),
@@ -391,6 +505,8 @@ _data = {
 "base_item_deactivate": SubResource("Animation_1iyic"),
 "flashlight_activate": SubResource("Animation_nqju2"),
 "flashlight_deactivate": SubResource("Animation_q75sy"),
+"phenomena_detector_activate": SubResource("Animation_viwp4"),
+"phenomena_detector_deactivate": SubResource("Animation_xhjrf"),
 "sound_sensor_activate": SubResource("Animation_lc51e"),
 "sound_sensor_deactivate": SubResource("Animation_smbss")
 }
@@ -632,21 +748,13 @@ collision_mask = 16
 collide_with_areas = true
 script = ExtResource("11_gltte")
 
-[node name="InteractionVolume" parent="PlayerCamera/SoundSensorRay" instance=ExtResource("12_saqy6")]
-transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
-interaction_text = "Pick Up Flashlight"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCamera/SoundSensorRay/InteractionVolume"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_ahiwv")
-
 [node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array", "clipboard", "clipboard_anim_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
 player_arm = NodePath("../InteractionRay")
-item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight"), NodePath("InventoryRig/SoundSensor")]
+item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight"), NodePath("InventoryRig/SoundSensor"), NodePath("InventoryRig/PhenomenaDetector")]
 clipboard = NodePath("InventoryRig/Clipboard")
 clipboard_anim_player = NodePath("InventoryRig/ClipboardAnimator")
 
@@ -682,6 +790,15 @@ light_energy = 1.952
 light_volumetric_fog_energy = 3.0
 spot_range = 37.2267
 spot_angle = 32.9127
+
+[node name="PhenomenaDetector" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
+transform = Transform3D(-3.60449e-08, 2.60545e-08, -1, 0.725338, 0.688392, -8.209e-09, 0.688392, -0.725338, -4.37114e-08, 0.207022, 1.06472, -0.022752)
+visible = false
+script = ExtResource("20_p0thh")
+item_resource = ExtResource("21_mwq0b")
+
+[node name="phenomena_detector" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" instance=ExtResource("21_x2jn0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, -3.55271e-15, 3.55271e-15, 1, 0, 0, 0)
 
 [node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
 transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
