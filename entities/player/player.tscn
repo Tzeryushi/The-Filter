@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=44 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="8_8xowq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
+[ext_resource type="Script" path="res://entities/player/player_assets/player_phenomena_detector_ray.gd" id="11_a27ic"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_sound_sensor_ray.gd" id="11_gltte"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="12_saqy6"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
 [ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
@@ -511,6 +513,10 @@ _data = {
 "sound_sensor_deactivate": SubResource("Animation_smbss")
 }
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_imrm5"]
+radius = 0.150694
+height = 0.608698
+
 [sub_resource type="Animation" id="Animation_hfg2d"]
 length = 0.001
 tracks/0/type = "value"
@@ -740,6 +746,88 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
+[node name="PhenomenaRays" type="Node3D" parent="PlayerCamera"]
+
+[node name="PhenomenaDetectorRay" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay2" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay3" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay4" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay5" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay6" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay7" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay8" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay9" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
+[node name="PhenomenaDetectorRay10" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -5)
+collision_mask = 32
+collide_with_areas = true
+script = ExtResource("11_a27ic")
+
 [node name="SoundSensorRay" type="RayCast3D" parent="PlayerCamera"]
 visible = false
 enabled = false
@@ -791,14 +879,29 @@ light_volumetric_fog_energy = 3.0
 spot_range = 37.2267
 spot_angle = 32.9127
 
-[node name="PhenomenaDetector" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig"]
+[node name="PhenomenaDetector" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("phenomena_detector_rays")]
 transform = Transform3D(-3.60449e-08, 2.60545e-08, -1, 0.725338, 0.688392, -8.209e-09, 0.688392, -0.725338, -4.37114e-08, 0.207022, 1.06472, -0.022752)
 visible = false
 script = ExtResource("20_p0thh")
+phenomena_detector_rays = [NodePath("../../../PhenomenaRays/PhenomenaDetectorRay"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay2"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay3"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay4"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay5"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay6"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay7"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay8"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay9"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay10")]
 item_resource = ExtResource("21_mwq0b")
 
 [node name="phenomena_detector" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" instance=ExtResource("21_x2jn0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -3.55271e-15, 3.55271e-15, 1, 0, 0, 0)
+
+[node name="InteractionVolume" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector/PhenomenaDetector" index="0" instance=ExtResource("12_saqy6")]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+interaction_text = "Pick Up Sound Sensor"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector/PhenomenaDetector/InteractionVolume"]
+transform = Transform3D(-0.0643407, 0.993943, -0.0890917, 0.0890918, 0.0946414, 0.991517, 0.993944, 0.0558577, -0.0946414, 0.231427, 0.0550411, -0.0322149)
+shape = SubResource("CapsuleShape3D_imrm5")
+
+[node name="Gem" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector" index="1"]
+visible = false
+
+[node name="Screen" parent="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector" index="2"]
+visible = false
 
 [node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
 transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
@@ -820,6 +923,28 @@ libraries = {
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay2" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay2" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay3" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay3" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay4" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay4" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay5" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay5" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay6" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay6" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay7" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay7" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay8" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay8" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay9" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay9" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
+[connection signal="phenomena_detected" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay10" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detected"]
+[connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay10" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
 [connection signal="sound_detected" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detected"]
 [connection signal="sound_detections_ceased" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detections_ceased"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]
+
+[editable path="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector"]

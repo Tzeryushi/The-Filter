@@ -15,6 +15,12 @@ item_name = "phenomena_detector"
 [node name="phenomena_detector" parent="." instance=ExtResource("2_rc2us")]
 transform = Transform3D(0.999689, 0.0249556, 0, -0.0249556, 0.999689, 0, 0, 0, 1, 0, 0.0496003, 0)
 
+[node name="Gem" parent="phenomena_detector" index="1"]
+visible = false
+
+[node name="Screen" parent="phenomena_detector" index="2"]
+visible = false
+
 [node name="InteractionVolume" parent="." instance=ExtResource("3_wijet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 interaction_text = "Pick Up Phenomena Detector"
@@ -24,3 +30,5 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.115
 shape = SubResource("CapsuleShape3D_60v24")
 
 [connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="phenomena_detector"]
