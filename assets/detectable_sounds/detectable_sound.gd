@@ -1,4 +1,31 @@
 class_name DetectableSound
 extends Area3D
 
-@export var sensor_sound: AudioStream = preload("res://resources/sounds/sfx/take_me_to_your_leader.ogg")
+@export var type: SoundType = SoundType.HEARTBEAT
+@export var creepy_sound: AudioStream
+@export var crickets_sound: AudioStream
+@export var ghosts_sound: AudioStream
+@export var heartbeat_sound: AudioStream
+@export var scream_sound: AudioStream
+
+var active_sound: AudioStream
+
+enum SoundType {CREEPY, CRICKETS, GHOSTS, HEARTBEAT, SCREAM}
+
+
+func _ready():
+	set_sensor_sound(type)
+
+
+func set_sensor_sound(type: SoundType):
+	match type:
+		SoundType.CREEPY:
+			active_sound = creepy_sound
+		SoundType.CRICKETS:
+			active_sound = crickets_sound
+		SoundType.GHOSTS:
+			active_sound = ghosts_sound
+		SoundType.HEARTBEAT:
+			active_sound = heartbeat_sound
+		SoundType.SCREAM:
+			active_sound = scream_sound

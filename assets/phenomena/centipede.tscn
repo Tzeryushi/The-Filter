@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://btavf1jyfv114"]
+
+[ext_resource type="PackedScene" uid="uid://co2rlto0wgdwh" path="res://resources/blend_files/phenomena/creepies/space_centipede.blend" id="1_uwdgk"]
+
+[node name="space_centipede" instance=ExtResource("1_uwdgk")]
+
+[node name="Centipede" parent="." index="0"]
+collision_layer = 32
+collision_mask = 0
