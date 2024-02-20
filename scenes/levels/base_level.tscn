@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=51 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dllyw5c7kw21s" path="res://assets/detectable_sounds/Crickets.tscn" id="22_acceo"]
 [ext_resource type="PackedScene" uid="uid://bopt6rg8ck18g" path="res://assets/detectable_sounds/Ghosts.tscn" id="23_0iy77"]
 [ext_resource type="PackedScene" uid="uid://b3fmo2jo4rdxq" path="res://assets/detectable_sounds/Scream.tscn" id="25_ubomo"]
+[ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -345,27 +346,39 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.8272, 0.00411224, -13.4322)
 
+[node name="Creepy" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_4w8mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7695, 0.7, -16.2821)
+
+[node name="Crickets" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("22_acceo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2063, 0.7, -16.2594)
+
+[node name="Ghosts" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("23_0iy77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5178, 0.7, -16.2176)
+
+[node name="Heartbeat" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_ffc27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0885, 0.7, -16.222)
+
+[node name="Scream" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_ubomo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3456, 0.7, -16.1992)
+
+[node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
+
+[node name="ReelComputer2" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54.8127, 0.00411224, -11.9527)
+
+[node name="ReelComputer3" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.6797, 0.00411224, -11.9527)
+
+[node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
 [node name="ClipboardObject" parent="." instance=ExtResource("12_cc7au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
-
-[node name="Creepy" parent="." instance=ExtResource("21_4w8mw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7695, 0.7, -16.2821)
-
-[node name="Crickets" parent="." instance=ExtResource("22_acceo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2063, 0.7, -16.2594)
-
-[node name="Ghosts" parent="." instance=ExtResource("23_0iy77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5178, 0.7, -16.2176)
-
-[node name="Heartbeat" parent="." instance=ExtResource("21_ffc27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0885, 0.7, -16.222)
-
-[node name="Scream" parent="." instance=ExtResource("25_ubomo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3456, 0.7, -16.1992)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
