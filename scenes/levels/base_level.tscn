@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=59 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -20,10 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
-[ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
-[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="26_lirhs"]
 [ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
+[ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
 [ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="26_lirhs"]
 [ext_resource type="PackedScene" uid="uid://c8plo7c4fxjnl" path="res://assets/phenomena/phenomena_controller.tscn" id="26_xe0bp"]
 [ext_resource type="Script" path="res://entities/entity_components/clipboard_checker.gd" id="27_ad6gn"]
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
@@ -182,6 +182,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68374, 0, -1.23404)
 
 [node name="ClientNoLightPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(0.829252, 0, 0.558874, 0, 1, 0, -0.558874, 0, 0.829252, 1.18374, 0, -1.23404)
+
+[node name="ClientSpawnPoint2" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+
+[node name="ClientStandPoint2" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68374, 0, -1.23404)
+
+[node name="ClientNoLightPoint2" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
 transform = Transform3D(0.829252, 0, 0.558874, 0, 1, 0, -0.558874, 0, 0.829252, 1.18374, 0, -1.23404)
 
 [node name="SubmissionComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_3uxoq")]
@@ -417,11 +425,10 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.67
 [node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
 
-
 [node name="ClipboardObject" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_cc7au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
-[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
+[node name="ClientManager2" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
 spawn_location = NodePath("../ClientPoints/ClientSpawnPoint")
 stand_location = NodePath("../ClientPoints/ClientStandPoint")
 reject_location = NodePath("../ClientPoints/ClientSpawnPoint")
@@ -457,16 +464,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
 visible = false
 type = 2
 
-[node name="ClientPoints" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+[node name="ClientPoints2" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
-
-[node name="ClientSpawnPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-
-[node name="ClientStandPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68374, 0, -1.23404)
-
-[node name="ClientNoLightPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-transform = Transform3D(0.829252, 0, 0.558874, 0, 1, 0, -0.558874, 0, 0.829252, 1.18374, 0, -1.23404)
 
 [node name="ClipboardChecker" type="Node" parent="."]
 script = ExtResource("27_ad6gn")
@@ -480,7 +479,6 @@ default_client = ExtResource("28_qmrsc")
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
-
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
