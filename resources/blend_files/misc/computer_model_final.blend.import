@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbbk3r27hklqm"
-path="res://.godot/imported/computer emission.blend-3fe60b9325535b36a870f03f5562f78a.scn"
+uid="uid://0cn26v4tvrtp"
+path="res://.godot/imported/computer_model_final.blend-ad3d22ef89c93959babde2b44bdf4d0e.scn"
 
 [deps]
 
-source_file="res://resources/blend_files/misc/computer emission.blend"
-dest_files=["res://.godot/imported/computer emission.blend-3fe60b9325535b36a870f03f5562f78a.scn"]
+source_file="res://resources/blend_files/misc/computer_model_final.blend"
+dest_files=["res://.godot/imported/computer_model_final.blend-ad3d22ef89c93959babde2b44bdf4d0e.scn"]
 
 [params]
 

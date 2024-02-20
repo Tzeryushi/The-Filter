@@ -1,6 +1,7 @@
 class_name Clipboard
 extends Node3D
 
+
 @export var item_name: String = "clipboard"
 
 @export var content_viewport: SubViewport
@@ -128,3 +129,4 @@ func set_active(value: bool) -> void:
 
 func _mouse_entered_area() -> void:
 	is_mouse_inside = true
+

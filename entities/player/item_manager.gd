@@ -22,6 +22,7 @@ var current_item: PlayerItem = null
 var inventory_array: Array[PlayerItem] = []	## Array of item call strings
 
 var is_swapping: bool = false
+var is_dropping: bool = false
 var is_inventory_full : get = get_is_inventory_full
 var is_clipboard_acquired: bool = false
 var is_clipboard_held: bool = false
@@ -125,8 +126,9 @@ func pickup_item(item_name: String) -> bool:
 
 
 func drop_item(_index: int = -1) -> void:
-	if !current_item:
+	if !current_item or is_dropping:
 		return
+	is_dropping = true
 	var new_item = current_item.item_resource.item_scene.instantiate()
 	
 	deactivate_item()
@@ -160,6 +162,7 @@ func drop_item(_index: int = -1) -> void:
 		activate_item()
 	else:
 		current_item = null
+	is_dropping = false
 
 
 # Calls the current item's use function

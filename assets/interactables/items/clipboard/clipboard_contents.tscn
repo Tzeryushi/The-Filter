@@ -1,0 +1,716 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh3dt054n6223"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/clipboard/clipboard_contents.gd" id="1_8087m"]
+[ext_resource type="FontFile" uid="uid://v3i6pp1prmnx" path="res://addons/ez_dialogue/main_screen/ProggyVector Regular.ttf" id="1_pw38t"]
+[ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="2_6priv"]
+[ext_resource type="FontFile" uid="uid://plo812qwqcpr" path="res://resources/fonts/PapaManAOE.ttf" id="2_llcfe"]
+[ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_qbxsr"]
+[ext_resource type="Script" path="res://assets/interactables/items/clipboard/clipboard_check.gd" id="3_tc50j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bomcq"]
+
+[node name="ClipboardContents" type="Control" node_paths=PackedStringArray("check_refs", "approve_box", "deny_box", "threat_field")]
+clip_contents = true
+custom_minimum_size = Vector2(351, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 351.0
+offset_bottom = 512.0
+script = ExtResource("1_8087m")
+check_refs = [NodePath("VBoxContainer/GridContainer/HBoxContainer6/Headaches"), NodePath("VBoxContainer/GridContainer/HBoxContainer8/Forgetful"), NodePath("VBoxContainer/GridContainer/HBoxContainer9/Irrational"), NodePath("VBoxContainer/GridContainer/HBoxContainer10/Nauseated"), NodePath("VBoxContainer/GridContainer/HBoxContainer11/KnowsTooMuch"), NodePath("VBoxContainer/GridContainer/HBoxContainer12/CheckBox"), NodePath("VBoxContainer/GridContainer/HBoxContainer13/Hallucinating"), NodePath("VBoxContainer/GridContainer/HBoxContainer14/Too Polite"), NodePath("VBoxContainer/GridContainer/HBoxContainer15/EncounteredEntity"), NodePath("VBoxContainer/GridContainer/HBoxContainer16/StrangeGrowths"), NodePath("VBoxContainer/GridContainer/HBoxContainer17/LightSensitive"), NodePath("VBoxContainer/GridContainer/HBoxContainer18/TimeDilation"), NodePath("VBoxContainer/GridContainer/HBoxContainer19/TooManyHeartbeats"), NodePath("VBoxContainer/GridContainer/HBoxContainer20/SecondPresence"), NodePath("VBoxContainer/GridContainer/HBoxContainer21/ManifestingAura"), NodePath("VBoxContainer/GridContainer/HBoxContainer7/StrangeSounds"), NodePath("VBoxContainer/GridContainer/HBoxContainer22/Crickets"), NodePath("VBoxContainer/GridContainer/HBoxContainer23/IncreasedShadows"), NodePath("VBoxContainer/GridContainer/HBoxContainer24/InexplicablePhenomena")]
+approve_box = NodePath("VBoxContainer/HBoxContainer4/APPROVE")
+deny_box = NodePath("VBoxContainer/HBoxContainer4/DENY")
+threat_field = NodePath("VBoxContainer/HBoxContainer2/Threats")
+default_client = ExtResource("2_6priv")
+test_client = ExtResource("2_qbxsr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 32.0
+offset_right = 336.0
+offset_bottom = 493.0
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Name:"
+fit_content = true
+scroll_active = false
+
+[node name="NameField" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_llcfe")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Danny Default"
+fit_content = true
+scroll_active = false
+
+[node name="AgeLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Age:"
+fit_content = true
+scroll_active = false
+
+[node name="AgeField" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_llcfe")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "2345"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="OccupationLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Occupation:"
+fit_content = true
+scroll_active = false
+
+[node name="OccupationField" type="RichTextLabel" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_llcfe")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Truck store salesman"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ReasonLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Reason:"
+fit_content = true
+scroll_active = false
+
+[node name="ReasonField" type="RichTextLabel" parent="VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_llcfe")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Going to visit hell"
+fit_content = true
+scroll_active = false
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bomcq")
+
+[node name="COMPLICATIONS" type="RichTextLabel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center][color=red]COMPLICATIONS"
+fit_content = true
+scroll_active = false
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 7
+theme_override_constants/v_separation = 1
+columns = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer6"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Headaches"
+fit_content = true
+scroll_active = false
+
+[node name="Headaches" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer6"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "headache"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer8"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Forgetful"
+fit_content = true
+scroll_active = false
+
+[node name="Forgetful" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer8"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "forgetful"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer9"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Irrational"
+fit_content = true
+scroll_active = false
+
+[node name="Irrational" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer9"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "irrational"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer10"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Nauseated"
+fit_content = true
+scroll_active = false
+
+[node name="Nauseated" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer10"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "nauseated"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer11"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Knows too much"
+fit_content = true
+scroll_active = false
+
+[node name="KnowsTooMuch" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer11"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "knows_too_much"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer12"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Unresponsive"
+fit_content = true
+scroll_active = false
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer12"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "unresponsive"
+
+[node name="HBoxContainer13" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer13"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Hallucinating"
+fit_content = true
+scroll_active = false
+
+[node name="Hallucinating" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer13"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "hallucinating"
+
+[node name="HBoxContainer14" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer14"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Too polite
+"
+fit_content = true
+scroll_active = false
+
+[node name="Too Polite" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer14"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "too_polite"
+
+[node name="HBoxContainer15" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer15"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Saw entity"
+fit_content = true
+scroll_active = false
+
+[node name="EncounteredEntity" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer15"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "encountered_entity"
+
+[node name="HBoxContainer16" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer16"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Growths"
+fit_content = true
+scroll_active = false
+
+[node name="StrangeGrowths" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer16"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "strange_growths"
+
+[node name="HBoxContainer17" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer17"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Light sensitive"
+fit_content = true
+scroll_active = false
+
+[node name="LightSensitive" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer17"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "averse_to_light"
+
+[node name="HBoxContainer18" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer18"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Time dilation"
+fit_content = true
+scroll_active = false
+
+[node name="TimeDilation" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer18"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "time_dilation"
+
+[node name="HBoxContainer19" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer19"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Abnormal heartbeat"
+fit_content = true
+scroll_active = false
+
+[node name="TooManyHeartbeats" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer19"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "too_many_heartbeats"
+
+[node name="HBoxContainer20" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer20"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Second presence"
+fit_content = true
+scroll_active = false
+
+[node name="SecondPresence" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer20"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "second_presence"
+
+[node name="HBoxContainer21" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer21"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Aura/Glow"
+fit_content = true
+scroll_active = false
+
+[node name="ManifestingAura" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer21"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "manifesting_aura"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer7"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Strange sounds"
+fit_content = true
+scroll_active = false
+
+[node name="StrangeSounds" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer7"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "strange_sounds"
+
+[node name="HBoxContainer22" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer22"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Crickets?"
+fit_content = true
+scroll_active = false
+
+[node name="Crickets" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer22"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "crickets?"
+
+[node name="HBoxContainer23" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer23"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "More shadows"
+fit_content = true
+scroll_active = false
+
+[node name="IncreasedShadows" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer23"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "increased_shadows"
+
+[node name="HBoxContainer24" type="HBoxContainer" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/GridContainer/HBoxContainer24"]
+custom_minimum_size = Vector2(68.24, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Other"
+fit_content = true
+scroll_active = false
+
+[node name="InexplicablePhenomena" type="CheckBox" parent="VBoxContainer/GridContainer/HBoxContainer24"]
+layout_mode = 2
+script = ExtResource("3_tc50j")
+complication = "inexplicable_phenomena"
+
+[node name="HSeparator6" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bomcq")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="OccupationLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(63.28, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.8
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_pw38t")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+text = "Threats:"
+fit_content = true
+scroll_active = false
+
+[node name="Threats" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pw38t")
+theme_override_font_sizes/font_size = 15
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_bomcq")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="APPROVE" type="CheckBox" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0.827451, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.423529)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_pw38t")
+theme_override_font_sizes/font_size = 21
+text = "APPROVE
+"
+
+[node name="DENY" type="CheckBox" parent="VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.388235, 0.321569, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.423529)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_pw38t")
+theme_override_font_sizes/font_size = 21
+text = "DENY"
+
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer6/Headaches" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer8/Forgetful" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer9/Irrational" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer10/Nauseated" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer11/KnowsTooMuch" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer12/CheckBox" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer13/Hallucinating" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer14/Too Polite" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer15/EncounteredEntity" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer16/StrangeGrowths" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer17/LightSensitive" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer18/TimeDilation" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer19/TooManyHeartbeats" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer20/SecondPresence" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer21/ManifestingAura" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer7/StrangeSounds" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer22/Crickets" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer23/IncreasedShadows" to="." method="_on_checked"]
+[connection signal="checked" from="VBoxContainer/GridContainer/HBoxContainer24/InexplicablePhenomena" to="." method="_on_checked"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/APPROVE" to="." method="_on_approve_toggled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/DENY" to="." method="_on_deny_toggled"]
