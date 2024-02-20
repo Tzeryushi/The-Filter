@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://globals/scene_manager.tscn"
 AudioManager="*res://globals/audio_manager/audio_manager.gd"
+Broadcaster="*res://globals/broadcaster.gd"
 
 [display]
 

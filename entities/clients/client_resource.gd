@@ -13,6 +13,7 @@ enum Threat {
 @export var travel_reason: String
 @export var personality_type: Personality
 @export var threat_type: Threat
+@export var should_approve: bool = false
 
 @export var dialogue: JSON
 @export var dialogue_state: Dictionary = {
@@ -49,10 +50,11 @@ enum Threat {
 	"time_dilation": false,	## Clock speed is affected at random intervals.
 	"too_many_heartbeats": false,	## Sometimes a pulse jockey. Sometimes people are just weird.
 	"second_presence": false,	## Feels like someone else is around.
-	"ineplicable_phenomena": false,	## Something's wrong.
+	"inexplicable_phenomena": false,	## Something's wrong.
 	"manifesting_aura": false,	## A forboding aura emanates. A lingering spirit?
 	"strange_sounds": false,
 	"crickets?": false,
+	"increased_shadows": false,
 }
 
 @export_group("Visuals")

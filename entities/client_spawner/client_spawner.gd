@@ -1,3 +1,4 @@
+class_name ClientManager
 extends Node3D
 
 
