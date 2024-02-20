@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://by7och45xcib0"]
+
+[ext_resource type="PackedScene" uid="uid://livsoh1wag5h" path="res://resources/blend_files/phenomena/creepies/face.blend" id="1_x5ptn"]
+
+[node name="face" instance=ExtResource("1_x5ptn")]
+
+[node name="face" parent="." index="0"]
+collision_layer = 32
+collision_mask = 0

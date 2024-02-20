@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ckni8rwyxn0pn"]
+[gd_scene load_steps=8 format=3 uid="uid://ckni8rwyxn0pn"]
 
 [ext_resource type="Script" path="res://assets/detectable_sounds/detectable_sound.gd" id="1_qu54o"]
+[ext_resource type="AudioStream" uid="uid://caymf0xi7nyhn" path="res://assets/detectable_sounds/creepy.ogg" id="2_udw6s"]
+[ext_resource type="AudioStream" uid="uid://xm3jfuhncsov" path="res://assets/detectable_sounds/crickets.mp3" id="3_nn0hc"]
+[ext_resource type="AudioStream" uid="uid://7rna20d6w0yg" path="res://assets/detectable_sounds/ghosts.ogg" id="4_rxfym"]
+[ext_resource type="AudioStream" uid="uid://bs050vn64xa8m" path="res://assets/detectable_sounds/heartbeat.ogg" id="5_cr6ki"]
+[ext_resource type="AudioStream" uid="uid://d4bo7sjb8ixje" path="res://assets/detectable_sounds/scream.mp3" id="6_cvho7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bm6df"]
 radius = 0.2
@@ -9,6 +14,11 @@ radius = 0.2
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_qu54o")
+creepy_sound = ExtResource("2_udw6s")
+crickets_sound = ExtResource("3_nn0hc")
+ghosts_sound = ExtResource("4_rxfym")
+heartbeat_sound = ExtResource("5_cr6ki")
+scream_sound = ExtResource("6_cvho7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bm6df")

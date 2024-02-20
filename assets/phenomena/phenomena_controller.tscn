@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8plo7c4fxjnl"]
+
+[ext_resource type="Script" path="res://assets/phenomena/phenomena_controller.gd" id="1_qwkue"]
+
+[node name="PhenomenaController" type="Node3D"]
+script = ExtResource("1_qwkue")

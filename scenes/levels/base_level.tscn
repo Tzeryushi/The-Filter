@@ -21,18 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
 [ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
-[ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 [ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="26_lirhs"]
+[ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
+[ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
+[ext_resource type="PackedScene" uid="uid://c8plo7c4fxjnl" path="res://assets/phenomena/phenomena_controller.tscn" id="26_xe0bp"]
 [ext_resource type="Script" path="res://entities/entity_components/clipboard_checker.gd" id="27_ad6gn"]
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
-[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/misc/radio.blend" id="28_qhpxh"]
 [ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="28_qmrsc"]
-[ext_resource type="PackedScene" uid="uid://co2rlto0wgdwh" path="res://resources/blend_files/phenomena/creepies/space_centipede.blend" id="29_tl0hm"]
-[ext_resource type="PackedScene" uid="uid://divsl662n5cxy" path="res://resources/blend_files/phenomena/creepies/angel.blend" id="29_x7l4o"]
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="29_yse7u"]
-[ext_resource type="PackedScene" uid="uid://livsoh1wag5h" path="res://resources/blend_files/phenomena/creepies/face.blend" id="31_qbtun"]
-[ext_resource type="PackedScene" uid="uid://bntguierf5v3n" path="res://resources/blend_files/phenomena/creepies/star.blend" id="32_bmxex"]
+[ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
+[ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -401,9 +400,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
 
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.7761, -0.0237013, -18.4818)
+visible = false
 
-[node name="radio" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("28_qhpxh")]
-transform = Transform3D(0.100014, 0, 0.994986, 0, 1, 0, -0.994986, 0, 0.100014, -58.0881, 0.7, -16.3494)
+[node name="Radio" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("22_3xea3")]
+transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -58.0424, 0.7, -16.3054)
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
@@ -417,8 +417,56 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.67
 [node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
 
+
 [node name="ClipboardObject" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_cc7au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
+
+[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
+spawn_location = NodePath("../ClientPoints/ClientSpawnPoint")
+stand_location = NodePath("../ClientPoints/ClientStandPoint")
+reject_location = NodePath("../ClientPoints/ClientSpawnPoint")
+no_light_location = NodePath("../ClientPoints/ClientNoLightPoint")
+
+[node name="DetectableSound" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("32_a1oky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.5997, 0.968118, -16.2826)
+
+[node name="PhenomenaController" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("phenomena_spawners") instance=ExtResource("26_xe0bp")]
+phenomena_spawners = [NodePath("PhenomenaSpawner"), NodePath("PhenomenaSpawner2"), NodePath("PhenomenaSpawner3"), NodePath("PhenomenaSpawner4"), NodePath("PhenomenaSpawner5")]
+
+[node name="PhenomenaSpawner" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0768, 1.6295, -18.5791)
+visible = false
+type = 2
+
+[node name="PhenomenaSpawner2" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0093, 2.49213, -21.3673)
+visible = false
+type = 1
+
+[node name="PhenomenaSpawner3" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4796, 2.33507, -22.0232)
+visible = false
+
+[node name="PhenomenaSpawner4" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6276, 2.42046, -19.8725)
+visible = false
+type = 3
+
+[node name="PhenomenaSpawner5" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
+visible = false
+type = 2
+
+[node name="ClientPoints" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
+
+[node name="ClientSpawnPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+
+[node name="ClientStandPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68374, 0, -1.23404)
+
+[node name="ClientNoLightPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(0.829252, 0, 0.558874, 0, 1, 0, -0.558874, 0, 0.829252, 1.18374, 0, -1.23404)
 
 [node name="ClipboardChecker" type="Node" parent="."]
 script = ExtResource("27_ad6gn")
@@ -430,40 +478,10 @@ default_client = ExtResource("28_qmrsc")
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 
-[node name="angel" parent="." instance=ExtResource("29_x7l4o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0275, 1.65922, -18.2945)
-
-[node name="Angel" parent="angel" index="0"]
-collision_layer = 32
-collision_mask = 0
-
-[node name="space_centipede" parent="." instance=ExtResource("29_tl0hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.3424, 1.59234, -21.6278)
-
-[node name="Centipede" parent="space_centipede" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575462, 1.11952, 0.00864601)
-collision_layer = 32
-collision_mask = 0
-
-[node name="face" parent="." instance=ExtResource("31_qbtun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.4981, 0.844225, -18.2376)
-
-[node name="face" parent="face" index="0"]
-collision_layer = 32
-collision_mask = 0
-
-[node name="star" parent="." instance=ExtResource("32_bmxex")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3526, 1.78749, -21.3594)
-
-[node name="star" parent="star" index="0"]
-collision_layer = 32
-collision_mask = 0
+[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
 
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
-[editable path="angel"]
-[editable path="space_centipede"]
-[editable path="face"]
-[editable path="star"]
