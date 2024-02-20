@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=48 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
+[ext_resource type="PackedScene" uid="uid://6jpws0c2p2" path="res://assets/coffee_make.tscn" id="17_mrqyg"]
+[ext_resource type="PackedScene" uid="uid://d2pf1ms1empnu" path="res://resources/blend_files/misc/coffee mug.blend" id="18_cjrt6"]
+[ext_resource type="Texture2D" uid="uid://ynvsu72akm26" path="res://resources/blend_files/skins/dirty mug.png" id="19_h73gf"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -104,6 +107,9 @@ data = PackedVector3Array(-1, 0, -0.4, 4.7999, 0, 0, 4.7999, 0, -0.4, -1, 0, -0.
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwhww"]
 data = PackedVector3Array(-2.5, -0.75, 1, -2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, -0.75, 1, -2.5, -0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, 0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, 1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, 0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, -0.75, 1, -2.5, 0.75, 1, -2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, -0.75, -1, -2.5, -0.75, -1, -2.5, -0.75, 1, 2.5, -0.75, 1, 2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, 0.75, -1, 2.5, 0.75, -1, 2.5, 0.75, 1, -2.5, 0.75, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58x63"]
+albedo_texture = ExtResource("19_h73gf")
 
 [node name="BaseLevel" type="Node"]
 
@@ -326,6 +332,16 @@ spot_angle = 85.0
 [node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_dae83")]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.3095, 2.74982, -22.9773)
 
+[node name="cofee maker" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("17_mrqyg")]
+transform = Transform3D(0.0181504, 0, -0.999836, 0, 1, 0, 0.999836, 0, 0.0181504, -61.6812, 0.548591, -16.3169)
+
+[node name="coffee mug" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("18_cjrt6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.2803, 0.757653, -16.0951)
+
+[node name="Cylinder" parent="SubViewportContainer/SubViewport/GameSpace/coffee mug" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000225067, 0.00207722, -0.000463486)
+surface_material_override/0 = SubResource("StandardMaterial3D_58x63")
+
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
 transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -16.1114)
 
@@ -345,3 +361,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
+[editable path="SubViewportContainer/SubViewport/GameSpace/coffee mug"]
