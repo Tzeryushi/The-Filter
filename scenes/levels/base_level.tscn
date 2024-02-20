@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=51 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
@@ -19,9 +19,13 @@
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
-[ext_resource type="PackedScene" uid="uid://6jpws0c2p2" path="res://assets/coffee_make.tscn" id="17_mrqyg"]
-[ext_resource type="PackedScene" uid="uid://d2pf1ms1empnu" path="res://resources/blend_files/misc/coffee mug.blend" id="18_cjrt6"]
-[ext_resource type="Texture2D" uid="uid://ynvsu72akm26" path="res://resources/blend_files/skins/dirty mug.png" id="19_h73gf"]
+[ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
+[ext_resource type="PackedScene" uid="uid://dag5mebdunk32" path="res://assets/detectable_sounds/Creepy.tscn" id="21_4w8mw"]
+[ext_resource type="PackedScene" uid="uid://f357y5vvvd26" path="res://assets/detectable_sounds/Heartbeat.tscn" id="21_ffc27"]
+[ext_resource type="PackedScene" uid="uid://dllyw5c7kw21s" path="res://assets/detectable_sounds/Crickets.tscn" id="22_acceo"]
+[ext_resource type="PackedScene" uid="uid://bopt6rg8ck18g" path="res://assets/detectable_sounds/Ghosts.tscn" id="23_0iy77"]
+[ext_resource type="PackedScene" uid="uid://b3fmo2jo4rdxq" path="res://assets/detectable_sounds/Scream.tscn" id="25_ubomo"]
+[ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -107,9 +111,6 @@ data = PackedVector3Array(-1, 0, -0.4, 4.7999, 0, 0, 4.7999, 0, -0.4, -1, 0, -0.
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwhww"]
 data = PackedVector3Array(-2.5, -0.75, 1, -2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, -0.75, 1, -2.5, -0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, 0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, 1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, 0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, -0.75, 1, -2.5, 0.75, 1, -2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, -0.75, -1, -2.5, -0.75, -1, -2.5, -0.75, 1, 2.5, -0.75, 1, 2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, 0.75, -1, 2.5, 0.75, -1, 2.5, 0.75, 1, -2.5, 0.75, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_58x63"]
-albedo_texture = ExtResource("19_h73gf")
 
 [node name="BaseLevel" type="Node"]
 
@@ -332,16 +333,6 @@ spot_angle = 85.0
 [node name="Clock" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("9_dae83")]
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.3095, 2.74982, -22.9773)
 
-[node name="cofee maker" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("17_mrqyg")]
-transform = Transform3D(0.0181504, 0, -0.999836, 0, 1, 0, 0.999836, 0, 0.0181504, -61.6812, 0.548591, -16.3169)
-
-[node name="coffee mug" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("18_cjrt6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.2803, 0.757653, -16.0951)
-
-[node name="Cylinder" parent="SubViewportContainer/SubViewport/GameSpace/coffee mug" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000225067, 0.00207722, -0.000463486)
-surface_material_override/0 = SubResource("StandardMaterial3D_58x63")
-
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("10_i6jmw")]
 transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -16.1114)
 
@@ -349,8 +340,38 @@ transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
+[node name="SoundSensor" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("20_0euyb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
+
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -61.8272, 0.00411224, -13.4322)
+
+[node name="Creepy" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_4w8mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7695, 0.7, -16.2821)
+
+[node name="Crickets" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("22_acceo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2063, 0.7, -16.2594)
+
+[node name="Ghosts" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("23_0iy77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.5178, 0.7, -16.2176)
+
+[node name="Heartbeat" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_ffc27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0885, 0.7, -16.222)
+
+[node name="Scream" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_ubomo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3456, 0.7, -16.1992)
+
+[node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
+
+[node name="ReelComputer2" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54.8127, 0.00411224, -11.9527)
+
+[node name="ReelComputer3" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.6797, 0.00411224, -11.9527)
+
+[node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -361,4 +382,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
-[editable path="SubViewportContainer/SubViewport/GameSpace/coffee mug"]

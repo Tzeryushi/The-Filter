@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=38 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -12,16 +12,25 @@
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="8_8xowq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
+[ext_resource type="Script" path="res://entities/player/player_assets/player_sound_sensor_ray.gd" id="11_gltte"]
 [ext_resource type="PackedScene" uid="uid://etrttby6jwk8" path="res://entities/player/player_resources/player_base_item.glb" id="11_i7f0j"]
 [ext_resource type="Script" path="res://entities/player/player_items/base_player_item.gd" id="12_q322k"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="12_saqy6"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
 [ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Script" path="res://entities/player/player_items/sound_sensor/player_sound_sensor.gd" id="18_842pu"]
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
+[ext_resource type="PackedScene" uid="uid://1ocfijxd78wx" path="res://resources/blend_files/tools/sound_sensor.blend" id="19_gm3sr"]
+[ext_resource type="Resource" uid="uid://b4ucb73a6dyk6" path="res://entities/player/player_items/sound_sensor/sound_sensor.tres" id="19_pp6pp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
 height = 1.87089
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ahiwv"]
+radius = 0.150694
+height = 0.608698
 
 [sub_resource type="Animation" id="Animation_y0lm7"]
 length = 0.001
@@ -92,6 +101,42 @@ tracks/5/path = NodePath("Flashlight:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SoundSensor:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0958115, 1.09024, -0.10535)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SoundSensor:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.23565e-09, 1.5708, -2.95205)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SoundSensor:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -259,13 +304,95 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_lc51e"]
+resource_name = "sound_sensor_activate"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundSensor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector3(0.0958115, 1.09024, -0.10535), Vector3(0.163087, 1.35009, -0.19671)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSensor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector3(8.23565e-09, 1.5708, -2.95205), Vector3(0.00473296, 1.33884, -1.69527)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundSensor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_smbss"]
+resource_name = "sound_sensor_deactivate"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundSensor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.63728, 1),
+"update": 0,
+"values": [Vector3(0.163087, 1.35009, -0.19671), Vector3(0.0958115, 1.09024, -0.10535)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSensor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.63728, 1),
+"update": 0,
+"values": [Vector3(0.00473296, 1.33884, -1.69527), Vector3(8.23565e-09, 1.5708, -2.95205)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundSensor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_msd6h"]
 _data = {
 "RESET": SubResource("Animation_y0lm7"),
 "base_item_activate": SubResource("Animation_evmqe"),
 "base_item_deactivate": SubResource("Animation_1iyic"),
 "flashlight_activate": SubResource("Animation_nqju2"),
-"flashlight_deactivate": SubResource("Animation_q75sy")
+"flashlight_deactivate": SubResource("Animation_q75sy"),
+"sound_sensor_activate": SubResource("Animation_lc51e"),
+"sound_sensor_deactivate": SubResource("Animation_smbss")
 }
 
 [sub_resource type="Animation" id="Animation_hfg2d"]
@@ -497,13 +624,29 @@ collision_mask = 5
 collide_with_areas = true
 script = ExtResource("9_4edco")
 
+[node name="SoundSensorRay" type="RayCast3D" parent="PlayerCamera"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 16
+collide_with_areas = true
+script = ExtResource("11_gltte")
+
+[node name="InteractionVolume" parent="PlayerCamera/SoundSensorRay" instance=ExtResource("12_saqy6")]
+transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
+interaction_text = "Pick Up Flashlight"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCamera/SoundSensorRay/InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_ahiwv")
+
 [node name="ItemManager" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("camera", "anim_player", "player_arm", "item_ref_array", "clipboard", "clipboard_anim_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.569, 0)
 script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
 player_arm = NodePath("../InteractionRay")
-item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight")]
+item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight"), NodePath("InventoryRig/SoundSensor")]
 clipboard = NodePath("InventoryRig/Clipboard")
 clipboard_anim_player = NodePath("InventoryRig/ClipboardAnimator")
 
@@ -540,6 +683,15 @@ light_volumetric_fog_energy = 3.0
 spot_range = 37.2267
 spot_angle = 32.9127
 
+[node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
+transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
+visible = false
+script = ExtResource("18_842pu")
+sound_sensor_ray = NodePath("../../../SoundSensorRay")
+item_resource = ExtResource("19_pp6pp")
+
+[node name="sound_sensor" parent="PlayerCamera/ItemManager/InventoryRig/SoundSensor" instance=ExtResource("19_gm3sr")]
+
 [node name="Clipboard" parent="PlayerCamera/ItemManager/InventoryRig" instance=ExtResource("18_tmpj6")]
 transform = Transform3D(1, 0, 0, 0, 0.590536, -0.807012, 0, 0.807012, 0.590536, -0.354783, 1.14381, 0)
 visible = false
@@ -551,4 +703,6 @@ libraries = {
 
 [connection signal="detected" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detected"]
 [connection signal="detections_ceased" from="PlayerCamera/InteractionRay" to="PlayerCamera" method="_on_interaction_ray_detections_ceased"]
+[connection signal="sound_detected" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detected"]
+[connection signal="sound_detections_ceased" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detections_ceased"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]

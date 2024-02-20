@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://unyo7u2tbtjg"
-path.s3tc="res://.godot/imported/clean.png-0b1abcfccd5c9c8a81264e826fdef0be.s3tc.ctex"
+uid="uid://budchebr41s6l"
+path.s3tc="res://.godot/imported/Reel.png-bc0a94e61f1df3f19a042df9f45339f6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/blend_files/misc/textures/clean.png"
-dest_files=["res://.godot/imported/clean.png-0b1abcfccd5c9c8a81264e826fdef0be.s3tc.ctex"]
+source_file="res://resources/blend_files/misc/Reel.png"
+dest_files=["res://.godot/imported/Reel.png-bc0a94e61f1df3f19a042df9f45339f6.s3tc.ctex"]
 
 [params]
 
