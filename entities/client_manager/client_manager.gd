@@ -45,7 +45,7 @@ func _ready() -> void:
 
 func _unhandled_input(event):
 	if event.is_action_pressed("crouch"):
-		Broadcaster.check_clipboard.emit(current_client)
+		Broadcaster.check_clipboard.emit(current_client.client_resource)
 
 
 func client_load(client_resource:ClientResource) -> void:

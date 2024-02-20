@@ -50,7 +50,7 @@ func compare(resource: ClientResource) -> void:
 		"admitted_correctly" : false,
 	}
 	
-	var client_dictionary : Dictionary
+	var client_dictionary : Dictionary = {}
 	client_dictionary.merge(resource.dialogue_symptoms)
 	client_dictionary.merge(resource.env_symptoms)
 	
@@ -70,6 +70,7 @@ func compare(resource: ClientResource) -> void:
 		result_dict["admitted_correctly"] = false
 	
 	submitted.emit(result_dict)
+	Broadcaster.clipboard_form_submitted.emit(result_dict)
 
 
 func _on_checked(comp:String, value:bool):
