@@ -47,7 +47,7 @@ func _ready():
 	for n in WORLD_SFX_CHANNELS:
 		world_sfx_stream_players.push_back(build_audio_player("SFX", true))
 	for n in WORLD_MUSIC_CHANNELS:
-		world_music_stream_players.push_back(build_audio_player("Music", true, PositionalAudioStreamPlayer.ATTENUATION_INVERSE_DISTANCE))
+		world_music_stream_players.push_back(build_audio_player("Music", true, PositionalAudioStreamPlayer.ATTENUATION_INVERSE_SQUARE_DISTANCE))
 	for n in WORLD_VOICE_CHANNELS:
 		world_voice_stream_players.push_back(build_audio_player("Voice", true))
 	pass

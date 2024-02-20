@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dellkguirp3nf"]
+
+[ext_resource type="Script" path="res://assets/interactables/radio/radio.gd" id="1_2xvtc"]
+[ext_resource type="Script" path="res://assets/interactables/interaction_volume.gd" id="2_jtbhy"]
+[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/misc/radio.blend" id="3_i37ox"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3p8h"]
+size = Vector3(0.225, 0.25, 0.5)
+
+[node name="Radio" type="Node3D"]
+script = ExtResource("1_2xvtc")
+
+[node name="InteractionVolume" type="Area3D" parent="."]
+script = ExtResource("2_jtbhy")
+interaction_text = "Toggle Radio"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121889, 0)
+shape = SubResource("BoxShape3D_f3p8h")
+
+[node name="radio" parent="." instance=ExtResource("3_i37ox")]
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]

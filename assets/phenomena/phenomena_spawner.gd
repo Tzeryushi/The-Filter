@@ -18,7 +18,9 @@ func _ready():
 
 func random_model():
 	var type = PhenomenaSpawner.PhenomenaType[
-		PhenomenaSpawner.PhenomenaType.keys()[randi() % PhenomenaSpawner.PhenomenaType.size()]
+		PhenomenaSpawner.PhenomenaType.keys()[
+			randi() % PhenomenaSpawner.PhenomenaType.size()
+			]
 		]
 	set_phenomena_model(type)
 
