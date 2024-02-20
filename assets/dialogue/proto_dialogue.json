@@ -5,8 +5,8 @@
 		"id": 0,
 		"name": "start",
 		"position": [
-			300,
-			480
+			260,
+			440
 		]
 	},
 	{
@@ -25,8 +25,8 @@
 		"id": 2,
 		"name": "option2",
 		"position": [
-			480,
-			540
+			440,
+			580
 		]
 	},
 	{
@@ -41,12 +41,12 @@
 	},
 	{
 		"commands_raw": "[color=#FF0000][shake]get out[/shake][/color]",
-		"gnode_name": "option2",
+		"gnode_name": "@GraphNode@33593",
 		"id": 4,
 		"name": "option2",
 		"position": [
-			480,
-			500
+			440,
+			480
 		]
 	},
 	{
@@ -81,7 +81,7 @@
 	},
 	{
 		"commands_raw": "you're cool man",
-		"gnode_name": "end",
+		"gnode_name": "@GraphNode@33602",
 		"id": 8,
 		"name": "end",
 		"position": [
