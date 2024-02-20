@@ -23,11 +23,11 @@ func on_exit() -> void:
 
 
 func _on_sound_detected(detected: DetectableSound, magnitude):
-	if (!is_detected or (phenomena_sound_stream_player and phenomena_sound_stream_player.stream != detected.sensor_sound)) and is_on:
+	if (!is_detected or (phenomena_sound_stream_player and phenomena_sound_stream_player.stream != detected.active_sound)) and is_on:
 		is_detected = true
-		play_phenomena_sensor_sound(detected.sensor_sound)
+		play_phenomena_sensor_sound(detected.active_sound)
 	phenomena_sound_stream_player.volume_db = magnitude
-	default_sound_stream_player.volume_db = -magnitude
+	default_sound_stream_player.volume_db = -magnitude * 2
 
 
 func _on_sound_detections_ceased():
@@ -60,6 +60,7 @@ func play_phenomena_sensor_sound(sound: AudioStream):
 		phenomena_sound_stream_player.play()
 	if !phenomena_sound_stream_player.is_connected("finished", phenomena_sound_stream_player.play):
 		phenomena_sound_stream_player.finished.connect(phenomena_sound_stream_player.play)
+
 
 func stop_phenomena_sensor_sound():
 	if phenomena_sound_stream_player:
