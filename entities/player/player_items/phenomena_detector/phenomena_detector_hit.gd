@@ -14,7 +14,3 @@ func _ready():
 
 func _on_destruct_timer_timeout():
 	queue_free()
-
-
-func _process(delta):
-	pass

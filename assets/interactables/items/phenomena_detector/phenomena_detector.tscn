@@ -22,7 +22,6 @@ visible = false
 visible = false
 
 [node name="InteractionVolume" parent="." instance=ExtResource("3_wijet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 interaction_text = "Pick Up Phenomena Detector"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]

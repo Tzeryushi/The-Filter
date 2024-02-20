@@ -340,86 +340,6 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_lc51e"]
-resource_name = "sound_sensor_activate"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SoundSensor:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector3(0.0958115, 1.09024, -0.10535), Vector3(0.163087, 1.35009, -0.19671)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SoundSensor:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector3(8.23565e-09, 1.5708, -2.95205), Vector3(0.00473296, 1.33884, -1.69527)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SoundSensor:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_smbss"]
-resource_name = "sound_sensor_deactivate"
-length = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SoundSensor:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(0.63728, 1),
-"update": 0,
-"values": [Vector3(0.163087, 1.35009, -0.19671), Vector3(0.0958115, 1.09024, -0.10535)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SoundSensor:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(0.63728, 1),
-"update": 0,
-"values": [Vector3(0.00473296, 1.33884, -1.69527), Vector3(8.23565e-09, 1.5708, -2.95205)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SoundSensor:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_viwp4"]
 resource_name = "phenomena_detector_activate"
 length = 0.3
@@ -491,6 +411,86 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("PhenomenaDetector:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lc51e"]
+resource_name = "sound_sensor_activate"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundSensor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector3(0.0958115, 1.09024, -0.10535), Vector3(0.163087, 1.35009, -0.19671)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSensor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.225313, 1),
+"update": 0,
+"values": [Vector3(8.23565e-09, 1.5708, -2.95205), Vector3(0.00473296, 1.33884, -1.69527)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundSensor:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_smbss"]
+resource_name = "sound_sensor_deactivate"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SoundSensor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.63728, 1),
+"update": 0,
+"values": [Vector3(0.163087, 1.35009, -0.19671), Vector3(0.0958115, 1.09024, -0.10535)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SoundSensor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(0.63728, 1),
+"update": 0,
+"values": [Vector3(0.00473296, 1.33884, -1.69527), Vector3(8.23565e-09, 1.5708, -2.95205)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SoundSensor:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -751,81 +751,71 @@ script = ExtResource("9_4edco")
 [node name="PhenomenaDetectorRay" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay2" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay3" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay4" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay5" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay6" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay7" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay8" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay9" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay10" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="SoundSensorRay" type="RayCast3D" parent="PlayerCamera"]
@@ -880,7 +870,7 @@ spot_range = 37.2267
 spot_angle = 32.9127
 
 [node name="PhenomenaDetector" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("phenomena_detector_rays")]
-transform = Transform3D(-3.60449e-08, 2.60545e-08, -1, 0.725338, 0.688392, -8.209e-09, 0.688392, -0.725338, -4.37114e-08, 0.207022, 1.06472, -0.022752)
+transform = Transform3D(-2.49793e-06, 2.62007e-06, -1, 0.725338, 0.688392, -8.209e-09, 0.688392, -0.725338, -3.61999e-06, 0.207022, 1.06472, -0.022752)
 visible = false
 script = ExtResource("20_p0thh")
 phenomena_detector_rays = [NodePath("../../../PhenomenaRays/PhenomenaDetectorRay"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay2"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay3"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay4"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay5"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay6"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay7"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay8"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay9"), NodePath("../../../PhenomenaRays/PhenomenaDetectorRay10")]
