@@ -2,5 +2,25 @@ class_name Client
 extends Node
 
 
-var client_resource : ClientResource
+@export var client_mesh : MeshInstance3D
+@export var client_skeleton : Skeleton3D
+@export var growth_scene: PackedScene
+@export var growth_nodes: Array[Node3D]
 
+var client_resource: ClientResource
+
+
+func _ready() -> void:
+	pass
+
+
+## Set up visual modifications, 
+func propagate() -> void:
+	pass
+
+
+func make_growths() -> void:
+	for i in randi_range(1,3):
+		var bone : Node3D = growth_nodes.pick_random()
+		bone.add_child(growth_scene.instantiate())
+		growth_nodes.erase(bone)

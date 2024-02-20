@@ -100,5 +100,4 @@ func _on_ez_dialogue_custom_signal_received(value):
 	var parameters = value.split(",")
 	if !parameters.size() > 0:
 		return
-	print(parameters)
 	custom_functions[parameters[0]].callv(parameters.slice(1))

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=10 format=3 uid="uid://d3t578w54oemg"]
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
 [ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_w1r3w"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="3_ixsct"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="4_xgmrm"]
+[ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_spawner/client_spawner.tscn" id="6_gjapj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,3 +57,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83035, 0.0256702, 2.39537)
 
 [node name="ExampleInteractable" parent="." instance=ExtResource("4_xgmrm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.24889, 0.0170605, 0.166251)
+
+[node name="ClientManager" parent="." node_paths=PackedStringArray("spawn_location") instance=ExtResource("6_gjapj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+spawn_location = NodePath("../Node3D")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.08193)

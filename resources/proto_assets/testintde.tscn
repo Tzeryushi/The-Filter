@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ds1t3p1plwbd2"]
+
+[node name="testintde" type="Node3D"]
+
+[node name="Heart" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.999426, -0.0147228, 0.0305174, 0.0151553, 0.999787, -0.0139871, -0.030305, 0.0144415, 0.999436, 0.00962782, 1.23414, -0.00663047)
+bone_name = "Chest"
+bone_idx = 2
+
+[node name="Node3D" type="Node3D" parent="Heart"]
+transform = Transform3D(0.4, -2.91232e-09, -1.84311e-09, -1.2972e-09, 0.0709645, -0.393655, 3.19311e-09, 0.393655, 0.0709645, -0.0323794, 0.0849661, 0.0538212)
+
+[node name="Back1" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.999621, 0.0118681, 0.0248391, -0.0120252, 0.999909, 0.0061862, -0.0247634, -0.00648255, 0.999672, 0.0088189, 1.1353, 0.00871317)
+bone_name = "Spine"
+bone_idx = 1
+
+[node name="Node3D" type="Node3D" parent="Back1"]
+transform = Transform3D(0.699986, 0.00447151, 1.16415e-09, -0.00068493, 0.107221, 0.691739, 0.00441874, -0.691725, 0.107223, 0.000120527, 0.129742, -0.0916124)
+
+[node name="Neck" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.998187, -0.0453316, 0.0395956, 0.0501724, 0.990068, -0.131328, -0.033249, 0.133077, 0.990548, 0.000186969, 1.49437, -0.0335929)
+bone_name = "Neck"
+bone_idx = 4
+
+[node name="Node3D" type="Node3D" parent="Neck"]
+transform = Transform3D(0.286395, -0.272035, 0.000585128, -0.0222292, -0.0225557, 0.393729, -0.271126, -0.285506, -0.0316631, -0.0356277, 0.0661191, 0.0108473)
+
+[node name="Head" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.99717, -0.0487468, 0.05724, 0.0487504, 0.99881, 0.00133383, -0.0572369, 0.00146042, 0.99836, -0.00350579, 1.58738, -0.00410328)
+bone_name = "Head"
+bone_idx = 5
+
+[node name="Node3D" type="Node3D" parent="Head"]
+transform = Transform3D(0.221195, 0.0931233, -0.000800387, -0.0153626, 0.0385225, 0.23639, 0.0918509, -0.217817, 0.041465, 0.0216402, 0.0845504, -0.067972)
+
+[node name="FootR" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-0.930642, -0.365933, 9.12696e-08, 8.09086e-08, 1.19209e-07, 1, -0.365933, 0.930641, -2.23517e-08, -0.0866326, 0.0872969, -0.0297363)
+bone_name = "RightFoot"
+bone_idx = 17
+
+[node name="Node3D2" type="Node3D" parent="FootR"]
+transform = Transform3D(-0.38464, 0.0135342, -0.00967902, -0.0150388, -0.378608, 0.0682252, -0.00711995, 0.0685395, 0.378783, 0, 0, 0)
+
+[node name="ArmR" type="BoneAttachment3D" parent="."]
+transform = Transform3D(0.737992, -0.157708, 0.656122, -0.0856274, -0.986333, -0.140767, 0.669355, 0.0477032, -0.74141, -0.144899, 1.39872, -0.0279668)
+bone_name = "RightUpperArm"
+bone_idx = 8
+
+[node name="Node3D3" type="Node3D" parent="ArmR"]
+transform = Transform3D(0.0444721, -0.382422, 0.000659019, -0.112659, -0.0137351, -0.367892, 0.365452, 0.0423031, -0.113491, -0.00832957, -0.000299096, 0.000921428)
+
+[node name="ArmL" type="BoneAttachment3D" parent="."]
+transform = Transform3D(-0.801211, 0.123082, -0.585586, -0.129197, -0.991117, -0.0315486, -0.584268, 0.0503788, 0.809996, 0.192218, 1.13983, -0.0259009)
+bone_name = "LeftLowerArm"
+bone_idx = 13
+
+[node name="Node3D4" type="Node3D" parent="ArmL"]
+transform = Transform3D(-0.297653, -0.0260457, 0.0269161, -0.0285125, 0.0177683, -0.298113, 0.0242876, -0.298339, -0.0201047, -0.00325558, 0.0655239, -0.0483031)

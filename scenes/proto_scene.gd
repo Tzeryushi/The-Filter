@@ -1,5 +1,6 @@
 extends Node3D
 
+
 @export var test_client : ClientResource
 
 var sound: AudioStream = preload("res://resources/sounds/sfx/take_me_to_your_leader.ogg")
@@ -7,9 +8,10 @@ var proto_dialogue: JSON = preload("res://assets/dialogue/proto_dialogue.json")
 var sound_timer := Timer.new()
 var player: Player
 
+
 func _ready():
 	var dialogue: Dialogue = $Player/PlayerCamera/CameraSpace.get_node("Dialogue")
-	dialogue.begin_dialogue(test_client.dialogue, test_client.dialogue_state)
+	#dialogue.begin_dialogue(test_client.dialogue, test_client.dialogue_state)
 	
 	#add_child(sound_timer)
 	#sound_timer.wait_time = .25
