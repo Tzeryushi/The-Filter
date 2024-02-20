@@ -27,6 +27,7 @@ func make_growths() -> void:
 		bone.add_child(growth_scene.instantiate())
 		growth_nodes.erase(bone)
 
+
 func set_texture(new_texture: Texture2D) -> void:
 	if client_mesh.material_override is ShaderMaterial:
 		client_mesh.material_override.set_shader_parameter("albedo", new_texture)

@@ -1,5 +1,5 @@
 class_name InteractionVolume
-extends Node3D
+extends Area3D
 ## Area that can pass information through collisions
 ##
 ## Can pass text (or not), contains an abstract signal that can be linked
