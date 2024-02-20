@@ -6,6 +6,8 @@ extends Node
 @export var client_skeleton : Skeleton3D
 @export var growth_scene: PackedScene
 @export var growth_nodes: Array[Node3D]
+@export var head_node: Node3D
+
 
 var client_resource: ClientResource
 
@@ -24,3 +26,7 @@ func make_growths() -> void:
 		var bone : Node3D = growth_nodes.pick_random()
 		bone.add_child(growth_scene.instantiate())
 		growth_nodes.erase(bone)
+
+func set_texture(new_texture: Texture2D) -> void:
+	if client_mesh.material_override is ShaderMaterial:
+		client_mesh.material_override.set_shader_parameter("albedo", new_texture)

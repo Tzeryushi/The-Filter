@@ -23,10 +23,15 @@ size = Vector3(0.97998, 0.253662, 0.872192)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kt4pa"]
 size = Vector3(0.911255, 0.865601, 0.41687)
 
-[node name="SubmissionComputer" type="Node3D" node_paths=PackedStringArray("content_viewport")]
+[node name="SubmissionComputer" type="Node3D" node_paths=PackedStringArray("content_viewport", "submit_screen", "approve_screen", "deny_screen", "results_screen", "results_text")]
 script = ExtResource("1_sk8v8")
 content_viewport = NodePath("SubViewport")
 screen_material = ExtResource("3_tlson")
+submit_screen = NodePath("SubViewport/Control/Submit")
+approve_screen = NodePath("SubViewport/Control/Approved")
+deny_screen = NodePath("SubViewport/Control/Denied")
+results_screen = NodePath("SubViewport/Control/Results")
+results_text = NodePath("SubViewport/Control/Results/VBoxContainer/ResultText")
 
 [node name="computer_model_final" parent="." instance=ExtResource("2_8nyrn")]
 
@@ -57,7 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.870588, 0.572549, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="SubViewport/Control"]
+[node name="Submit" type="ColorRect" parent="SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +75,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/ColorRect2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Submit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,13 +84,118 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/ColorRect2/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Submit/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]SUBMIT FORM"
+fit_content = true
+
+[node name="Approved" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Approved"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Approved/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]APPROVED!"
+fit_content = true
+
+[node name="Denied" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Denied"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Denied/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.396078, 0.32549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]DENIED"
+fit_content = true
+
+[node name="Results" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 16.0
+offset_right = -15.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Results"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]RESULTS"
+fit_content = true
+
+[node name="ResultText" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Test stuff"
 fit_content = true
 
 [node name="InteractionVolume" parent="." instance=ExtResource("5_aypmh")]
@@ -98,5 +208,7 @@ shape = SubResource("BoxShape3D_40inl")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00274658, 0.383484, -0.165039)
 shape = SubResource("BoxShape3D_kt4pa")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
 
 [editable path="computer_model_final"]

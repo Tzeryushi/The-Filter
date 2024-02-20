@@ -43,11 +43,6 @@ func _ready() -> void:
 	client_load(test_client)
 
 
-func _unhandled_input(event):
-	if event.is_action_pressed("crouch"):
-		Broadcaster.check_clipboard.emit(current_client.client_resource)
-
-
 func client_load(client_resource:ClientResource) -> void:
 	var new_client = client_scene.instantiate()
 	new_client = new_client as Client
@@ -57,6 +52,8 @@ func client_load(client_resource:ClientResource) -> void:
 	else:
 		get_parent().add_child(new_client)
 	new_client.global_position = spawn_location.global_position
+	if client_resource.texture:
+		new_client.set_texture(client_resource.texture)
 	current_client = new_client
 	
 	for symptom in client_resource.env_symptoms:
@@ -64,6 +61,8 @@ func client_load(client_resource:ClientResource) -> void:
 			env_symptoms[symptom].call(current_client)
 			
 	client_launched.emit(attribute_array)
+	
+	Broadcaster.client_manager_new_resource_used.emit(client_resource)
 	
 	#TODO: Set movement to position in navmesh
 
@@ -107,3 +106,7 @@ func strange_sounds(_client: Client) -> void:
 
 func increased_shadows(_client: Client) -> void:
 	attribute_array.append(Attribute.SHADOWS)
+
+
+func _on_form_submitted() -> void:
+	Broadcaster.check_clipboard.emit(current_client.client_resource)
