@@ -31,5 +31,9 @@ func use() -> void:
 	pass
 
 
+func unuse() -> void:
+	pass
+
+
 func get_item_name() -> String:
 	return item_resource.item_name

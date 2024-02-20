@@ -12,6 +12,10 @@ extends PlayerState
 @export var item_manager: ItemManager
 
 
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func on_enter() -> void:
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,6 +33,8 @@ func process_input(event:InputEvent) -> BaseState:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		else:
 			item_manager.use_item()
+	elif event.is_action_released("use"):
+		item_manager.unuse_item()
 	if event.is_action_pressed("drop"):
 		item_manager.drop_item()
 	

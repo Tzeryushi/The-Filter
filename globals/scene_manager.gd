@@ -26,6 +26,7 @@ var is_switching_scenes : bool = false
 
 
 func init() -> void:
+	randomize()
 	if !scenes.has(start_scene_name):
 		print_debug("SceneManager: Start scene not in scene dictionary!")
 	else:

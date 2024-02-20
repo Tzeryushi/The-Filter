@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="12_saqy6"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="15_ibvv7"]
 [ext_resource type="Script" path="res://entities/player/player_items/flashlight/player_flashlight.gd" id="15_on77x"]
-[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="15_wh55d"]
+[ext_resource type="Resource" uid="uid://ckuu8ye1b25fc" path="res://entities/player/player_items/flashlight/flashlight.tres" id="16_uiobq"]
 [ext_resource type="Script" path="res://entities/player/player_items/sound_sensor/player_sound_sensor.gd" id="18_842pu"]
 [ext_resource type="PackedScene" uid="uid://vw13mw1b2ctf" path="res://assets/interactables/items/clipboard/clipboard.tscn" id="18_tmpj6"]
 [ext_resource type="PackedScene" uid="uid://1ocfijxd78wx" path="res://resources/blend_files/tools/sound_sensor.blend" id="19_gm3sr"]
@@ -862,11 +862,11 @@ item_resource = ExtResource("11_f018m")
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
-transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993362, 0, -0.993362, 0.115021, 0, 1.37255, 0)
+transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993361, 0, -0.993361, 0.115021, 0, 1.37255, 0)
 visible = false
 script = ExtResource("15_on77x")
 spotlight = NodePath("SpotLight3D")
-item_resource = ExtResource("15_wh55d")
+item_resource = ExtResource("16_uiobq")
 
 [node name="flashlight" parent="PlayerCamera/ItemManager/InventoryRig/Flashlight" instance=ExtResource("15_ibvv7")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.179616)
@@ -945,6 +945,7 @@ libraries = {
 [connection signal="phenomena_detections_ceased" from="PlayerCamera/PhenomenaRays/PhenomenaDetectorRay10" to="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector" method="_on_phenomena_detector_ray_phenomena_detections_ceased"]
 [connection signal="sound_detected" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detected"]
 [connection signal="sound_detections_ceased" from="PlayerCamera/SoundSensorRay" to="PlayerCamera/ItemManager/InventoryRig/SoundSensor" method="_on_sound_detections_ceased"]
+[connection signal="clipboard_acquired" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_acquired"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]
 
 [editable path="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector"]

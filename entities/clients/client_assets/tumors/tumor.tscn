@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvq215357x6i3"]
+
+[ext_resource type="PackedScene" uid="uid://dwk37f4ql0qmb" path="res://resources/blend_files/phenomena/tumors/tumor1.blend" id="1_f3fi5"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="2_uhlgt"]
+[ext_resource type="Texture2D" uid="uid://dq8yfs63u0mo2" path="res://resources/blend_files/phenomena/tumors/tumor_texture.png" id="3_m7qmd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exj3h"]
+render_priority = 0
+shader = ExtResource("2_uhlgt")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.5
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("3_m7qmd")
+
+[node name="Tumor" type="Node3D"]
+
+[node name="tumor1" parent="." instance=ExtResource("1_f3fi5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0126867, 0)
+
+[node name="Icosphere" parent="tumor1" index="0"]
+material_override = SubResource("ShaderMaterial_exj3h")
+
+[editable path="tumor1"]

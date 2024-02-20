@@ -2,6 +2,8 @@ class_name Player
 extends CharacterBody3D
 
 
+signal clipboard_acquired
+
 enum State {NORMAL = 0, DISCONNECTED = 1, FOCUSED = 2}
 
 @export var state_manager: StateManager
@@ -48,4 +50,7 @@ func add_item(item_name: String) -> bool:
 
 func _on_item_manager_clipboard_held(is_held):
 	set_focus_mode(is_held)
-	
+
+
+func _on_item_manager_clipboard_acquired():
+	clipboard_acquired.emit()

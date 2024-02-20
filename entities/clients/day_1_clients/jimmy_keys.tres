@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="ClientResource" load_steps=3 format=3 uid="uid://st7wrec2lcb7"]
+
+[ext_resource type="JSON" path="res://entities/clients/day_1_clients/jimmy_keys.json" id="1_2s8a0"]
+[ext_resource type="Script" path="res://entities/clients/client_resource.gd" id="1_we6aw"]
+
+[resource]
+script = ExtResource("1_we6aw")
+client_name = "Jimmy Keys"
+client_age = 32
+client_job = "Unlocker"
+travel_reason = "Vacationing to Old Miami to see the Great Seawall"
+personality_type = 0
+threat_type = 5
+dialogue = ExtResource("1_2s8a0")
+dialogue_state = {
+"answered_age": false,
+"answered_job": false,
+"answered_name": false,
+"answered_phenom": false,
+"answered_reason": false,
+"intro_given": false
+}
+dialogue_symptoms = {
+"encountered_entity": true,
+"forgetful": true,
+"hallucinating": false,
+"headache": false,
+"irrational": false,
+"knows_too_much": false,
+"nauseated": false,
+"too_polite": false,
+"unresponsive": false
+}
+env_symptoms = {
+"averse_to_light": false,
+"crickets?": false,
+"ineplicable_phenomena": false,
+"manifesting_aura": false,
+"second_presence": false,
+"strange_growths": false,
+"strange_sounds": false,
+"time_dilation": false,
+"too_many_heartbeats": false
+}
+use_override = false
+size_scale = 0.8
