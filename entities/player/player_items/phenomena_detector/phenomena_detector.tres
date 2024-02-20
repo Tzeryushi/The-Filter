@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://38pfbdy68ast"]
+
+[ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="1_4jp30"]
+[ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_v8ao3"]
+
+[resource]
+script = ExtResource("1_v8ao3")
+item_name = "phenomena_detector"
+activate_anim = "phenomena_detector_activate"
+deactivate_anim = "phenomena_detector_deactivate"
+use_anim = "phenomena_detector_use"
+stop_use_anim = "phenomena_detector_not_use"
+item_scene = ExtResource("1_4jp30")
