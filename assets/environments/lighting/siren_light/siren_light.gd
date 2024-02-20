@@ -20,6 +20,6 @@ func _physics_process(delta):
 	pass
 
 
-func set_siren_light_enabled(enabled: bool) -> void:
-	self.enabled = enabled
-	spotlight.visible = enabled
+func set_siren_light_enabled(enable: bool) -> void:
+	self.enabled = enable
+	spotlight.visible = enable
