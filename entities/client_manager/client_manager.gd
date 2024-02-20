@@ -1,3 +1,4 @@
+class_name ClientManager
 extends Node3D
 
 
@@ -40,6 +41,11 @@ var env_symptoms: Dictionary = {
 func _ready() -> void:
 	await get_tree().process_frame
 	client_load(test_client)
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("crouch"):
+		Broadcaster.check_clipboard.emit(current_client.client_resource)
 
 
 func client_load(client_resource:ClientResource) -> void:

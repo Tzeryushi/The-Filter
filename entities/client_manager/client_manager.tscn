@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2fdhg06eduh5"]
+
+[ext_resource type="Script" path="res://entities/client_manager/client_manager.gd" id="1_nqpxf"]
+[ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_68krw"]
+[ext_resource type="PackedScene" uid="uid://dqhjw0wlmy0rh" path="res://entities/clients/client.tscn" id="3_uv1mg"]
+
+[node name="ClientManager" type="Node3D"]
+script = ExtResource("1_nqpxf")
+test_client = ExtResource("2_68krw")
+client_scene = ExtResource("3_uv1mg")
