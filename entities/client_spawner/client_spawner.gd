@@ -43,6 +43,11 @@ func _ready() -> void:
 	client_load(test_client)
 
 
+func _unhandled_input(event):
+	if event.is_action_pressed("crouch"):
+		Broadcaster.check_clipboard.emit(current_client)
+
+
 func client_load(client_resource:ClientResource) -> void:
 	var new_client = client_scene.instantiate()
 	new_client = new_client as Client

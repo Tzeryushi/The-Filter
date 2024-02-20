@@ -3,5 +3,9 @@ extends Node
 ## to by anyone. This is DANGEROUS! Use this sparingly.
 
 
-signal clipboard_form_submitted(approved: bool)
+signal clipboard_form_submitted(results: Dictionary)
 signal clipboard_form_changed(complication: String, value: bool)
+
+signal client_manager_new_client(new_client: Client)
+
+signal check_clipboard(client_resource: ClientResource)

@@ -2,7 +2,7 @@ extends Control
 
 
 signal complications_changed(complication:String, value:bool)
-signal submitted(approval:bool)
+signal submitted(results: Dictionary)
 
 
 @export var check_refs: Array[ComplicationBox]
@@ -18,18 +18,11 @@ var current_client: ClientResource
 
 
 func _ready() -> void:
+	Broadcaster.check_clipboard.connect(compare)
+	
 	for threat in ClientResource.Threat:
 		threat_field.add_item(str(threat), ClientResource.Threat[threat])
-	#form_dictionary.merge(default_client.dialogue_symptoms)
-	#form_dictionary.merge(default_client.env_symptoms)
-	
-	load_details(test_client)
 
-
-func _unhandled_input(event):
-	if event.is_action_pressed("crouch"):
-		compare(current_client)
-		clear_checks()
 
 func load_details(resource: ClientResource) -> void:
 	current_client = resource
@@ -76,7 +69,7 @@ func compare(resource: ClientResource) -> void:
 	if !approve_box.button_pressed and !deny_box.button_pressed:
 		result_dict["admitted_correctly"] = false
 	
-	print(result_dict)
+	submitted.emit(result_dict)
 
 
 func _on_checked(comp:String, value:bool):
