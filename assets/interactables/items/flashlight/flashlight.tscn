@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b61q3hx5rb66g"]
+[gd_scene load_steps=8 format=3 uid="uid://b61q3hx5rb66g"]
 
 [ext_resource type="Script" path="res://assets/interactables/items/flashlight/flashlight.gd" id="1_8lcmn"]
 [ext_resource type="PackedScene" uid="uid://mumrmn8r2oix" path="res://assets/interactables/items/flashlight/flashlight.glb" id="1_xdeg8"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="3_hoakf"]
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="3_kacyt"]
+[ext_resource type="Texture2D" uid="uid://bo03go2sw2g0g" path="res://assets/interactables/items/flashlight/flashlight.png" id="4_o03b5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc66x"]
+render_priority = 0
+shader = ExtResource("3_hoakf")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("4_o03b5")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kgmrx"]
 radius = 0.150694
@@ -12,8 +23,11 @@ height = 0.608698
 script = ExtResource("1_8lcmn")
 item_name = "flashlight"
 
-[node name="flashlight" parent="." instance=ExtResource("1_xdeg8")]
+[node name="flashlight2" parent="." instance=ExtResource("1_xdeg8")]
 transform = Transform3D(1, 0, 0, 0, 0.0892767, 0.996007, 0, -0.996007, 0.0892767, 0, 0.039987, 0.199468)
+
+[node name="Cylinder" parent="flashlight2" index="0"]
+material_override = SubResource("ShaderMaterial_vc66x")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.996007, -0.0892767, 0, 0.0892767, 0.996007, 0, 0.0578423, 0.000266209)
@@ -32,3 +46,5 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 shape = SubResource("CapsuleShape3D_kgmrx")
 
 [connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="flashlight2"]

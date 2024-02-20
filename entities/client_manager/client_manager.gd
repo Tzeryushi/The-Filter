@@ -11,13 +11,14 @@ signal client_terminated
 
 enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA = 3, STRANGE_SOUNDS = 4, SHADOWS=5}
 
+@export var dialogue_manager: Dialogue
+
 @export var test_client: ClientResource
 @export var client_scene: PackedScene
 @export var spawn_location: Node3D
 @export var stand_location: Node3D
 @export var reject_location: Node3D
 @export var no_light_location: Node3D
-
 
 var current_client : Client
 var hates_light: bool = false
@@ -108,5 +109,16 @@ func increased_shadows(_client: Client) -> void:
 	attribute_array.append(Attribute.SHADOWS)
 
 
+func start_dialogue(player_ref: Player) -> void:
+	if !current_client:
+		return
+	player_ref.point_to(current_client.head_node.global_position)
+	dialogue_manager.begin_dialogue(current_client.client_resource.dialogue, current_client.client_resource.dialogue_state)
+
+
 func _on_form_submitted() -> void:
 	Broadcaster.check_clipboard.emit(current_client.client_resource)
+
+
+func _on_dialogue_interactable_dialogue_started(player_node):
+	start_dialogue(player_node)

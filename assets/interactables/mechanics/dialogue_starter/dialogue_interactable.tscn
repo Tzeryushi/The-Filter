@@ -11,6 +11,7 @@ script = ExtResource("1_ur5qx")
 
 [node name="InteractionVolume" type="Area3D" parent="."]
 script = ExtResource("1_ihkad")
+interaction_text = "Start conversation"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249725, 0)

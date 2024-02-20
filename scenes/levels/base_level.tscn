@@ -1,8 +1,9 @@
-[gd_scene load_steps=59 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=60 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
+[ext_resource type="PackedScene" uid="uid://bb3wq6ipabifs" path="res://assets/interactables/mechanics/dialogue_starter/dialogue_interactable.tscn" id="3_843mn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="Material" uid="uid://ea7bul4exiwr" path="res://resources/textures/Floor_1/Floor_1.tres" id="5_53hf7"]
 [ext_resource type="Material" uid="uid://dy1kdh5n6w2a8" path="res://resources/textures/Wall_15/Wall_15.tres" id="5_jofqq"]
@@ -167,11 +168,15 @@ environment = SubResource("Environment_ajw48")
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.361, 1.90735e-06, -14.0462)
 
-[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
+[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
+dialogue_manager = NodePath("../../../../GUI/Dialogue")
 spawn_location = NodePath("../ClientPoints/ClientSpawnPoint")
 stand_location = NodePath("../ClientPoints/ClientStandPoint")
 reject_location = NodePath("../ClientPoints/ClientSpawnPoint")
 no_light_location = NodePath("../ClientPoints/ClientNoLightPoint")
+
+[node name="DialogueInteractable" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("3_843mn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 0.8, -19.4701)
 
 [node name="ClientPoints" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
@@ -471,6 +476,7 @@ default_client = ExtResource("28_qmrsc")
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
+[connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
