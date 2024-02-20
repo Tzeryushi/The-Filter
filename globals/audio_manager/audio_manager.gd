@@ -1,6 +1,7 @@
 extends Node
 
 var sfx_stream_players: Array = []
+var phenomena_sfx_stream_players: Array = []
 var voice_stream_players: Array = []
 var music_stream_players: Array = []
 
@@ -8,9 +9,10 @@ var world_sfx_stream_players: Array = []
 var world_voice_stream_players: Array = []
 var world_music_stream_players: Array = []
 
-enum Channel {SFX, Music, Voice}
+enum Channel {SFX, Phenomena_SFX, Music, Voice}
 
 const SFX_CHANNELS = 4;
+const PHENOMENA_SFX_CHANNELS = 1;
 const MUSIC_CHANNELS = 2;
 const VOICE_CHANNELS = 2;
 const WORLD_SFX_CHANNELS = 4;
@@ -34,6 +36,8 @@ func _ready():
 	# Build player audio players
 	for n in SFX_CHANNELS:
 		sfx_stream_players.push_back(build_audio_player("SFX", false))
+	for n in PHENOMENA_SFX_CHANNELS:
+		phenomena_sfx_stream_players.push_back(build_audio_player("Phenomena_SFX", false))
 	for n in MUSIC_CHANNELS:
 		music_stream_players.push_back(build_audio_player("Music", false))
 	for n in VOICE_CHANNELS:
@@ -149,6 +153,8 @@ func get_free_stream_player(
 		match channel:
 			Channel.SFX:
 				stream_players = sfx_stream_players
+			Channel.Phenomena_SFX:
+				stream_players = phenomena_sfx_stream_players
 			Channel.Music:
 				stream_players = music_stream_players
 			Channel.Voice:
