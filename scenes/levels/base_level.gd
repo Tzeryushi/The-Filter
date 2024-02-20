@@ -10,8 +10,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("use"):
-		player.point_to(client_manager.current_client.head_node.global_position)
+	#if event.is_action_pressed("use"):
+		#player.point_to(client_manager.current_client.head_node.global_position)
 	pass
 
 

@@ -45,5 +45,5 @@ func _on_interaction_ray_detections_ceased():
 
 func _on_player_look_at_point(location: Vector3):
 	look_tween = create_tween()
-	look_tween.tween_property(self, "transform", transform.looking_at(location), 0.5)
+	look_tween.tween_property(self, "global_transform", global_transform.looking_at(location), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	#look_at(location)
