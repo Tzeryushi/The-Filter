@@ -17,6 +17,7 @@ script = ExtResource("1_34jvg")
 [node name="DeskLampLight" type="SpotLight3D" parent="."]
 transform = Transform3D(0.984808, -0.173648, -7.08332e-08, -0.133022, -0.754407, 0.642788, -0.111619, -0.633022, -0.766044, -0.00519574, 0.397756, 0.232121)
 light_energy = 10.0
+shadow_enabled = true
 
 [node name="InteractionVolume" type="Area3D" parent="."]
 script = ExtResource("3_kcpyh")

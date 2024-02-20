@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=61 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -30,7 +30,12 @@
 [ext_resource type="Script" path="res://entities/entity_components/clipboard_checker.gd" id="27_ad6gn"]
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
+[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/misc/radio.blend" id="28_qhpxh"]
 [ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="28_qmrsc"]
+[ext_resource type="PackedScene" uid="uid://co2rlto0wgdwh" path="res://resources/blend_files/phenomena/creepies/space_centipede.blend" id="29_tl0hm"]
+[ext_resource type="PackedScene" uid="uid://divsl662n5cxy" path="res://resources/blend_files/phenomena/creepies/angel.blend" id="29_x7l4o"]
+[ext_resource type="PackedScene" uid="uid://livsoh1wag5h" path="res://resources/blend_files/phenomena/creepies/face.blend" id="31_qbtun"]
+[ext_resource type="PackedScene" uid="uid://bntguierf5v3n" path="res://resources/blend_files/phenomena/creepies/star.blend" id="32_bmxex"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -116,8 +121,6 @@ data = PackedVector3Array(-1, 0, -0.4, 4.7999, 0, 0, 4.7999, 0, -0.4, -1, 0, -0.
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwhww"]
 data = PackedVector3Array(-2.5, -0.75, 1, -2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, -0.75, 1, -2.5, -0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, 0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, 1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, 0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, -0.75, 1, -2.5, 0.75, 1, -2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, -0.75, -1, -2.5, -0.75, -1, -2.5, -0.75, 1, 2.5, -0.75, 1, 2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, 0.75, -1, 2.5, 0.75, -1, 2.5, 0.75, 1, -2.5, 0.75, 1)
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tqwvl"]
 
 [node name="BaseLevel" type="Node"]
 script = ExtResource("1_x6wr7")
@@ -243,7 +246,7 @@ surface_material_override/0 = ExtResource("9_p2hkh")
 shape = SubResource("ConcavePolygonShape3D_36nvt")
 
 [node name="ObservationFloor" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="6"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -50.0002, 0.00411224, -16.9993)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -50.0104, 0.00411248, -17.0017)
 surface_material_override/0 = ExtResource("6_htroi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationFloor" index="0"]
@@ -359,15 +362,6 @@ transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, 
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
-[node name="PHenomena" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0751, 0.7, -15.725)
-collision_layer = 32
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/PHenomena"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98079, 0.81316, 1.22455)
-shape = SubResource("SphereShape3D_tqwvl")
-
 [node name="PhenomenaDetector" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("27_ve8lp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0751, 0.7, -15.725)
 
@@ -391,6 +385,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0885, 0.7, -16.222)
 
 [node name="Scream" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_ubomo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3456, 0.7, -16.1992)
+
+[node name="radio" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("28_qhpxh")]
+transform = Transform3D(0.100014, 0, 0.994986, 0, 1, 0, -0.994986, 0, 0.100014, -58.0881, 0.7, -16.3494)
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
@@ -432,5 +429,38 @@ default_client = ExtResource("28_qmrsc")
 [node name="ClipboardObject" parent="." instance=ExtResource("12_cc7au")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 
+[node name="angel" parent="." instance=ExtResource("29_x7l4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0275, 1.65922, -18.2945)
+
+[node name="Angel" parent="angel" index="0"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="space_centipede" parent="." instance=ExtResource("29_tl0hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.3424, 1.59234, -21.6278)
+
+[node name="Centipede" parent="space_centipede" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575462, 1.11952, 0.00864601)
+collision_layer = 32
+collision_mask = 0
+
+[node name="face" parent="." instance=ExtResource("31_qbtun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.4981, 0.844225, -18.2376)
+
+[node name="face" parent="face" index="0"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="star" parent="." instance=ExtResource("32_bmxex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3526, 1.78749, -21.3594)
+
+[node name="star" parent="star" index="0"]
+collision_layer = 32
+collision_mask = 0
+
 [editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
+[editable path="angel"]
+[editable path="space_centipede"]
+[editable path="face"]
+[editable path="star"]

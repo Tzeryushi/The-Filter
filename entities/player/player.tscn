@@ -751,81 +751,71 @@ script = ExtResource("9_4edco")
 [node name="PhenomenaDetectorRay" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay2" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay3" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay4" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay5" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay6" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay7" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay8" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay9" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="PhenomenaDetectorRay10" type="RayCast3D" parent="PlayerCamera/PhenomenaRays"]
 visible = false
 enabled = false
-target_position = Vector3(0, 0, -5)
-collision_mask = 32
-collide_with_areas = true
+target_position = Vector3(0, 0, -3.5)
+collision_mask = 33
 script = ExtResource("11_a27ic")
 
 [node name="SoundSensorRay" type="RayCast3D" parent="PlayerCamera"]
