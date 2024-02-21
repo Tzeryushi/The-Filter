@@ -31,3 +31,7 @@ func set_speaking(value: bool) -> void:
 		else:
 			animator.stop()
 	is_speaking = value
+
+
+func _on_speaker_player_entered(player):
+	start_dialogue()

@@ -2,7 +2,7 @@ extends Node
 
 
 @export var client_manager : ClientManager
-@export var dialogue: Dialogue
+@export var dialogue_manager: Dialogue
 @export var player: Player
 @export var nav_region: NavigationRegion3D
 
@@ -31,6 +31,8 @@ func sort_results(results: Dictionary) -> void:
 	pass
 
 
-func _on_speaker_dialogue_started(dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
+func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
 	player.point_to(speaker.global_position)
-	dialogue.begin_dialogue(dialogue, dialogue_dict)
+	dialogue_manager.begin_dialogue(inc_dialogue, dialogue_dict)
+	await dialogue_manager.dialogue_ended
+	speaker.end_dialogue()
