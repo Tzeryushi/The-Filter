@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://p8ul248nuyfi"
-path="res://.godot/imported/large desk.png-0101572f87941b418bbd9219255396a9.ctex"
+path="res://.godot/imported/large desk.png-3f82090a9cd551653a5845e8b8768d8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/blend_files/furniture/desk:table/large desk.png"
-dest_files=["res://.godot/imported/large desk.png-0101572f87941b418bbd9219255396a9.ctex"]
+source_file="res://resources/blend_files/furniture/desk and table/large desk.png"
+dest_files=["res://.godot/imported/large desk.png-3f82090a9cd551653a5845e8b8768d8a.ctex"]
 
 [params]
 
