@@ -6,7 +6,7 @@ extends Node3D
 # update the GUI on the clipboard, and pass pertinent signals that can be listened
 # to by environmental nodes, like the clock or the lights.
 
-signal client_launched(type:Array[Attribute])
+signal client_launched(type_array:Array[Attribute])
 signal client_terminated
 signal client_primed
 

@@ -34,16 +34,16 @@ dialogue_symptoms = {
 "unresponsive": false
 }
 env_symptoms = {
-"averse_to_light": true,
-"crickets?": true,
+"averse_to_light": false,
+"crickets?": false,
 "increased_shadows": false,
 "inexplicable_phenomena": false,
-"manifesting_aura": true,
-"second_presence": true,
-"strange_growths": true,
+"manifesting_aura": false,
+"second_presence": false,
+"strange_growths": false,
 "strange_sounds": false,
 "time_dilation": false,
-"too_many_heartbeats": true
+"too_many_heartbeats": false
 }
 texture = ExtResource("3_8007r")
 use_override = false

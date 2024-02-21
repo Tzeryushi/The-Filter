@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=70 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
 [ext_resource type="PackedScene" uid="uid://7yu8d726o13" path="res://resources/blend_files/misc/microphone/microphone.blend" id="15_tsky6"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
+[ext_resource type="PackedScene" uid="uid://dam2buho2dcmq" path="res://assets/shadow_spawner/shadow_spawner.tscn" id="21_dc8ne"]
 [ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
 [ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
 [ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
@@ -424,6 +425,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
 visible = false
 type = 2
 
+[node name="ShadowSpawner" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_dc8ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4984, 0.89281, -19.4809)
+
 [node name="DecorativeItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
@@ -529,8 +533,10 @@ volume_db = -20.0
 autoplay = true
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
+[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_launched"]
 [connection signal="client_primed" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" method="_on_client_manager_client_primed"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_terminated"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
