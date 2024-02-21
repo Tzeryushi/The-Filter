@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
 [ext_resource type="PackedScene" uid="uid://dam2buho2dcmq" path="res://assets/shadow_spawner/shadow_spawner.tscn" id="21_dc8ne"]
 [ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
+[ext_resource type="PackedScene" uid="uid://dsysswfexo0uo" path="res://resources/blend_files/furniture/desk and table/table and desk.blend" id="24_2xbty"]
 [ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
 [ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 [ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="26_lirhs"]
@@ -34,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="29_yse7u"]
+[ext_resource type="PackedScene" uid="uid://c0yfv7tra41vd" path="res://resources/blend_files/lighting/lamp 1/lamp 1.blend" id="30_rquwf"]
 [ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
 [ext_resource type="PackedScene" uid="uid://ij31gvn3xbf0" path="res://assets/interactables/buttons/small_button.tscn" id="32_oq5ts"]
 [ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
@@ -51,6 +53,14 @@
 [ext_resource type="AudioStream" uid="uid://bnhnod3yafg4b" path="res://resources/sounds/music/horror_01_drone_glitch_08.ogg" id="41_0hho6"]
 [ext_resource type="PackedScene" uid="uid://blf18yw684ag1" path="res://entities/speakers/speaker.tscn" id="41_le3ac"]
 [ext_resource type="JSON" path="res://entities/speakers/entrance_speaker.json" id="42_6cody"]
+[ext_resource type="PackedScene" uid="uid://invpmdmp5hvs" path="res://resources/blend_files/cig stuff/ash tray with lit cig .blend" id="44_4qvhb"]
+[ext_resource type="PackedScene" uid="uid://d2pf1ms1empnu" path="res://resources/blend_files/coffee/coffee mug.blend" id="45_r5tsp"]
+[ext_resource type="PackedScene" uid="uid://cgsuguiur4x0l" path="res://resources/blend_files/coffee/coffee maker.blend" id="46_lvdvu"]
+[ext_resource type="PackedScene" uid="uid://gl4kpy0qdu0b" path="res://resources/blend_files/cig stuff/pile of bent up burnt cigs .blend" id="47_uxvkj"]
+[ext_resource type="PackedScene" uid="uid://jefodf7v57xj" path="res://resources/blend_files/tech/floppy disk/floppy disk.blend" id="48_4qae1"]
+[ext_resource type="PackedScene" uid="uid://dcim3wd52pe6y" path="res://resources/blend_files/tech/switchboard/switchboard.blend" id="49_fkukd"]
+[ext_resource type="PackedScene" uid="uid://dcx2b5ggetjda" path="res://resources/blend_files/furniture/chair/chair.blend" id="50_b5xfm"]
+[ext_resource type="PackedScene" uid="uid://dkvg7le03ax1r" path="res://resources/blend_files/lighting/lamp 2/lamp 2 copy.blend" id="51_jbtwt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -546,7 +556,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6925, 1.00058, 0.345911)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102425, 0, 0)
 
 [node name="SubmissionComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_3uxoq")]
-transform = Transform3D(0.891624, 0, 0.452777, 0, 1, 0, -0.452777, 0, 0.891624, -61.4086, 0.7, -16.0825)
+transform = Transform3D(0.999974, 0, -0.00727814, 0, 1, 0, 0.00727814, 0, 0.999974, -56.7276, 0.997134, -16.2023)
 screen_material = SubResource("ShaderMaterial_l5vfd")
 
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
@@ -558,6 +568,54 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0084, 0.968118, -16.1493)
 type = 4
 
 [node name="DecorativeItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+
+[node name="coffee mug" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("45_r5tsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0176, 0.978295, -16.1545)
+
+[node name="coffee maker2" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("46_lvdvu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7617, 0.250361, -13.3247)
+
+[node name="ash tray with lit cig " parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("44_4qvhb")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -57.8241, 1.00335, -15.8203)
+
+[node name="pile of bent up burnt cigs " parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("47_uxvkj")]
+transform = Transform3D(0.69, 0, 0, 0, 0.69, 0, 0, 0, 0.69, -61.0273, 0.986242, -13.1143)
+
+[node name="pile of bent up burnt cigs 2" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("47_uxvkj")]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, -59.4938, 0.830245, -19.6388)
+
+[node name="coffee mug2" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("45_r5tsp")]
+transform = Transform3D(0.578228, 0, 0.815875, 0, 1, 0, -0.815875, 0, 0.578228, -61.5598, 1.054, -13.2893)
+
+[node name="floppy disk" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("48_4qae1")]
+transform = Transform3D(0.0388981, -0.0309785, -0.00522209, 0.00871396, 0.00265415, 0.0491632, -0.0301829, -0.0391572, 0.00746374, -61.5292, 1.16349, -14.934)
+
+[node name="switchboard" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("49_fkukd")]
+transform = Transform3D(2.61, 0, 0, 0, 2.61, 0, 0, 0, 2.61, -54.982, 0.00411248, -16.3178)
+
+[node name="floppy disk2" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("48_4qae1")]
+transform = Transform3D(0.038425, -0.0109862, 0.00168112, 0, 0.00605043, 0.0395398, -0.011114, -0.0379828, 0.00581219, -56.1194, 1.25404, -15.4141)
+
+[node name="chair" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("50_b5xfm")]
+transform = Transform3D(-1.06938, 0, 1.78405, 0, 2.08, 0, -1.78405, 0, -1.06938, -56.5943, 0.639039, -15.2566)
+
+[node name="chair2" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("50_b5xfm")]
+transform = Transform3D(1.75891, 0, -0.604851, 0, 1.86, 0, 0.604851, 0, 1.75891, -60.3813, 0.357138, -20.2197)
+
+[node name="chair3" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("50_b5xfm")]
+transform = Transform3D(-1.78099, 0, 0.743618, 0, 1.93, 0, -0.743618, 0, -1.78099, -56.561, 0.414272, -19.9402)
+
+[node name="chair4" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("50_b5xfm")]
+transform = Transform3D(0.0353673, 0, 1.92968, 0, 1.93, 0, -1.92968, 0, 0.0353673, -58.5706, 0.709473, -19.1857)
+
+[node name="coffee mug3" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("45_r5tsp")]
+transform = Transform3D(-0.999566, 0, 0.0294743, 0, 1, 0, -0.0294743, 0, -0.999566, -59.6102, 0.864248, -19.8344)
+
+[node name="lamp 2 copy" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("51_jbtwt")]
+transform = Transform3D(6.77, 0, 0, 0, 6.77, 0, 0, 0, 6.77, -58.506, 1.81321, -20.7975)
+
+[node name="lamp 1" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("30_rquwf")]
+transform = Transform3D(-0.0325681, 0, -2.17976, 0, 2.18, 0, 2.17976, 0, -0.0325681, -58.4, 1.63393, -13.3124)
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -55.9148, 0.00411224, -11.9527)
@@ -572,44 +630,57 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.67
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
 
 [node name="microphone" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("15_tsky6")]
-transform = Transform3D(0.0756401, 0, -0.997135, 0, 1, 0, 0.997135, 0, 0.0756401, -60.4827, 0.8, -16.1069)
+transform = Transform3D(0.0756401, 0, -0.997135, 0, 1, 0, 0.997135, 0, 0.0756401, -58.8046, 0.924998, -16.2044)
+
+[node name="table and desk" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("24_2xbty")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -60.7438, 0.00411248, -15.5901)
 
 [node name="Tools" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="PhenomenaDetector" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("27_ve8lp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0751, 0.7, -15.725)
+transform = Transform3D(-0.336043, 0, -0.941846, 0, 1, 0, 0.941846, 0, -0.336043, -61.689, 0.933879, -14.9934)
 
 [node name="SoundSensor" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("20_0euyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.2641, 0.7, -15.8461)
+transform = Transform3D(0.940709, 0, 0.339214, 0, 1, 0, -0.339214, 0, 0.940709, -60.7836, 0.966405, -15.9514)
 
 [node name="Flashlight" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("7_lhejl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.2584, 0.700001, -15.7726)
+transform = Transform3D(-0.588928, 0, -0.808185, 0, 1, 0, 0.808185, 0, -0.588928, -61.6518, 0.93373, -14.3529)
 
 [node name="BaseItem" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("8_0hdwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.06, 0.7, -15.6625)
+transform = Transform3D(-0.241583, 0, 0.97038, 0, 1, 0, -0.97038, 0, -0.241583, -61.6763, 1.13339, -13.7818)
 
 [node name="ClipboardObject" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("12_cc7au")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -58.2727, 0.961734, -16.0047)
 
 [node name="Lights" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52013, 2.54222, -1.51105)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.8774, 2.51669, -12.8775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.0179, 2.51669, -13.3111)
 light_color = Color(1, 0.533333, 0, 1)
 light_energy = 3.941
 light_indirect_energy = 3.076
 omni_range = 7.97264
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.0014, -20.0002)
-light_color = Color(1, 0.886275, 0.662745, 1)
+[node name="SpotLight3D lamp" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 2.37365, -20.5494)
+light_color = Color(0.945098, 0.0705882, 0, 1)
 light_energy = 6.446
 light_indirect_energy = 6.807
 light_specular = 8.37
-spot_range = 4.6257
+spot_range = 3.952
+spot_angle = 42.65
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -58.5, 4.9068, -20.5494)
+light_color = Color(0.643137, 0.403922, 0.219608, 1)
+light_energy = 6.446
+light_indirect_energy = 6.807
+light_specular = 8.37
+spot_range = 15.158
+spot_attenuation = 1.51572
 spot_angle = 42.65
 
 [node name="BigButtonLight" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
@@ -641,14 +712,14 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.5,
 transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -58.5, 2.75, -22.977)
 
 [node name="DeskLamp" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("10_i6jmw")]
-transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.5887, 0.7, -16.1114)
+transform = Transform3D(0.384086, 0, -0.923297, 0, 1, 0, 0.923297, 0, 0.384086, -57.7457, 0.989616, -16.3483)
 
 [node name="NormalDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("6_2g6o2")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
 [node name="Radio" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("22_3xea3")]
-transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -58.0424, 0.7, -16.3054)
+transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, -61.4929, 0.93233, -12.883)
 
 [node name="BlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.8, 0, -18.45)
