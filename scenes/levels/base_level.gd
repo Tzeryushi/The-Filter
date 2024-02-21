@@ -29,3 +29,8 @@ func _physics_process(delta) -> void:
 
 func sort_results(results: Dictionary) -> void:
 	pass
+
+
+func _on_speaker_dialogue_started(dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
+	player.point_to(speaker.global_position)
+	dialogue.begin_dialogue(dialogue, dialogue_dict)

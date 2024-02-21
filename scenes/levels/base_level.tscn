@@ -687,6 +687,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -14.1662)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81638, 0)
 shape = SubResource("BoxShape3D_d6m0i")
 
+[node name="Speakers" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Dialogue" parent="GUI" instance=ExtResource("29_yse7u")]
