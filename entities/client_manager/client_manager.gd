@@ -65,7 +65,7 @@ func client_load(client_resource:ClientResource) -> void:
 	current_client = new_client
 	
 	for symptom in client_resource.env_symptoms:
-		if env_symptoms[symptom] is Callable:
+		if env_symptoms[symptom] is Callable and client_resource.env_symptoms[symptom]:
 			env_symptoms[symptom].call(current_client)
 			
 	client_launched.emit(attribute_array)
@@ -74,7 +74,12 @@ func client_load(client_resource:ClientResource) -> void:
 	
 	#TODO: Set movement to position in navmesh
 	await get_tree().process_frame
-	new_client.update_target_position(stand_location.global_position)
+	var walk_position: Vector3
+	if hates_light:
+		walk_position = no_light_location.global_position
+	else:
+		walk_position = stand_location.global_position
+	new_client.update_target_position(walk_position)
 	await new_client.navigation_ended
 	new_client.look_at(look_point.global_position)
 	client_primed.emit()

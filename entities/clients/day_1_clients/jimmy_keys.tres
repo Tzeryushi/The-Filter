@@ -39,7 +39,7 @@ env_symptoms = {
 "increased_shadows": false,
 "inexplicable_phenomena": false,
 "manifesting_aura": false,
-"second_presence": false,
+"second_presence": true,
 "strange_growths": false,
 "strange_sounds": false,
 "time_dilation": false,

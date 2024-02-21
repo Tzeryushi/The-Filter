@@ -13,6 +13,7 @@ var look_tween: Tween = null
 @onready var base_position: Vector3 = position
 @onready var interaction_text: RichTextLabel = $CameraSpace/InteractionText
 
+
 func process_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
