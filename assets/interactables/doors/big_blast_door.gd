@@ -31,3 +31,7 @@ func _on_small_button_pressed():
 
 func _on_big_button_pressed():
 	toggle_door()
+
+
+func _on_door_open_volume_player_entered(player):
+	toggle_door()

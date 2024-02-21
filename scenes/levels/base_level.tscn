@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=88 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://de41rcr85gjnf" path="res://assets/interactables/buttons/big_button.tscn" id="38_o48uk"]
 [ext_resource type="AudioStream" uid="uid://bs7l2c52awgbd" path="res://resources/sounds/music/horror_01_drone_glitch_05.ogg" id="38_ukx0t"]
 [ext_resource type="AudioStream" uid="uid://bs0k6xptwhcpr" path="res://resources/sounds/music/horror_01_drone_glitch_06.ogg" id="39_3187c"]
+[ext_resource type="PackedScene" uid="uid://blpx6kb0t4ylq" path="res://assets/interactables/event_volume.tscn" id="40_8t1b3"]
 [ext_resource type="AudioStream" uid="uid://cef6lqmhstvu8" path="res://resources/sounds/music/horror_01_drone_glitch_07.ogg" id="40_hx4l6"]
 [ext_resource type="AudioStream" uid="uid://bnhnod3yafg4b" path="res://resources/sounds/music/horror_01_drone_glitch_08.ogg" id="41_0hho6"]
 
@@ -213,6 +214,9 @@ shader_parameter/alpha_scissor = 0.5
 shader_parameter/jitter = 0.25
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = SubResource("ViewportTexture_2e2m2")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6m0i"]
+size = Vector3(3.1748, 6.63275, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r2dww"]
 streams_count = 8
@@ -670,10 +674,18 @@ material = ExtResource("5_jofqq")
 
 [node name="BigBlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("37_m8hx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -18.5)
-is_open = true
 
 [node name="BigButton" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("38_o48uk")]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, 3, 1.5, -18.5)
+
+[node name="EventAreas" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+
+[node name="DoorOpenVolume" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -14.1662)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81638, 0)
+shape = SubResource("BoxShape3D_d6m0i")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -697,6 +709,7 @@ autoplay = true
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_big_button_pressed"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_door_open_volume_player_entered"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]

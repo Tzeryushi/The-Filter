@@ -11,9 +11,10 @@ signal player_entered(player: Player)
 signal player_exited(player: Player)
 
 @export var is_active: bool = true : set = set_active
-
+@export var disable_on_exit: bool = true
 
 func _ready() -> void:
+	await get_tree().process_frame
 	for child in get_children():
 		if child is CollisionShape3D:
 			child.disabled = !is_active
@@ -23,7 +24,7 @@ func set_active(value: bool) -> void:
 	if value != is_active:
 		for child in get_children():
 			if child is CollisionShape3D:
-				child.disabled = !value
+				child.set_deferred("disabled", !value)
 		is_active = value
 
 
@@ -35,3 +36,5 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body is Player:
 		player_exited.emit(body)
+	if disable_on_exit:
+		set_active(false)

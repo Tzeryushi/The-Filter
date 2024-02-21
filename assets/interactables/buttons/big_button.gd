@@ -2,6 +2,8 @@ extends Node3D
 
 signal pressed
 
+@export var is_active: bool = false
+
 @export var press_on_sound: AudioStream
 @export var press_off_sound: AudioStream
 @export var case_sound: AudioStream
@@ -21,7 +23,7 @@ func _ready():
 	case_interact = get_node("CaseInteract")
 	
 	button_interact.set_active(false)
-	case_interact.set_active(true)
+	case_interact.set_active(is_active)
 
 
 func set_button_active(value: bool) -> void:

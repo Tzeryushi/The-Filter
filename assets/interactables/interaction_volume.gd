@@ -35,5 +35,5 @@ func set_active(value: bool) -> void:
 	if value != is_active:
 		for child in get_children():
 			if child is CollisionShape3D:
-				child.disabled = !value
+				child.set_deferred("disabled", !value)
 		is_active = value
