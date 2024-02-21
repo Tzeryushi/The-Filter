@@ -169,11 +169,13 @@ func _on_submission_computer_decision_made(results):
 	else:
 		end_position = denied_point.global_position
 		current_client.client_resource.dialogue_state["denied"] = true
-	current_client.update_target_position(window_point.global_position)
-	await current_client.navigation_ended
-	current_client.look_at(look_point.global_position)
-	start_dialogue(player)
-	await dialogue_manager.dialogue_ended
+	
+	if current_client.client_resource.has_ending_dialogue:
+		current_client.update_target_position(window_point.global_position)
+		await current_client.navigation_ended
+		current_client.look_at(look_point.global_position)
+		start_dialogue(player)
+		await dialogue_manager.dialogue_ended
 	
 	current_client.update_target_position(end_position)
 	await current_client.navigation_ended
