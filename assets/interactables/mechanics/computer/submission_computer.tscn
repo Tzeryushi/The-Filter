@@ -47,6 +47,12 @@ material_override = ExtResource("3_tlson")
 
 [node name="Node3D" type="Node3D" parent="computer_model_final"]
 
+[node name="SpotLight3D" type="SpotLight3D" parent="computer_model_final"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496614, 0.409383)
+light_color = Color(0.909804, 1, 0.933333, 1)
+spot_range = 0.606752
+spot_angle = 52.3249
+
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(378, 240)
 
