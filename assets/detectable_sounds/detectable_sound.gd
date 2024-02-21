@@ -17,8 +17,8 @@ func _ready():
 	set_sensor_sound(type)
 
 
-func set_sensor_sound(type: SoundType):
-	match type:
+func set_sensor_sound(new_type: SoundType):
+	match new_type:
 		SoundType.CREEPY:
 			active_sound = creepy_sound
 		SoundType.CRICKETS:

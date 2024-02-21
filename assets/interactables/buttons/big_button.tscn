@@ -1,0 +1,141 @@
+[gd_scene load_steps=12 format=3 uid="uid://de41rcr85gjnf"]
+
+[ext_resource type="Script" path="res://assets/interactables/buttons/big_button.gd" id="1_soabv"]
+[ext_resource type="AudioStream" uid="uid://cunkiufugcx45" path="res://resources/sounds/sfx/UI_Press_1.ogg" id="2_8dvoj"]
+[ext_resource type="PackedScene" uid="uid://b4uesa584dxqj" path="res://resources/blend_files/misc/big_button.blend" id="2_xi2so"]
+[ext_resource type="Script" path="res://assets/interactables/interaction_volume.gd" id="3_hnx3p"]
+[ext_resource type="AudioStream" uid="uid://k83gx0uahnyt" path="res://resources/sounds/sfx/UI_Press_2.ogg" id="3_lbkfy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l0pe5"]
+size = Vector3(0.6, 0.45, 0.6)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lpmuq"]
+radius = 0.2
+
+[sub_resource type="Animation" id="Animation_30j7w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_button/Glass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0023462, 0.114373, 0.281253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("big_button/Glass:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("big_button/Button:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qgckj"]
+resource_name = "button_press"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_button/Button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75),
+"transitions": PackedFloat32Array(0.0915054, 1, 0.840897),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.0949524, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4002y"]
+resource_name = "case_open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_button/Glass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.27456, 1),
+"update": 0,
+"values": [Vector3(0.0023462, 0.114373, 0.281253), Vector3(0.0023462, 0.114373, 0.281253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("big_button/Glass:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.27456, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.74533, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6ml0"]
+_data = {
+"RESET": SubResource("Animation_30j7w"),
+"button_press": SubResource("Animation_qgckj"),
+"case_open": SubResource("Animation_4002y")
+}
+
+[node name="BigButton" type="Node3D"]
+script = ExtResource("1_soabv")
+press_on_sound = ExtResource("2_8dvoj")
+press_off_sound = ExtResource("3_lbkfy")
+
+[node name="big_button" parent="." instance=ExtResource("2_xi2so")]
+
+[node name="Glass" parent="big_button" index="2"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.0023462, 0.114373, 0.281253)
+
+[node name="CaseInteract" type="Area3D" parent="."]
+script = ExtResource("3_hnx3p")
+interaction_text = "Open Case"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaseInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22597, 0)
+shape = SubResource("BoxShape3D_l0pe5")
+
+[node name="ButtonInteract" type="Area3D" parent="."]
+script = ExtResource("3_hnx3p")
+interaction_text = "PRESS THE BUTTON"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonInteract"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.140829, 0)
+shape = SubResource("SphereShape3D_lpmuq")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t6ml0")
+}
+
+[connection signal="interacted" from="CaseInteract" to="." method="_on_glass_case_interacted"]
+[connection signal="interacted" from="ButtonInteract" to="." method="_on_button_interacted"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="big_button"]

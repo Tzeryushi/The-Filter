@@ -3,7 +3,7 @@ extends PlayerItem
 
 @export var sound_on: AudioStream = preload("res://entities/player/player_items/flashlight/Flashlight on.wav")
 @export var sound_off: AudioStream = preload("res://entities/player/player_items/flashlight/Flashlight off.wav")
-@export var sound_default: AudioStream = preload("res://entities/player/player_items/sound_sensor/ScatterNoise1.mp3")
+@export var sound_default: AudioStream
 @export var sound_sensor_ray: RayCast3D
 
 var default_sound_stream_player: PrioritizedAudioStreamPlayer
