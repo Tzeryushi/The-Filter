@@ -10,6 +10,7 @@ extends Area3D
 signal interacted(interacting_node)
 
 @export var interaction_text: String = "Interact With" : get = get_interaction_text
+@export var is_active: bool = true : set = set_active
 
 const base_text: String = "[center]"
 
@@ -21,3 +22,11 @@ func get_interaction_text() -> String:
 func interact(node: Node = null) -> void:
 	interacted.emit(node)
 	pass
+
+
+func set_active(value: bool) -> void:
+	if value != is_active:
+		for child in get_children():
+			if child is CollisionShape3D:
+				child.disabled = value
+		is_active = value
