@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://budchebr41s6l"
-path.s3tc="res://.godot/imported/Reel.png-bc0a94e61f1df3f19a042df9f45339f6.s3tc.ctex"
+uid="uid://dq00yon6ot5yo"
+path.s3tc="res://.godot/imported/RadioDisplay.png-b59f74c822dc1944db021a7b9add315c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/blend_files/misc/Reel.png"
-dest_files=["res://.godot/imported/Reel.png-bc0a94e61f1df3f19a042df9f45339f6.s3tc.ctex"]
+source_file="res://resources/blend_files/misc/radio/RadioDisplay.png"
+dest_files=["res://.godot/imported/RadioDisplay.png-b59f74c822dc1944db021a7b9add315c.s3tc.ctex"]
 
 [params]
 

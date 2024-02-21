@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://kiki4jqh71lh"
-path="res://.godot/imported/radio.blend-7f1ab3f010bfc2df39f54a7a704ed27a.scn"
+uid="uid://ba3am28konnc5"
+path="res://.godot/imported/speaker.blend-d240becc424d585c5af86a5c7a16d6c8.scn"
 
 [deps]
 
-source_file="res://resources/blend_files/misc/radio.blend"
-dest_files=["res://.godot/imported/radio.blend-7f1ab3f010bfc2df39f54a7a704ed27a.scn"]
+source_file="res://resources/blend_files/misc/speaker/speaker.blend"
+dest_files=["res://.godot/imported/speaker.blend-d240becc424d585c5af86a5c7a16d6c8.scn"]
 
 [params]
 

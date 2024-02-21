@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://7yu8d726o13"
-path="res://.godot/imported/microphone.blend-7a25059471ae56fb527a8254773488e8.scn"
+path="res://.godot/imported/microphone.blend-0af2a7ef6ed2c15e44346ff70bddc0d3.scn"
 
 [deps]
 
-source_file="res://resources/blend_files/misc/microphone.blend"
-dest_files=["res://.godot/imported/microphone.blend-7a25059471ae56fb527a8254773488e8.scn"]
+source_file="res://resources/blend_files/misc/microphone/microphone.blend"
+dest_files=["res://.godot/imported/microphone.blend-0af2a7ef6ed2c15e44346ff70bddc0d3.scn"]
 
 [params]
 

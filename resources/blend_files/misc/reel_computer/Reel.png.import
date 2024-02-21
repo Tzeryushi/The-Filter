@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ga1lgmblq3u4"
-path.s3tc="res://.godot/imported/microphone.png-b68041902bc622f89ea2156f911e8592.s3tc.ctex"
+uid="uid://budchebr41s6l"
+path.s3tc="res://.godot/imported/Reel.png-44453b3966cd03529bbc06668f538dde.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/blend_files/misc/microphone.png"
-dest_files=["res://.godot/imported/microphone.png-b68041902bc622f89ea2156f911e8592.s3tc.ctex"]
+source_file="res://resources/blend_files/misc/reel_computer/Reel.png"
+dest_files=["res://.godot/imported/Reel.png-44453b3966cd03529bbc06668f538dde.s3tc.ctex"]
 
 [params]
 
