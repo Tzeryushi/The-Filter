@@ -2,7 +2,7 @@ extends Node3D
 
 
 signal form_submitted
-
+signal decision_made(results: Dictionary)
 
 @export var content_viewport: SubViewport
 @export var screen_material: ShaderMaterial
@@ -36,6 +36,7 @@ func _on_form_submitted(result_dict: Dictionary) -> void:
 	else:
 		deny_screen.show()
 	await get_tree().create_timer(2.0).timeout
+	decision_made.emit(result_dict)
 	
 	results_screen.show()
 	results_text.text = str(result_dict)
@@ -50,3 +51,7 @@ func _on_form_submitted(result_dict: Dictionary) -> void:
 func _on_interaction_volume_interacted(_interacting_node: Node):
 	if can_submit and !is_submitting:
 		form_submitted.emit()
+
+
+func _on_client_manager_client_primed():
+	can_submit = true
