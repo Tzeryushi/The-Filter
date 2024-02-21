@@ -671,10 +671,11 @@ camera = NodePath("../../PlayerCamera")
 interaction_ray = NodePath("../../PlayerCamera/InteractionRay")
 item_manager = NodePath("../../PlayerCamera/ItemManager")
 
-[node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state", "focused_state")]
+[node name="Disconnected" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state", "focused_state", "camera")]
 script = ExtResource("5_oh1lb")
 normal_state = NodePath("../Normal")
 focused_state = NodePath("../Focus")
+camera = NodePath("../../PlayerCamera")
 state_type = 1
 
 [node name="Focus" type="Node" parent="StateManager" node_paths=PackedStringArray("normal_state", "disconnected_state", "movement", "camera", "interaction_ray", "item_manager")]
@@ -849,7 +850,7 @@ item_resource = ExtResource("11_f018m")
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
 
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
-transform = Transform3D(1, 0, 0, 0, 0.115021, 0.993361, 0, -0.993361, 0.115021, 0, 1.37255, 0)
+transform = Transform3D(1, 0, 0, 0, 0.115021, 0.99336, 0, -0.99336, 0.115021, 0, 1.37255, 0)
 visible = false
 script = ExtResource("15_on77x")
 spotlight = NodePath("SpotLight3D")
@@ -891,7 +892,7 @@ visible = false
 visible = false
 
 [node name="SoundSensor" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("sound_sensor_ray")]
-transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
+transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.982089, -8.23565e-09, 0.982089, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
 visible = false
 script = ExtResource("18_842pu")
 sound_default = ExtResource("25_72ftb")

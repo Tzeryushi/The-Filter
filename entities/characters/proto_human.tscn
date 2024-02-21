@@ -517,6 +517,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_nyi20"]
 resource_name = "Armature_011|mixamo_com|Layer0"
 length = 8.33333
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -1533,6 +1534,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_8ryib"]
 resource_name = "run"
 length = 0.733333
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2041,6 +2043,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_dasrp"]
 resource_name = "run_left"
 length = 0.7
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -2549,6 +2552,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_1ug5p"]
 resource_name = "run_right"
 length = 0.7
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -4581,6 +4585,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_q3jst"]
 resource_name = "walk"
 length = 1.06667
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -5089,6 +5094,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_o8bkb"]
 resource_name = "walk_left"
 length = 1.06667
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -5597,6 +5603,7 @@ tracks/71/keys = PackedFloat32Array(0, 1, 1.49012e-08, 4.47035e-08, 1.49012e-08,
 [sub_resource type="Animation" id="Animation_edwqp"]
 resource_name = "walk_right"
 length = 1.06667
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -6124,29 +6131,30 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00394809, 1.19209e-07, -0.0573118)
 
 [node name="GeneralSkeleton" parent="human 12/Armature" index="0"]
-bones/0/rotation = Quaternion(0.0431832, 0.543515, -0.0528656, 0.836619)
-bones/1/rotation = Quaternion(0.0522142, -0.0663151, 0.0177307, 0.996274)
-bones/2/rotation = Quaternion(0.0369942, -0.044771, 0.0113242, 0.998248)
-bones/3/rotation = Quaternion(0.0367855, -0.0450051, 0.0111772, 0.998247)
-bones/4/rotation = Quaternion(0.0435187, -0.0522622, -0.00507371, 0.997672)
-bones/5/rotation = Quaternion(-0.0669097, -0.300116, 0.0655824, 0.949291)
+bones/0/position = Vector3(0.00144183, 1.03379, 0.0142284)
+bones/0/rotation = Quaternion(-0.031201, -0.046549, -0.0312735, 0.997939)
+bones/1/rotation = Quaternion(0.0290769, 0.0127695, 0.0242292, 0.999202)
+bones/2/rotation = Quaternion(0.0100912, 0.0028257, 0.0135793, 0.999853)
+bones/3/rotation = Quaternion(0.00986803, 0.0030212, 0.0136075, 0.999854)
+bones/4/rotation = Quaternion(0.049076, -0.000882978, 0.00392924, 0.998787)
+bones/5/rotation = Quaternion(-0.0659584, 0.0119327, -0.00149328, 0.99775)
 bones/6/position = Vector3(0, 0.220374, 0.0750107)
-bones/7/rotation = Quaternion(0.545184, -0.446947, -0.536748, -0.46359)
-bones/8/rotation = Quaternion(-0.13191, 0.83829, -0.521342, 0.0898465)
-bones/9/rotation = Quaternion(0.0670406, 0.703922, -0.0670406, 0.703922)
-bones/10/rotation = Quaternion(0.0631659, -0.739254, -0.0213864, 0.670116)
-bones/11/rotation = Quaternion(0.498135, 0.48477, 0.579412, -0.425607)
-bones/12/rotation = Quaternion(0.315406, 0.841967, -0.41348, -0.143684)
-bones/13/rotation = Quaternion(0.0958973, -0.700574, 0.0958973, 0.700574)
-bones/14/rotation = Quaternion(-0.0225383, 0.706616, 0.0319137, 0.706518)
-bones/15/rotation = Quaternion(-0.0105195, 0.223492, 0.974477, -0.0183116)
-bones/16/rotation = Quaternion(-0.0128511, 0.969463, -0.239629, 0.0505498)
-bones/17/rotation = Quaternion(-0.000586469, 0.647214, -0.762235, 0.0105874)
-bones/18/rotation = Quaternion(7.27555e-08, 0.998625, 0.0524299, 2.37243e-08)
-bones/19/rotation = Quaternion(0.12362, 0.270849, 0.95413, -0.0315382)
-bones/20/rotation = Quaternion(0.00987828, 0.86232, -0.506113, -0.0124767)
-bones/21/rotation = Quaternion(0.0128336, 0.684954, -0.728334, -0.0142658)
-bones/22/rotation = Quaternion(1.23402e-07, 0.996934, 0.0782478, -1.40469e-07)
+bones/7/rotation = Quaternion(0.476209, -0.479052, -0.634676, -0.375394)
+bones/8/rotation = Quaternion(-0.151514, 0.827243, -0.497306, 0.213072)
+bones/9/rotation = Quaternion(0.0412814, 0.705901, -0.0412813, 0.705901)
+bones/10/rotation = Quaternion(0.0459474, -0.57107, 0.0375274, 0.818755)
+bones/11/rotation = Quaternion(0.457469, 0.499804, 0.632508, -0.375302)
+bones/12/rotation = Quaternion(0.123045, 0.804013, -0.567754, -0.126803)
+bones/13/rotation = Quaternion(0.00900499, -0.70705, 0.00900499, 0.707049)
+bones/14/rotation = Quaternion(0.0531251, 0.475229, -0.0151878, 0.878125)
+bones/15/rotation = Quaternion(-0.0906717, -0.00248373, 0.995428, -0.0299172)
+bones/16/rotation = Quaternion(0.0339163, 0.99374, -0.0668188, -0.0828601)
+bones/17/rotation = Quaternion(0.0105706, 0.683322, -0.729439, -0.029654)
+bones/18/rotation = Quaternion(-5.5297e-08, 0.997981, 0.0635123, -7.11793e-09)
+bones/19/rotation = Quaternion(0.135567, 0.081359, 0.984419, -0.0769582)
+bones/20/rotation = Quaternion(-0.0380419, 0.993484, -0.106546, 0.0137749)
+bones/21/rotation = Quaternion(-0.0401633, 0.713335, -0.698059, 0.0474739)
+bones/22/rotation = Quaternion(-9.04158e-08, 0.999075, 0.0429962, 1.88688e-09)
 
 [node name="human 1" parent="human 12/Armature/GeneralSkeleton" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_8ga0j")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://44gix2poxxq1"]
+
+[ext_resource type="Script" path="res://assets/shadow_spawner/shadow_creeper.gd" id="1_ryxja"]
+
+[node name="ShadowCreeper" type="Node3D" node_paths=PackedStringArray("light")]
+script = ExtResource("1_ryxja")
+light = NodePath("OmniLight3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_negative = true
+omni_range = 0.0

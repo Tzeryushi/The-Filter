@@ -1,8 +1,9 @@
-[gd_scene load_steps=69 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=70 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
+[ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_x1o6f"]
 [ext_resource type="PackedScene" uid="uid://bb3wq6ipabifs" path="res://assets/interactables/mechanics/dialogue_starter/dialogue_interactable.tscn" id="3_843mn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="Material" uid="uid://ea7bul4exiwr" path="res://resources/textures/Floor_1/Floor_1.tres" id="5_53hf7"]
@@ -20,16 +21,16 @@
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
+[ext_resource type="PackedScene" uid="uid://7yu8d726o13" path="res://resources/blend_files/misc/microphone/microphone.blend" id="15_tsky6"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
+[ext_resource type="PackedScene" uid="uid://dam2buho2dcmq" path="res://assets/shadow_spawner/shadow_spawner.tscn" id="21_dc8ne"]
 [ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
 [ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
 [ext_resource type="PackedScene" uid="uid://df512nquc2ryu" path="res://assets/furniture/reel_computer.tscn" id="26_2aout"]
 [ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="26_lirhs"]
 [ext_resource type="PackedScene" uid="uid://c8plo7c4fxjnl" path="res://assets/phenomena/phenomena_controller.tscn" id="26_xe0bp"]
-[ext_resource type="Script" path="res://entities/entity_components/clipboard_checker.gd" id="27_ad6gn"]
 [ext_resource type="PackedScene" uid="uid://i2agsds03wid" path="res://assets/interactables/items/phenomena_detector/phenomena_detector.tscn" id="27_ve8lp"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
-[ext_resource type="Resource" uid="uid://dexl3d43l6ciy" path="res://entities/clients/default_client.tres" id="28_qmrsc"]
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="29_yse7u"]
 [ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
 [ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
@@ -70,18 +71,14 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.243
 volumetric_fog_albedo = Color(0.12549, 0.12549, 0.12549, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2e2m2"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5vfd"]
-resource_local_to_scene = true
-render_priority = 0
-shader = ExtResource("26_lirhs")
-shader_parameter/affine_mapping = false
-shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
-shader_parameter/resolution = Vector2i(320, 240)
-shader_parameter/albedo = SubResource("ViewportTexture_2e2m2")
+[sub_resource type="NavigationMesh" id="NavigationMesh_mnr4c"]
+vertices = PackedVector3Array(-28.65, 0.299996, -25.4, -26.4, 0.299996, -25.25, -26.4, 0.299996, -26.15, -26.4, 0.299996, -26.15, -25.35, 0.299996, -26.3, -25.5, 0.299996, -28.55, -26.4, 0.299996, -26.15, -25.5, 0.299996, -28.55, -28.65, 0.299996, -28.55, -28.65, 0.299996, -25.4, -25.35, 0.299996, -26.3, -20.7, 0.299996, -26.3, -20.55, 0.299996, -28.55, -25.5, 0.299996, -28.55, -20.55, 0.299996, -28.55, -20.7, 0.299996, -26.3, -19.8, 0.299996, -26.3, -19.8, 0.299996, -26.3, -19.65, 0.299996, -25.25, -17.4, 0.299996, -25.4, -19.8, 0.299996, -26.3, -17.4, 0.299996, -25.4, -17.4, 0.299996, -28.55, -20.55, 0.299996, -28.55, -28.65, 0.299996, -12.65, -26.4, 0.299996, -12.5, -26.4, 0.299996, -25.25, -28.65, 0.299996, -25.4, -19.65, 0.299996, -25.25, -19.65, 0.299996, -20.45, -17.4, 0.299996, -20.6, -17.4, 0.299996, -25.4, -62.55, 4.2, -22.55, -62.55, 4.2, -17.15, -62.25, 4.2, -17.15, -62.25, 4.2, -22.55, -60, 0.299996, -17.3, -60, 0.299996, -18.8, -60.3, 0.299996, -18.95, -61.65, 0.299996, -18.2, -61.65, 0.299996, -17.3, -56.7, 0.299996, -21.2, -56.55, 0.299996, -20, -55.35, 0.299996, -20, -55.35, 0.299996, -22.55, -60.15, 0.299996, -21.2, -56.7, 0.299996, -21.2, -55.35, 0.299996, -22.55, -61.65, 0.299996, -22.55, -61.65, 0.299996, -21.8, -60.3, 0.299996, -18.95, -60.15, 0.299996, -21.2, -61.65, 0.299996, -21.8, -61.95, 0.299996, -21.65, -61.95, 0.299996, -18.35, -61.65, 0.299996, -18.2, -59.7, 1.05, -20.6, -59.7, 1.05, -19.4, -57.3, 1.05, -19.4, -57.3, 1.05, -20.6, -16.05, 0.299996, -17.45, -16.05, 0.299996, -19.55, -17.25, 0.299996, -19.55, -17.25, 0.299996, -19.55, -17.4, 0.299996, -20.6, -19.65, 0.299996, -20.45, -19.65, 0.299996, -17.45, -16.05, 0.299996, -17.45, -17.25, 0.299996, -19.55, -19.65, 0.299996, -20.45, -51.75, 0.299996, -17.3, -51.6, 0.299996, -16.85, -51.3, 0.299996, -16.85, -51.15, 0.299996, -17.3, -50.25, 0.299996, -17.45, -39.9, 0.299996, -17.45, -39.9, 0.299996, -19.55, -54.3, 0.299996, -19.55, -51.75, 0.299996, -17.3, -51.15, 0.299996, -17.3, -50.25, 0.299996, -17.45, -55.2, 0.299996, -18.65, -55.35, 0.299996, -20, -56.55, 0.299996, -20, -56.7, 0.299996, -18.8, -55.35, 0.299996, -18.2, -54.45, 0.299996, -18.35, -54.45, 0.299996, -18.65, -55.2, 0.299996, -18.65, -55.35, 0.299996, -18.2, -54.45, 0.299996, -18.35, -54.3, 0.299996, -17.3, -51.75, 0.299996, -17.3, -50.25, 0.299996, -17.45, -54.3, 0.299996, -19.55, -54.45, 0.299996, -18.65, -56.7, 0.299996, -18.8, -60, 0.299996, -18.8, -60, 0.299996, -17.3, -55.35, 0.299996, -17.3, -55.35, 0.299996, -18.2, -39.9, 0.299996, -19.55, -39.9, 0.299996, -17.45, -39.6, 0.299996, -17.3, -37.35, 0.299996, -19.55, -39.6, 0.299996, -17.3, -39.6, 0.299996, -12.5, -37.35, 0.299996, -12.65, -37.35, 0.299996, -19.55, -16.05, 0.299996, -17.45, -1.05, 0.299996, -17.45, -1.05, 0.299996, -19.55, -16.05, 0.299996, -19.55, -1.05, 0.299996, -19.55, -1.05, 0.299996, -17.45, 0.150002, 0.299996, -17.45, 0.150002, 0.299996, -17.45, 0.300003, 0.299996, -16.1, 2.7, 0.299996, -16.1, 0.150002, 0.299996, -17.45, 2.7, 0.299996, -16.1, 2.7, 0.299996, -19.55, -1.05, 0.299996, -19.55, -51.3, 0.299996, -16.4, -51.3, 0.299996, -16.85, -51.6, 0.299996, -16.85, -51.75, 0.299996, -16.25, -56.7, 0.299996, -15.2, -57.6, 0.299996, -15.2, -57.45, 0.299996, -12.35, -50.85, 0.299996, -16.25, -51.3, 0.299996, -16.4, -51.75, 0.299996, -16.25, -52.35, 0.299996, -15.2, -50.85, 0.299996, -15.35, -52.35, 0.299996, -15.2, -51.75, 0.299996, -16.25, -56.55, 0.299996, -16.25, -56.7, 0.299996, -15.2, -52.35, 0.299996, -12.35, -52.35, 0.299996, -15.2, -56.7, 0.299996, -15.2, -57.45, 0.299996, -12.35, -61.65, 0.899996, -16.25, -61.65, 0.899996, -15.8, -57.15, 0.899996, -15.8, -57.15, 0.899996, -16.25, 2.7, 0.299996, -1.25, 2.7, 0.299996, -1.55, 1.65, 0.299996, -1.7, 1.2, 0.299996, -1.55, 0.300003, 0.299996, -0.350002, 2.55, 0.299996, -0.350002, 1.2, 0.299996, -1.55, 0.300003, 0.299996, -1.55, 0.300003, 0.299996, -0.350002, 1.35001, 0.299996, -2.6, 1.2, 0.299996, -1.55, 1.65, 0.299996, -1.7, 1.65, 0.299996, -2.6, 0.300003, 0.299996, -2.75, 1.35001, 0.299996, -2.6, 1.65, 0.299996, -2.6, 2.7, 0.299996, -2.75, 2.7, 0.299996, -16.1, 0.300003, 0.299996, -16.1, -57.6, 0.299996, -15.2, -61.65, 0.299996, -15.2, -61.65, 0.299996, -12.35, -57.45, 0.299996, -12.35, -51.6, 0.299996, -14.6, -51.6, 0.299996, -12.2, -50.25, 0.299996, -12.2, -50.25, 0.299996, -14.6, -37.35, 0.299996, -11.75, -37.35, 0.299996, -12.65, -39.6, 0.299996, -12.5, -36.45, 0.299996, -9.35, -36.3, 0.299996, -11.6, -37.35, 0.299996, -11.75, -39.6, 0.299996, -9.35, -36.45, 0.299996, -9.35, -37.35, 0.299996, -11.75, -39.6, 0.299996, -12.5, -28.8, 0.299996, -11.6, -29.7, 0.299996, -11.6, -29.55, 0.299996, -9.35, -26.4, 0.299996, -12.5, -28.65, 0.299996, -12.65, -28.8, 0.299996, -11.6, -26.4, 0.299996, -9.35, -26.4, 0.299996, -12.5, -28.8, 0.299996, -11.6, -29.55, 0.299996, -9.35, -36.45, 0.299996, -9.35, -29.55, 0.299996, -9.35, -29.7, 0.299996, -11.6, -36.3, 0.299996, -11.6)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 3), PackedInt32Array(9, 8, 6), PackedInt32Array(6, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(16, 15, 14), PackedInt32Array(19, 18, 17), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(39, 36, 40), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(49, 48, 45), PackedInt32Array(45, 48, 46), PackedInt32Array(46, 48, 47), PackedInt32Array(55, 54, 50), PackedInt32Array(50, 54, 51), PackedInt32Array(51, 54, 52), PackedInt32Array(52, 54, 53), PackedInt32Array(59, 58, 56), PackedInt32Array(56, 58, 57), PackedInt32Array(62, 61, 60), PackedInt32Array(65, 64, 63), PackedInt32Array(69, 68, 66), PackedInt32Array(66, 68, 67), PackedInt32Array(72, 71, 73), PackedInt32Array(73, 71, 70), PackedInt32Array(75, 74, 76), PackedInt32Array(76, 74, 77), PackedInt32Array(80, 79, 78), PackedInt32Array(85, 84, 81), PackedInt32Array(81, 84, 83), PackedInt32Array(81, 83, 82), PackedInt32Array(87, 86, 88), PackedInt32Array(88, 86, 89), PackedInt32Array(95, 94, 90), PackedInt32Array(90, 94, 91), PackedInt32Array(91, 94, 92), PackedInt32Array(92, 94, 93), PackedInt32Array(100, 99, 96), PackedInt32Array(96, 99, 97), PackedInt32Array(97, 99, 98), PackedInt32Array(102, 101, 103), PackedInt32Array(103, 101, 104), PackedInt32Array(106, 105, 107), PackedInt32Array(107, 105, 108), PackedInt32Array(112, 111, 109), PackedInt32Array(109, 111, 110), PackedInt32Array(115, 114, 113), PackedInt32Array(118, 117, 116), PackedInt32Array(122, 121, 119), PackedInt32Array(119, 121, 120), PackedInt32Array(124, 123, 125), PackedInt32Array(125, 123, 126), PackedInt32Array(129, 128, 127), PackedInt32Array(131, 130, 132), PackedInt32Array(132, 130, 134), PackedInt32Array(132, 134, 133), PackedInt32Array(138, 137, 135), PackedInt32Array(135, 137, 136), PackedInt32Array(140, 139, 141), PackedInt32Array(141, 139, 142), PackedInt32Array(146, 145, 143), PackedInt32Array(143, 145, 144), PackedInt32Array(147, 152, 148), PackedInt32Array(148, 152, 149), PackedInt32Array(149, 152, 150), PackedInt32Array(150, 152, 151), PackedInt32Array(155, 154, 153), PackedInt32Array(159, 158, 156), PackedInt32Array(156, 158, 157), PackedInt32Array(161, 160, 162), PackedInt32Array(162, 160, 163), PackedInt32Array(163, 160, 165), PackedInt32Array(163, 165, 164), PackedInt32Array(167, 166, 168), PackedInt32Array(168, 166, 169), PackedInt32Array(173, 172, 170), PackedInt32Array(170, 172, 171), PackedInt32Array(176, 175, 174), PackedInt32Array(179, 178, 177), PackedInt32Array(183, 182, 180), PackedInt32Array(180, 182, 181), PackedInt32Array(186, 185, 184), PackedInt32Array(187, 189, 188), PackedInt32Array(193, 192, 190), PackedInt32Array(190, 192, 191), PackedInt32Array(196, 195, 197), PackedInt32Array(197, 195, 194)]
+cell_size = 0.15
+cell_height = 0.15
+agent_height = 1.2
+agent_radius = 0.3
+agent_max_climb = 0.1
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c8den"]
 data = PackedVector3Array(-0.5008, -3, -7.5001, -0.5008, 2.9999, 9.5, -0.5008, 2.9999, -7.5001, -0.5008, -3, -7.5001, -0.5008, -3, 9.5, -0.5008, 2.9999, 9.5, -0.5008, 2.9999, -7.5001, -20.5008, -3, -7.5001, -0.5008, -3, -7.5001, -0.5008, 2.9999, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, -3, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, -3, -16.5, -20.5008, -3, -7.5001, -20.5008, 2.9999, -7.5001, -20.5008, 2.9999, -16.5, -20.5008, -3, -16.5, -20.5008, 2.9999, -16.5, -26.5006, -3, -16.5, -20.5008, -3, -16.5, -20.5008, 2.9999, -16.5, -26.5006, 2.9999, -16.5, -26.5006, -3, -16.5, -26.5006, 2.9999, -16.5, -26.5006, -3, 0.4997, -26.5006, -3, -16.5, -26.5006, 2.9999, -16.5, -26.5006, 2.9999, 0.4997, -26.5006, -3, 0.4997, -26.5006, 2.9999, 0.4997, -40.5008, -3, 0.4997, -26.5006, -3, 0.4997, -26.5006, 2.9999, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, -3, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, -3, -7.5001, -40.5008, -3, 0.4997, -40.5008, 2.9999, 0.4997, -40.5008, 2.9999, -7.5001, -40.5008, -3, -7.5001, -40.5008, 2.9999, -7.5001, -50.5, -3, -7.5001, -40.5008, -3, -7.5001, -40.5008, 2.9999, -7.5001, -50.5, 2.9999, -7.5001, -50.5, -3, -7.5001)
@@ -134,11 +131,21 @@ data = PackedVector3Array(-4.8, 0, 3.3333, 0, 0, 0, -4.8, 0, 0, -4.8, 0, 3.3333,
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mtd5s"]
 data = PackedVector3Array(-3.12, 0, 4.5333, 0, 0, 0, -3.12, 0, 0, -3.12, 0, 4.5333, 0, 0, 4.5333, 0, 0, 0)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d2psx"]
-data = PackedVector3Array(-1, 0, -0.4, 4.7999, 0, 0, 4.7999, 0, -0.4, -1, 0, -0.4, -1, 0, 0, 4.7999, 0, 0, 4.7999, 4, 0, -1, 4, -0.4, 4.7999, 4, -0.4, 4.7999, 4, 0, -1, 4, 0, -1, 4, -0.4, -1, 4, 0, -1, 0, -0.4, -1, 4, -0.4, -1, 4, 0, -1, 0, 0, -1, 0, -0.4, 4.7999, 0, 0, -1, 4, 0, 4.7999, 4, 0, 4.7999, 0, 0, -1, 0, 0, -1, 4, 0, 4.7999, 0, -0.4, 4.7999, 4, 0, 4.7999, 4, -0.4, 4.7999, 0, -0.4, 4.7999, 0, 0, 4.7999, 4, 0, -1, 0, -0.4, 4.7999, 4, -0.4, -1, 4, -0.4, -1, 0, -0.4, 4.7999, 0, -0.4, 4.7999, 4, -0.4)
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uwhww"]
 data = PackedVector3Array(-2.5, -0.75, 1, -2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, -0.75, 1, -2.5, -0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, 0.75, -1, -2.5, 0.75, -1, -2.5, -0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, 0.75, 1, 2.5, 0.75, -1, 2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, 0.75, 1, 2.5, 0.75, 1, 2.5, -0.75, 1, -2.5, -0.75, 1, -2.5, 0.75, 1, -2.5, -0.75, -1, 2.5, -0.75, 1, 2.5, -0.75, -1, -2.5, -0.75, -1, -2.5, -0.75, 1, 2.5, -0.75, 1, 2.5, 0.75, -1, -2.5, 0.75, 1, -2.5, 0.75, -1, 2.5, 0.75, -1, 2.5, 0.75, 1, -2.5, 0.75, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2e2m2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l5vfd"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("26_lirhs")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = SubResource("ViewportTexture_2e2m2")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r2dww"]
 streams_count = 8
@@ -159,11 +166,13 @@ stream_6/weight = 1.0
 stream_7/stream = ExtResource("41_0hho6")
 stream_7/weight = 1.0
 
-[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player")]
+[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player", "nav_region")]
 script = ExtResource("1_x6wr7")
 client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientManager")
 dialogue = NodePath("GUI/Dialogue")
 player = NodePath("SubViewportContainer/SubViewport/GameSpace/Player")
+nav_region = NodePath("SubViewportContainer/SubViewport/GameSpace/NavRegion")
+clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_x1o6f")])
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -195,12 +204,160 @@ environment = SubResource("Environment_ajw48")
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.361, 1.90735e-06, -14.0462)
 
-[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "spawn_location", "stand_location", "reject_location", "no_light_location") instance=ExtResource("27_xeb0q")]
+[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
 spawn_location = NodePath("../ClientPoints/ClientSpawnPoint")
 stand_location = NodePath("../ClientPoints/ClientStandPoint")
 reject_location = NodePath("../ClientPoints/ClientSpawnPoint")
 no_light_location = NodePath("../ClientPoints/ClientNoLightPoint")
+look_point = NodePath("../ClientPoints/LookPoint")
+window_point = NodePath("../ClientPoints/WindowPoint")
+approved_point = NodePath("../ClientPoints/ApprovedPoint")
+denied_point = NodePath("../ClientPoints/DeniedPoint")
+
+[node name="NavRegion" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+navigation_mesh = SubResource("NavigationMesh_mnr4c")
+
+[node name="hallway" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion" instance=ExtResource("4_jo4be")]
+
+[node name="Mesh_8_001" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway" index="0"]
+surface_material_override/0 = ExtResource("5_jofqq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c8den")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_002" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_002/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ewfuo")
+
+[node name="Mesh_8_004" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway" index="2"]
+surface_material_override/0 = ExtResource("5_jofqq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_004" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_004/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ce8l7")
+
+[node name="Mesh_8_003" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway" index="3"]
+surface_material_override/0 = ExtResource("5_53hf7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_003" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/Mesh_8_003/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_xajkn")
+
+[node name="TallDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway" index="4"]
+surface_material_override/0 = ExtResource("5_jofqq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/TallDoorFrame" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway/TallDoorFrame/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_8mj1b")
+
+[node name="interrogation_rooms" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion" instance=ExtResource("5_oxn2n")]
+
+[node name="HallCeiling" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="0"]
+surface_material_override/0 = ExtResource("8_7oadj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/HallCeiling" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/HallCeiling/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d5bqx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/HallWall" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/HallWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_d4v2y")
+
+[node name="ObservationTable" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="2"]
+transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, -59.491, 0, -16.055)
+surface_material_override/0 = ExtResource("8_thprt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationTable" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationTable/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a2tn6")
+
+[node name="ObservationWall" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="3"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationWall" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationWall/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_c8m34")
+
+[node name="ObservationWallBack" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="4"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationWallBack" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationWallBack/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_33k6n")
+
+[node name="ShortDoorFrame_001" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="5"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ShortDoorFrame_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ShortDoorFrame_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_36nvt")
+
+[node name="ObservationFloor" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="6"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -50.0104, 0.00411248, -17.0017)
+surface_material_override/0 = ExtResource("6_htroi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationFloor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ObservationFloor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ohvbq")
+
+[node name="ShortDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="7"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ShortDoorFrame" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/ShortDoorFrame/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ammn0")
+
+[node name="InterrogationFloor" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="8"]
+surface_material_override/0 = ExtResource("6_htroi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/InterrogationFloor" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/InterrogationFloor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_thx1h")
+
+[node name="InterrogationTable" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="9"]
+surface_material_override/0 = ExtResource("8_thprt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/InterrogationTable" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/InterrogationTable/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5br38")
+
+[node name="Ceiling" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="10"]
+surface_material_override/0 = ExtResource("9_p2hkh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Ceiling" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Ceiling/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wrgfj")
+
+[node name="Ceiling_001" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms" index="11"]
+surface_material_override/0 = ExtResource("8_7oadj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Ceiling_001" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Ceiling_001/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mtd5s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Window" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms/Window/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uwhww")
 
 [node name="DialogueInteractable" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("3_843mn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 0.8, -19.4701)
@@ -209,162 +366,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 0.8, -19.4701)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
 
 [node name="ClientSpawnPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.515339, 0, 0)
 
 [node name="ClientStandPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68374, 0, -1.23404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.16828, 0, -1.29016)
+
+[node name="WindowPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.68374, 0, 2.38813)
+
+[node name="LookPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.68374, 0.83198, 8.22103)
 
 [node name="ClientNoLightPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-transform = Transform3D(0.829252, 0, 0.558874, 0, 1, 0, -0.558874, 0, 0.829252, 1.18374, 0, -1.23404)
+transform = Transform3D(-0.949085, 0, -0.315019, 0, 1, 0, 0.315019, 0, -0.949085, 2.1789, 0, -1.79865)
+
+[node name="ApprovedPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6925, 1.00058, 0.345911)
+
+[node name="DeniedPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102425, 0, 0)
 
 [node name="SubmissionComputer" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("25_3uxoq")]
 transform = Transform3D(0.891624, 0, 0.452777, 0, 1, 0, -0.452777, 0, 0.891624, -61.4086, 0.7, -16.0825)
 screen_material = SubResource("ShaderMaterial_l5vfd")
-
-[node name="hallway" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("4_jo4be")]
-
-[node name="Mesh_8_001" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="0"]
-surface_material_override/0 = ExtResource("5_jofqq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_001" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_001/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_c8den")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_002" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_002/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ewfuo")
-
-[node name="Mesh_8_004" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="2"]
-surface_material_override/0 = ExtResource("5_jofqq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_004" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_004/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ce8l7")
-
-[node name="Mesh_8_003" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="3"]
-surface_material_override/0 = ExtResource("5_53hf7")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_003" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/Mesh_8_003/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_xajkn")
-
-[node name="TallDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/hallway" index="4"]
-surface_material_override/0 = ExtResource("5_jofqq")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/TallDoorFrame" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/hallway/TallDoorFrame/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_8mj1b")
-
-[node name="interrogation_rooms" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("5_oxn2n")]
-
-[node name="HallCeiling" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="0"]
-surface_material_override/0 = ExtResource("8_7oadj")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallCeiling" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallCeiling/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_d5bqx")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallWall" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/HallWall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_d4v2y")
-
-[node name="ObservationTable" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="2"]
-transform = Transform3D(1.78814e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, -59.491, 0, -16.055)
-surface_material_override/0 = ExtResource("8_thprt")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationTable" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationTable/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_a2tn6")
-
-[node name="ObservationWall" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="3"]
-surface_material_override/0 = ExtResource("9_p2hkh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWall" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWall/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_c8m34")
-
-[node name="ObservationWallBack" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="4"]
-surface_material_override/0 = ExtResource("9_p2hkh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWallBack" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationWallBack/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_33k6n")
-
-[node name="ShortDoorFrame_001" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="5"]
-surface_material_override/0 = ExtResource("9_p2hkh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_001" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_001/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_36nvt")
-
-[node name="ObservationFloor" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="6"]
-transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 1.5, -50.0104, 0.00411248, -17.0017)
-surface_material_override/0 = ExtResource("6_htroi")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationFloor" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ObservationFloor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ohvbq")
-
-[node name="ShortDoorFrame" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="7"]
-surface_material_override/0 = ExtResource("9_p2hkh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_ammn0")
-
-[node name="InterrogationFloor" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="8"]
-surface_material_override/0 = ExtResource("6_htroi")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationFloor" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationFloor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_thx1h")
-
-[node name="InterrogationTable" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="9"]
-surface_material_override/0 = ExtResource("8_thprt")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationTable" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/InterrogationTable/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_5br38")
-
-[node name="Ceiling" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="10"]
-surface_material_override/0 = ExtResource("9_p2hkh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_wrgfj")
-
-[node name="Ceiling_001" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms" index="11"]
-surface_material_override/0 = ExtResource("8_7oadj")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling_001" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Ceiling_001/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_mtd5s")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_002" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/ShortDoorFrame_002/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_d2psx")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Window" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms/Window/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_uwhww")
 
 [node name="Monster" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("12_plipu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.7761, -0.0237013, -18.4818)
@@ -401,6 +425,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
 visible = false
 type = 2
 
+[node name="ShadowSpawner" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_dc8ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4984, 0.89281, -19.4809)
+
 [node name="DecorativeItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
@@ -414,6 +441,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.67
 
 [node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
+
+[node name="microphone" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("15_tsky6")]
+transform = Transform3D(0.0756401, 0, -0.997135, 0, 1, 0, 0.997135, 0, 0.0756401, -60.4827, 0.8, -16.1069)
 
 [node name="Tools" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
@@ -486,14 +516,10 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0
 rotation_amount = 1.57041
 
 [node name="NormalDoor2" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("6_2g6o2")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.8, 0, -19)
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -53.8, 0, -20)
 
 [node name="Radio" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("22_3xea3")]
 transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -58.0424, 0.7, -16.3054)
-
-[node name="ClipboardChecker" type="Node" parent="."]
-script = ExtResource("27_ad6gn")
-default_client = ExtResource("28_qmrsc")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -507,9 +533,13 @@ volume_db = -20.0
 autoplay = true
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
+[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_launched"]
+[connection signal="client_primed" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" method="_on_client_manager_client_primed"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_terminated"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
+[connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 
-[editable path="SubViewportContainer/SubViewport/GameSpace/hallway"]
-[editable path="SubViewportContainer/SubViewport/GameSpace/interrogation_rooms"]
+[editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
+[editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]
