@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://assets/interactables/mechanics/dialogue_starter/dialogue_interactable.gd" id="1_ur5qx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xnevc"]
-size = Vector3(1, 0.500549, 0.468506)
+size = Vector3(1.26563, 1.03145, 0.468506)
 
 [node name="DialogueInteractable" type="Node3D"]
 script = ExtResource("1_ur5qx")
@@ -14,7 +14,7 @@ script = ExtResource("1_ihkad")
 interaction_text = "Start conversation"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249725, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515175, 0)
 shape = SubResource("BoxShape3D_xnevc")
 
 [connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
