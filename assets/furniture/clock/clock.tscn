@@ -42,12 +42,14 @@ material = SubResource("StandardMaterial3D_6hhly")
 size = Vector2(0.4, 0.4)
 center_offset = Vector3(0, 0.016, 0)
 
-[node name="Clock" type="Node3D"]
+[node name="Clock" type="Node3D" node_paths=PackedStringArray("hour_hand", "minute_hand")]
+script = ExtResource("1_n27pt")
+clock_sound = ExtResource("2_gpnyi")
+hour_hand = NodePath("ClockMesh/Hour")
+minute_hand = NodePath("ClockMesh/Minute")
 
 [node name="ClockMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_4q73q")
-script = ExtResource("1_n27pt")
-clock_sound = ExtResource("2_gpnyi")
 
 [node name="Face" type="MeshInstance3D" parent="ClockMesh"]
 mesh = SubResource("PlaneMesh_85x8j")
