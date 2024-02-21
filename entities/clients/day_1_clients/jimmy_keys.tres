@@ -36,12 +36,12 @@ dialogue_symptoms = {
 env_symptoms = {
 "averse_to_light": false,
 "crickets?": false,
-"increased_shadows": true,
+"increased_shadows": false,
 "inexplicable_phenomena": false,
 "manifesting_aura": false,
 "second_presence": false,
 "strange_growths": false,
-"strange_sounds": false,
+"strange_sounds": true,
 "time_dilation": false,
 "too_many_heartbeats": false
 }

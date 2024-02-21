@@ -7,9 +7,6 @@ extends Node3D
 var is_active: bool = false
 
 
-func _ready():
-	activate()
-
 
 func activate() -> void:
 	is_active = true
