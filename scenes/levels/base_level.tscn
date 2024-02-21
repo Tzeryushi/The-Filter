@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=69 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -33,6 +33,14 @@
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="29_yse7u"]
 [ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
 [ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
+[ext_resource type="AudioStream" uid="uid://mlxf32nys3ha" path="res://resources/sounds/music/horror_01_drone_glitch_01.ogg" id="34_7rm58"]
+[ext_resource type="AudioStream" uid="uid://kma4exptfume" path="res://resources/sounds/music/horror_01_drone_glitch_02.ogg" id="35_mbma8"]
+[ext_resource type="AudioStream" uid="uid://c8eejrsl5l1fm" path="res://resources/sounds/music/horror_01_drone_glitch_03.ogg" id="36_qbwxr"]
+[ext_resource type="AudioStream" uid="uid://csgg75g6np3wr" path="res://resources/sounds/music/horror_01_drone_glitch_04.ogg" id="37_6j5nj"]
+[ext_resource type="AudioStream" uid="uid://bs7l2c52awgbd" path="res://resources/sounds/music/horror_01_drone_glitch_05.ogg" id="38_ukx0t"]
+[ext_resource type="AudioStream" uid="uid://bs0k6xptwhcpr" path="res://resources/sounds/music/horror_01_drone_glitch_06.ogg" id="39_3187c"]
+[ext_resource type="AudioStream" uid="uid://cef6lqmhstvu8" path="res://resources/sounds/music/horror_01_drone_glitch_07.ogg" id="40_hx4l6"]
+[ext_resource type="AudioStream" uid="uid://bnhnod3yafg4b" path="res://resources/sounds/music/horror_01_drone_glitch_08.ogg" id="41_0hho6"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rhi2j"]
 data = PackedVector3Array(-2, 0, 2, 0, 0, 0, 0, 0, 2, -2, 0, 2, -2, 0, 0, 0, 0, 0)
@@ -139,6 +147,26 @@ shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = SubResource("ViewportTexture_2e2m2")
 
 [node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player", "nav_region")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r2dww"]
+streams_count = 8
+stream_0/stream = ExtResource("34_7rm58")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("35_mbma8")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("36_qbwxr")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("37_6j5nj")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("38_ukx0t")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("39_3187c")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("40_hx4l6")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("41_0hho6")
+stream_7/weight = 1.0
+
+[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player")]
 script = ExtResource("1_x6wr7")
 client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientManager")
 dialogue = NodePath("GUI/Dialogue")
@@ -368,7 +396,7 @@ visible = false
 
 [node name="DetectableSound" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("32_a1oky")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0084, 0.968118, -16.1493)
-type = 1
+type = 4
 
 [node name="PhenomenaController" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("phenomena_spawners") instance=ExtResource("26_xe0bp")]
 phenomena_spawners = [NodePath("PhenomenaSpawner"), NodePath("PhenomenaSpawner2"), NodePath("PhenomenaSpawner3"), NodePath("PhenomenaSpawner4"), NodePath("PhenomenaSpawner5")]
@@ -495,6 +523,11 @@ transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -5
 [node name="Dialogue" parent="GUI" instance=ExtResource("29_yse7u")]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_r2dww")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
 [connection signal="client_primed" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" method="_on_client_manager_client_primed"]

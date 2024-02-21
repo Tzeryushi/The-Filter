@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq00yon6ot5yo"
-path.s3tc="res://.godot/imported/RadioDisplay.png-8aad182d1e3cf2028221aace4018bc3b.s3tc.ctex"
+uid="uid://b0p43lr5b6582"
+path.s3tc="res://.godot/imported/speaker_grill.jpg-6024bf2966c4eca74a3e80970ea6e782.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/blend_files/misc/RadioDisplay.png"
-dest_files=["res://.godot/imported/RadioDisplay.png-8aad182d1e3cf2028221aace4018bc3b.s3tc.ctex"]
+source_file="res://resources/blend_files/misc/speaker/speaker_grill.jpg"
+dest_files=["res://.godot/imported/speaker_grill.jpg-6024bf2966c4eca74a3e80970ea6e782.s3tc.ctex"]
 
 [params]
 
