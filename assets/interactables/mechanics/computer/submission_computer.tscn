@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu84hpgtlshpt"]
+[gd_scene load_steps=13 format=3 uid="uid://cu84hpgtlshpt"]
 
 [ext_resource type="Script" path="res://assets/interactables/mechanics/computer/submission_computer.gd" id="1_sk8v8"]
 [ext_resource type="PackedScene" uid="uid://0cn26v4tvrtp" path="res://resources/blend_files/misc/computer_model_final.blend" id="2_8nyrn"]
 [ext_resource type="Material" uid="uid://csqoruymmllsq" path="res://assets/interactables/mechanics/computer/comp_screen_shader.tres" id="3_tlson"]
+[ext_resource type="AudioStream" uid="uid://bivsg08cij7st" path="res://assets/interactables/mechanics/computer/computer_confirm.ogg" id="3_xljj4"]
+[ext_resource type="AudioStream" uid="uid://fm4ho4r0y7iq" path="res://assets/interactables/mechanics/computer/computer_deny.ogg" id="4_cdlis"]
 [ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="4_eovsb"]
 [ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="4_nytod"]
 [ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="5_aypmh"]
@@ -27,6 +29,8 @@ size = Vector3(0.911255, 0.865601, 0.41687)
 script = ExtResource("1_sk8v8")
 content_viewport = NodePath("SubViewport")
 screen_material = ExtResource("3_tlson")
+approved_sound = ExtResource("3_xljj4")
+denied_sound = ExtResource("4_cdlis")
 submit_screen = NodePath("SubViewport/Control/Submit")
 approve_screen = NodePath("SubViewport/Control/Approved")
 deny_screen = NodePath("SubViewport/Control/Denied")

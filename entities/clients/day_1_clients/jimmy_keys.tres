@@ -13,6 +13,7 @@ travel_reason = "Vacationing to Old Miami to see the Great Seawall"
 personality_type = 0
 threat_type = 0
 should_approve = true
+has_ending_dialogue = true
 dialogue = ExtResource("1_2s8a0")
 dialogue_state = {
 "answered_age": false,
@@ -20,6 +21,8 @@ dialogue_state = {
 "answered_name": false,
 "answered_phenom": false,
 "answered_reason": false,
+"approved": false,
+"denied": false,
 "intro_given": false
 }
 dialogue_symptoms = {
@@ -36,7 +39,7 @@ dialogue_symptoms = {
 env_symptoms = {
 "averse_to_light": false,
 "crickets?": false,
-"increased_shadows": true,
+"increased_shadows": false,
 "inexplicable_phenomena": false,
 "manifesting_aura": false,
 "second_presence": false,

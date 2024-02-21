@@ -24,7 +24,7 @@ func _ready() -> void:
 	if paper_material:
 		paper_material.albedo_texture = paper_texture
 	
-	paper_area.mouse_entered.connect(_mouse_entered_area)	
+	paper_area.mouse_entered.connect(_mouse_entered_area)
 
 
 func _unhandled_input(event: InputEvent) -> void:

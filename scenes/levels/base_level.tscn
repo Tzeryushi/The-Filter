@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=69 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://dy1kdh5n6w2a8" path="res://resources/textures/Wall_15/Wall_15.tres" id="5_jofqq"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
+[ext_resource type="PackedScene" uid="uid://dqmtorsa3xem8" path="res://assets/sound_spawner/sound_spawner.tscn" id="6_7vlet"]
 [ext_resource type="Material" uid="uid://bejek6565dkwj" path="res://resources/textures/Floor_8/Floor_8.tres" id="6_htroi"]
 [ext_resource type="PackedScene" uid="uid://b61q3hx5rb66g" path="res://assets/interactables/items/flashlight/flashlight.tscn" id="7_lhejl"]
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="8_0hdwf"]
@@ -193,8 +194,9 @@ environment = SubResource("Environment_ajw48")
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.361, 1.90735e-06, -14.0462)
 
-[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
+[node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
+player = NodePath("../Player")
 spawn_location = NodePath("../ClientPoints/ClientSpawnPoint")
 stand_location = NodePath("../ClientPoints/ClientStandPoint")
 reject_location = NodePath("../ClientPoints/ClientSpawnPoint")
@@ -203,6 +205,39 @@ look_point = NodePath("../ClientPoints/LookPoint")
 window_point = NodePath("../ClientPoints/WindowPoint")
 approved_point = NodePath("../ClientPoints/ApprovedPoint")
 denied_point = NodePath("../ClientPoints/DeniedPoint")
+
+[node name="SoundSpawner" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("6_7vlet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 0, -20)
+
+[node name="ShadowSpawner" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_dc8ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4984, 0.89281, -19.4809)
+
+[node name="PhenomenaController" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("phenomena_spawners") instance=ExtResource("26_xe0bp")]
+phenomena_spawners = [NodePath("PhenomenaSpawner"), NodePath("PhenomenaSpawner2"), NodePath("PhenomenaSpawner3"), NodePath("PhenomenaSpawner4"), NodePath("PhenomenaSpawner5")]
+
+[node name="PhenomenaSpawner" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0768, 1.6295, -18.5791)
+visible = false
+type = 2
+
+[node name="PhenomenaSpawner2" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0093, 2.49213, -21.3673)
+visible = false
+type = 1
+
+[node name="PhenomenaSpawner3" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4796, 2.33507, -22.0232)
+visible = false
+
+[node name="PhenomenaSpawner4" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6276, 2.42046, -19.8725)
+visible = false
+type = 3
+
+[node name="PhenomenaSpawner5" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
+visible = false
+type = 2
 
 [node name="NavRegion" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 navigation_mesh = SubResource("NavigationMesh_mnr4c")
@@ -378,36 +413,6 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0084, 0.968118, -16.1493)
 type = 4
 
-[node name="PhenomenaController" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("phenomena_spawners") instance=ExtResource("26_xe0bp")]
-phenomena_spawners = [NodePath("PhenomenaSpawner"), NodePath("PhenomenaSpawner2"), NodePath("PhenomenaSpawner3"), NodePath("PhenomenaSpawner4"), NodePath("PhenomenaSpawner5")]
-
-[node name="PhenomenaSpawner" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0768, 1.6295, -18.5791)
-visible = false
-type = 2
-
-[node name="PhenomenaSpawner2" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.0093, 2.49213, -21.3673)
-visible = false
-type = 1
-
-[node name="PhenomenaSpawner3" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.4796, 2.33507, -22.0232)
-visible = false
-
-[node name="PhenomenaSpawner4" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6276, 2.42046, -19.8725)
-visible = false
-type = 3
-
-[node name="PhenomenaSpawner5" parent="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" instance=ExtResource("33_rk43f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.7362, 1.49509, -18.0863)
-visible = false
-type = 2
-
-[node name="ShadowSpawner" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("21_dc8ne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4984, 0.89281, -19.4809)
-
 [node name="DecorativeItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="ReelComputer" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
@@ -512,11 +517,13 @@ stream = SubResource("AudioStreamRandomizer_r2dww")
 volume_db = -20.0
 autoplay = true
 
-[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
+[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_launched"]
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_launched"]
+[connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_launched"]
 [connection signal="client_primed" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" method="_on_client_manager_client_primed"]
-[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_terminated"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_terminated"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]

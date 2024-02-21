@@ -13,6 +13,7 @@ signal client_primed
 enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA = 3, STRANGE_SOUNDS = 4, SHADOWS=5}
 
 @export var dialogue_manager: Dialogue
+@export var player: Player
 
 @export var test_client: ClientResource
 @export var client_scene: PackedScene
@@ -28,6 +29,8 @@ enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA =
 var current_client : Client
 var hates_light: bool = false
 var attribute_array : Array[Attribute] = []
+
+@onready var patience_timer: Timer = %PatienceTimer
 
 
 var env_symptoms: Dictionary = {
@@ -69,7 +72,6 @@ func client_load(client_resource:ClientResource) -> void:
 			env_symptoms[symptom].call(current_client)
 			
 	client_launched.emit(attribute_array)
-	
 	Broadcaster.client_manager_new_resource_used.emit(client_resource)
 	
 	if client_resource.env_symptoms["too_many_heartbeats"]:
@@ -86,7 +88,16 @@ func client_load(client_resource:ClientResource) -> void:
 	new_client.update_target_position(walk_position)
 	await new_client.navigation_ended
 	new_client.look_at(look_point.global_position)
+	
+	patience_timer.wait_time = randf_range(60,100)
+	patience_timer.start()
+	
 	client_primed.emit()
+
+
+## Makes an impatience event occur. May spawn a hostile entity.
+func patience_up() -> void:
+	pass
 
 
 func make_growths(client: Client) -> void:
@@ -154,8 +165,18 @@ func _on_submission_computer_decision_made(results):
 	var end_position: Vector3
 	if results["admitted"]:
 		end_position = approved_point.global_position
+		current_client.client_resource.dialogue_state["approved"] = true
 	else:
 		end_position = denied_point.global_position
+		current_client.client_resource.dialogue_state["denied"] = true
+	
+	if current_client.client_resource.has_ending_dialogue:
+		current_client.update_target_position(window_point.global_position)
+		await current_client.navigation_ended
+		current_client.look_at(look_point.global_position)
+		start_dialogue(player)
+		await dialogue_manager.dialogue_ended
+	
 	current_client.update_target_position(end_position)
 	await current_client.navigation_ended
 	current_client.queue_free()
@@ -163,3 +184,6 @@ func _on_submission_computer_decision_made(results):
 	hates_light = false
 	client_terminated.emit()
 	
+
+func _on_patience_timer_timeout():
+	patience_up()

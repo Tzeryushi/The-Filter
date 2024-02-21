@@ -13,7 +13,7 @@ func _ready() -> void:
 	for client in clients:
 		client_manager.client_load(client)
 		await client_manager.client_terminated
-		await get_tree().create_timer(6.0)
+		await get_tree().create_timer(6.0).timeout
 
 
 func _unhandled_input(event):
