@@ -79,8 +79,11 @@ func make_sound(sound_type: DetectableSound.SoundType = DetectableSound.SoundTyp
 
 
 func make_aura() -> void:
-	%Aura.color = Color.from_hsv(randi_range(0, 359), 100, 100)
+	var colorer = Color.from_hsv(randf_range(0, 1.0), 1, 1)
+	print(colorer)
+	%Aura.light_color = colorer
 	%Aura.show()
+
 
 func set_is_targeting(value: bool) -> void:
 	if is_targeting and !value:

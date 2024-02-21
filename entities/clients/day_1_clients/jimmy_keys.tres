@@ -38,7 +38,7 @@ env_symptoms = {
 "crickets?": false,
 "increased_shadows": false,
 "inexplicable_phenomena": false,
-"manifesting_aura": false,
+"manifesting_aura": true,
 "second_presence": true,
 "strange_growths": false,
 "strange_sounds": false,
