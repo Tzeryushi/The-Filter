@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dvk7lj6scbkua" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.tscn" id="10_i6jmw"]
 [ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="12_cc7au"]
 [ext_resource type="PackedScene" uid="uid://c7klbhae32d1l" path="res://entities/monster/monster.tscn" id="12_plipu"]
-[ext_resource type="PackedScene" uid="uid://7yu8d726o13" path="res://resources/blend_files/misc/microphone.blend" id="15_tsky6"]
+[ext_resource type="PackedScene" uid="uid://7yu8d726o13" path="res://resources/blend_files/misc/microphone/microphone.blend" id="15_tsky6"]
 [ext_resource type="PackedScene" uid="uid://b6m8c0hyc6r1w" path="res://assets/interactables/items/sound_sensor/sound_sensor.tscn" id="20_0euyb"]
 [ext_resource type="PackedScene" uid="uid://dellkguirp3nf" path="res://assets/interactables/radio/radio.tscn" id="22_3xea3"]
 [ext_resource type="PackedScene" uid="uid://cu84hpgtlshpt" path="res://assets/interactables/mechanics/computer/submission_computer.tscn" id="25_3uxoq"]
@@ -146,7 +146,6 @@ shader_parameter/jitter = 0.25
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = SubResource("ViewportTexture_2e2m2")
 
-[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player", "nav_region")]
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r2dww"]
 streams_count = 8
 stream_0/stream = ExtResource("34_7rm58")
@@ -166,7 +165,7 @@ stream_6/weight = 1.0
 stream_7/stream = ExtResource("41_0hho6")
 stream_7/weight = 1.0
 
-[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player")]
+[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue", "player", "nav_region")]
 script = ExtResource("1_x6wr7")
 client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientManager")
 dialogue = NodePath("GUI/Dialogue")
