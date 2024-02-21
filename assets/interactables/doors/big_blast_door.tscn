@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlxfh3o6tc6ja"]
+
+[ext_resource type="Script" path="res://assets/interactables/doors/big_blast_door.gd" id="1_dqpve"]
+[ext_resource type="PackedScene" uid="uid://ct43dra0u8pey" path="res://resources/blend_files/misc/blast_door/big_blast_door.blend" id="2_d181a"]
+
+[sub_resource type="Animation" id="Animation_5qjpd"]
+resource_name = "door_open"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_blast_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1.68179, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yskvr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_blast_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3xpcn"]
+resource_name = "door_close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_blast_door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.62451, 1),
+"update": 0,
+"values": [Vector3(0, 3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5bmte"]
+_data = {
+"RESET": SubResource("Animation_yskvr"),
+"door_close": SubResource("Animation_3xpcn"),
+"door_open": SubResource("Animation_5qjpd")
+}
+
+[node name="BigBlastDoor" type="Node3D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_dqpve")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="big_blast_door" parent="." instance=ExtResource("2_d181a")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5bmte")
+}

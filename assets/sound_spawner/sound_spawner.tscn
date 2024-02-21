@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqmtorsa3xem8"]
+
+[ext_resource type="Script" path="res://assets/sound_spawner/sound_spawner.gd" id="1_cbpvw"]
+[ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="2_jo27y"]
+
+[node name="SoundSpawner" type="Node3D"]
+script = ExtResource("1_cbpvw")
+sound_scene = ExtResource("2_jo27y")
+valid_sounds = Array[int]([0, 2])

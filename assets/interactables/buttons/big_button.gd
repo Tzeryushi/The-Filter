@@ -30,6 +30,7 @@ func _on_glass_case_interacted(_interacting_node):
 
 func _on_button_interacted(_interacting_node):
 	button_interact_shape.disabled = true
+	button_pressed = true
 	if press_on_sound:
 		AudioManager.play_sound_at_location(press_on_sound, global_position)
 	animation_player.play("button_press")

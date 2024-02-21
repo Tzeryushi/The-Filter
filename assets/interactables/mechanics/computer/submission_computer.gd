@@ -7,13 +7,16 @@ signal decision_made(results: Dictionary)
 @export var content_viewport: SubViewport
 @export var screen_material: ShaderMaterial
 
+@export var approved_sound: AudioStream
+@export var denied_sound: AudioStream
+
 @export var submit_screen: Control
 @export var approve_screen: Control
 @export var deny_screen: Control
 @export var results_screen: Control
 @export var results_text: RichTextLabel
 
-var can_submit: bool = true : set = set_can_submit
+var can_submit: bool = false : set = set_can_submit
 var is_submitting: bool = false
 
 func _ready() -> void:
@@ -33,8 +36,10 @@ func _on_form_submitted(result_dict: Dictionary) -> void:
 	set_can_submit(false)
 	if result_dict["admitted"]:
 		approve_screen.show()
+		AudioManager.play_sound(approved_sound)
 	else:
 		deny_screen.show()
+		AudioManager.play_sound(denied_sound)
 	await get_tree().create_timer(2.0).timeout
 	decision_made.emit(result_dict)
 	

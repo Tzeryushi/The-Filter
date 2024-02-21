@@ -8,3 +8,8 @@
 script = ExtResource("1_nqpxf")
 test_client = ExtResource("2_68krw")
 client_scene = ExtResource("3_uv1mg")
+
+[node name="PatienceTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]
