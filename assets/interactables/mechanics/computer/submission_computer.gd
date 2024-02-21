@@ -16,7 +16,7 @@ signal decision_made(results: Dictionary)
 @export var results_screen: Control
 @export var results_text: RichTextLabel
 
-var can_submit: bool = true : set = set_can_submit
+var can_submit: bool = false : set = set_can_submit
 var is_submitting: bool = false
 
 func _ready() -> void:
