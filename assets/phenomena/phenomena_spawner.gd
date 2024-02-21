@@ -17,12 +17,12 @@ func _ready():
 
 
 func random_model():
-	var type = PhenomenaSpawner.PhenomenaType[
+	var new_type = PhenomenaSpawner.PhenomenaType[
 		PhenomenaSpawner.PhenomenaType.keys()[
 			randi() % PhenomenaSpawner.PhenomenaType.size()
 			]
 		]
-	set_phenomena_model(type)
+	set_phenomena_model(new_type)
 
 
 func set_phenomena_model(new_type: PhenomenaType):

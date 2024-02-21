@@ -1,8 +1,8 @@
 extends Node3D
 
 @export var is_enabled: bool = false
-@export var on_sound: AudioStream = preload("res://assets/interactables/lighting/desk_lamp/desk_lamp_assets/UI_Press_1.ogg")
-@export var off_sound: AudioStream = preload("res://assets/interactables/lighting/desk_lamp/desk_lamp_assets/UI_Press_2.ogg")
+@export var on_sound: AudioStream
+@export var off_sound: AudioStream
 @export var radio_song: AudioStream = preload("res://assets/interactables/radio/freejazz_medley.ogg")
 
 var radio_stream_player: PositionalAudioStreamPlayer

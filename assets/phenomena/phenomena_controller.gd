@@ -7,7 +7,6 @@ extends Node3D
 func _ready():
 	for spawner in phenomena_spawners:
 		spawner.despawn_model()
-	spawn_new_phenomena()
 
 
 func spawn_new_phenomena():
