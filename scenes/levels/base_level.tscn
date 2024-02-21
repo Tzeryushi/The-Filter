@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=86 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -35,13 +35,15 @@
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="27_xeb0q"]
 [ext_resource type="PackedScene" uid="uid://dy4gsxxgg6a7m" path="res://ui/dialogue/dialogue.tscn" id="29_yse7u"]
 [ext_resource type="PackedScene" uid="uid://ckni8rwyxn0pn" path="res://assets/detectable_sounds/DetectableSound.tscn" id="32_a1oky"]
+[ext_resource type="PackedScene" uid="uid://ij31gvn3xbf0" path="res://assets/interactables/buttons/small_button.tscn" id="32_oq5ts"]
 [ext_resource type="PackedScene" uid="uid://di05cc62ms0bi" path="res://assets/phenomena/phenomena_spawner.tscn" id="33_rk43f"]
 [ext_resource type="AudioStream" uid="uid://mlxf32nys3ha" path="res://resources/sounds/music/horror_01_drone_glitch_01.ogg" id="34_7rm58"]
 [ext_resource type="AudioStream" uid="uid://kma4exptfume" path="res://resources/sounds/music/horror_01_drone_glitch_02.ogg" id="35_mbma8"]
 [ext_resource type="PackedScene" uid="uid://cuwyb6p3kstve" path="res://assets/interactables/doors/blast_door.tscn" id="36_a2rpg"]
 [ext_resource type="AudioStream" uid="uid://c8eejrsl5l1fm" path="res://resources/sounds/music/horror_01_drone_glitch_03.ogg" id="36_qbwxr"]
 [ext_resource type="AudioStream" uid="uid://csgg75g6np3wr" path="res://resources/sounds/music/horror_01_drone_glitch_04.ogg" id="37_6j5nj"]
-[ext_resource type="PackedScene" path="res://assets/interactables/doors/big_blast_door.tscn" id="37_m8hx8"]
+[ext_resource type="PackedScene" uid="uid://d2jj2paauu3j8" path="res://assets/interactables/doors/big_blast_door.tscn" id="37_m8hx8"]
+[ext_resource type="PackedScene" uid="uid://de41rcr85gjnf" path="res://assets/interactables/buttons/big_button.tscn" id="38_o48uk"]
 [ext_resource type="AudioStream" uid="uid://bs7l2c52awgbd" path="res://resources/sounds/music/horror_01_drone_glitch_05.ogg" id="38_ukx0t"]
 [ext_resource type="AudioStream" uid="uid://bs0k6xptwhcpr" path="res://resources/sounds/music/horror_01_drone_glitch_06.ogg" id="39_3187c"]
 [ext_resource type="AudioStream" uid="uid://cef6lqmhstvu8" path="res://resources/sounds/music/horror_01_drone_glitch_07.ogg" id="40_hx4l6"]
@@ -262,7 +264,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.361, 1.90735e-06, -14.0462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52213, 1.90735e-06, 1.11245)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -585,12 +587,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4398, 0.7, -15.7765)
 [node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -1.5)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.5, -18.237)
-light_color = Color(1, 0.533333, 0, 1)
-light_indirect_energy = 3.076
-omni_range = 7.60658
-
 [node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.8774, 2.51669, -12.8775)
 light_color = Color(1, 0.533333, 0, 1)
@@ -607,6 +603,12 @@ light_specular = 8.37
 spot_range = 4.6257
 spot_angle = 42.65
 
+[node name="BigButtonLight" type="OmniLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.78547, 1.5, -18.5)
+light_color = Color(1, 0.156863, 0, 1)
+light_indirect_energy = 3.076
+omni_range = 3.657
+
 [node name="ClockLight" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
 transform = Transform3D(1, 0, 0, 0, 0.917567, 0.39758, 0, -0.39758, 0.917567, -58.5, 4.0014, -20.0002)
 light_color = Color(1, 0.886275, 0.662745, 1)
@@ -619,6 +621,9 @@ spot_angle = 12.8689
 spot_angle_attenuation = 1.62451
 
 [node name="EnvironmentItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+
+[node name="SmallButton" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("32_oq5ts")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.5, 1.5, -16.6)
 
 [node name="SirenLight" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("9_nwo07")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -55.5, 2.5, -16.576)
@@ -667,6 +672,9 @@ material = ExtResource("5_jofqq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -18.5)
 is_open = true
 
+[node name="BigButton" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("38_o48uk")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, 3, 1.5, -18.5)
+
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Dialogue" parent="GUI" instance=ExtResource("29_yse7u")]
@@ -688,6 +696,7 @@ autoplay = true
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_big_button_pressed"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]
