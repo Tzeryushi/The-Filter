@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=79 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
