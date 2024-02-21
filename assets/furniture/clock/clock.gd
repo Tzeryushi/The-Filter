@@ -4,22 +4,26 @@ extends Node3D
 @export var time_rate: float = 1.0
 @export var clock_sound: AudioStream
 
-var hour_hand: MeshInstance3D
-var minute_hand: MeshInstance3D
+@export var hour_hand: MeshInstance3D
+@export var minute_hand: MeshInstance3D
+
 var timer := Timer.new()
+var temporal_shift_timer := Timer.new()
 
 var clock_sound_player: PositionalAudioStreamPlayer
 var first_tick: bool = true
 
-const TIME_PERIOD: int = 1  
+const TIME_PERIOD: int = 1
+const MAX_DILATION: float = 2.0
+const MIN_DILATION: float = 2.0
+const MAX_DILATION_TIME: float = 15.0
+const MIN_DILATION_TIME: float = 5.0
 
 func _ready():
-	hour_hand = get_node("Hour")
-	minute_hand = get_node("Minute")
 	add_child(timer)
-	timer.wait_time = time_rate
 	timer.start()
 	timer.timeout.connect(func(): add_time(0.0166666))
+	temporal_shift_timer.timeout.connect(_on_temporal_shift_timer_timeout)
 	update_hand_rotation()
 
 
@@ -50,3 +54,24 @@ func set_time(new_time: float):
 	while(time > 12):
 		time -= 12
 	update_hand_rotation()
+
+
+func _on_client_manager_client_launched(attribute_array: Array[ClientManager.Attribute]):
+	for attribute in attribute_array:
+		if attribute == ClientManager.Attribute.TIME_DILATION:
+			time_rate = randf_range(MIN_DILATION, MAX_DILATION)
+			timer.set_wait_time(time_rate)
+			temporal_shift_timer.wait_time = randf_range(MIN_DILATION_TIME, MAX_DILATION_TIME)
+			temporal_shift_timer.start()
+
+
+func _on_client_manager_client_terminated():
+	time_rate = 1
+	timer.set_wait_time(time_rate)
+	temporal_shift_timer.paused = true
+
+
+func _on_temporal_shift_timer_timeout():
+	time_rate = randf_range(MIN_DILATION, MAX_DILATION)
+	timer.set_wait_time(time_rate)
+	temporal_shift_timer.wait_time = randf_range(MIN_DILATION_TIME, MAX_DILATION_TIME)

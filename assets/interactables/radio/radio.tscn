@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/interactables/radio/radio.gd" id="1_2xvtc"]
 [ext_resource type="Script" path="res://assets/interactables/interaction_volume.gd" id="2_jtbhy"]
 [ext_resource type="AudioStream" uid="uid://cunkiufugcx45" path="res://resources/sounds/sfx/UI_Press_1.ogg" id="2_mk507"]
-[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/misc/radio/radio.blend" id="3_i37ox"]
+[ext_resource type="PackedScene" uid="uid://kiki4jqh71lh" path="res://resources/blend_files/tech/radio/radio.blend" id="3_i37ox"]
 [ext_resource type="AudioStream" uid="uid://cugbou3gxv5ek" path="res://resources/sounds/sfx/UI_Press_3.ogg" id="3_lg4sh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3p8h"]

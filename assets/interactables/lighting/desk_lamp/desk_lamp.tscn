@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dvk7lj6scbkua"]
 
 [ext_resource type="Script" path="res://assets/interactables/lighting/desk_lamp/desk_lamp.gd" id="1_34jvg"]
-[ext_resource type="PackedScene" uid="uid://1chml3bhax67" path="res://resources/blend_files/lighting/desk_lamp.blend" id="1_obpfm"]
+[ext_resource type="PackedScene" uid="uid://1chml3bhax67" path="res://resources/blend_files/lighting/desk lamp/desk_lamp.blend" id="1_obpfm"]
 [ext_resource type="AudioStream" uid="uid://cunkiufugcx45" path="res://resources/sounds/sfx/UI_Press_1.ogg" id="2_7f3yd"]
 [ext_resource type="AudioStream" uid="uid://k83gx0uahnyt" path="res://resources/sounds/sfx/UI_Press_2.ogg" id="3_bejmf"]
 [ext_resource type="Script" path="res://assets/interactables/interaction_volume.gd" id="3_kcpyh"]
