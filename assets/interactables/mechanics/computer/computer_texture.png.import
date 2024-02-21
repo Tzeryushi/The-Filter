@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq6wwsawrf38y"
-path.s3tc="res://.godot/imported/skin 5.png-36f775c033cc05a532abe9f57b128bd2.s3tc.ctex"
+uid="uid://bamhe87ylb5s1"
+path.s3tc="res://.godot/imported/computer_texture.png-c5dd188bb530f68e8af59e43ea26e158.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://resources/blend_files/skins/skin 5.png"
-dest_files=["res://.godot/imported/skin 5.png-36f775c033cc05a532abe9f57b128bd2.s3tc.ctex"]
+source_file="res://assets/interactables/mechanics/computer/computer_texture.png"
+dest_files=["res://.godot/imported/computer_texture.png-c5dd188bb530f68e8af59e43ea26e158.s3tc.ctex"]
 
 [params]
 

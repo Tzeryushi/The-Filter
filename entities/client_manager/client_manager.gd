@@ -11,13 +11,14 @@ signal client_terminated
 
 enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA = 3, STRANGE_SOUNDS = 4, SHADOWS=5}
 
+@export var dialogue_manager: Dialogue
+
 @export var test_client: ClientResource
 @export var client_scene: PackedScene
 @export var spawn_location: Node3D
 @export var stand_location: Node3D
 @export var reject_location: Node3D
 @export var no_light_location: Node3D
-
 
 var current_client : Client
 var hates_light: bool = false
@@ -43,11 +44,6 @@ func _ready() -> void:
 	client_load(test_client)
 
 
-func _unhandled_input(event):
-	if event.is_action_pressed("crouch"):
-		Broadcaster.check_clipboard.emit(current_client.client_resource)
-
-
 func client_load(client_resource:ClientResource) -> void:
 	var new_client = client_scene.instantiate()
 	new_client = new_client as Client
@@ -57,6 +53,8 @@ func client_load(client_resource:ClientResource) -> void:
 	else:
 		get_parent().add_child(new_client)
 	new_client.global_position = spawn_location.global_position
+	if client_resource.texture:
+		new_client.set_texture(client_resource.texture)
 	current_client = new_client
 	
 	for symptom in client_resource.env_symptoms:
@@ -64,6 +62,8 @@ func client_load(client_resource:ClientResource) -> void:
 			env_symptoms[symptom].call(current_client)
 			
 	client_launched.emit(attribute_array)
+	
+	Broadcaster.client_manager_new_resource_used.emit(client_resource)
 	
 	#TODO: Set movement to position in navmesh
 
@@ -107,3 +107,18 @@ func strange_sounds(_client: Client) -> void:
 
 func increased_shadows(_client: Client) -> void:
 	attribute_array.append(Attribute.SHADOWS)
+
+
+func start_dialogue(player_ref: Player) -> void:
+	if !current_client:
+		return
+	player_ref.point_to(current_client.head_node.global_position)
+	dialogue_manager.begin_dialogue(current_client.client_resource.dialogue, current_client.client_resource.dialogue_state)
+
+
+func _on_form_submitted() -> void:
+	Broadcaster.check_clipboard.emit(current_client.client_resource)
+
+
+func _on_dialogue_interactable_dialogue_started(player_node):
+	start_dialogue(player_node)

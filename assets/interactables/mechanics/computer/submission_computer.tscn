@@ -1,0 +1,214 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu84hpgtlshpt"]
+
+[ext_resource type="Script" path="res://assets/interactables/mechanics/computer/submission_computer.gd" id="1_sk8v8"]
+[ext_resource type="PackedScene" uid="uid://0cn26v4tvrtp" path="res://resources/blend_files/misc/computer_model_final.blend" id="2_8nyrn"]
+[ext_resource type="Material" uid="uid://csqoruymmllsq" path="res://assets/interactables/mechanics/computer/comp_screen_shader.tres" id="3_tlson"]
+[ext_resource type="Shader" path="res://resources/shaders/ps1_model.gdshader" id="4_eovsb"]
+[ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="4_nytod"]
+[ext_resource type="PackedScene" uid="uid://bssfmatokdd48" path="res://assets/interactables/interaction_volume.tscn" id="5_aypmh"]
+[ext_resource type="Texture2D" uid="uid://bamhe87ylb5s1" path="res://assets/interactables/mechanics/computer/computer_texture.png" id="5_x57mj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twoup"]
+render_priority = 0
+shader = ExtResource("4_eovsb")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = ExtResource("5_x57mj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40inl"]
+size = Vector3(0.97998, 0.253662, 0.872192)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kt4pa"]
+size = Vector3(0.911255, 0.865601, 0.41687)
+
+[node name="SubmissionComputer" type="Node3D" node_paths=PackedStringArray("content_viewport", "submit_screen", "approve_screen", "deny_screen", "results_screen", "results_text")]
+script = ExtResource("1_sk8v8")
+content_viewport = NodePath("SubViewport")
+screen_material = ExtResource("3_tlson")
+submit_screen = NodePath("SubViewport/Control/Submit")
+approve_screen = NodePath("SubViewport/Control/Approved")
+deny_screen = NodePath("SubViewport/Control/Denied")
+results_screen = NodePath("SubViewport/Control/Results")
+results_text = NodePath("SubViewport/Control/Results/VBoxContainer/ResultText")
+
+[node name="computer_model_final" parent="." instance=ExtResource("2_8nyrn")]
+
+[node name="Computer" parent="computer_model_final" index="0"]
+material_override = SubResource("ShaderMaterial_twoup")
+
+[node name="ForwardScreen" parent="computer_model_final" index="2"]
+material_override = ExtResource("3_tlson")
+
+[node name="Node3D" type="Node3D" parent="computer_model_final"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(378, 240)
+
+[node name="Control" type="Control" parent="SubViewport"]
+custom_minimum_size = Vector2(378, 240)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 378.0
+offset_bottom = 240.0
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.870588, 0.572549, 1)
+
+[node name="Submit" type="ColorRect" parent="SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Submit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Submit/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]SUBMIT FORM"
+fit_content = true
+
+[node name="Approved" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Approved"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Approved/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]APPROVED!"
+fit_content = true
+
+[node name="Denied" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Denied"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Denied/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 0.396078, 0.32549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]DENIED"
+fit_content = true
+
+[node name="Results" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 16.0
+offset_right = -15.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Results"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]RESULTS"
+fit_content = true
+
+[node name="ResultText" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Test stuff"
+fit_content = true
+
+[node name="InteractionVolume" parent="." instance=ExtResource("5_aypmh")]
+interaction_text = "Submit form"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0100098, 0.0775146, -0.0639038)
+shape = SubResource("BoxShape3D_40inl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00274658, 0.383484, -0.165039)
+shape = SubResource("BoxShape3D_kt4pa")
+
+[connection signal="interacted" from="InteractionVolume" to="." method="_on_interaction_volume_interacted"]
+
+[editable path="computer_model_final"]

@@ -58,10 +58,10 @@ enum Threat {
 }
 
 @export_group("Visuals")
-@export var texture_material : Texture2D
-@export var shader_override : ShaderMaterial
-@export var use_override : bool = false
-@export var size_scale : float = 0.8
+@export var texture: Texture2D
+@export var shader_override: ShaderMaterial
+@export var use_override: bool = false
+@export var size_scale: float = 0.8
 
 func _ready() -> void:
 	dialogue_state["client_name"] = client_name

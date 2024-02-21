@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-
+signal look_at_point(location: Vector3)
 signal clipboard_acquired
 
 enum State {NORMAL = 0, DISCONNECTED = 1, FOCUSED = 2}
@@ -46,6 +46,10 @@ func set_focus_mode(value: bool) -> void:
 
 func add_item(item_name: String) -> bool:
 	return item_manager.pickup_item(item_name)
+
+
+func point_to(location: Vector3) -> void:
+	look_at_point.emit(location)
 
 
 func _on_item_manager_clipboard_held(is_held):

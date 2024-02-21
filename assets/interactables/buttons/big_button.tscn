@@ -12,34 +12,6 @@ size = Vector3(0.6, 0.45, 0.6)
 [sub_resource type="SphereShape3D" id="SphereShape3D_lpmuq"]
 radius = 0.2
 
-[sub_resource type="Animation" id="Animation_4002y"]
-resource_name = "case_open"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("big_button/Glass:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1.27456, 1),
-"update": 0,
-"values": [Vector3(0.0023462, 0.114373, 0.281253), Vector3(0.0023462, 0.114373, 0.281253)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("big_button/Glass:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1.27456, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.74533, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_30j7w"]
 length = 0.001
 tracks/0/type = "value"
@@ -95,6 +67,34 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -0.0949524, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4002y"]
+resource_name = "case_open"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("big_button/Glass:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.27456, 1),
+"update": 0,
+"values": [Vector3(0.0023462, 0.114373, 0.281253), Vector3(0.0023462, 0.114373, 0.281253)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("big_button/Glass:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1.27456, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.74533, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6ml0"]
 _data = {
 "RESET": SubResource("Animation_30j7w"),
@@ -108,6 +108,9 @@ press_on_sound = ExtResource("2_8dvoj")
 press_off_sound = ExtResource("3_lbkfy")
 
 [node name="big_button" parent="." instance=ExtResource("2_xi2so")]
+
+[node name="Glass" parent="big_button" index="2"]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.0023462, 0.114373, 0.281253)
 
 [node name="CaseInteract" type="Area3D" parent="."]
 script = ExtResource("3_hnx3p")

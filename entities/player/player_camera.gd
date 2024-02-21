@@ -5,9 +5,10 @@ extends Camera3D
 @export var crouch_distance := Vector3(0,-0.7,0)
 
 var look_dir: Vector2 ## Input direction for look/aim
-var is_crouching : bool = false : set = set_crouching
+var is_crouching: bool = false : set = set_crouching
 
-var crouch_tween : Tween = null
+var crouch_tween: Tween = null
+var look_tween: Tween = null
 
 @onready var base_position: Vector3 = position
 @onready var interaction_text: RichTextLabel = $CameraSpace/InteractionText
@@ -40,3 +41,9 @@ func _on_interaction_ray_detected(interacting_object):
 
 func _on_interaction_ray_detections_ceased():
 	interaction_text.text = "[center]"
+
+
+func _on_player_look_at_point(location: Vector3):
+	look_tween = create_tween()
+	look_tween.tween_property(self, "global_transform", global_transform.looking_at(location), 1.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	#look_at(location)
