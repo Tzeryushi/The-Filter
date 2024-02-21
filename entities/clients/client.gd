@@ -70,7 +70,7 @@ func make_sound(sound_type: DetectableSound.SoundType = DetectableSound.SoundTyp
 	var new_sound = sound_scene.instantiate()
 	new_sound = new_sound as DetectableSound
 	var parent_node : Node3D
-	if new_sound == DetectableSound.SoundType.CRICKETS or new_sound == DetectableSound.SoundType.SCREAM:
+	if sound_type == DetectableSound.SoundType.CRICKETS or sound_type == DetectableSound.SoundType.SCREAM:
 		parent_node = head_node
 	else:
 		parent_node = heart_node
