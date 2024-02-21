@@ -6163,7 +6163,7 @@ transitions = ["Start", "movement", SubResource("AnimationNodeStateMachineTransi
 radius = 0.140246
 height = 1.21443
 
-[node name="Client" type="CharacterBody3D" node_paths=PackedStringArray("client_mesh", "client_skeleton", "growth_nodes", "head_node", "animation_tree", "nav_agent") groups=["client"]]
+[node name="Client" type="CharacterBody3D" node_paths=PackedStringArray("client_mesh", "client_skeleton", "growth_nodes", "head_node", "neck_node", "heart_node", "animation_tree", "nav_agent") groups=["client"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 0
 script = ExtResource("1_5pbfi")
@@ -6172,6 +6172,8 @@ client_skeleton = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton")
 growth_scene = ExtResource("2_ve31x")
 growth_nodes = [NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Heart/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Back1/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Neck/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Head/Node3D"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/FootR/Node3D2"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/ArmR/Node3D3"), NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/ArmL/Node3D4")]
 head_node = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Neck/Node3D")
+neck_node = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Neck")
+heart_node = NodePath("ProtoHuman/human 12/Armature/GeneralSkeleton/Heart")
 animation_tree = NodePath("ProtoHuman/AnimationTree")
 nav_agent = NodePath("NavAgent")
 
@@ -6184,34 +6186,34 @@ path_height_offset = 0.2
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="GeneralSkeleton" parent="ProtoHuman/human 12/Armature" index="0"]
-bones/0/position = Vector3(0.000904464, 1.03402, 0.0134587)
-bones/0/rotation = Quaternion(-0.0327847, -0.0477972, -0.0295354, 0.997882)
-bones/1/rotation = Quaternion(0.0310104, 0.0135655, 0.0252397, 0.999108)
-bones/2/rotation = Quaternion(0.0107686, 0.00317269, 0.0140225, 0.999839)
-bones/3/rotation = Quaternion(0.0105607, 0.00337605, 0.0140498, 0.99984)
-bones/4/rotation = Quaternion(0.0493564, -0.00139373, 0.00461296, 0.99877)
-bones/5/rotation = Quaternion(-0.0684284, 0.0109067, -0.00105837, 0.997596)
-bones/7/rotation = Quaternion(0.474714, -0.480486, -0.635272, -0.374446)
-bones/8/rotation = Quaternion(-0.151882, 0.82723, -0.497565, 0.212252)
-bones/9/rotation = Quaternion(0.0412449, 0.705903, -0.0412449, 0.705903)
-bones/10/rotation = Quaternion(0.0423586, -0.571271, 0.0352324, 0.81891)
-bones/11/rotation = Quaternion(0.456451, 0.501036, 0.631823, -0.376051)
-bones/12/rotation = Quaternion(0.124419, 0.802349, -0.570093, -0.125496)
-bones/13/rotation = Quaternion(0.00929758, -0.707046, 0.00929766, 0.707045)
-bones/14/rotation = Quaternion(0.0542293, 0.47453, -0.0147884, 0.878443)
-bones/15/rotation = Quaternion(-0.0916667, -0.003167, 0.995389, -0.0280667)
-bones/16/rotation = Quaternion(0.0341064, 0.993656, -0.0680602, -0.0827781)
-bones/17/rotation = Quaternion(0.0119326, 0.683222, -0.729577, -0.0279755)
-bones/18/rotation = Quaternion(-1.66535e-07, 0.998011, 0.0630382, 1.6871e-08)
-bones/19/rotation = Quaternion(0.135552, 0.0774556, 0.984882, -0.0750602)
-bones/20/rotation = Quaternion(-0.038573, 0.993911, -0.102048, 0.0154861)
-bones/21/rotation = Quaternion(-0.0405195, 0.715168, -0.69614, 0.0477821)
+bones/0/position = Vector3(0.00219007, 1.0339, 0.0132497)
+bones/0/rotation = Quaternion(-0.0323502, -0.0460278, -0.0307957, 0.997941)
+bones/1/rotation = Quaternion(0.0293444, 0.0128979, 0.0243817, 0.999189)
+bones/2/rotation = Quaternion(0.0101992, 0.00288808, 0.0136725, 0.99985)
+bones/3/rotation = Quaternion(0.0099619, 0.00307775, 0.0136939, 0.999852)
+bones/4/rotation = Quaternion(0.0490047, -0.000952558, 0.00405527, 0.99879)
+bones/5/rotation = Quaternion(-0.0661137, 0.0118041, -0.00146172, 0.997741)
+bones/7/rotation = Quaternion(0.476025, -0.479256, -0.634661, -0.375393)
+bones/8/rotation = Quaternion(-0.151611, 0.82724, -0.49737, 0.212866)
+bones/9/rotation = Quaternion(0.041271, 0.705901, -0.041271, 0.705901)
+bones/10/rotation = Quaternion(0.0454178, -0.571133, 0.0372701, 0.818753)
+bones/11/rotation = Quaternion(0.45736, 0.499989, 0.632249, -0.375624)
+bones/12/rotation = Quaternion(0.12315, 0.803761, -0.568124, -0.12664)
+bones/13/rotation = Quaternion(0.00907898, -0.707049, 0.009079, 0.707048)
+bones/14/rotation = Quaternion(0.0533396, 0.475236, -0.0152961, 0.878107)
+bones/15/rotation = Quaternion(-0.0908796, -0.00200272, 0.995444, -0.0287941)
+bones/16/rotation = Quaternion(0.0338688, 0.993679, -0.0675583, -0.0830093)
+bones/17/rotation = Quaternion(0.0108343, 0.68376, -0.729015, -0.0298673)
+bones/18/rotation = Quaternion(-9.92486e-08, 0.997992, 0.0633409, 2.04541e-08)
+bones/19/rotation = Quaternion(0.13452, 0.0806448, 0.984726, -0.0755959)
+bones/20/rotation = Quaternion(-0.0379909, 0.993623, -0.105189, 0.0143455)
+bones/21/rotation = Quaternion(-0.0397764, 0.714236, -0.697194, 0.046955)
 
 [node name="human 1" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="0"]
 material_override = SubResource("ShaderMaterial_cjlt5")
 
 [node name="Heart" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="1"]
-transform = Transform3D(0.997816, -0.0226459, -0.0620512, 0.0216902, 0.999636, -0.0160324, 0.0623916, 0.0146515, 0.997944, 0.00877794, 1.23439, -0.0067767)
+transform = Transform3D(0.998014, -0.0173304, -0.0605618, 0.0166032, 0.999784, -0.0124898, 0.0607652, 0.0114595, 0.998086, 0.0107231, 1.23421, -0.00711128)
 bone_name = "Chest"
 bone_idx = 2
 
@@ -6219,7 +6221,7 @@ bone_idx = 2
 transform = Transform3D(0.4, -2.91232e-09, -1.84311e-09, -1.2972e-09, 0.0709645, -0.393655, 3.19311e-09, 0.393655, 0.0709645, -0.0323794, 0.0849661, 0.0538212)
 
 [node name="Back1" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="2"]
-transform = Transform3D(0.997625, 0.00674635, -0.0685543, -0.0063873, 0.999965, 0.00545538, 0.0685887, -0.00500455, 0.997633, 0.00710223, 1.13553, 0.0083907)
+transform = Transform3D(0.99773, 0.0112556, -0.0663885, -0.0107551, 0.999911, 0.0078917, 0.0664714, -0.00715977, 0.997763, 0.00863314, 1.1354, 0.00827128)
 bone_name = "Spine"
 bone_idx = 1
 
@@ -6227,7 +6229,7 @@ bone_idx = 1
 transform = Transform3D(0.699986, 0.00447151, 1.16415e-09, -0.00068493, 0.107221, 0.691739, 0.00441874, -0.691725, 0.107223, 0.000120527, 0.129742, -0.0916124)
 
 [node name="Neck" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="3"]
-transform = Transform3D(0.996468, -0.0663564, -0.051465, 0.0588784, 0.989062, -0.135241, 0.0598762, 0.131734, 0.989475, -3.24612e-05, 1.49462, -0.0338474)
+transform = Transform3D(0.996976, -0.0590174, -0.0505496, 0.0520291, 0.990164, -0.129877, 0.0577174, 0.126854, 0.990241, 0.00339029, 1.49439, -0.0352029)
 bone_name = "Neck"
 bone_idx = 4
 
@@ -6235,7 +6237,7 @@ bone_idx = 4
 transform = Transform3D(0.286395, -0.272035, 0.000585128, -0.0222292, -0.0225557, 0.393729, -0.271126, -0.285506, -0.0316631, -0.0356277, 0.0661191, 0.0108473)
 
 [node name="Head" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="4"]
-transform = Transform3D(0.99758, -0.0580905, -0.0382002, 0.0582227, 0.998301, 0.00235863, 0.0379983, -0.00457706, 0.999267, -0.0072817, 1.58747, -0.00450508)
+transform = Transform3D(0.998139, -0.0504787, -0.0342013, 0.0506148, 0.998713, 0.00312741, 0.0339995, -0.00485271, 0.99941, -0.00313767, 1.58743, -0.00631697)
 bone_name = "Head"
 bone_idx = 5
 
@@ -6243,7 +6245,7 @@ bone_idx = 5
 transform = Transform3D(0.221195, 0.0931233, -0.000800387, -0.0153626, 0.0385225, 0.23639, 0.0918509, -0.217817, 0.041465, 0.0216402, 0.0845504, -0.067972)
 
 [node name="FootR" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="5"]
-transform = Transform3D(-0.892734, -0.450584, -0.000292132, 0.000168725, -0.000982523, 1, -0.450584, 0.892734, 0.000953253, -0.0832912, 0.087286, -0.0381736)
+transform = Transform3D(-0.892918, -0.450219, -0.000204988, -0.000501241, 0.000538856, 1, -0.450218, 0.892918, -0.000706796, -0.0838222, 0.0872881, -0.036428)
 bone_name = "RightFoot"
 bone_idx = 17
 
@@ -6251,7 +6253,7 @@ bone_idx = 17
 transform = Transform3D(-0.38464, 0.0135342, -0.00967902, -0.0150388, -0.378608, 0.0682252, -0.00711995, 0.0685395, 0.378783, 0, 0, 0)
 
 [node name="ArmR" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="6"]
-transform = Transform3D(0.676658, -0.153725, 0.720072, -0.0808207, -0.98756, -0.134882, 0.731849, 0.0330724, -0.680664, -0.144337, 1.398, -0.0413606)
+transform = Transform3D(0.674336, -0.159961, 0.720891, -0.0832864, -0.986502, -0.14099, 0.733713, 0.0350342, -0.678556, -0.141474, 1.39854, -0.0426112)
 bone_name = "RightUpperArm"
 bone_idx = 8
 
@@ -6259,7 +6261,7 @@ bone_idx = 8
 transform = Transform3D(0.0444721, -0.382422, 0.000659019, -0.112659, -0.0137351, -0.367892, 0.365452, 0.0423031, -0.113491, -0.00832957, -0.000299096, 0.000921428)
 
 [node name="ArmL" type="BoneAttachment3D" parent="ProtoHuman/human 12/Armature/GeneralSkeleton" index="7"]
-transform = Transform3D(-0.743178, 0.121606, -0.65795, -0.131298, -0.990732, -0.0348075, -0.656085, 0.0605193, 0.752257, 0.19232, 1.14174, -0.00908646)
+transform = Transform3D(-0.744848, 0.11933, -0.656477, -0.13124, -0.99086, -0.0312048, -0.6542, 0.0629131, 0.7537, 0.19448, 1.14027, -0.0096103)
 bone_name = "LeftLowerArm"
 bone_idx = 13
 
@@ -6281,6 +6283,21 @@ parameters/movement/blend_position = 0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.610383, 0)
 shape = SubResource("CapsuleShape3D_s8shy")
+
+[node name="Aura" type="OmniLight3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.61003, 0.0630819)
+visible = false
+light_color = Color(1, 0.583333, 0, 1)
+light_energy = 14.74
+light_volumetric_fog_energy = 3.316
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 2.5
+distance_fade_shadow = 3.0
+distance_fade_length = 1.0
+omni_range = 1.751
+omni_attenuation = 0.933036
 
 [editable path="ProtoHuman"]
 [editable path="ProtoHuman/human 12"]

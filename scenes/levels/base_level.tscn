@@ -334,9 +334,6 @@ shape = SubResource("ConcavePolygonShape3D_uwhww")
 [node name="DialogueInteractable" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("3_843mn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.5, 0.8, -19.4701)
 
-[node name="microphone" parent="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" instance=ExtResource("15_tsky6")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.522877)
-
 [node name="ClientPoints" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.1837, 0, -19.8988)
 
@@ -414,6 +411,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -53.67
 [node name="ReelComputer4" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("26_2aout")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -52.5517, 0.00411224, -11.9527)
 
+[node name="microphone" parent="SubViewportContainer/SubViewport/GameSpace/DecorativeItems" instance=ExtResource("15_tsky6")]
+transform = Transform3D(0.0756401, 0, -0.997135, 0, 1, 0, 0.997135, 0, 0.0756401, -60.4827, 0.8, -16.1069)
+
 [node name="Tools" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="PhenomenaDetector" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("27_ve8lp")]
@@ -489,8 +489,6 @@ transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -53.8, 0
 
 [node name="Radio" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("22_3xea3")]
 transform = Transform3D(0.483634, 0, 0.87527, 0, 1, 0, -0.87527, 0, 0.483634, -58.0424, 0.7, -16.3054)
-
-[node name="ClipboardChecker" type="Node" parent="."]
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

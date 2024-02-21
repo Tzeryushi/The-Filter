@@ -6,9 +6,14 @@ signal navigation_ended
 
 @export var client_mesh : MeshInstance3D
 @export var client_skeleton : Skeleton3D
+
 @export var growth_scene: PackedScene
+@export var sound_scene: PackedScene
+
 @export var growth_nodes: Array[Node3D]
 @export var head_node: Node3D
+@export var neck_node: Node3D
+@export var heart_node: Node3D
 
 @export var animation_tree: AnimationTree
 @export var nav_agent: NavigationAgent3D
@@ -60,6 +65,22 @@ func make_growths() -> void:
 		bone.add_child(growth_scene.instantiate())
 		growth_nodes.erase(bone)
 
+
+func make_sound(sound_type: DetectableSound.SoundType = DetectableSound.SoundType.HEARTBEAT) -> void:
+	var new_sound = sound_scene.instantiate()
+	new_sound = new_sound as DetectableSound
+	var parent_node : Node3D
+	if new_sound == DetectableSound.SoundType.CRICKETS or new_sound == DetectableSound.SoundType.SCREAM:
+		parent_node = head_node
+	else:
+		parent_node = heart_node
+	parent_node.add_child(new_sound)
+	new_sound.set_sensor_sound(sound_type)
+
+
+func make_aura() -> void:
+	%Aura.color = Color.from_hsv(randi_range(0, 359), 100, 100)
+	%Aura.show()
 
 func set_is_targeting(value: bool) -> void:
 	if is_targeting and !value:

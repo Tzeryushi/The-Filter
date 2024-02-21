@@ -111,11 +111,12 @@ func second_presence(_client: Client) -> void:
 	
 	
 func manifesting_aura(_client: Client) -> void:
+	current_client.make_aura()
 	attribute_array.append(Attribute.AURA)
 	
 
 func crickets(_client: Client) -> void:
-	pass
+	current_client.make_sound(DetectableSound.SoundType.CRICKETS)
 
 
 func strange_sounds(_client: Client) -> void:
@@ -129,7 +130,7 @@ func increased_shadows(_client: Client) -> void:
 func start_dialogue(player_ref: Player) -> void:
 	if !current_client:
 		return
-	player_ref.point_to(current_client.head_node.global_position)
+	player_ref.point_to(current_client.neck_node.global_position)
 	dialogue_manager.begin_dialogue(current_client.client_resource.dialogue, current_client.client_resource.dialogue_state)
 
 
