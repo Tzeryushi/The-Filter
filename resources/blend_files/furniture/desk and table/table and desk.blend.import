@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dsysswfexo0uo"
-path="res://.godot/imported/table and desk.blend-723df1a0bd6451b4dd43f965843ca759.scn"
+path="res://.godot/imported/table and desk.blend-d517e4d63efbe01273f8e8d4d737c96e.scn"
 
 [deps]
 
-source_file="res://resources/blend_files/furniture/desk:table/table and desk.blend"
-dest_files=["res://.godot/imported/table and desk.blend-723df1a0bd6451b4dd43f965843ca759.scn"]
+source_file="res://resources/blend_files/furniture/desk and table/table and desk.blend"
+dest_files=["res://.godot/imported/table and desk.blend-d517e4d63efbe01273f8e8d4d737c96e.scn"]
 
 [params]
 
