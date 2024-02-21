@@ -6,7 +6,7 @@ extends Node3D
 # update the GUI on the clipboard, and pass pertinent signals that can be listened
 # to by environmental nodes, like the clock or the lights.
 
-signal client_launched(type:Array[Attribute])
+signal client_launched(type_array:Array[Attribute])
 signal client_terminated
 signal client_primed
 
@@ -72,7 +72,11 @@ func client_load(client_resource:ClientResource) -> void:
 	
 	Broadcaster.client_manager_new_resource_used.emit(client_resource)
 	
-	#TODO: Set movement to position in navmesh
+	if client_resource.env_symptoms["too_many_heartbeats"]:
+		new_client.make_sound(DetectableSound.SoundType.MULTIPLE_HEARTBEAT)
+	else:
+		new_client.make_sound(DetectableSound.SoundType.HEARTBEAT)
+	
 	await get_tree().process_frame
 	var walk_position: Vector3
 	if hates_light:
@@ -99,6 +103,7 @@ func time_dilation(_client: Client) -> void:
 
 
 func too_many_heartbeats(_client: Client) -> void:
+	# Handled by the client.
 	pass
 	
 
@@ -155,5 +160,6 @@ func _on_submission_computer_decision_made(results):
 	await current_client.navigation_ended
 	current_client.queue_free()
 	current_client = null
+	hates_light = false
 	client_terminated.emit()
 	

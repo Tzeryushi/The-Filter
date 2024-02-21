@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dam2buho2dcmq"]
+
+[ext_resource type="Script" path="res://assets/shadow_spawner/shadow_spawner.gd" id="1_i0iwf"]
+[ext_resource type="PackedScene" uid="uid://44gix2poxxq1" path="res://assets/shadow_spawner/shadow_creeper.tscn" id="2_bpfxs"]
+
+[node name="ShadowSpawner" type="Node3D" node_paths=PackedStringArray("timer")]
+script = ExtResource("1_i0iwf")
+creeper_scene = ExtResource("2_bpfxs")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
