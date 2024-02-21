@@ -20,6 +20,8 @@ dialogue_state = {
 "answered_name": false,
 "answered_phenom": false,
 "answered_reason": false,
+"approved": false,
+"denied": false,
 "intro_given": false
 }
 dialogue_symptoms = {
@@ -41,7 +43,7 @@ env_symptoms = {
 "manifesting_aura": false,
 "second_presence": false,
 "strange_growths": false,
-"strange_sounds": true,
+"strange_sounds": false,
 "time_dilation": false,
 "too_many_heartbeats": false
 }

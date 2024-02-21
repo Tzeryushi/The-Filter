@@ -1,5 +1,8 @@
 class_name Dialogue extends Panel
 
+
+signal dialogue_ended
+
 @export var dialogue_button_res: PackedScene
 
 @export var dialogue_container: VBoxContainer
@@ -84,6 +87,7 @@ func _on_dialogue_button_down(choice_id: int):
 
 
 func _on_ez_dialogue_end_of_dialogue_reached():
+	dialogue_ended.emit()
 	dialogue_active = false
 
 

@@ -13,6 +13,7 @@ signal client_primed
 enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA = 3, STRANGE_SOUNDS = 4, SHADOWS=5}
 
 @export var dialogue_manager: Dialogue
+@export var player: Player
 
 @export var test_client: ClientResource
 @export var client_scene: PackedScene
@@ -164,8 +165,16 @@ func _on_submission_computer_decision_made(results):
 	var end_position: Vector3
 	if results["admitted"]:
 		end_position = approved_point.global_position
+		current_client.client_resource.dialogue_state["approved"] = true
 	else:
 		end_position = denied_point.global_position
+		current_client.client_resource.dialogue_state["denied"] = true
+	current_client.update_target_position(window_point.global_position)
+	await current_client.navigation_ended
+	current_client.look_at(look_point.global_position)
+	start_dialogue(player)
+	await dialogue_manager.dialogue_ended
+	
 	current_client.update_target_position(end_position)
 	await current_client.navigation_ended
 	current_client.queue_free()

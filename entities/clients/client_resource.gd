@@ -23,6 +23,8 @@ enum Threat {
 	"answered_job" : false,
 	"answered_reason" : false,
 	"answered_phenom" : false,
+	"approved" : false,
+	"denied" : false,
 }
 #@export var model
 #@export var skin
