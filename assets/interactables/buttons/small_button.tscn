@@ -55,7 +55,7 @@ press_off_sound = ExtResource("3_6qqop")
 
 [node name="ButtonInteract" type="Area3D" parent="."]
 script = ExtResource("3_gnln7")
-interaction_text = "Press Button"
+interaction_text = "Press button"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ButtonInteract"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)

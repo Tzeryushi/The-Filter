@@ -1,7 +1,10 @@
 extends Node3D
 
-@export var animation_player: AnimationPlayer
+#@export var animation_player: AnimationPlayer
 @export var is_open: bool = false
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready():
 	if is_open:
@@ -15,8 +18,17 @@ func close_door():
 	is_open = false
 	animation_player.play("door_close")
 
-func _on_small_button_pressed():
+
+func toggle() -> void:
 	if !is_open:
 		open_door()
 	else:
 		close_door()
+
+
+func _on_small_button_pressed():
+	toggle()
+
+
+func _on_env_player_entered(_player):
+	toggle()

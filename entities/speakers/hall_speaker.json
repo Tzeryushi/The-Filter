@@ -1,0 +1,12 @@
+[
+	{
+		"commands_raw": "Keep going straight.\n---\nI mean, you can head down the halls, but wouldn't recommend it.\n---\nCleaners haven't been through here for a while. It'd be a bit of a risk.",
+		"gnode_name": "start",
+		"id": 0,
+		"name": "start",
+		"position": [
+			0,
+			0
+		]
+	}
+]

@@ -31,7 +31,13 @@ func sort_results(results: Dictionary) -> void:
 	pass
 
 
-func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
+#func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
+	#player.point_to(speaker.global_position)
+	#dialogue_manager.begin_dialogue(inc_dialogue, dialogue_dict)
+	#await dialogue_manager.dialogue_ended
+	#speaker.end_dialogue()
+
+func _on_speaker_dialogue_started(inc_dialogue, dialogue_dict, speaker):
 	player.point_to(speaker.global_position)
 	dialogue_manager.begin_dialogue(inc_dialogue, dialogue_dict)
 	await dialogue_manager.dialogue_ended
