@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=45 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://entities/player/player_items/phenomena_detector/player_phenomena_detector.gd" id="20_p0thh"]
 [ext_resource type="Resource" uid="uid://38pfbdy68ast" path="res://entities/player/player_items/phenomena_detector/phenomena_detector.tres" id="21_mwq0b"]
 [ext_resource type="PackedScene" uid="uid://04xtfosqw28a" path="res://resources/blend_files/tools/phenomena_detector.blend" id="21_x2jn0"]
+[ext_resource type="AudioStream" uid="uid://dlyrsivvktqe5" path="res://resources/sounds/sfx/Radio_static.wav" id="25_72ftb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
@@ -897,6 +898,7 @@ visible = false
 transform = Transform3D(3.5536e-06, -6.90129e-07, 1, -0.18841, -0.98209, -8.23565e-09, 0.98209, -0.18841, -3.61999e-06, 0.0958115, 1.09024, -0.10535)
 visible = false
 script = ExtResource("18_842pu")
+sound_default = ExtResource("25_72ftb")
 sound_sensor_ray = NodePath("../../../SoundSensorRay")
 item_resource = ExtResource("19_pp6pp")
 

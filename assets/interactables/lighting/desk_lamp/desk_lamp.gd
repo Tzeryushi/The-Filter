@@ -1,10 +1,10 @@
 extends Node3D
 
 @export var is_enabled: bool = false
+@export var on_sound: AudioStream
+@export var off_sound: AudioStream
 var desk_lamp_bulb: MeshInstance3D
 var desk_lamp_light: SpotLight3D
-var on_sound: AudioStream = preload("res://assets/interactables/lighting/desk_lamp/desk_lamp_assets/UI_Press_1.ogg")
-var off_sound: AudioStream = preload("res://assets/interactables/lighting/desk_lamp/desk_lamp_assets/UI_Press_2.ogg")
 
 func _ready():
 	desk_lamp_bulb = get_node("desk_lamp/desk_lamp_bulb")
