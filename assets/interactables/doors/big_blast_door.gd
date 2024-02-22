@@ -30,8 +30,8 @@ func _on_small_button_pressed():
 
 
 func _on_big_button_pressed():
-	toggle_door()
+	close_door()
 
 
 func _on_door_open_volume_player_entered(_player):
-	toggle_door()
+	open_door()

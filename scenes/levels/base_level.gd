@@ -16,11 +16,10 @@ signal monster_spawn_finished
 @export var game_space: Node3D
 
 var monster_tracking: bool = false
-
+var monster: Node3D
 
 func _ready() -> void:
 	await get_tree().process_frame
-	spawn_monster()
 	#for client in clients:
 		#client_manager.client_load(client)
 		#await client_manager.client_terminated
@@ -44,6 +43,7 @@ func spawn_monster() -> void:
 	new_monster.global_position = monster_spawn_point1.global_position
 	new_monster.look_at(Vector3(player.global_position.x, 0, player.global_position.z))
 	new_monster.spawn()
+	monster = new_monster
 	await get_tree().create_timer(10.0).timeout
 	
 	# turn out lights
@@ -77,9 +77,18 @@ func _on_submission_computer_next_client_sent():
 		client_manager.client_load(clients.pop_front())
 		await client_manager.client_terminated
 		return
-	print_debug("end of client list.")
+	spawn_monster()
 
 
 func _on_monster_run_player_entered(player):
 	monster_tracking = true
 	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor.open_door()
+	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton.set_button_active(true)
+
+
+func _on_big_button_pressed():
+	if !monster:
+		return
+	if (monster.global_position - player.global_position).length() <= 3:
+		await get_tree().process_frame
+		monster.queue_free()

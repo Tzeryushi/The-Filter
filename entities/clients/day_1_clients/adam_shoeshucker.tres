@@ -12,7 +12,7 @@ client_job = "Toe Clam Harvester"
 travel_reason = "Harvesting toe clams"
 personality_type = 6
 threat_type = 0
-should_approve = true
+has_ending_dialogue = true
 dialogue = ExtResource("1_1qe6u")
 dialogue_state = {
 "answered_age": false,
@@ -20,6 +20,8 @@ dialogue_state = {
 "answered_name": false,
 "answered_phenom": false,
 "answered_reason": false,
+"approved": false,
+"denied": false,
 "intro_given": false
 }
 dialogue_symptoms = {

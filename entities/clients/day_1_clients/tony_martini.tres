@@ -12,7 +12,7 @@ client_job = "Professional Patient"
 travel_reason = "Doctor's appointment"
 personality_type = 5
 threat_type = 5
-has_ending_dialogue = false
+has_ending_dialogue = true
 dialogue = ExtResource("1_31uuv")
 dialogue_state = {
 "answered_age": false,

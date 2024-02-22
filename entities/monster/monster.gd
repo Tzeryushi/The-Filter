@@ -7,7 +7,7 @@ signal touched_player
 @export var animation_tree: AnimationTree
 @export var nav_agent: NavigationAgent3D
 
-const TOP_SPEED: float = 3.5
+const TOP_SPEED: float = 3.0
 const MIN_SPEED: float = 1.0
 
 var speed: float = 3.5
@@ -27,9 +27,8 @@ func _physics_process(_delta: float) -> void:
 	if !nav_agent.is_navigation_finished():
 		var current_location = global_transform.origin
 		var next_location = nav_agent.get_next_path_position()
-		if (nav_agent.target_position - global_position).length() < 4.5:
-			speed = lerpf(MIN_SPEED, TOP_SPEED, (max((nav_agent.target_position - global_position).length(),1)-1)/3.5)
-		print(speed)
+		if (nav_agent.target_position - global_position).length() < 10.5:
+			speed = lerpf(MIN_SPEED, TOP_SPEED, (max((nav_agent.target_position - global_position).length(),1)-1)/9.5)
 		var new_velocity = (next_location - current_location).normalized() * speed
 		velocity = new_velocity
 	else:

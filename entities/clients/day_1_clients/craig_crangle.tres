@@ -12,7 +12,7 @@ client_job = "Drifter"
 travel_reason = "Not specified"
 personality_type = 4
 threat_type = 2
-has_ending_dialogue = false
+has_ending_dialogue = true
 dialogue = ExtResource("1_k1ws0")
 dialogue_state = {
 "answered_age": false,
