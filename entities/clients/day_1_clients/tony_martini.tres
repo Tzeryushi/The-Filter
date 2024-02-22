@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ClientResource" load_steps=4 format=3 uid="uid://bsqmqvmh453db"]
+
+[ext_resource type="JSON" path="res://entities/clients/day_1_clients/tony_martini.json" id="1_31uuv"]
+[ext_resource type="Script" path="res://entities/clients/client_resource.gd" id="2_b5lb5"]
+[ext_resource type="Texture2D" uid="uid://h5m61sx3s2yc" path="res://resources/blend_files/skins/skin 3.png" id="3_45k7r"]
+
+[resource]
+script = ExtResource("2_b5lb5")
+client_name = "Tony Martini"
+client_age = 27
+client_job = "Professional Patient"
+travel_reason = "Doctor's appointment"
+personality_type = 5
+threat_type = 5
+has_ending_dialogue = false
+dialogue = ExtResource("1_31uuv")
+dialogue_state = {
+"answered_age": false,
+"answered_job": false,
+"answered_name": false,
+"answered_phenom": false,
+"answered_reason": false,
+"approved": false,
+"denied": false,
+"intro_given": false
+}
+dialogue_symptoms = {
+"encountered_entity": true,
+"forgetful": true,
+"hallucinating": false,
+"headache": true,
+"irrational": true,
+"knows_too_much": false,
+"nauseated": true,
+"too_polite": false,
+"unresponsive": true
+}
+env_symptoms = {
+"averse_to_light": false,
+"crickets?": false,
+"increased_shadows": false,
+"inexplicable_phenomena": false,
+"manifesting_aura": false,
+"second_presence": true,
+"strange_growths": true,
+"strange_sounds": true,
+"time_dilation": true,
+"too_many_heartbeats": true
+}
+texture = ExtResource("3_45k7r")
+use_override = false
+size_scale = 0.8
