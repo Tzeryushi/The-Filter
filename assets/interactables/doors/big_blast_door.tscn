@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2jj2paauu3j8"]
+[gd_scene load_steps=9 format=3 uid="uid://d2jj2paauu3j8"]
 
 [ext_resource type="Script" path="res://assets/interactables/doors/big_blast_door.gd" id="1_dqpve"]
 [ext_resource type="PackedScene" uid="uid://ct43dra0u8pey" path="res://resources/blend_files/misc/blast_door/big_blast_door.blend" id="2_d181a"]
+[ext_resource type="AudioStream" uid="uid://dcmge5nsetd0" path="res://assets/interactables/doors/Shot_Gun_1.ogg" id="2_romdy"]
+[ext_resource type="AudioStream" uid="uid://bbltw08vj2f8" path="res://assets/interactables/doors/Garage_door.ogg" id="3_phyqy"]
 
 [sub_resource type="Animation" id="Animation_yskvr"]
 length = 0.001
@@ -60,6 +62,8 @@ _data = {
 [node name="BigBlastDoor" type="Node3D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_dqpve")
 animation_player = NodePath("AnimationPlayer")
+close_sound = ExtResource("2_romdy")
+open_sound = ExtResource("3_phyqy")
 
 [node name="big_blast_door" parent="." instance=ExtResource("2_d181a")]
 

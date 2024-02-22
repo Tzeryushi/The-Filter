@@ -739,9 +739,6 @@ transform = Transform3D(-0.336043, 0, -0.941846, 0, 1, 0, 0.941846, 0, -0.336043
 [node name="SoundSensor" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("20_0euyb")]
 transform = Transform3D(0.940709, 0, 0.339214, 0, 1, 0, -0.339214, 0, 0.940709, -61.2411, 0.966405, -15.7729)
 
-[node name="Flashlight" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("7_lhejl")]
-transform = Transform3D(-0.588928, 0, -0.808185, 0, 1, 0, 0.808185, 0, -0.588928, -61.4898, 0.93373, -14.2348)
-
 [node name="BaseItem" parent="SubViewportContainer/SubViewport/GameSpace/Tools" instance=ExtResource("8_0hdwf")]
 transform = Transform3D(-0.241583, 0, 0.97038, 0, 1, 0, -0.97038, 0, -0.241583, -61.7155, 1.13339, -13.772)
 
@@ -862,7 +859,7 @@ rotation_amount = 1.57041
 transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, -61.4668, 0.93233, -12.8081)
 
 [node name="BlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
-transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -8.1532, -0.93233, 3.1309)
+transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -8.18353, -0.932, 3.15279)
 
 [node name="BlastDoor2" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -40.8858, -0.93233, -8.23595)

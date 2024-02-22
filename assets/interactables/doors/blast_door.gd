@@ -3,6 +3,9 @@ extends Node3D
 #@export var animation_player: AnimationPlayer
 @export var is_open: bool = false
 
+@export var open_sound: AudioStream
+@export var close_sound: AudioStream
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
