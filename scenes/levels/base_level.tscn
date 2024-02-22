@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=116 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -65,6 +65,8 @@
 [ext_resource type="JSON" path="res://entities/speakers/flashlight_speaker.json" id="54_j4wy3"]
 [ext_resource type="JSON" path="res://entities/speakers/hall_speaker.json" id="55_uwhbx"]
 [ext_resource type="Script" path="res://entities/entity_components/trigger_hide.gd" id="56_4a3et"]
+[ext_resource type="JSON" path="res://entities/speakers/terro_hall_speaker.json" id="56_mfcus"]
+[ext_resource type="JSON" path="res://entities/speakers/room_speaker.json" id="58_m14y2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -291,7 +293,10 @@ size = Vector3(0.979492, 1, 1.72485)
 size = Vector3(3.1748, 6.63275, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_occmk"]
-size = Vector3(3.1748, 6.63275, 1)
+size = Vector3(4.20532, 6.63275, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkyxo"]
+size = Vector3(4.62817, 4.53757, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_r2dww"]
 streams_count = 8
@@ -344,7 +349,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.1681, 1.90735e-06, -14.8841)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6476, 0, -13.6856)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -805,6 +810,26 @@ spot_attenuation = 0.840896
 spot_angle = 12.8689
 spot_angle_attenuation = 1.62451
 
+[node name="HallLight" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights/HallLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.5, 5.77858, -6)
+light_energy = 11.655
+spot_range = 6.35097
+spot_angle = 13.414
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights/HallLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.5, 5.77858, -15)
+light_energy = 11.655
+spot_range = 6.35097
+spot_angle = 13.414
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Lights/HallLight"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.5, 5.77858, -10.5)
+light_energy = 11.655
+spot_range = 6.35097
+spot_angle = 13.414
+
 [node name="EnvironmentItems" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="SmallButton" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("32_oq5ts")]
@@ -940,6 +965,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5388, 0, -18.4994)
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
+[node name="LightsAndDoors8" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4089, 0, -18.5494)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors8"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
+shape = SubResource("BoxShape3D_occmk")
+
+[node name="LightsAndDoors9" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors9"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
+shape = SubResource("BoxShape3D_occmk")
+
+[node name="Office1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -10.6907, 1.76841, 4.28186)
+shape = SubResource("BoxShape3D_nkyxo")
+
+[node name="Office2" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -15.3189, 1.76841, 4.28186)
+shape = SubResource("BoxShape3D_nkyxo")
+
 [node name="Speakers" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="EntranceSpeaker" parent="SubViewportContainer/SubViewport/GameSpace/Speakers" instance=ExtResource("41_le3ac")]
@@ -961,6 +1014,7 @@ omni_range = 0.755
 
 [node name="TerroHallSpeaker" parent="SubViewportContainer/SubViewport/GameSpace/Speakers" instance=ExtResource("41_le3ac")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 2, -17)
+dialogue = ExtResource("56_mfcus")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.66871, 1.36625, -2.39856)
@@ -976,6 +1030,13 @@ script = ExtResource("56_4a3et")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474895, 0, 0)
 light_color = Color(1, 0.545098, 0.105882, 1)
 omni_range = 0.755
+
+[node name="RoomSpeaker" parent="SubViewportContainer/SubViewport/GameSpace/Speakers" instance=ExtResource("41_le3ac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 2.35, -14.5)
+dialogue = ExtResource("58_m14y2")
+dialogue_dict = {
+"spoke_before": false
+}
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -1013,9 +1074,14 @@ autoplay = true
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors5" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor4" method="_on_env_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors6" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor5" method="_on_env_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors7" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker/SpotLight3D" method="_on_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors8" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker" method="_on_speaker_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/EntranceSpeaker" to="." method="_on_speaker_dialogue_started"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/FlashlightSpeaker" to="." method="_on_speaker_dialogue_started"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/KeepGoingSpeaker" to="." method="_on_speaker_dialogue_started"]
+[connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker" to="." method="_on_speaker_dialogue_started"]
+[connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" to="." method="_on_speaker_dialogue_started"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]

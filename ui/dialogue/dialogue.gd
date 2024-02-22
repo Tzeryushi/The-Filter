@@ -81,13 +81,13 @@ func _on_dialogue_button_down(choice_id: int):
 		dialogue_handler.next(choice_id)
 	else:
 		visible = false
+		dialogue_ended.emit()
 		var player: Player = get_tree().get_first_node_in_group("player")
 		if player:
 			player.set_input_mode(true)
 
 
 func _on_ez_dialogue_end_of_dialogue_reached():
-	dialogue_ended.emit()
 	dialogue_active = false
 
 

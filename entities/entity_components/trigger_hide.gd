@@ -8,5 +8,5 @@ func hide_trigger(is_hidden: bool) -> void:
 		show()
 
 
-func _on_player_entered(player):
+func _on_player_entered(_player):
 	show()
