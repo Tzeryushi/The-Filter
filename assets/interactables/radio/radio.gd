@@ -18,8 +18,12 @@ func _on_interaction_volume_interacted(_interacting_node):
 func update_radio():
 	if is_enabled:
 		if !radio_stream_player:
-			var stream_player_id = AudioManager.play_sound_at_location(
-				radio_song, global_position, AudioManager.Channel.Music, 7)
+			var stream_player_id = AudioManager.set_volume_ratio(
+				AudioManager.set_attenuation_filter_ratio(
+				AudioManager.play_sound_at_location(
+				radio_song, global_position, AudioManager.Channel.Music, 7),
+				.1),
+				1)
 			radio_stream_player = instance_from_id(stream_player_id)
 		else:
 			radio_stream_player.stream = radio_song
