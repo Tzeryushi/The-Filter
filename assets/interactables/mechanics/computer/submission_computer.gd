@@ -77,7 +77,7 @@ func show_results(result_dict: Dictionary) -> void:
 	new_text += "Diagnosis accuracy: " + str(int(accuracy*100.0)) + "%\n"
 	new_text += "Threat: " + str(ClientResource.Threat.keys()[result_dict["threat_type"]]) + "\n"
 	new_text += "Threat identified: " + ("YES" if result_dict["identified_threat"] else "NO") + "\n"
-	new_text += "Pay docked: " + str(int(accuracy * 75.0 + int(!result_dict["identified_threat"]) * 50)) + " crebbits"
+	new_text += "Pay docked: " + str(int(lerpf(75, 0, accuracy) + int(!result_dict["identified_threat"]) * 50)) + " crebbits"
 	results_tween = create_tween()
 	results_tween.tween_property(results_text, "text", new_text, 3.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
