@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=129 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -62,6 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://jefodf7v57xj" path="res://resources/blend_files/tech/floppy disk/floppy disk.blend" id="48_4qae1"]
 [ext_resource type="PackedScene" uid="uid://dcim3wd52pe6y" path="res://resources/blend_files/tech/switchboard/switchboard.blend" id="49_fkukd"]
 [ext_resource type="PackedScene" uid="uid://dcx2b5ggetjda" path="res://resources/blend_files/furniture/chair/chair.blend" id="50_b5xfm"]
+[ext_resource type="Script" path="res://scenes/levels/dummy_doorts.gd" id="50_tcnqy"]
 [ext_resource type="Texture2D" uid="uid://djto845h120pv" path="res://resources/blend_files/furniture/desk and table/small desk.png" id="51_657jq"]
 [ext_resource type="PackedScene" uid="uid://dkvg7le03ax1r" path="res://resources/blend_files/lighting/lamp 2/lamp 2 copy.blend" id="51_jbtwt"]
 [ext_resource type="JSON" path="res://entities/speakers/flashlight_speaker.json" id="54_j4wy3"]
@@ -862,11 +863,12 @@ is_enabled = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
+[node name="BlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("36_a2rpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7786, 0.000330031, -18.4807)
+
 [node name="Doors" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems"]
 transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, -61.4668, 0.93233, -12.8081)
-
-[node name="BlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
-transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -8.18353, -0.932, 3.15279)
+script = ExtResource("50_tcnqy")
 
 [node name="BlastDoor2" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -40.8858, -0.93233, -8.23595)
@@ -1066,39 +1068,39 @@ dialogue_dict = {
 [node name="Posters" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="Decal" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 0, -0.0871558, -0.996195, -8.74228e-08, -0.996195, 0.0871558, -57.2677, 1.94588, -11.963)
-size = Vector3(1.17871, 2, 1.52448)
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 7.6194e-09, -2.98023e-08, -1, -8.70901e-08, -1, 2.98023e-08, -57.2677, 1.946, -11.972)
+size = Vector3(1.17871, 0.139694, 1.52448)
 texture_albedo = ExtResource("61_cswtv")
 
 [node name="Decal6" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-1.49012e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -1.49012e-07, 1.52388e-08, -50.5319, 1.45655, -15.882)
-size = Vector3(0.779785, 0.608551, 1.18655)
+transform = Transform3D(-1.49012e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -1.49012e-07, 1.52388e-08, -50.5017, 1.45655, -15.882)
+size = Vector3(0.779785, 0.0773201, 1.18655)
 texture_albedo = ExtResource("62_w0kiw")
 
 [node name="Decal7" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-2.17892e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -2.17892e-07, 1.52388e-08, -52.0697, 1.60751, -13.7949)
-size = Vector3(1.17871, 0.608551, 1.52448)
+transform = Transform3D(-2.17892e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -2.17892e-07, 1.52388e-08, -51.9765, 1.60751, -13.7949)
+size = Vector3(1.17871, 0.0847549, 1.52448)
 texture_albedo = ExtResource("63_x6rpk")
 emission_energy = 8.76
 
 [node name="Decal2" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -58.5456, 1.21286, -11.963)
-size = Vector3(1.17871, 2, 1.52448)
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -58.5456, 1.21446, -12.038)
+size = Vector3(1.17871, 0.25, 1.52448)
 texture_albedo = ExtResource("64_1ndq3")
 
 [node name="Decal4" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -60.0609, 1.75722, -11.9746)
-size = Vector3(1.17871, 2, 1.52448)
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -60.0609, 1.75819, -12.0202)
+size = Vector3(1.17871, 0.0912109, 1.52448)
 texture_albedo = ExtResource("65_tsvoi")
 
 [node name="Decal3" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -61.4242, 2.1231, -11.9596)
-size = Vector3(0.9375, 2, 1.2)
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 5.71316e-09, -0.0218673, -0.999761, -8.72359e-08, -0.999761, 0.0218673, -61.4242, 2.12408, -12.0054)
+size = Vector3(0.9375, 0.172058, 1.2)
 texture_albedo = ExtResource("66_pegj0")
 
 [node name="Decal5" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
-transform = Transform3D(1.30619e-07, 0.999772, 0.0213437, 9.47649e-09, 0.0213437, -0.999772, -1, 1.30792e-07, -6.68644e-09, -62.0382, 1.95725, -12.778)
-size = Vector3(1.12061, 0.812988, 1.4335)
+transform = Transform3D(1.30619e-07, 0.999772, 0.0213437, 9.47649e-09, 0.0213437, -0.999772, -1, 1.30792e-07, -6.68644e-09, -62.0409, 1.95719, -12.778)
+size = Vector3(1.12061, 0.150085, 1.4335)
 texture_albedo = ExtResource("67_lwpu2")
 
 [node name="GUI" type="CanvasLayer" parent="."]
@@ -1188,7 +1190,7 @@ script = ExtResource("55_2axin")
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 [connection signal="next_client_sent" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="." method="_on_submission_computer_next_client_sent"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor" method="_on_small_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor" method="_on_small_button_pressed"]
 [connection signal="body_entered" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6" method="_on_area_body_entered"]
 [connection signal="body_exited" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6" method="_on_area_3d_body_exited"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="." method="_on_big_button_pressed"]

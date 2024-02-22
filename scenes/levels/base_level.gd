@@ -85,6 +85,8 @@ func _on_monster_run_player_entered(player):
 	monster_tracking = true
 	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor.open_door()
 	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton.set_button_active(true)
+	await get_tree().create_timer(2.0).timeout
+	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors.close_all_doors()
 
 
 func _on_big_button_pressed():
