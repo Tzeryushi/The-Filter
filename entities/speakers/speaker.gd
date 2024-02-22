@@ -33,5 +33,5 @@ func set_speaking(value: bool) -> void:
 	is_speaking = value
 
 
-func _on_speaker_player_entered(player):
+func _on_speaker_player_entered(_player):
 	start_dialogue()

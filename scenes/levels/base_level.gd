@@ -17,18 +17,18 @@ func _ready() -> void:
 		#await get_tree().create_timer(6.0).timeout
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	#if event.is_action_pressed("use"):
 		#player.point_to(client_manager.current_client.head_node.global_position)
 	pass
 
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	#get_tree().call_group("client", "update_target_position", player.global_position)
 	pass
 
 
-func sort_results(results: Dictionary) -> void:
+func sort_results(_results: Dictionary) -> void:
 	pass
 
 

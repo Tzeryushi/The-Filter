@@ -28,4 +28,4 @@ func _on_client_manager_client_launched(type_array: Array[ClientManager.Attribut
 
 
 func _on_client_manager_client_terminated():
-	remove_sounds
+	remove_sounds()

@@ -33,5 +33,5 @@ func _on_big_button_pressed():
 	toggle_door()
 
 
-func _on_door_open_volume_player_entered(player):
+func _on_door_open_volume_player_entered(_player):
 	toggle_door()
