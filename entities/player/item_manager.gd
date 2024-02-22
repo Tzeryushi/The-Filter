@@ -88,6 +88,8 @@ func process_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("clipboard") and is_clipboard_acquired:
 		swap_clipboard()
+	elif event.is_action_pressed("esc") and is_clipboard_held:
+		swap_clipboard()
 	#clipboard.push_input(event)
 	
 	if current_item:
