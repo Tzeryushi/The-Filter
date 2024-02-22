@@ -7,5 +7,6 @@ script = ExtResource("1_38po6")
 start_scene_name = "base_level"
 scenes = {
 "base_level": "res://scenes/levels/base_level.tscn",
+"end_scene": "res://scenes/end_scene.tscn",
 "proto_scene": "res://scenes/proto_scene.tscn"
 }

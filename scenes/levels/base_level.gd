@@ -100,5 +100,6 @@ func _on_big_button_pressed():
 		$GUI/EndGood/RichTextLabel.modulate.a = 0.0
 		tween.tween_property($GUI/EndGood, "modulate:a", 1.0, 4.0)
 		tween.tween_property($GUI/EndGood/RichTextLabel, "modulate:a", 1.0, 2.0)
-		
+		await get_tree().create_timer(4.0).timeout
+		SceneManager.switch_scene("end_scene")
 		
