@@ -198,5 +198,21 @@ func build_audio_player(
 		get_tree().root.add_child.call_deferred(audio_player)
 
 	audio_player.set_bus(channel)
-
+	audio_player.finished_with_reference.connect(_on_finished_with_reference)
 	return audio_player
+
+
+func set_volume_ratio(id: int, volume: float) -> int:
+	var player = instance_from_id(id)
+	player.set_volume_db(linear_to_db(volume/60))
+	return id
+
+
+func set_attenuation_filter_ratio(id: int, volume: float) -> int:
+	var player: PositionalAudioStreamPlayer = instance_from_id(id)
+	player.set_attenuation_filter_db(linear_to_db(volume/60))
+	return id
+
+
+func _on_finished_with_reference(instance):
+	instance.set_volume_db(0)
