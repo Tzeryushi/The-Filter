@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=45 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://entities/player/item_manager.gd" id="8_3ahaa"]
 [ext_resource type="Texture2D" uid="uid://v4lld53b8uid" path="res://entities/player/player_resources/reticle.png" id="8_5rh68"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_interaction_ray.gd" id="9_4edco"]
+[ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="9_4nfoq"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_phenomena_detector_ray.gd" id="11_a27ic"]
 [ext_resource type="Resource" uid="uid://bo76kl8cferhw" path="res://entities/player/player_items/base_item.tres" id="11_f018m"]
 [ext_resource type="Script" path="res://entities/player/player_assets/player_sound_sensor_ray.gd" id="11_gltte"]
@@ -644,7 +645,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager", "item_manager") groups=["player"]]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 65
 script = ExtResource("1_dek4s")
 state_manager = NodePath("StateManager")
@@ -735,8 +736,12 @@ grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/font_outline_color = Color(0.129412, 0.129412, 0.129412, 1)
 theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("9_4nfoq")
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]"
+fit_content = true
+scroll_active = false
 
 [node name="InteractionRay" type="RayCast3D" parent="PlayerCamera"]
 visible = false

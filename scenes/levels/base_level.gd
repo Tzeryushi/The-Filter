@@ -24,7 +24,8 @@ func _unhandled_input(_event):
 
 
 func _physics_process(_delta) -> void:
-	#get_tree().call_group("client", "update_target_position", player.global_position)
+	await get_tree().process_frame
+	get_tree().call_group("monster", "update_target_position", player.global_position)
 	pass
 
 
