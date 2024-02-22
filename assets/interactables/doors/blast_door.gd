@@ -17,11 +17,14 @@ func _ready():
 func open_door():
 	is_open = true
 	animation_player.play("door_open")
+	AudioManager.play_sound_at_location(open_sound, global_position)
 
 
 func close_door():
 	is_open = false
 	animation_player.play("door_close")
+	await get_tree().create_timer(0.3).timeout
+	AudioManager.play_sound_at_location(close_sound, global_position)
 
 
 func toggle() -> void:

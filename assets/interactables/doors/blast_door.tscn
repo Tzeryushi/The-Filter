@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuwyb6p3kstve"]
+[gd_scene load_steps=9 format=3 uid="uid://cuwyb6p3kstve"]
 
 [ext_resource type="Script" path="res://assets/interactables/doors/blast_door.gd" id="1_ry3cl"]
 [ext_resource type="PackedScene" uid="uid://cqhi7qlm6dhr1" path="res://resources/blend_files/misc/blast_door/blast_door.blend" id="2_8s54a"]
+[ext_resource type="AudioStream" uid="uid://bt1ucjhrb72lv" path="res://assets/interactables/doors/metal_12.ogg" id="2_xlm60"]
+[ext_resource type="AudioStream" uid="uid://copt5jpnwnt6f" path="res://assets/interactables/doors/metal_09.ogg" id="3_k8t6j"]
 
 [sub_resource type="Animation" id="Animation_3lwvh"]
 length = 0.001
@@ -95,6 +97,8 @@ _data = {
 
 [node name="BlastDoor" type="Node3D"]
 script = ExtResource("1_ry3cl")
+open_sound = ExtResource("2_xlm60")
+close_sound = ExtResource("3_k8t6j")
 
 [node name="blast_door" parent="." instance=ExtResource("2_8s54a")]
 
