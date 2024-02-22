@@ -41,10 +41,15 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
+func spawn() -> void:
+	position.y = position.y - 3.0
+	var tween : Tween = create_tween()
+	tween.tween_property(self, "position:y", position.y+3.0, 8.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+
+
 func update_target_position(target: Vector3) -> void:
 	is_targeting = true
 	nav_agent.set_target_position(target)
-	
 
 
 func set_is_targeting(value: bool) -> void:

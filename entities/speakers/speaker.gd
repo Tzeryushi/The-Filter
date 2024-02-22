@@ -35,3 +35,7 @@ func set_speaking(value: bool) -> void:
 
 func _on_speaker_player_entered(_player):
 	start_dialogue()
+
+
+func _on_spawn_finished():
+	start_dialogue()
