@@ -44,6 +44,7 @@ func compare(resource: ClientResource) -> void:
 		"incorrect" : 0,
 		"total_complications" : 0,
 		"total_count" : 0,
+		"threat_type" : resource.threat_type,
 		"is_threat" : false,
 		"identified_threat" : false,
 		"admitted" : false,

@@ -26,7 +26,8 @@ enum Attribute {TIME_DILATION = 0, SECOND_PRESENCE = 1, INEXPLICABLE = 2, AURA =
 @export var approved_point: Node3D
 @export var denied_point: Node3D
 
-var current_client : Client
+var current_client : Client = null
+var has_client: bool : get = get_has_client
 var hates_light: bool = false
 var attribute_array : Array[Attribute] = []
 
@@ -56,6 +57,7 @@ func _ready() -> void:
 func client_load(client_resource:ClientResource) -> void:
 	var new_client = client_scene.instantiate()
 	new_client = new_client as Client
+	client_resource = client_resource.duplicate()
 	new_client.client_resource = client_resource
 	if SceneManager.has_scenes():
 		SceneManager.get_top_scene().add_child(new_client)
@@ -148,6 +150,13 @@ func start_dialogue(player_ref: Player) -> void:
 		return
 	player_ref.point_to(current_client.neck_node.global_position)
 	dialogue_manager.begin_dialogue(current_client.client_resource.dialogue, current_client.client_resource.dialogue_state)
+
+
+func get_has_client() -> bool:
+	if current_client:
+		return true
+	else:
+		return false
 
 
 func _on_form_submitted() -> void:

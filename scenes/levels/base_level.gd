@@ -5,15 +5,16 @@ extends Node
 @export var dialogue_manager: Dialogue
 @export var player: Player
 @export var nav_region: NavigationRegion3D
+@export var computer: SubmissionComputer
 
 @export var clients: Array[ClientResource]
 
 func _ready() -> void:
 	await get_tree().process_frame
-	for client in clients:
-		client_manager.client_load(client)
-		await client_manager.client_terminated
-		await get_tree().create_timer(6.0).timeout
+	#for client in clients:
+		#client_manager.client_load(client)
+		#await client_manager.client_terminated
+		#await get_tree().create_timer(6.0).timeout
 
 
 func _unhandled_input(event):
@@ -42,3 +43,14 @@ func _on_speaker_dialogue_started(inc_dialogue, dialogue_dict, speaker):
 	dialogue_manager.begin_dialogue(inc_dialogue, dialogue_dict)
 	await dialogue_manager.dialogue_ended
 	speaker.end_dialogue()
+
+
+func _on_submission_computer_next_client_sent():
+	if client_manager.has_client:
+		return
+	if !clients.is_empty():
+		computer.can_send_in = false
+		client_manager.client_load(clients.pop_front())
+		await client_manager.client_terminated
+		return
+	print_debug("end of client list.")

@@ -309,12 +309,13 @@ stream_6/weight = 1.0
 stream_7/stream = ExtResource("41_0hho6")
 stream_7/weight = 1.0
 
-[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue_manager", "player", "nav_region")]
+[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue_manager", "player", "nav_region", "computer")]
 script = ExtResource("1_x6wr7")
 client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientManager")
 dialogue_manager = NodePath("GUI/Dialogue")
 player = NodePath("SubViewportContainer/SubViewport/GameSpace/Player")
 nav_region = NodePath("SubViewportContainer/SubViewport/GameSpace/NavRegion")
+computer = NodePath("SubViewportContainer/SubViewport/GameSpace/SubmissionComputer")
 clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_x1o6f")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -340,7 +341,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4284, 1.90735e-06, -19.2089)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.1681, 1.90735e-06, -14.8841)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -983,9 +984,11 @@ autoplay = true
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_terminated"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_terminated"]
 [connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/PhenomenaController" method="_on_client_manager_client_terminated"]
+[connection signal="client_terminated" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" method="_on_client_manager_client_terminated"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
+[connection signal="next_client_sent" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="." method="_on_submission_computer_next_client_sent"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor" method="_on_small_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_big_button_pressed"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_door_open_volume_player_entered"]
