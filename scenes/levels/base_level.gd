@@ -54,6 +54,7 @@ func spawn_monster() -> void:
 	
 	await get_tree().create_timer(1.0).timeout
 	monster_spawn_finished.emit()
+	$SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run.is_active = true
 
 #func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
 	#player.point_to(speaker.global_position)
@@ -77,3 +78,8 @@ func _on_submission_computer_next_client_sent():
 		await client_manager.client_terminated
 		return
 	print_debug("end of client list.")
+
+
+func _on_monster_run_player_entered(player):
+	monster_tracking = true
+	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor.open_door()

@@ -13,6 +13,7 @@ signal player_exited(player: Player)
 @export var is_active: bool = true : set = set_active
 @export var disable_on_exit: bool = true
 
+
 func _ready() -> void:
 	await get_tree().process_frame
 	for child in get_children():

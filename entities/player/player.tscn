@@ -645,7 +645,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("state_manager", "item_manager") groups=["player"]]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 65
 script = ExtResource("1_dek4s")
 state_manager = NodePath("StateManager")

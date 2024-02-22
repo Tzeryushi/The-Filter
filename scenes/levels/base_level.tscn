@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=116 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -293,6 +293,9 @@ size = Vector3(3.1748, 6.63275, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_occmk"]
 size = Vector3(4.20532, 6.63275, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hudt3"]
+size = Vector3(0.569457, 5.10788, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nkyxo"]
 size = Vector3(4.62817, 4.53757, 1)
@@ -983,15 +986,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
+[node name="Monster_Run" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4551, 0, -19.0248)
+is_active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.05356, 1.81793)
+shape = SubResource("BoxShape3D_hudt3")
+
 [node name="Office1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 5.73722, -18.5494)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -10.6907, 1.76841, 4.28186)
 shape = SubResource("BoxShape3D_nkyxo")
 
 [node name="Office2" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 5.73722, -18.5494)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -15.3189, 1.76841, 4.28186)
@@ -1039,6 +1050,7 @@ omni_range = 0.755
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 2.35, -14.5)
 dialogue = ExtResource("58_m14y2")
 dialogue_dict = {
+"monster_spawned": false,
 "spoke_before": false
 }
 
@@ -1080,6 +1092,7 @@ autoplay = true
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors6" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor5" method="_on_env_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors7" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker/SpotLight3D" method="_on_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors8" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker" method="_on_speaker_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run" to="." method="_on_monster_run_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/EntranceSpeaker" to="." method="_on_speaker_dialogue_started"]

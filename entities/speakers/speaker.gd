@@ -38,4 +38,5 @@ func _on_speaker_player_entered(_player):
 
 
 func _on_spawn_finished():
+	dialogue_dict["monster_spawned"] = true
 	start_dialogue()

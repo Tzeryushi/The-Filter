@@ -10,7 +10,7 @@
 		]
 	},
 	{
-		"commands_raw": "$if spoke_before {\n-> rundown\n}\n$else {\n-> intro\n}",
+		"commands_raw": "$if spoke_before {\n-> rundown\n}\n$else if {\n->ohno\n}\n$else {\n-> intro\n}",
 		"gnode_name": "start",
 		"id": 1,
 		"name": "start",
@@ -87,6 +87,16 @@
 		"position": [
 			1300,
 			700
+		]
+	},
+	{
+		"commands_raw": "That doesn't look good.\n---\nYou'd better run.",
+		"gnode_name": "ohno",
+		"id": 9,
+		"name": "ohno",
+		"position": [
+			640,
+			420
 		]
 	}
 ]
