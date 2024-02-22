@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	animation_tree.set("parameters/movement/blend_position", blend_dist)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !nav_agent.is_navigation_finished():
 		var current_location = global_transform.origin
 		var next_location = nav_agent.get_next_path_position()

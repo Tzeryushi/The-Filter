@@ -7,17 +7,31 @@ func _ready():
 	if is_open:
 		open_door()
 
+
 func open_door():
 	is_open = true
 	animation_player.play("door_open")
+
 
 func close_door():
 	is_open = false
 	animation_player.play("door_close")
 
-func _on_small_button_pressed():
-	if !is_open:
-		open_door()
-	else:
-		close_door()
 
+func toggle_door() -> void:
+	if is_open:
+		close_door()
+	else:
+		open_door()
+
+
+func _on_small_button_pressed():
+	toggle_door()
+
+
+func _on_big_button_pressed():
+	toggle_door()
+
+
+func _on_door_open_volume_player_entered(_player):
+	toggle_door()

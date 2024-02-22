@@ -25,7 +25,7 @@ size = Vector3(0.97998, 0.253662, 0.872192)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kt4pa"]
 size = Vector3(0.911255, 0.865601, 0.41687)
 
-[node name="SubmissionComputer" type="Node3D" node_paths=PackedStringArray("content_viewport", "submit_screen", "approve_screen", "deny_screen", "results_screen", "results_text")]
+[node name="SubmissionComputer" type="Node3D" node_paths=PackedStringArray("content_viewport", "submit_screen", "approve_screen", "deny_screen", "results_screen", "send_in_screen", "results_text")]
 script = ExtResource("1_sk8v8")
 content_viewport = NodePath("SubViewport")
 screen_material = ExtResource("3_tlson")
@@ -35,6 +35,7 @@ submit_screen = NodePath("SubViewport/Control/Submit")
 approve_screen = NodePath("SubViewport/Control/Approved")
 deny_screen = NodePath("SubViewport/Control/Denied")
 results_screen = NodePath("SubViewport/Control/Results")
+send_in_screen = NodePath("SubViewport/Control/SendIn")
 results_text = NodePath("SubViewport/Control/Results/VBoxContainer/ResultText")
 
 [node name="computer_model_final" parent="." instance=ExtResource("2_8nyrn")]
@@ -46,6 +47,12 @@ material_override = SubResource("ShaderMaterial_twoup")
 material_override = ExtResource("3_tlson")
 
 [node name="Node3D" type="Node3D" parent="computer_model_final"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="computer_model_final"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496614, 0.409383)
+light_color = Color(0.909804, 1, 0.933333, 1)
+spot_range = 0.606752
+spot_angle = 52.3249
 
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(378, 240)
@@ -95,6 +102,39 @@ theme_override_fonts/normal_font = ExtResource("4_nytod")
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
 text = "[center]Waiting..."
+fit_content = true
+
+[node name="SendIn" type="ColorRect" parent="SubViewport/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = -42.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.117647, 0.192157, 0.117647, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/SendIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/SendIn/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
+theme_override_fonts/normal_font = ExtResource("4_nytod")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Send In
+Client"
 fit_content = true
 
 [node name="Submit" type="ColorRect" parent="SubViewport/Control"]
@@ -173,7 +213,7 @@ offset_right = -42.0
 offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.117647, 0.192157, 0.117647, 1)
+color = Color(0.188235, 0.117647, 0.117647, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Denied"]
 layout_mode = 1
@@ -220,7 +260,7 @@ theme_override_constants/separation = -2
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[center]RESULTS"
 fit_content = true
@@ -231,7 +271,11 @@ theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "Test stuff"
+text = "Total complications: 4
+Diagnosis accuracy: 25%
+Threat: Pulsejockey
+Threat Identified: No
+Pay docked: 34 crebbits"
 fit_content = true
 
 [node name="InteractionVolume" parent="." instance=ExtResource("5_aypmh")]

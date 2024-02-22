@@ -1,35 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyi0nj2mpgv7w"]
+[gd_scene load_steps=7 format=3 uid="uid://cuwyb6p3kstve"]
 
 [ext_resource type="Script" path="res://assets/interactables/doors/blast_door.gd" id="1_ry3cl"]
 [ext_resource type="PackedScene" uid="uid://cqhi7qlm6dhr1" path="res://resources/blend_files/misc/blast_door/blast_door.blend" id="2_8s54a"]
-
-[sub_resource type="Animation" id="Animation_oufvp"]
-resource_name = "door_open"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("blast_door/Door:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.153893, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("blast_door/DoorWindow:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.153893, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_3lwvh"]
 length = 0.001
@@ -86,6 +58,34 @@ tracks/1/keys = {
 "values": [Vector3(0, 2, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_oufvp"]
+resource_name = "door_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blast_door/Door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.153893, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("blast_door/DoorWindow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.153893, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_01tjb"]
 _data = {
 "RESET": SubResource("Animation_3lwvh"),
@@ -93,9 +93,8 @@ _data = {
 "door_open": SubResource("Animation_oufvp")
 }
 
-[node name="BlastDoor" type="Node3D" node_paths=PackedStringArray("animation_player")]
+[node name="BlastDoor" type="Node3D"]
 script = ExtResource("1_ry3cl")
-animation_player = NodePath("AnimationPlayer")
 
 [node name="blast_door" parent="." instance=ExtResource("2_8s54a")]
 
