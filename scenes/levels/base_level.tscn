@@ -370,7 +370,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3912, 0, -13.7282)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.28626)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -866,45 +866,47 @@ is_enabled = true
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -51, 0, -16.8)
 rotation_amount = 1.57041
 
-[node name="BlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("36_a2rpg")]
+[node name="RoomBlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("36_a2rpg")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7786, 0.000330031, -18.4807)
 
-[node name="Doors" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems"]
+[node name="BlastDoors" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems"]
+unique_name_in_owner = true
 transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, -61.4668, 0.93233, -12.8081)
 script = ExtResource("50_tcnqy")
 
-[node name="BlastDoor2" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
+[node name="BlastDoor2" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -40.8858, -0.93233, -8.23595)
 
-[node name="BlastDoor3" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
+[node name="BlastDoor3" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -35.5039, -0.93233, -6.35831)
 
-[node name="BlastDoor4" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
+[node name="BlastDoor4" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -32.3881, -0.93233, -5.27126)
 
-[node name="BlastDoor5" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
+[node name="BlastDoor5" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(-0.944187, 0, 0.32941, 0, 1, 0, -0.32941, 0, -0.944187, -25.1178, -0.93233, -2.7348)
 
-[node name="BlastDoor6" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors" instance=ExtResource("36_a2rpg")]
+[node name="BlastDoor6" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors" instance=ExtResource("36_a2rpg")]
 transform = Transform3D(0.32941, 0, 0.944187, 0, 1, 0, -0.944187, 0, 0.32941, -24.1199, -0.93233, -0.586155)
 
-[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/blast_door/Frame" index="0"]
+[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/blast_door/Frame" index="0"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/blast_door/Door" index="0"]
+[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/blast_door/Door" index="0"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/blast_door/DoorWindow" index="0"]
+[node name="StaticBody3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/blast_door/DoorWindow" index="0"]
 collision_layer = 64
 collision_mask = 0
 
-[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6"]
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6"]
 collision_layer = 0
 collision_mask = 128
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339705, 0, 0)
 shape = SubResource("BoxShape3D_vrc5i")
 
@@ -923,7 +925,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -18.5)
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, 3, 1.5, -18.5)
 
 [node name="EventAreas" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.1829, 0)
 
 [node name="DoorOpenVolume" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -14.1662)
@@ -994,18 +995,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4089, 0, -18.5494)
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
-[node name="LightsAndDoors9" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+[node name="DefaultVolume" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/DefaultVolume"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
-[node name="Monster_Run" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
+[node name="EscapeAreas" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas"]
+unique_name_in_owner = true
+
+[node name="EscapeDoors1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.6873, 0, -18.5494)
+is_active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors1"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0.750134, 2.816, 0)
+shape = SubResource("BoxShape3D_occmk")
+
+[node name="EscapeDoors2" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas" instance=ExtResource("40_8t1b3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.4089, 0, -16.0494)
+is_active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors2"]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
+shape = SubResource("BoxShape3D_occmk")
+
+[node name="Monster_Run" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas" instance=ExtResource("40_8t1b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.4551, 0, -19.0248)
 is_active = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/Monster_Run"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.05356, 1.81793)
 shape = SubResource("BoxShape3D_hudt3")
 
@@ -1194,22 +1214,26 @@ script = ExtResource("55_2axin")
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
 [connection signal="next_client_sent" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="." method="_on_submission_computer_next_client_sent"]
-[connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor" method="_on_small_button_pressed"]
-[connection signal="body_entered" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6" method="_on_area_body_entered"]
-[connection signal="body_exited" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6" method="_on_area_3d_body_exited"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/RoomBlastDoor" method="_on_small_button_pressed"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6" method="_on_area_body_entered"]
+[connection signal="body_exited" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6" method="_on_area_3d_body_exited"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="." method="_on_big_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_big_button_pressed"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_door_open_volume_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/SpeakerVol1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/EntranceSpeaker" method="_on_speaker_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/FlashlightSpeaker" method="_on_speaker_player_entered"]
-[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors3" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor2" method="_on_env_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors3" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor2" method="_on_env_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors3" to="SubViewportContainer/SubViewport/GameSpace/Speakers/KeepGoingSpeaker" method="_on_speaker_player_entered"]
-[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors4" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor3" method="_on_env_player_entered"]
-[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors5" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor4" method="_on_env_player_entered"]
-[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors6" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor5" method="_on_env_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors4" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor3" method="_on_env_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors5" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor4" method="_on_env_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors6" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor5" method="_on_env_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors7" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker/SpotLight3D" method="_on_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors8" to="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker" method="_on_speaker_player_entered"]
-[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run" to="." method="_on_monster_run_player_entered"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors1" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor4" method="_on_event_entered_close"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors1" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor5" method="_on_event_entered_close"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors2" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor2" method="_on_event_entered_close"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/EscapeDoors2" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor3" method="_on_event_entered_close"]
+[connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/EscapeAreas/Monster_Run" to="." method="_on_monster_run_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2" to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_speaker_player_entered"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/EntranceSpeaker" to="." method="_on_speaker_dialogue_started"]
@@ -1225,5 +1249,5 @@ script = ExtResource("55_2axin")
 [editable path="SubViewportContainer/SubViewport/GameSpace/DecorativeItems/switchboard"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/DecorativeItems/lamp 2 copy"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/DecorativeItems/table and desk"]
-[editable path="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6"]
-[editable path="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor6/blast_door"]
+[editable path="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6"]
+[editable path="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoors/BlastDoor6/blast_door"]

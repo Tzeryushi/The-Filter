@@ -80,7 +80,7 @@ func make_sound(sound_type: DetectableSound.SoundType = DetectableSound.SoundTyp
 
 func make_aura() -> void:
 	var colorer = Color.from_hsv(randf_range(0, 1.0), 1, 1)
-	print(colorer)
+	#print(colorer)
 	%Aura.light_color = colorer
 	%Aura.show()
 

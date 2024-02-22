@@ -55,3 +55,7 @@ func _on_area_body_entered(_body):
 
 func _on_area_3d_body_exited(_body):
 	close_door()
+
+
+func _on_event_entered_close(player):
+	close_door()

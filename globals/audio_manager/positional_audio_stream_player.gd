@@ -9,9 +9,10 @@ var followed_node: Node3D = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta) -> void:
-	if followed_node:
+	if is_instance_valid(followed_node):
 		global_position = followed_node.global_position
-	pass
+	#else:
+		#finished_with_reference.emit(self)
 
 
 ## Set node for positional audio player to follow

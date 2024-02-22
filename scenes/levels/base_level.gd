@@ -48,13 +48,16 @@ func spawn_monster() -> void:
 	
 	# turn out lights
 	$SubViewportContainer/SubViewport/GameSpace/Lights/IntLights.hide()
-	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor.close_door()
+	%RoomBlastDoor.close_door()
+	for child in %BlastDoors.get_children():
+		child.open_door()
 	$"SubViewportContainer/SubViewport/GameSpace/DecorativeItems/lamp 2 copy/bulb".hide()
 	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SirenLight.set_siren_light_enabled(true)
 	
 	await get_tree().create_timer(1.0).timeout
 	monster_spawn_finished.emit()
-	$SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run.is_active = true
+	for child in %EscapeAreas.get_children():
+		child.is_active = true
 	
 
 #func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
@@ -78,15 +81,19 @@ func _on_submission_computer_next_client_sent():
 		client_manager.client_load(clients.pop_front())
 		await client_manager.client_terminated
 		return
+	elif monster:
+		return
 	spawn_monster()
 
 
 func _on_monster_run_player_entered(player):
 	monster_tracking = true
-	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors/BlastDoor.open_door()
+	%RoomBlastDoor.open_door()
 	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton.set_button_active(true)
-	await get_tree().create_timer(2.0).timeout
-	$SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/Doors.close_all_doors()
+	for child in %EscapeAreas.get_children():
+		if child is EventVolume:
+			child.set_active(true)
+	#await get_tree().create_timer(2.0).timeout
 
 
 func _on_big_button_pressed():
