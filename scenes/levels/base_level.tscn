@@ -1,13 +1,16 @@
-[gd_scene load_steps=79 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=83 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
+[ext_resource type="Resource" uid="uid://50acp3wdyosa" path="res://entities/clients/day_1_clients/craig_crangle.tres" id="2_5rkl5"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
+[ext_resource type="Resource" uid="uid://ckfc55a85jqt8" path="res://entities/clients/day_1_clients/adam_shoeshucker.tres" id="2_qqidh"]
 [ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_x1o6f"]
 [ext_resource type="PackedScene" uid="uid://bb3wq6ipabifs" path="res://assets/interactables/mechanics/dialogue_starter/dialogue_interactable.tscn" id="3_843mn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="Material" uid="uid://ea7bul4exiwr" path="res://resources/textures/Floor_1/Floor_1.tres" id="5_53hf7"]
 [ext_resource type="Material" uid="uid://dy1kdh5n6w2a8" path="res://resources/textures/Wall_15/Wall_15.tres" id="5_jofqq"]
+[ext_resource type="Resource" uid="uid://bsqmqvmh453db" path="res://entities/clients/day_1_clients/tony_martini.tres" id="5_mkf7u"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
 [ext_resource type="PackedScene" uid="uid://dqmtorsa3xem8" path="res://assets/sound_spawner/sound_spawner.tscn" id="6_7vlet"]
@@ -53,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://dcim3wd52pe6y" path="res://resources/blend_files/tech/switchboard/switchboard.blend" id="49_fkukd"]
 [ext_resource type="PackedScene" uid="uid://dcx2b5ggetjda" path="res://resources/blend_files/furniture/chair/chair.blend" id="50_b5xfm"]
 [ext_resource type="PackedScene" uid="uid://dkvg7le03ax1r" path="res://resources/blend_files/lighting/lamp 2/lamp 2 copy.blend" id="51_jbtwt"]
+[ext_resource type="Script" path="res://scenes/levels/AudioStreamPlayer.gd" id="55_2axin"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -177,7 +181,7 @@ client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientMana
 dialogue = NodePath("GUI/Dialogue")
 player = NodePath("SubViewportContainer/SubViewport/GameSpace/Player")
 nav_region = NodePath("SubViewportContainer/SubViewport/GameSpace/NavRegion")
-clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_x1o6f")])
+clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_5rkl5"), ExtResource("2_qqidh"), ExtResource("5_mkf7u")])
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_l2ckg")
@@ -587,7 +591,7 @@ transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, 
 stream = SubResource("AudioStreamRandomizer_r2dww")
 volume_db = -20.0
 autoplay = true
-bus = &"Music"
+script = ExtResource("55_2axin")
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_launched"]
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_launched"]
@@ -599,6 +603,7 @@ bus = &"Music"
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/DialogueInteractable" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_dialogue_interactable_dialogue_started"]
 [connection signal="decision_made" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_submission_computer_decision_made"]
 [connection signal="form_submitted" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="SubViewportContainer/SubViewport/GameSpace/ClientManager" method="_on_form_submitted"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]

@@ -22,8 +22,8 @@ func update_radio():
 				AudioManager.set_attenuation_filter_ratio(
 				AudioManager.play_sound_at_location(
 				radio_song, global_position, AudioManager.Channel.Music, 7),
-				.1),
-				1)
+				.8),
+				.5)
 			radio_stream_player = instance_from_id(stream_player_id)
 		else:
 			radio_stream_player.stream = radio_song

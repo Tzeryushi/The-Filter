@@ -12,7 +12,7 @@ client_job = "Unlocker"
 travel_reason = "Vacationing to Old Miami to see the Great Seawall"
 personality_type = 0
 threat_type = 0
-has_ending_dialogue = true
+has_ending_dialogue = false
 dialogue = ExtResource("1_2s8a0")
 dialogue_state = {
 "answered_age": false,
