@@ -64,4 +64,4 @@ func set_is_targeting(value: bool) -> void:
 
 func _on_killbox_body_entered(body):
 	touched_player.emit()
-	SceneManager.quit_game()
+	SceneManager.switch_scene("end_scene")

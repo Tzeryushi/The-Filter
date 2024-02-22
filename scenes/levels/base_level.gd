@@ -55,6 +55,7 @@ func spawn_monster() -> void:
 	await get_tree().create_timer(1.0).timeout
 	monster_spawn_finished.emit()
 	$SubViewportContainer/SubViewport/GameSpace/EventAreas/Monster_Run.is_active = true
+	
 
 #func _on_speaker_dialogue_started(inc_dialogue:JSON, dialogue_dict: Dictionary, speaker: Speaker) ->  void:
 	#player.point_to(speaker.global_position)
@@ -89,7 +90,7 @@ func _on_monster_run_player_entered(player):
 func _on_big_button_pressed():
 	if !monster:
 		return
-	if (monster.global_position - player.global_position).length() <= 3:
+	if (monster.global_position - player.global_position).length() >= 3:
 		await get_tree().process_frame
 		monster.queue_free()
 		await get_tree().create_timer(4.0).timeout
