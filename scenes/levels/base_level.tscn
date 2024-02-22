@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=121 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -70,6 +70,7 @@
 [ext_resource type="Script" path="res://entities/entity_components/trigger_hide.gd" id="56_4a3et"]
 [ext_resource type="JSON" path="res://entities/speakers/terro_hall_speaker.json" id="56_mfcus"]
 [ext_resource type="JSON" path="res://entities/speakers/room_speaker.json" id="58_m14y2"]
+[ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="62_2010d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -358,7 +359,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6476, 0, -13.6856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5524, 0, 2.1644)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -908,7 +909,6 @@ material = ExtResource("5_jofqq")
 
 [node name="BigBlastDoor" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("37_m8hx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65, 0, -18.5)
-is_open = true
 
 [node name="BigButton" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems" instance=ExtResource("38_o48uk")]
 transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 0, 3, 1.5, -18.5)
@@ -916,77 +916,76 @@ transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 
 [node name="EventAreas" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="DoorOpenVolume" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 9.82489, -14.1662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -14.1662)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.81638, 0)
 shape = SubResource("BoxShape3D_d6m0i")
 
 [node name="SpeakerVol1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.82489, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/SpeakerVol1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.81638, -0.442606)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.46119, 9.82489, -16.5494)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.46119, 0, -16.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors1"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors2" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03881, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03881, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors2"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors3" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5388, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5388, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors3"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors4" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0388, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0388, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors4"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors5" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5388, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5388, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors5"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors6" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5388, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.5388, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors6"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors7" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5388, 9.82489, -18.4994)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.5388, 0, -18.4994)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors7"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors8" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4089, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.4089, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors8"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
 shape = SubResource("BoxShape3D_occmk")
 
 [node name="LightsAndDoors9" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors9"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.816, 0)
@@ -1001,14 +1000,14 @@ transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 0, 2.0
 shape = SubResource("BoxShape3D_hudt3")
 
 [node name="Office1" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office1"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -10.6907, 1.76841, 4.28186)
 shape = SubResource("BoxShape3D_nkyxo")
 
 [node name="Office2" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 9.82489, -18.5494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.9089, 0, -18.5494)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas/Office2"]
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -15.3189, 1.76841, 4.28186)
@@ -1063,6 +1062,68 @@ dialogue_dict = {
 [node name="GUI" type="CanvasLayer" parent="."]
 
 [node name="Dialogue" parent="GUI" instance=ExtResource("29_yse7u")]
+
+[node name="EndGood" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/EndGood"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -665.0
+offset_top = -20.0
+offset_right = 665.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("62_2010d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]You probably escaped!
+Thanks for playing!"
+fit_content = true
+
+[node name="EndBad" type="ColorRect" parent="GUI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/EndBad"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -665.0
+offset_top = -20.0
+offset_right = 665.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("62_2010d")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]You got got.
+Thanks for playing!"
+fit_content = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 

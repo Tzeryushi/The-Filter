@@ -92,3 +92,13 @@ func _on_big_button_pressed():
 	if (monster.global_position - player.global_position).length() <= 3:
 		await get_tree().process_frame
 		monster.queue_free()
+		await get_tree().create_timer(4.0).timeout
+		var tween : Tween = create_tween()
+		$GUI/EndGood.show()
+		$GUI/EndGood.modulate.a = 0.0
+		$GUI/EndGood/RichTextLabel.show()
+		$GUI/EndGood/RichTextLabel.modulate.a = 0.0
+		tween.tween_property($GUI/EndGood, "modulate:a", 1.0, 4.0)
+		tween.tween_property($GUI/EndGood/RichTextLabel, "modulate:a", 1.0, 2.0)
+		
+		
