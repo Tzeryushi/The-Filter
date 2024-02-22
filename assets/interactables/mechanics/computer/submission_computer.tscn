@@ -31,12 +31,12 @@ content_viewport = NodePath("SubViewport")
 screen_material = ExtResource("3_tlson")
 approved_sound = ExtResource("3_xljj4")
 denied_sound = ExtResource("4_cdlis")
-submit_screen = NodePath("Control/Submit")
-approve_screen = NodePath("Control/Approved")
-deny_screen = NodePath("Control/Denied")
-results_screen = NodePath("Control/Results")
-send_in_screen = NodePath("Control/SendIn")
-results_text = NodePath("Control/Results/VBoxContainer/ResultText")
+submit_screen = NodePath("SubViewport/Control/Submit")
+approve_screen = NodePath("SubViewport/Control/Approved")
+deny_screen = NodePath("SubViewport/Control/Denied")
+results_screen = NodePath("SubViewport/Control/Results")
+send_in_screen = NodePath("SubViewport/Control/SendIn")
+results_text = NodePath("SubViewport/Control/Results/VBoxContainer/ResultText")
 
 [node name="computer_model_final" parent="." instance=ExtResource("2_8nyrn")]
 
@@ -54,14 +54,17 @@ light_color = Color(0.909804, 1, 0.933333, 1)
 spot_range = 0.606752
 spot_angle = 52.3249
 
-[node name="Control" type="Control" parent="."]
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(378, 240)
+
+[node name="Control" type="Control" parent="SubViewport"]
 custom_minimum_size = Vector2(378, 240)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 378.0
 offset_bottom = 240.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,7 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.870588, 0.572549, 1)
 
-[node name="Waiting" type="ColorRect" parent="Control"]
+[node name="Waiting" type="ColorRect" parent="SubViewport/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Waiting"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Waiting"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Waiting/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Waiting/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -101,7 +104,7 @@ bbcode_enabled = true
 text = "[center]Waiting..."
 fit_content = true
 
-[node name="SendIn" type="ColorRect" parent="Control"]
+[node name="SendIn" type="ColorRect" parent="SubViewport/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -115,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/SendIn"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/SendIn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +127,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/SendIn/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/SendIn/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -134,7 +137,7 @@ text = "[center]Send In
 Client"
 fit_content = true
 
-[node name="Submit" type="ColorRect" parent="Control"]
+[node name="Submit" type="ColorRect" parent="SubViewport/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -148,7 +151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Submit"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Submit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,7 +160,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Submit/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Submit/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -166,7 +169,7 @@ bbcode_enabled = true
 text = "[center]SUBMIT FORM"
 fit_content = true
 
-[node name="Approved" type="ColorRect" parent="Control"]
+[node name="Approved" type="ColorRect" parent="SubViewport/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -180,7 +183,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Approved"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Approved"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,7 +192,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Approved/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Approved/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -198,7 +201,7 @@ bbcode_enabled = true
 text = "[center]APPROVED!"
 fit_content = true
 
-[node name="Denied" type="ColorRect" parent="Control"]
+[node name="Denied" type="ColorRect" parent="SubViewport/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -212,7 +215,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.188235, 0.117647, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Denied"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Denied"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,7 +224,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Denied/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Denied/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 0.396078, 0.32549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -230,7 +233,7 @@ bbcode_enabled = true
 text = "[center]DENIED"
 fit_content = true
 
-[node name="Results" type="ColorRect" parent="Control"]
+[node name="Results" type="ColorRect" parent="SubViewport/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -244,7 +247,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.117647, 0.192157, 0.117647, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Results"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control/Results"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -253,7 +256,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/Results/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -262,7 +265,7 @@ bbcode_enabled = true
 text = "[center]RESULTS"
 fit_content = true
 
-[node name="ResultText" type="RichTextLabel" parent="Control/Results/VBoxContainer"]
+[node name="ResultText" type="RichTextLabel" parent="SubViewport/Control/Results/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0, 0.870588, 0.572549, 1)
 theme_override_fonts/normal_font = ExtResource("4_nytod")
@@ -274,9 +277,6 @@ Threat: Pulsejockey
 Threat Identified: No
 Pay docked: 34 crebbits"
 fit_content = true
-
-[node name="SubViewport" type="SubViewport" parent="."]
-size = Vector2i(378, 240)
 
 [node name="InteractionVolume" parent="." instance=ExtResource("5_aypmh")]
 interaction_text = "Submit form"

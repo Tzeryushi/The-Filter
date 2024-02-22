@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=113 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -283,6 +283,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2gm2b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrc5i"]
+size = Vector3(0.979492, 1, 1.72485)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6m0i"]
 size = Vector3(3.1748, 6.63275, 1)
@@ -609,7 +612,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3.6837
 transform = Transform3D(-0.949085, 0, -0.315019, 0, 1, 0, 0.315019, 0, -0.949085, 2.1789, 0, -1.79865)
 
 [node name="ApprovedPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6925, 1.00058, 0.345911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6925, 0.30058, -1.15409)
 
 [node name="DeniedPoint" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace/ClientPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0102425, 0, 0)
@@ -865,6 +868,14 @@ collision_mask = 0
 collision_layer = 64
 collision_mask = 0
 
+[node name="Area3D" type="Area3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6"]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.339705, 0, 0)
+shape = SubResource("BoxShape3D_vrc5i")
+
 [node name="EventAreas" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
 
 [node name="DoorOpenVolume" parent="SubViewportContainer/SubViewport/GameSpace/EventAreas" instance=ExtResource("40_8t1b3")]
@@ -991,6 +1002,8 @@ autoplay = true
 [connection signal="next_client_sent" from="SubViewportContainer/SubViewport/GameSpace/SubmissionComputer" to="." method="_on_submission_computer_next_client_sent"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/SmallButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor" method="_on_small_button_pressed"]
 [connection signal="pressed" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigButton" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_big_button_pressed"]
+[connection signal="body_entered" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6" method="_on_area_body_entered"]
+[connection signal="body_exited" from="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6/Area3D" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BlastDoor6" method="_on_area_3d_body_exited"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/DoorOpenVolume" to="SubViewportContainer/SubViewport/GameSpace/EnvironmentItems/BigBlastDoor" method="_on_door_open_volume_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/SpeakerVol1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/EntranceSpeaker" method="_on_speaker_player_entered"]
 [connection signal="player_entered" from="SubViewportContainer/SubViewport/GameSpace/EventAreas/LightsAndDoors1" to="SubViewportContainer/SubViewport/GameSpace/Speakers/FlashlightSpeaker" method="_on_speaker_player_entered"]

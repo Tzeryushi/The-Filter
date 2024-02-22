@@ -123,6 +123,7 @@ clipboard={
 3d_physics/layer_5="SoundSensor"
 3d_physics/layer_6="PhenomenaDetector"
 3d_physics/layer_7="PlayerBlock"
+3d_physics/layer_8="Clients"
 
 [navigation]
 
