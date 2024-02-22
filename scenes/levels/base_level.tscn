@@ -587,6 +587,7 @@ transform = Transform3D(-0.944187, 0, -0.32941, 0, 1, 0, 0.32941, 0, -0.944187, 
 stream = SubResource("AudioStreamRandomizer_r2dww")
 volume_db = -20.0
 autoplay = true
+bus = &"Music"
 
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_launched"]
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/ShadowSpawner" method="_on_client_manager_client_launched"]
