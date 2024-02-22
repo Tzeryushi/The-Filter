@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=128 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -70,7 +70,14 @@
 [ext_resource type="Script" path="res://entities/entity_components/trigger_hide.gd" id="56_4a3et"]
 [ext_resource type="JSON" path="res://entities/speakers/terro_hall_speaker.json" id="56_mfcus"]
 [ext_resource type="JSON" path="res://entities/speakers/room_speaker.json" id="58_m14y2"]
+[ext_resource type="Texture2D" uid="uid://0ikhj6hfqan8" path="res://resources/posters/poster_4.png" id="61_cswtv"]
 [ext_resource type="FontFile" uid="uid://cj5oyddbvpqpw" path="res://resources/fonts/Avenixel-Regular.ttf" id="62_2010d"]
+[ext_resource type="Texture2D" uid="uid://3qf6bog2k0xk" path="res://resources/posters/poster_1.png" id="62_w0kiw"]
+[ext_resource type="Texture2D" uid="uid://e7iaw3pe5c0n" path="res://resources/posters/poster_3.png" id="63_x6rpk"]
+[ext_resource type="Texture2D" uid="uid://ky275cs0eb7f" path="res://resources/posters/poster_6.png" id="64_1ndq3"]
+[ext_resource type="Texture2D" uid="uid://b6sjpmhnbv7rg" path="res://resources/posters/poster_7.png" id="65_tsvoi"]
+[ext_resource type="Texture2D" uid="uid://dnp7grbe7ywly" path="res://resources/posters/poster_8.png" id="66_pegj0"]
+[ext_resource type="Texture2D" uid="uid://g6miqo077n5l" path="res://resources/posters/poster_2.png" id="67_lwpu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -1055,6 +1062,44 @@ dialogue_dict = {
 "monster_spawned": false,
 "spoke_before": false
 }
+
+[node name="Posters" type="Node3D" parent="SubViewportContainer/SubViewport/GameSpace"]
+
+[node name="Decal" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 0, -0.0871558, -0.996195, -8.74228e-08, -0.996195, 0.0871558, -57.2677, 1.94588, -11.963)
+size = Vector3(1.17871, 2, 1.52448)
+texture_albedo = ExtResource("61_cswtv")
+
+[node name="Decal6" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-1.49012e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -1.49012e-07, 1.52388e-08, -50.5319, 1.45655, -15.882)
+size = Vector3(0.779785, 0.608551, 1.18655)
+texture_albedo = ExtResource("62_w0kiw")
+
+[node name="Decal7" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-2.17892e-07, -1, 2.98023e-08, 1.52388e-08, -2.98023e-08, -1, 1, -2.17892e-07, 1.52388e-08, -52.0697, 1.60751, -13.7949)
+size = Vector3(1.17871, 0.608551, 1.52448)
+texture_albedo = ExtResource("63_x6rpk")
+emission_energy = 8.76
+
+[node name="Decal2" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -58.5456, 1.21286, -11.963)
+size = Vector3(1.17871, 2, 1.52448)
+texture_albedo = ExtResource("64_1ndq3")
+
+[node name="Decal4" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -60.0609, 1.75722, -11.9746)
+size = Vector3(1.17871, 2, 1.52448)
+texture_albedo = ExtResource("65_tsvoi")
+
+[node name="Decal3" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(-1, 8.70901e-08, -7.6194e-09, 9.47649e-09, 0.0213437, -0.999772, -8.69076e-08, -0.999772, -0.0213437, -61.4242, 2.1231, -11.9596)
+size = Vector3(0.9375, 2, 1.2)
+texture_albedo = ExtResource("66_pegj0")
+
+[node name="Decal5" type="Decal" parent="SubViewportContainer/SubViewport/GameSpace/Posters"]
+transform = Transform3D(1.30619e-07, 0.999772, 0.0213437, 9.47649e-09, 0.0213437, -0.999772, -1, 1.30792e-07, -6.68644e-09, -62.0382, 1.95725, -12.778)
+size = Vector3(1.12061, 0.812988, 1.4335)
+texture_albedo = ExtResource("67_lwpu2")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
