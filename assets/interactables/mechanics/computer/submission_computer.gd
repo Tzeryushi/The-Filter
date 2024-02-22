@@ -11,6 +11,7 @@ signal decision_made(results: Dictionary)
 
 @export var approved_sound: AudioStream
 @export var denied_sound: AudioStream
+@export var type_sounds: AudioStream
 
 @export var submit_screen: Control
 @export var approve_screen: Control
@@ -82,6 +83,7 @@ func show_results(result_dict: Dictionary) -> void:
 	results_tween.tween_property(results_text, "text", new_text, 3.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_interaction_volume_interacted(_interacting_node: Node):
+	AudioManager.play_sound_at_location(type_sounds, global_position)
 	if can_submit and !is_submitting:
 		form_submitted.emit()
 	elif can_send_in:

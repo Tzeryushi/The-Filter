@@ -7,6 +7,8 @@ signal touched_player
 @export var animation_tree: AnimationTree
 @export var nav_agent: NavigationAgent3D
 
+@export var monster_sound: AudioStream
+
 const TOP_SPEED: float = 3.0
 const MIN_SPEED: float = 1.0
 
@@ -41,6 +43,9 @@ func _physics_process(_delta: float) -> void:
 
 
 func spawn() -> void:
+	var id = AudioManager.play_sound_at_node(monster_sound, self)
+	var audio_player = instance_from_id(id)
+	audio_player.finished.connect(func(): audio_player.play())
 	position.y = position.y - 3.0
 	var tween : Tween = create_tween()
 	tween.tween_property(self, "position:y", position.y+3.0, 8.0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
