@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="ClientResource" load_steps=4 format=3 uid="uid://ckfc55a85jqt8"]
+
+[ext_resource type="JSON" path="res://entities/clients/day_1_clients/adam_shoeshucker.json" id="1_1qe6u"]
+[ext_resource type="Script" path="res://entities/clients/client_resource.gd" id="1_gxhmt"]
+[ext_resource type="Texture2D" uid="uid://bpynkfhac1wfb" path="res://resources/blend_files/skins/skin 6.png" id="3_tsckx"]
+
+[resource]
+script = ExtResource("1_gxhmt")
+client_name = "Adam Shoeshucker"
+client_age = 44
+client_job = "Toe Clam Harvester"
+travel_reason = "Harvesting toe clams"
+personality_type = 6
+threat_type = 0
+should_approve = true
+dialogue = ExtResource("1_1qe6u")
+dialogue_state = {
+"answered_age": false,
+"answered_job": false,
+"answered_name": false,
+"answered_phenom": false,
+"answered_reason": false,
+"intro_given": false
+}
+dialogue_symptoms = {
+"encountered_entity": false,
+"forgetful": false,
+"hallucinating": false,
+"headache": false,
+"irrational": false,
+"knows_too_much": false,
+"nauseated": false,
+"too_polite": false,
+"unresponsive": false
+}
+env_symptoms = {
+"averse_to_light": false,
+"crickets?": true,
+"increased_shadows": false,
+"inexplicable_phenomena": false,
+"manifesting_aura": false,
+"second_presence": true,
+"strange_growths": true,
+"strange_sounds": false,
+"time_dilation": false,
+"too_many_heartbeats": false
+}
+texture = ExtResource("3_tsckx")
+use_override = false
+size_scale = 0.8

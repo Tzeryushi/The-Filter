@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="ClientResource" load_steps=4 format=3 uid="uid://50acp3wdyosa"]
+
+[ext_resource type="Script" path="res://entities/clients/client_resource.gd" id="1_2a0jr"]
+[ext_resource type="JSON" path="res://entities/clients/day_1_clients/craig_crangle.json" id="1_k1ws0"]
+[ext_resource type="Texture2D" uid="uid://cq6wwsawrf38y" path="res://resources/blend_files/skins/skin 5.png" id="3_o1xdx"]
+
+[resource]
+script = ExtResource("1_2a0jr")
+client_name = "Craig Crangle"
+client_age = 22
+client_job = "Drifter"
+travel_reason = "Not specified"
+personality_type = 4
+threat_type = 2
+has_ending_dialogue = false
+dialogue = ExtResource("1_k1ws0")
+dialogue_state = {
+"answered_age": false,
+"answered_job": false,
+"answered_name": false,
+"answered_phenom": false,
+"answered_reason": false,
+"approved": false,
+"denied": false,
+"intro_given": false
+}
+dialogue_symptoms = {
+"encountered_entity": true,
+"forgetful": false,
+"hallucinating": false,
+"headache": true,
+"irrational": false,
+"knows_too_much": true,
+"nauseated": false,
+"too_polite": true,
+"unresponsive": false
+}
+env_symptoms = {
+"averse_to_light": true,
+"crickets?": false,
+"increased_shadows": true,
+"inexplicable_phenomena": false,
+"manifesting_aura": true,
+"second_presence": true,
+"strange_growths": false,
+"strange_sounds": true,
+"time_dilation": true,
+"too_many_heartbeats": false
+}
+texture = ExtResource("3_o1xdx")
+use_override = false
+size_scale = 0.8

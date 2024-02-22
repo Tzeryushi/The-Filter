@@ -1,13 +1,16 @@
-[gd_scene load_steps=116 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=120 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
+[ext_resource type="Resource" uid="uid://50acp3wdyosa" path="res://entities/clients/day_1_clients/craig_crangle.tres" id="2_5rkl5"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="2_g3vgq"]
+[ext_resource type="Resource" uid="uid://ckfc55a85jqt8" path="res://entities/clients/day_1_clients/adam_shoeshucker.tres" id="2_qqidh"]
 [ext_resource type="Resource" uid="uid://st7wrec2lcb7" path="res://entities/clients/day_1_clients/jimmy_keys.tres" id="2_x1o6f"]
 [ext_resource type="PackedScene" uid="uid://bb3wq6ipabifs" path="res://assets/interactables/mechanics/dialogue_starter/dialogue_interactable.tscn" id="3_843mn"]
 [ext_resource type="PackedScene" uid="uid://cijilfwjhqhjc" path="res://assets/environments/hallway.glb" id="4_jo4be"]
 [ext_resource type="Material" uid="uid://ea7bul4exiwr" path="res://resources/textures/Floor_1/Floor_1.tres" id="5_53hf7"]
 [ext_resource type="Material" uid="uid://dy1kdh5n6w2a8" path="res://resources/textures/Wall_15/Wall_15.tres" id="5_jofqq"]
+[ext_resource type="Resource" uid="uid://bsqmqvmh453db" path="res://entities/clients/day_1_clients/tony_martini.tres" id="5_mkf7u"]
 [ext_resource type="PackedScene" uid="uid://kk3y28vjjn1y" path="res://assets/environments/interrogation_rooms.glb" id="5_oxn2n"]
 [ext_resource type="PackedScene" uid="uid://b7mi3g2jb6rmx" path="res://assets/interactables/doors/normal_door.tscn" id="6_2g6o2"]
 [ext_resource type="PackedScene" uid="uid://dqmtorsa3xem8" path="res://assets/sound_spawner/sound_spawner.tscn" id="6_7vlet"]
@@ -62,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://djto845h120pv" path="res://resources/blend_files/furniture/desk and table/small desk.png" id="51_657jq"]
 [ext_resource type="PackedScene" uid="uid://dkvg7le03ax1r" path="res://resources/blend_files/lighting/lamp 2/lamp 2 copy.blend" id="51_jbtwt"]
 [ext_resource type="JSON" path="res://entities/speakers/flashlight_speaker.json" id="54_j4wy3"]
+[ext_resource type="Script" path="res://scenes/levels/AudioStreamPlayer.gd" id="55_2axin"]
 [ext_resource type="JSON" path="res://entities/speakers/hall_speaker.json" id="55_uwhbx"]
 [ext_resource type="Script" path="res://entities/entity_components/trigger_hide.gd" id="56_4a3et"]
 [ext_resource type="JSON" path="res://entities/speakers/terro_hall_speaker.json" id="56_mfcus"]
@@ -319,14 +323,13 @@ stream_6/weight = 1.0
 stream_7/stream = ExtResource("41_0hho6")
 stream_7/weight = 1.0
 
-[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue_manager", "player", "nav_region", "computer", "monster_spawn_point1", "game_space")]
+[node name="BaseLevel" type="Node" node_paths=PackedStringArray("client_manager", "dialogue_manager", "player", "nav_region", "monster_spawn_point1", "game_space")]
 script = ExtResource("1_x6wr7")
 client_manager = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientManager")
 dialogue_manager = NodePath("GUI/Dialogue")
 player = NodePath("SubViewportContainer/SubViewport/GameSpace/Player")
 nav_region = NodePath("SubViewportContainer/SubViewport/GameSpace/NavRegion")
-computer = NodePath("SubViewportContainer/SubViewport/GameSpace/SubmissionComputer")
-clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_x1o6f")])
+clients = Array[Resource("res://entities/clients/client_resource.gd")]([ExtResource("2_x1o6f"), ExtResource("2_5rkl5"), ExtResource("2_qqidh"), ExtResource("5_mkf7u")])
 monster_scene = ExtResource("12_plipu")
 monster_spawn_point1 = NodePath("SubViewportContainer/SubViewport/GameSpace/ClientPoints/MonsterSpawn1")
 game_space = NodePath("SubViewportContainer/SubViewport/GameSpace")
@@ -1064,6 +1067,7 @@ dialogue_dict = {
 stream = SubResource("AudioStreamRandomizer_r2dww")
 volume_db = -20.0
 autoplay = true
+script = ExtResource("55_2axin")
 
 [connection signal="monster_spawn_finished" from="." to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_spawn_finished"]
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_launched"]
@@ -1100,6 +1104,7 @@ autoplay = true
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/KeepGoingSpeaker" to="." method="_on_speaker_dialogue_started"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/TerroHallSpeaker" to="." method="_on_speaker_dialogue_started"]
 [connection signal="dialogue_started" from="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" to="." method="_on_speaker_dialogue_started"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/hallway"]
 [editable path="SubViewportContainer/SubViewport/GameSpace/NavRegion/interrogation_rooms"]
