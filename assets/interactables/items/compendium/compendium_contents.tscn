@@ -1,6 +1,100 @@
-[gd_scene load_steps=2 format=3 uid="uid://clt0ohybtnvw1"]
+[gd_scene load_steps=8 format=3 uid="uid://clt0ohybtnvw1"]
 
 [ext_resource type="Script" path="res://assets/interactables/items/compendium/compendium_contents.gd" id="1_wd3ib"]
+[ext_resource type="Resource" uid="uid://btegkj6eo7u6q" path="res://assets/interactables/items/compendium/compendium_resources/pulse_jockey.tres" id="2_ki4bu"]
+[ext_resource type="Texture2D" uid="uid://jl8m7gtbs7pc" path="res://assets/interactables/items/compendium/compendium_resources/dummy_image.png" id="3_5prfg"]
+[ext_resource type="Theme" uid="uid://cvgcnk4x4hfrn" path="res://assets/interactables/items/compendium/compendium_resources/compendium_contents_theme.tres" id="4_88wm5"]
+[ext_resource type="Theme" uid="uid://w2re6rlshfgk" path="res://assets/interactables/items/compendium/compendium_resources/compendium_contents_TLDR_theme.tres" id="4_pj57r"]
+[ext_resource type="Texture2D" uid="uid://dmuomfahwibwu" path="res://assets/interactables/items/compendium/compendium_resources/back_arrow.png" id="6_cbre0"]
+[ext_resource type="Texture2D" uid="uid://b28prhtxjw1i3" path="res://assets/interactables/items/compendium/compendium_resources/forward_arrow.png" id="7_q6vt3"]
 
-[node name="CompendiumContents" type="Node2D"]
+[node name="CompendiumContents" type="Control"]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 500.0
 script = ExtResource("1_wd3ib")
+contents = Array[Resource("res://assets/interactables/items/compendium/compendium_resources/compendium_page.gd")]([ExtResource("2_ki4bu")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 480.0
+
+[node name="Header" type="HFlowContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(340, 20)
+layout_mode = 2
+theme = ExtResource("4_88wm5")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Lorem ipsum dolor sit amet"
+
+[node name="PageNumber" type="Label" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(16, 20)
+layout_mode = 2
+theme = ExtResource("4_88wm5")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "1"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Content" type="HFlowContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(360, 380)
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="VBoxContainer/Content"]
+layout_mode = 2
+texture = ExtResource("3_5prfg")
+
+[node name="TLDR" type="RichTextLabel" parent="VBoxContainer/Content"]
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 2
+theme = ExtResource("4_pj57r")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ultricies sapien, vel pellentesque velit. Mauris ac augue gravida, aliquam ligula eu, placerat lorem. Ut nec ligula molestie sapien facilisis tincidunt."
+scroll_active = false
+
+[node name="Body" type="RichTextLabel" parent="VBoxContainer/Content"]
+custom_minimum_size = Vector2(360, 220)
+layout_mode = 2
+theme = ExtResource("4_88wm5")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_even_row_bg = Color(0, 0, 0, 1)
+theme_override_colors/table_border = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ultricies sapien, vel pellentesque velit. Mauris ac augue gravida, aliquam ligula eu, placerat lorem. Ut nec ligula molestie sapien facilisis tincidunt. Proin vel mollis tellus. Nunc congue auctor sem in gravida. Cras volutpat eros eu tincidunt imperdiet. Nullam interdum neque ac ipsum malesuada, in iaculis velit aliquam. Nullam a justo ac metus commodo malesuada a vel enim. Maecenas a mattis tellus, eu mattis sapien. Aliquam at congue mi. In tortor sem, luctus vel aliquam non, molestie id tellus. Vestibulum a scelerisque metus, at pulvinar velit. Suspendisse dolor dolor, semper id bibendum at, dictum sit amet elit."
+scroll_active = false
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Back" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_cbre0")
+
+[node name="VSeparator" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Forward" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_q6vt3")

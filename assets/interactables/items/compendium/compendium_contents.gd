@@ -1,3 +1,3 @@
-extends Node2D
+extends Control
 
-@export var contents: CompendiumPage
+@export var contents: Array[CompendiumPage]
