@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clt0ohybtnvw1"]
+
+[ext_resource type="Script" path="res://assets/interactables/items/compendium/compendium_contents.gd" id="1_wd3ib"]
+
+[node name="CompendiumContents" type="Node2D"]
+script = ExtResource("1_wd3ib")
