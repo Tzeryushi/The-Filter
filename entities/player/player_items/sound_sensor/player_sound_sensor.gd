@@ -26,8 +26,9 @@ func _on_sound_detected(detected: DetectableSound, magnitude):
 	if (!is_detected or (phenomena_sound_stream_player and phenomena_sound_stream_player.stream != detected.active_sound)) and is_on:
 		is_detected = true
 		play_phenomena_sensor_sound(detected.active_sound)
-	phenomena_sound_stream_player.volume_db = magnitude
-	default_sound_stream_player.volume_db = -magnitude * 2
+	#print(linear_to_db(magnitude))
+	phenomena_sound_stream_player.volume_db = linear_to_db(magnitude)
+	default_sound_stream_player.volume_db = linear_to_db(1 - magnitude)
 
 
 func _on_sound_detections_ceased():

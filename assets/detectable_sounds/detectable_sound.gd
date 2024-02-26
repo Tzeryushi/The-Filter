@@ -2,6 +2,8 @@ class_name DetectableSound
 extends Area3D
 
 @export var type: SoundType = SoundType.HEARTBEAT
+@export var radius: float = 0.2
+@export var collision_shape: CollisionShape3D
 @export var creepy_sound: AudioStream
 @export var crickets_sound: AudioStream
 @export var ghosts_sound: AudioStream
@@ -16,6 +18,7 @@ enum SoundType {CREEPY, CRICKETS, GHOSTS, HEARTBEAT, MULTIPLE_HEARTBEAT, SCREAM}
 
 func _ready():
 	set_sensor_sound(type)
+	collision_shape.shape.radius = radius
 
 
 func set_sensor_sound(new_type: SoundType):

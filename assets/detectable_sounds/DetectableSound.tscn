@@ -11,10 +11,11 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_bm6df"]
 radius = 0.2
 
-[node name="DetectableSound" type="Area3D"]
+[node name="DetectableSound" type="Area3D" node_paths=PackedStringArray("collision_shape")]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_qu54o")
+collision_shape = NodePath("CollisionShape3D")
 creepy_sound = ExtResource("2_udw6s")
 crickets_sound = ExtResource("3_nn0hc")
 ghosts_sound = ExtResource("4_rxfym")
