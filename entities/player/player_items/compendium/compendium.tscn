@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmvyhd2d75l8m"]
+
+[ext_resource type="PackedScene" uid="uid://c1n7frtru2bgg" path="res://resources/blend_files/tools/compendium.blend" id="1_h6thm"]
+[ext_resource type="Script" path="res://entities/player/player_items/compendium/player_compendium.gd" id="1_yuej5"]
+[ext_resource type="Resource" uid="uid://btegkj6eo7u6q" path="res://assets/interactables/items/compendium/compendium_resources/pages/pulse_jockey.tres" id="2_6aa8b"]
+[ext_resource type="Resource" uid="uid://02kvbjyac1tq" path="res://entities/player/player_items/compendium/compendium.tres" id="2_jy4jr"]
+[ext_resource type="PackedScene" uid="uid://clt0ohybtnvw1" path="res://assets/interactables/items/compendium/compendium_contents.tscn" id="2_rl26e"]
+
+[node name="Compendium" type="Node3D" node_paths=PackedStringArray("content_viewport", "paper_mesh")]
+script = ExtResource("1_yuej5")
+content_viewport = NodePath("SubViewport")
+paper_mesh = NodePath("compendium/Paper")
+pages = Array[Resource("res://assets/interactables/items/compendium/compendium_resources/images/compendium_page.gd")]([ExtResource("2_6aa8b")])
+item_resource = ExtResource("2_jy4jr")
+
+[node name="compendium" parent="." instance=ExtResource("1_h6thm")]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+size = Vector2i(400, 500)
+
+[node name="CompendiumContents" parent="SubViewport" instance=ExtResource("2_rl26e")]
+
+[editable path="compendium"]

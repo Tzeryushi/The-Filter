@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3t578w54oemg"]
+[gd_scene load_steps=12 format=3 uid="uid://d3t578w54oemg"]
 
 [ext_resource type="Script" path="res://scenes/proto_scene.gd" id="1_3nvhy"]
 [ext_resource type="PackedScene" uid="uid://5pk37duhk7ys" path="res://entities/player/player.tscn" id="1_vt5nt"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bgh3b6i7dfqko" path="res://assets/interactables/items/base_item.tscn" id="3_ixsct"]
 [ext_resource type="PackedScene" uid="uid://dicw3t6guwoas" path="res://assets/interactables/example_interactable.tscn" id="4_xgmrm"]
 [ext_resource type="PackedScene" uid="uid://b2fdhg06eduh5" path="res://entities/client_manager/client_manager.tscn" id="6_gjapj"]
+[ext_resource type="PackedScene" uid="uid://10p7xdmkg6pj" path="res://assets/interactables/items/compendium/compendium_object.tscn" id="7_y5g3f"]
+[ext_resource type="PackedScene" uid="uid://b20jxyhh16ptq" path="res://assets/interactables/items/clipboard/clipboard_object.tscn" id="8_6yl5g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xxfqu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,3 +66,9 @@ spawn_location = NodePath("../Node3D")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.08193)
+
+[node name="Compendium" parent="." instance=ExtResource("7_y5g3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00662446, 1.00976, 0.141979)
+
+[node name="ClipboardObject" parent="." instance=ExtResource("8_6yl5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33763, 1, -0.31434)

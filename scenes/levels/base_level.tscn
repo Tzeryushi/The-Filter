@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://bu861e1jefhnb"]
+[gd_scene load_steps=131 format=3 uid="uid://bu861e1jefhnb"]
 
 [ext_resource type="Shader" path="res://resources/shaders/ps1_post.gdshader" id="1_qbfm8"]
 [ext_resource type="Script" path="res://scenes/levels/base_level.gd" id="1_x6wr7"]
@@ -79,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://b6sjpmhnbv7rg" path="res://resources/posters/poster_7.png" id="65_tsvoi"]
 [ext_resource type="Texture2D" uid="uid://dnp7grbe7ywly" path="res://resources/posters/poster_8.png" id="66_pegj0"]
 [ext_resource type="Texture2D" uid="uid://g6miqo077n5l" path="res://resources/posters/poster_2.png" id="67_lwpu2"]
+[ext_resource type="PackedScene" uid="uid://10p7xdmkg6pj" path="res://assets/interactables/items/compendium/compendium_object.tscn" id="80_dwl3d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l2ckg"]
 shader = ExtResource("1_qbfm8")
@@ -370,7 +371,7 @@ environment = SubResource("Environment_ajw48")
 [node name="GameSpace" type="Node3D" parent="SubViewportContainer/SubViewport" groups=["game_space"]]
 
 [node name="Player" parent="SubViewportContainer/SubViewport/GameSpace" instance=ExtResource("2_g3vgq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 2.28626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.7091, -4.76837e-07, -18.5698)
 
 [node name="ClientManager" parent="SubViewportContainer/SubViewport/GameSpace" node_paths=PackedStringArray("dialogue_manager", "player", "spawn_location", "stand_location", "reject_location", "no_light_location", "look_point", "window_point", "approved_point", "denied_point") instance=ExtResource("27_xeb0q")]
 dialogue_manager = NodePath("../../../../GUI/Dialogue")
@@ -1200,6 +1201,9 @@ stream = SubResource("AudioStreamRandomizer_r2dww")
 volume_db = -20.0
 autoplay = true
 script = ExtResource("55_2axin")
+
+[node name="Compendium" parent="." instance=ExtResource("80_dwl3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.8643, 1, -19.3282)
 
 [connection signal="monster_spawn_finished" from="." to="SubViewportContainer/SubViewport/GameSpace/Speakers/RoomSpeaker" method="_on_spawn_finished"]
 [connection signal="client_launched" from="SubViewportContainer/SubViewport/GameSpace/ClientManager" to="SubViewportContainer/SubViewport/GameSpace/SoundSpawner" method="_on_client_manager_client_launched"]

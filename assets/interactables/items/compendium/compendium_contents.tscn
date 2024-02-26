@@ -1,21 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://clt0ohybtnvw1"]
 
 [ext_resource type="Script" path="res://assets/interactables/items/compendium/compendium_contents.gd" id="1_wd3ib"]
-[ext_resource type="Resource" uid="uid://btegkj6eo7u6q" path="res://assets/interactables/items/compendium/compendium_resources/pulse_jockey.tres" id="2_ki4bu"]
-[ext_resource type="Texture2D" uid="uid://jl8m7gtbs7pc" path="res://assets/interactables/items/compendium/compendium_resources/dummy_image.png" id="3_5prfg"]
-[ext_resource type="Theme" uid="uid://cvgcnk4x4hfrn" path="res://assets/interactables/items/compendium/compendium_resources/compendium_contents_theme.tres" id="4_88wm5"]
-[ext_resource type="Theme" uid="uid://w2re6rlshfgk" path="res://assets/interactables/items/compendium/compendium_resources/compendium_contents_TLDR_theme.tres" id="4_pj57r"]
-[ext_resource type="Texture2D" uid="uid://dmuomfahwibwu" path="res://assets/interactables/items/compendium/compendium_resources/back_arrow.png" id="6_cbre0"]
-[ext_resource type="Texture2D" uid="uid://b28prhtxjw1i3" path="res://assets/interactables/items/compendium/compendium_resources/forward_arrow.png" id="7_q6vt3"]
+[ext_resource type="Resource" uid="uid://btegkj6eo7u6q" path="res://assets/interactables/items/compendium/compendium_resources/pages/pulse_jockey.tres" id="2_rtcj7"]
+[ext_resource type="Theme" uid="uid://cvgcnk4x4hfrn" path="res://assets/interactables/items/compendium/compendium_resources/images/compendium_contents_theme.tres" id="3_b51jf"]
+[ext_resource type="Texture2D" uid="uid://jl8m7gtbs7pc" path="res://assets/interactables/items/compendium/compendium_resources/images/dummy_image.png" id="4_10826"]
+[ext_resource type="Theme" uid="uid://w2re6rlshfgk" path="res://assets/interactables/items/compendium/compendium_resources/images/compendium_contents_TLDR_theme.tres" id="5_628y6"]
+[ext_resource type="Texture2D" uid="uid://dmuomfahwibwu" path="res://assets/interactables/items/compendium/compendium_resources/images/back_arrow.png" id="6_06443"]
+[ext_resource type="Texture2D" uid="uid://b28prhtxjw1i3" path="res://assets/interactables/items/compendium/compendium_resources/images/forward_arrow.png" id="7_wa3a8"]
 
 [node name="CompendiumContents" type="Control"]
+clip_contents = true
 custom_minimum_size = Vector2(400, 500)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 500.0
 script = ExtResource("1_wd3ib")
-contents = Array[Resource("res://assets/interactables/items/compendium/compendium_resources/compendium_page.gd")]([ExtResource("2_ki4bu")])
+contents = Array[Resource("res://assets/interactables/items/compendium/compendium_resources/images/compendium_page.gd")]([ExtResource("2_rtcj7")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -35,14 +36,14 @@ layout_mode = 2
 [node name="Title" type="RichTextLabel" parent="VBoxContainer/Header"]
 custom_minimum_size = Vector2(340, 20)
 layout_mode = 2
-theme = ExtResource("4_88wm5")
+theme = ExtResource("3_b51jf")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Lorem ipsum dolor sit amet"
 
 [node name="PageNumber" type="Label" parent="VBoxContainer/Header"]
 custom_minimum_size = Vector2(16, 20)
 layout_mode = 2
-theme = ExtResource("4_88wm5")
+theme = ExtResource("3_b51jf")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "1"
 horizontal_alignment = 2
@@ -56,12 +57,12 @@ layout_mode = 2
 
 [node name="Image" type="TextureRect" parent="VBoxContainer/Content"]
 layout_mode = 2
-texture = ExtResource("3_5prfg")
+texture = ExtResource("4_10826")
 
 [node name="TLDR" type="RichTextLabel" parent="VBoxContainer/Content"]
 custom_minimum_size = Vector2(215, 0)
 layout_mode = 2
-theme = ExtResource("4_pj57r")
+theme = ExtResource("5_628y6")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae ultricies sapien, vel pellentesque velit. Mauris ac augue gravida, aliquam ligula eu, placerat lorem. Ut nec ligula molestie sapien facilisis tincidunt."
 scroll_active = false
@@ -69,7 +70,7 @@ scroll_active = false
 [node name="Body" type="RichTextLabel" parent="VBoxContainer/Content"]
 custom_minimum_size = Vector2(360, 220)
 layout_mode = 2
-theme = ExtResource("4_88wm5")
+theme = ExtResource("3_b51jf")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -89,7 +90,7 @@ alignment = 1
 
 [node name="Back" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_cbre0")
+texture_normal = ExtResource("6_06443")
 
 [node name="VSeparator" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -97,4 +98,4 @@ size_flags_horizontal = 3
 
 [node name="Forward" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("7_q6vt3")
+texture_normal = ExtResource("7_wa3a8")

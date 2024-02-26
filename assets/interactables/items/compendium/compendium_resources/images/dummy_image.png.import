@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b28prhtxjw1i3"
-path="res://.godot/imported/forward_arrow.png-aaffed10c48d73a890646ceb45c40d1b.ctex"
+uid="uid://jl8m7gtbs7pc"
+path="res://.godot/imported/dummy_image.png-edb26385dfba82169b1421c137df766b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactables/items/compendium/compendium_resources/forward_arrow.png"
-dest_files=["res://.godot/imported/forward_arrow.png-aaffed10c48d73a890646ceb45c40d1b.ctex"]
+source_file="res://assets/interactables/items/compendium/compendium_resources/images/dummy_image.png"
+dest_files=["res://.godot/imported/dummy_image.png-edb26385dfba82169b1421c137df766b.ctex"]
 
 [params]
 

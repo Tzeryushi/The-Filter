@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://10p7xdmkg6pj"]
-
-[ext_resource type="Script" path="res://assets/interactables/items/compendium/compendium.gd" id="1_mp541"]
-
-[node name="Compendium" type="Node3D"]
-script = ExtResource("1_mp541")

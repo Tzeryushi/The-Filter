@@ -170,11 +170,15 @@ func drop_item(_index: int = -1) -> void:
 # Calls the current item's use function
 func use_item() -> void:
 	if current_item:
+		if current_item.item_resource.use_anim:
+			anim_player.play(current_item.item_resource.use_anim)
 		current_item.use()
 
 
 func unuse_item() -> void:
 	if current_item:
+		if current_item.item_resource.stop_use_anim:
+			anim_player.play(current_item.item_resource.stop_use_anim)
 		current_item.unuse()
 
 

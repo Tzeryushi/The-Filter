@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://02kvbjyac1tq"]
+
+[ext_resource type="Script" path="res://entities/player/item_resource.gd" id="1_7tpcs"]
+[ext_resource type="PackedScene" uid="uid://10p7xdmkg6pj" path="res://assets/interactables/items/compendium/compendium_object.tscn" id="1_p660s"]
+
+[resource]
+script = ExtResource("1_7tpcs")
+item_name = "compendium"
+activate_anim = "compendium_activate"
+deactivate_anim = "compendium_deactivate"
+use_anim = "compendium_use"
+stop_use_anim = "compendium_stop_use"
+item_scene = ExtResource("1_p660s")

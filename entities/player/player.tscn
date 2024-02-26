@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://5pk37duhk7ys"]
+[gd_scene load_steps=50 format=3 uid="uid://5pk37duhk7ys"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_dek4s"]
 [ext_resource type="Script" path="res://entities/player/player_movement.gd" id="2_ky6au"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://38pfbdy68ast" path="res://entities/player/player_items/phenomena_detector/phenomena_detector.tres" id="21_mwq0b"]
 [ext_resource type="PackedScene" uid="uid://04xtfosqw28a" path="res://resources/blend_files/tools/phenomena_detector.blend" id="21_x2jn0"]
 [ext_resource type="AudioStream" uid="uid://dlyrsivvktqe5" path="res://resources/sounds/sfx/Radio_static.wav" id="25_72ftb"]
+[ext_resource type="PackedScene" uid="uid://cmvyhd2d75l8m" path="res://entities/player/player_items/compendium/compendium.tscn" id="29_51xi1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iu8e2"]
 radius = 0.207336
@@ -179,6 +180,54 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector3(8.209e-09, -1.5708, 0.811526)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Compendium:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Compendium:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Compendium:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.201047, 0.792189, -0.275052)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Compendium/compendium/Cover:rotation")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_evmqe"]
 resource_name = "base_item activate"
@@ -258,6 +307,166 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_xmxrv"]
+resource_name = "compendium_activate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Compendium:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Compendium:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.8025, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(-1.14031, -2.70824, -0.241912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Compendium:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.8025, 1),
+"update": 0,
+"values": [Vector3(-0.201047, 0.792189, -0.275052), Vector3(-0.0584534, 1.27023, -0.254884)]
+}
+
+[sub_resource type="Animation" id="Animation_gy21b"]
+resource_name = "compendium_deactivate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Compendium:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Vector3(-0.0584534, 1.27023, -0.254884), Vector3(-0.201047, 0.792189, -0.275052)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Compendium:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.366021, 1),
+"update": 0,
+"values": [Vector3(-1.14031, -2.70824, -0.241912), Vector3(0, -3.14159, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Compendium:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_klh3i"]
+resource_name = "compendium_stop_use"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Compendium:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector3(-0.0584534, 1.60081, -0.254884), Vector3(-0.0584534, 1.27023, -0.254884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Compendium:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector3(-1.09261, -2.53753, -0.431737), Vector3(-1.14031, -2.70824, -0.241912)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Compendium/compendium/Cover:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.353553, 1),
+"update": 0,
+"values": [Vector3(0, 0, -2.44346), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mncea"]
+resource_name = "compendium_use"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Compendium:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector3(-0.0584534, 1.27023, -0.254884), Vector3(-0.0584534, 1.60081, -0.254884)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Compendium:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector3(-1.14031, -2.70824, -0.241912), Vector3(-1.09261, -2.53753, -0.431737)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Compendium/compendium/Cover:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.420448, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -2.44346)]
 }
 
 [sub_resource type="Animation" id="Animation_nqju2"]
@@ -506,6 +715,10 @@ _data = {
 "RESET": SubResource("Animation_y0lm7"),
 "base_item_activate": SubResource("Animation_evmqe"),
 "base_item_deactivate": SubResource("Animation_1iyic"),
+"compendium_activate": SubResource("Animation_xmxrv"),
+"compendium_deactivate": SubResource("Animation_gy21b"),
+"compendium_stop_use": SubResource("Animation_klh3i"),
+"compendium_use": SubResource("Animation_mncea"),
 "flashlight_activate": SubResource("Animation_nqju2"),
 "flashlight_deactivate": SubResource("Animation_q75sy"),
 "phenomena_detector_activate": SubResource("Animation_viwp4"),
@@ -836,7 +1049,7 @@ script = ExtResource("8_3ahaa")
 camera = NodePath("..")
 anim_player = NodePath("InventoryRig/AnimationPlayer")
 player_arm = NodePath("../InteractionRay")
-item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight"), NodePath("InventoryRig/SoundSensor"), NodePath("InventoryRig/PhenomenaDetector")]
+item_ref_array = [NodePath("InventoryRig/BasePlayerItem"), NodePath("InventoryRig/Flashlight"), NodePath("InventoryRig/SoundSensor"), NodePath("InventoryRig/PhenomenaDetector"), NodePath("InventoryRig/Compendium")]
 clipboard = NodePath("InventoryRig/Clipboard")
 clipboard_anim_player = NodePath("InventoryRig/ClipboardAnimator")
 
@@ -854,6 +1067,13 @@ script = ExtResource("12_q322k")
 item_resource = ExtResource("11_f018m")
 
 [node name="player_base_item" parent="PlayerCamera/ItemManager/InventoryRig/BasePlayerItem" instance=ExtResource("11_i7f0j")]
+
+[node name="Compendium" parent="PlayerCamera/ItemManager/InventoryRig" instance=ExtResource("29_51xi1")]
+transform = Transform3D(-1, 0, -2.53518e-06, 0, 1, 0, 2.53518e-06, 0, -1, -0.201047, 0.792189, -0.275052)
+visible = false
+
+[node name="Cover" parent="PlayerCamera/ItemManager/InventoryRig/Compendium/compendium" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.150474, 0.0186855, 0.000425339)
 
 [node name="Flashlight" type="Node3D" parent="PlayerCamera/ItemManager/InventoryRig" node_paths=PackedStringArray("spotlight")]
 transform = Transform3D(1, 0, 0, 0, 0.115021, 0.99336, 0, -0.99336, 0.115021, 0, 1.37255, 0)
@@ -944,4 +1164,6 @@ libraries = {
 [connection signal="clipboard_acquired" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_acquired"]
 [connection signal="clipboard_held" from="PlayerCamera/ItemManager" to="." method="_on_item_manager_clipboard_held"]
 
+[editable path="PlayerCamera/ItemManager/InventoryRig/Compendium"]
+[editable path="PlayerCamera/ItemManager/InventoryRig/Compendium/compendium"]
 [editable path="PlayerCamera/ItemManager/InventoryRig/PhenomenaDetector/phenomena_detector"]

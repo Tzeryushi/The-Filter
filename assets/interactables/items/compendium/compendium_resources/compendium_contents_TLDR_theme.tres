@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://w2re6rlshfgk"]
-
-[ext_resource type="FontFile" uid="uid://plo812qwqcpr" path="res://resources/fonts/PapaManAOE.ttf" id="1_r43nd"]
-
-[resource]
-default_font = ExtResource("1_r43nd")
-default_font_size = 16

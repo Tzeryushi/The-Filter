@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CompendiumPage" load_steps=3 format=3 uid="uid://btegkj6eo7u6q"]
+
+[ext_resource type="Texture2D" uid="uid://jl8m7gtbs7pc" path="res://assets/interactables/items/compendium/compendium_resources/images/dummy_image.png" id="1_jxagt"]
+[ext_resource type="Script" path="res://assets/interactables/items/compendium/compendium_resources/images/compendium_page.gd" id="1_njwbe"]
+
+[resource]
+script = ExtResource("1_njwbe")
+title = "The Pulsejockey"
+image = ExtResource("1_jxagt")
+body = ""
