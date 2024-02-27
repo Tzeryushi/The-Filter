@@ -14,6 +14,7 @@ enum Threat {
 @export var personality_type: Personality
 @export var threat_type: Threat
 @export var has_ending_dialogue: bool = false
+@export_range(0.0, 100.0) var starting_stress: float = 0.0
 
 @export var dialogue: JSON
 @export var dialogue_state: Dictionary = {
@@ -71,9 +72,9 @@ var threat_dict: Dictionary = {
 }
 
 var should_approve: bool = false
+var stress: float = 0.0
 
-
-func _ready() -> void:
+func _init() -> void:
 	dialogue_state["client_name"] = client_name
 	dialogue_state["client_age"] = client_age
 	dialogue_state["client_job"] = client_job
@@ -82,6 +83,9 @@ func _ready() -> void:
 	dialogue_state["threat_type"] = threat_type
 	if threat_type == Threat.SAFE:
 		should_approve = true
+	stress = starting_stress
+	print(starting_stress)
+	print(stress)
 
 
 func oversymptomatic() -> void:

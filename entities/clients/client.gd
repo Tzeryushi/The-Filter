@@ -20,9 +20,9 @@ signal navigation_ended
 
 const TOP_SPEED: float = 6.0
 
-var client_resource: ClientResource
-var speed: float = 2.0
-var is_targeting: bool = false : set = set_is_targeting
+var client_resource: ClientResource	## Contains client data. Is copied from original resource, may be changed at runtime.
+var speed: float = 2.0	## Basic walk speed. TODO: refactor to allow for multiple speeds.
+var is_targeting: bool = false : set = set_is_targeting	## True when currently nagivating to a position.
 
 func _ready() -> void:
 	pass
